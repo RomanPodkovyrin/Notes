@@ -8,6 +8,7 @@
     - [Data (Body)](#data-body)
     - [Authentication](#authentication)
     - [HTTP Status Codes and Error Messages](#http-status-codes-and-error-messages)
+    - [API Version](#api-version)
   - [SOAP](#soap)
   - [GRAPHQL](#graphql)
   - [Apache Kafka](#apache-kafka)
@@ -54,16 +55,43 @@ sequenceDiagram
 
 ### Headers
 
+Provides information to both client an server.
+
+List of valid headers [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+
+Headers are `property-value pairs`
+
+eg.
+
+- `Content-Type: application/json`
+
 ### Data (Body)
+
+Information to be sent to the server. This is usually used with `POST`, `PUT`, `PATCH` or `DELETE`
 
 ### Authentication
 
+There are 2 ways to authenticate yourself:
+
+1. With a username and password
+2. With a secret token (Like oAuth)
+
 ### HTTP Status Codes and Error Messages
 
-- 200+ means the request has succeeded.
-- 300+ means the request is redirected to another URL
-- 400+ means an error that originates from the client has occurred
-- 500+ means an error that originates from the server has occurred
+- 200+ means the request has `succeeded`.
+- 300+ means the request is `redirected` to another URL
+- 400+ means an `error that originates from the client` has occurred
+- 500+ means an `error that originates from the server` has occurred
+
+### API Version
+
+Requesting specific api version
+
+1. Directly in the endpoint
+   - https://api.twitter.com/1.1/account/settings.json
+
+2. In a request header
+   - Specify version with an `Accept` header
 
 ## SOAP
 
