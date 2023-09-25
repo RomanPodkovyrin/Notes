@@ -8,6 +8,7 @@ Git is a distributed version control system
     - [1.2.1. Modifying pushed commit (changes and message)](#121-modifying-pushed-commit-changes-and-message)
     - [1.2.2. Pushed a few changes that were not supposed to be committed](#122-pushed-a-few-changes-that-were-not-supposed-to-be-committed)
     - [1.2.3. Cherry Picking](#123-cherry-picking)
+    - [1.2.4. Git seems to be running quite slow locally](#124-git-seems-to-be-running-quite-slow-locally)
   - [1.3. Tags](#13-tags)
   - [1.4. Merge](#14-merge)
   - [1.5. Rebase](#15-rebase)
@@ -55,6 +56,18 @@ Say develop branch is 3 commits ahead of master, out of those 3, just 2nd commit
 2. `git cherry-pick <commit-hash>` to merge the specific commit to the master branch
 
 if you want to merge the rest of develop branch with master, simply run `git rebase develop`
+
+### 1.2.4. Git seems to be running quite slow locally
+
+To optimise git run `git gc` which stands for garbage collection
+It does a couple of housekeeping tasks:
+
+- compressing file revisions (reduce space and improve performance)
+- removing no longer reachable objects
+- packing refs
+- pruning reflog
+- rerere metadata
+- Other
 
 ## 1.3. Tags
 
