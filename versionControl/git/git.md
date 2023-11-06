@@ -9,6 +9,8 @@ Git is a distributed version control system
     - [1.2.2. Pushed a few changes that were not supposed to be committed](#122-pushed-a-few-changes-that-were-not-supposed-to-be-committed)
     - [1.2.3. Cherry Picking](#123-cherry-picking)
     - [1.2.4. Git seems to be running quite slow locally](#124-git-seems-to-be-running-quite-slow-locally)
+    - [1.2.5. Creating and Pushing new branch](#125-creating-and-pushing-new-branch)
+    - [1.2.6. Squashing commits that contain a merge](#126-squashing-commits-that-contain-a-merge)
   - [1.3. Tags](#13-tags)
   - [1.4. Merge](#14-merge)
   - [1.5. Rebase](#15-rebase)
@@ -68,6 +70,30 @@ It does a couple of housekeeping tasks:
 - pruning reflog
 - rerere metadata
 - Other
+
+
+### 1.2.5. Creating and Pushing new branch
+
+> When you have created a new branch and want to push it off to a remote
+
+From Git version 2.37.0, to check your version run `git --version`
+
+```bash
+git config --global --add --bool push.autoSetupRemote true
+```
+
+Now `git push` will automatically set up the remote branch
+
+### 1.2.6. Squashing commits that contain a merge
+
+> Need to create a **temporary** branch from the **master** to squash a **feature** branch there and then repoint the **feature** to the **temporary** branch now with squashed commits
+
+- `git checkout -b temp master`
+- `git merge --squash feature`
+- `git commit` commit all changes under one commit
+- `git checkout feature`
+- `git reset --hard temp`  point feature branch to temp branch
+- `git branch -d temp`
 
 ## 1.3. Tags
 
