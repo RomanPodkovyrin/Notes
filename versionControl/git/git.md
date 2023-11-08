@@ -11,6 +11,7 @@ Git is a distributed version control system
     - [1.2.4. Git seems to be running quite slow locally](#124-git-seems-to-be-running-quite-slow-locally)
     - [1.2.5. Creating and Pushing new branch](#125-creating-and-pushing-new-branch)
     - [1.2.6. Squashing commits that contain a merge](#126-squashing-commits-that-contain-a-merge)
+    - [Revert part of the commit](#revert-part-of-the-commit)
   - [1.3. Tags](#13-tags)
   - [1.4. Merge](#14-merge)
   - [1.5. Rebase](#15-rebase)
@@ -94,6 +95,14 @@ Now `git push` will automatically set up the remote branch
 - `git checkout feature`
 - `git reset --hard temp`  point feature branch to temp branch
 - `git branch -d temp`
+
+### Revert part of the commit
+
+> A commit has been pushed to master that contains only parts of the changes you want to keep. 
+
+- `git checkout -b revertBranch`
+- `git revert <commit hash you want to modify>`
+- `git reset HEAD~1` pops the last commit into staging, where parts you want to keep can be removed from this revert
 
 ## 1.3. Tags
 
