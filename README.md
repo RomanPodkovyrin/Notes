@@ -69,7 +69,7 @@
   - [Docker]() :baby:
   - [Docker Compose](/containerisation/DockerCompose.md) :white_check_mark:
 - Authentication and Authorisation
-  - [User authentication methods]() :baby:
+  - [User authentication methods](/authenticationAndAuthorisation/authentication.md) :baby:
   <!-- - [Role-based Access Control]() :baby:
   - [Security best practices]() :baby: -->
 - Caching and Performance
