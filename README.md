@@ -43,6 +43,7 @@
 - Languages
   - [JavaScript](languages/js/js.md)
   - [Java](languages/java/Java.md) :white_check_mark:
+    - [Java 8](languages/java/java8.md)
   - [TypeScript](languages/typescript/TypeScript.md) :white_check_mark:
   - [Python](languages/python/python.md) :construction: (WIP  90%)
   - [Kotlin](languages/Kotlin/kotlin.md) :white_check_mark:
