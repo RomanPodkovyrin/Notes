@@ -1,5 +1,16 @@
 # Java 8
 
+- [Java 8](#java-8)
+  - [Lambda](#lambda)
+    - [Functional Interfaces](#functional-interfaces)
+  - [Streams](#streams)
+    - [Stream Creation](#stream-creation)
+    - [Method Types and Pipelines](#method-types-and-pipelines)
+    - [Stream Pipeline](#stream-pipeline)
+    - [Lazy Evaluation](#lazy-evaluation)
+  - [Source](#source)
+
+
 ## Lambda
 
 Functional approach to writing methods. Anonymous functions can be passed as arguments to other methods or stored in variables. Simplifies the use of APIs that rely on callbacks or event handlers.
