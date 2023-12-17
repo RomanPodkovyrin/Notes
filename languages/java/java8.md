@@ -10,7 +10,6 @@
     - [Lazy Evaluation](#lazy-evaluation)
   - [Source](#source)
 
-
 ## Lambda
 
 Functional approach to writing methods. Anonymous functions can be passed as arguments to other methods or stored in variables. Simplifies the use of APIs that rely on callbacks or event handlers.
@@ -24,8 +23,8 @@ More complex expressions can be put between curly braces
 
 ```java
 (x, y) -> {
-code block
-return ;
+    code block
+    return;
 }
 ```
 
@@ -36,7 +35,9 @@ ArrayList<Integer> nums = new ArrayList<>();
 nums.add(42);
 nums.add(300);
 nums.(90000);
-nums.forEach( (n) -> { System.out.println(n);});
+nums.forEach( (n) -> { 
+    System.out.println(n);
+});
 ```
 
 ### Functional Interfaces
@@ -44,67 +45,64 @@ nums.forEach( (n) -> { System.out.println(n);});
 Functional Interfaces:
 
 - `Consumer:` accepts a single input and returns no output
-    - `void accept(T t);` Single Abstractor Method (**SAM**), Accepts single argument of type T
-    - `default Consumer<T> and Then(Consumer<? super T> after);` default method used for composition
-    
-    ```java
-    Consumer<String> printConsumer = t -> System.out.println(t);
-    Stream<String> cities = Stream.of("London", "New York", "Mexico City");
-    cities.forEach(printConsumer);
-    ```
-    
-    - Composing Multiple consumers
-    
-    ```java
-    Stream<String> cities = Stream.of("London", "New York", "Mexico City");
-    Consumer<List<String>> upperCaseConsumer = list -> {
-    	for (int i=0; i < list.size(); i++) {
-    		list.set(i, list.get(i).toUpperCase());
-    	}
-    };
-    Consumer<List<String>> printConsumer = list -> list.stream().forEach(System.out::println);
-    
-    upperCaseconsumer.andThen(printConsumer).accept(cities);
-    ```
-    
+  - `void accept(T t);` Single Abstractor Method (**SAM**), Accepts single argument of type T
+  - `default Consumer<T> and Then(Consumer<? super T> after);` default method used for composition
+  
+  ```java
+  Consumer<String> printConsumer = t -> System.out.println(t);
+  Stream<String> cities = Stream.of("London", "New York", "Mexico City");
+  cities.forEach(printConsumer);
+  ```
+  
+  - Composing Multiple consumers
+  
+  ```java
+  Stream<String> cities = Stream.of("London", "New York", "Mexico City");
+  Consumer<List<String>> upperCaseConsumer = list -> {
+    for (int i=0; i < list.size(); i++) {
+        list.set(i, list.get(i).toUpperCase());
+    }
+  };
+  Consumer<List<String>> printConsumer = list -> list.stream().forEach(System.out::println);
+  
+  upperCaseconsumer.andThen(printConsumer).accept(cities);
+  ```
+
 - `Supplier:` indicates that this implementation is a supplier of results
-    - `get()`
-    
-    ```java
-    Supplier<Double> doubleSupplier1 = () -> Math.random();
-    DoubleSupplier doubleSupplier2 = Math::random;
-    
-    System.out.println(doubleSupplier1.get());
-    System.out.println(doubleSupplier2.getAsDouble());
-    
-    ```
-    
+  - `get()`
+  
+  ```java
+  Supplier<Double> doubleSupplier1 = () -> Math.random();
+  DoubleSupplier doubleSupplier2 = Math::random;
+  
+  System.out.println(doubleSupplier1.get());
+  System.out.println(doubleSupplier2.getAsDouble());
+  
+  ```
+  
 - `Predicate:` Boolean-valued function of an argument. Mainly used to filter data from Java Steam.  The filter method of a stream accepts a predicate to filter the data and returns a new stream satisfying the predicate
-    - `test()` accepts an argument and returns a boolean value
-    
-    ```java
-    List<String> names = Arrays.asList("Roman", "Scott", "Alex");
-    Predicate<String> nameStartsWithS = str -> str.startsWith("S");
-    
-    names.stream().filter(nameStartsWithS).forEach(System.out::println);
-    ```
-    
+  - `test()` accepts an argument and returns a boolean value
+  
+  ```java
+  List<String> names = Arrays.asList("Roman", "Scott", "Alex");
+  Predicate<String> nameStartsWithS = str -> str.startsWith("S");
+  
+  names.stream().filter(nameStartsWithS).forEach(System.out::println);
+  ```
+  
 - `Function:` a generic interface that takes 1 argument and produces a result. Has a Single Abstract Method (SAM) which accepts an argument of type T and produces a result of type R. Ex [stream.map](http://stream.map) method.
-    
+
     ```java
     List<String> names = Array.asList("Roman", "Scott", "Alex");
     Function<String, Integer> nameMappingFunction = String::length;
     List<Integer> nameLength = name.stream().map(nameMappingFunction).collect(Collectors.toList());
     ```
-    
 
 ## Streams
 
 A new API for processing collections of data in a declarative way. Streams support lazy evaluation, parallel execution, and functional operations such as **map**, **filter**, **reduce**, and **collect**. 
 
 - Stream is not a data structure and it never modifies the underlying data source.
-    
-    
 
 ### Stream Creation
 
@@ -140,58 +138,58 @@ Stream<Employee> empStream = empStreamBuilder.build();
 Stream operator:
 
 - `forEach` Loops over stream elements
-    
+
     ```java
     empList.stream().forEach(e -> e.salaryIncrement(10.0));
     ```
-    
-    - **It’s a terminal operation**: ************************after the operation is performed, the stream pipeline is considered consumed and can no longer be used
+
+    - **It’s a terminal operation**: after the operation is performed, the stream pipeline is considered consumed and can no longer be used
 - `map` produces a new stream after applying a function to each element of the original stream.
-    
+
     ```jsx
     Integer[] empIds = {1, 2, 3};
     List<Employee> employees = Stream.of(empIds)
-    	.map(employeeRepository::findById)
-    	.collect(Collectors.toList());
+        .map(employeeRepository::findById)
+        .collect(Collectors.toList());
     
     assertEquals(employees.size(), empIds.length);
     ```
-    
-- `collect` Gets stuff out of the stream once we are done with it. Performs mutable fold operations (repackaging elements to some data structures and applying some additional logic.
+
+- `collect` Gets stuff out of the stream once we are done with it. Performs mutable fold operations (repackaging elements to some data structures and applying some additional logic.)
 - `filter` Produces a new stream that contains elements that pass the given predicate
-    
+
     ```java
     Integer[] ids = {1, 2, 3, 4};
     
     List<Employee> employees = Stream.of(ids)
-    	.map(empoyeeRepository::findById)
-    	.filter(e -> e !=null)
-    	.filter(e -> e.getSalary() > 200000)
-    	.collect(Collectors.toList());
+        .map(empoyeeRepository::findById)
+        .filter(e -> e !=null)
+        .filter(e -> e.getSalary() > 200000)
+        .collect(Collectors.toList());
     ```
-    
+
 - `findFirst` returns an ********Optional******** for the first entry in the stream
-    
+
     ```java
     Integer[] ids = {1, 2, 3, 4}
     
     Employee employee = Stream.of(ids)
-    	.map(employeeRepository::findById)
-    	.filter(e -> e != null)
-      .filter(e -> e.getSalary() > 100000)
-      .findFirst()
-      .orElse(null);
+        .map(employeeRepository::findById)
+        .filter(e -> e != null)
+        .filter(e -> e.getSalary() > 100000)
+        .findFirst()
+        .orElse(null);
     ```
-    
+
 - `toArray` Returns array of the stream
-    
+
     ```java
     Employee[] employees = empList.stream().toArray(Employee[]::new);
     // Employee[]::new  creates an empty array which is filled with elements from the stream
     ```
-    
+
 - `flatMap` Fattens the data structure
-    
+
     ```java
     List<List<String>> namesNested = Arrays.asList( 
         Arrays.asList("Jeff", "Bezos"), 
@@ -202,9 +200,9 @@ Stream operator:
         .flatMap(Collection::stream)
         .collect(Collectors.toList());
     ```
-    
+
 - `peek` Similar to forEach(), but unlike it it’s not terminal. Returns a new stream which can be used further.
-    
+
     ```java
     Employee[] arrayOfEmps = {
       new Employee(1, "Jeff Bezos", 100000.0), 
@@ -219,7 +217,6 @@ Stream operator:
       .peek(System.out::println)
       .collect(Collectors.toList());
     ```
-    
 
 ### Method Types and Pipelines
 
@@ -230,21 +227,18 @@ Operations:
 
 ### Stream Pipeline
 
- 
-
 - A stream pipeline consists of a steam source, followed by zero or more intermediate operation, and a terminal operation.
-    
-    
+
 - Intermediate and terminal
-    
+
     ```java
     Long count = empList.stream()
-    	.filter(e -> e.getSalary() > 20000)
-    	.count();
+        .filter(e -> e.getSalary() > 20000)
+        .count();
     ```
-    
+
 - Short-circuit operation: allows computations on **infinite** streams to complete in finite time.
-    
+
     ```java
     Stream<Integer> infiniteStream = Stream.iterate(2, i -> i * 2);
     // Stream.iterate() creats an infinite stream
@@ -256,7 +250,6 @@ Operations:
     
     assertEquals(collect, Arrays.asList(16, 32, 64, 128, 256));
     ```
-    
 
 ### Lazy Evaluation
 
