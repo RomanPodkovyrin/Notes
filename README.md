@@ -47,6 +47,7 @@
   - [TypeScript](languages/typescript/TypeScript.md) :white_check_mark:
   - [Python](languages/python/python.md) :construction: (WIP  90%)
   - [Kotlin](languages/Kotlin/kotlin.md) :white_check_mark:
+  - [Go](languages/go/go.md) :baby:
 - Methodologies and Patterns
   - [12 Factor App](patterns/12-factor-app.md) :construction: (WIP)
   - [TDD](patterns/TDD/TDD.md) :white_check_mark:
