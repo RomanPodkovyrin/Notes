@@ -21,7 +21,14 @@
     - [1.8.2. Runes](#182-runes)
   - [1.9. Casting](#19-casting)
   - [1.10. Function](#110-function)
-  - [1.11. Sources](#111-sources)
+    - [1.10.1. Multiple returns](#1101-multiple-returns)
+  - [1.11. Error Handling](#111-error-handling)
+  - [1.12. Control flow](#112-control-flow)
+    - [1.12.1. If/Else](#1121-ifelse)
+    - [1.12.2. Switch](#1122-switch)
+    - [1.12.3. for loop](#1123-for-loop)
+  - [1.13. h](#113-h)
+  - [1.14. Sources](#114-sources)
 
 ## 1.1. Initialising the project
 
@@ -111,14 +118,15 @@ or
 | **byte** (alias for **uint8**)                | a byte of 8 bits of non negative ints                            | 0                      |
 | **complex64**, **complex128**                 | complex number `2+4i`, `-9.5+18.3i`                              | 0 Real and 0 Imaginary |
 
-| Type      | Description | Default value |
-| --------- | ----------- | ------------- |
-| Map       |             | nil           |
-| Channel   |             | nil           |
-| Interface |             | nil           |
-| Slices    |             | nil           |
-| Pointers  |             | nil           |
-| Function  |             | nil           |
+| Type      | Description    | Default value |
+| --------- | -------------- | ------------- |
+| Map       |                | nil           |
+| Channel   |                | nil           |
+| Interface |                | nil           |
+| Slices    |                | nil           |
+| Pointers  |                | nil           |
+| Function  |                | nil           |
+| error     | interface type | nil           |
 
 ## 1.7. Initialisation
 
@@ -193,15 +201,136 @@ fmt.Println(result) // 12.1
 ## 1.10. Function
 
 ```go
-package main
+package main // special package name, tells the compiler to look for the entry point here (main function)
+import "fmt"
 
-func main(){
+func main() {
+    printMe("Roman")
     
+    var numerator int = 11
+    var denominator int = 2
+    var result int = intDivision(numerator, denominator)
+    fmt.PrintLn(result) // 5
 }
 
-func printMe(){
-    fmt.Println("Hello World")
+func printMe(name string) {
+    fmt.Println("Hello", name) // Hello Roman
+}
+
+func intDivision(numerator int, denominator int) int {
+    return numerator/denominator
 }
 ```
 
-## 1.11. Sources
+### 1.10.1. Multiple returns
+
+```go
+func main() {
+  var numerator int = 11
+  var denominator int = 2
+  var result, remainder int = intDivision(numerator, denominator)
+  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder) 
+  // Result of division is 5 and the remainder is 1
+}
+
+func intDivision(numerator int, denominator int) (int, int) {
+  var result int = numerator/denominator
+  var remainder int = numerator%denominator
+  return result, remainder
+}
+
+```
+
+## 1.11. Error Handling
+
+> Note: Unlike other programming languages, go doesn't use `try/catch` to handle errors. Go communicates error via an explicit separate return value Those are handled with
+>
+> - `New()`
+> - `Errorf()`
+
+```go
+
+import (
+  "errors" 
+  "fmt"
+)
+
+func main() {
+  var numerator int = 11
+  var denominator int = 2
+  var result, remainder, err = intDivision(numerator, denominator)
+  if err!=nil{
+    fmt.Printf(err.Error()) 
+    return
+  }
+  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder) 
+  // Result of division is 5 and the remainder is 1
+}
+
+func intDivision(numerator int, denominator int) (int, int, error) {
+  var err error
+  if denominator == 0 {
+      return 0, 0, err
+  }
+  var result int = numerator/denominator
+  var remainder int = numerator%denominator
+  return result, remainder
+}
+
+```
+
+## 1.12. Control flow
+
+### 1.12.1. If/Else
+
+```go
+num := 42
+ if num < 0 {
+    fmt.Println(num, "is negative")
+  } else if num < 10 {
+    fmt.Println(num, "has 1 digit")
+  } else {
+    fmt.Println(num, "has multiple digits")
+  }
+```
+
+Values can be declared in If statements, those will be available in current and subsecant branches
+
+```go
+if num := 9000; num < 0 {
+  fmt.Println(num, "is negative")
+} else if num < 10 {
+  fmt.Println(num, "has 1 digit")
+} else {
+  fmt.Println(num, "has multiple digits")
+}
+```
+
+> Note: There is no `ternary if` in Go 😭
+
+### 1.12.2. Switch
+
+```go
+
+i := 2
+switch i {
+case 1:
+  fmt.Println("one")
+case 2, 3:
+  fmt.Println("two and 3")
+case 4:
+  fmt.Println("four")
+default:
+  fmt.Println("All other numvers")
+}
+```
+
+// TODO: more https://gobyexample.com/switch
+
+18.44
+
+### 1.12.3. for loop
+
+## 1.13. h
+
+## 1.14. Sources
