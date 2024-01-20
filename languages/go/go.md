@@ -7,6 +7,8 @@
 5. Built in concurrency
 6. Simple
 
+> Useful: go package docs https://pkg.go.dev/
+
 - [1. Go](#1-go)
   - [1.1. Initialising the project](#11-initialising-the-project)
   - [1.2. Folder structure convention](#12-folder-structure-convention)
@@ -26,8 +28,11 @@
   - [1.12. Control flow](#112-control-flow)
     - [1.12.1. If/Else](#1121-ifelse)
     - [1.12.2. Switch](#1122-switch)
-    - [1.12.3. for loop](#1123-for-loop)
-  - [1.13. h](#113-h)
+    - [1.12.3. For loop](#1123-for-loop)
+  - [1.13. Data Structures](#113-data-structures)
+    - [1.13.1. Arrays](#1131-arrays)
+    - [1.13.2. Slices](#1132-slices)
+    - [1.13.3. Maps `map[string]int32`](#1133-maps-mapstringint32)
   - [1.14. Sources](#114-sources)
 
 ## 1.1. Initialising the project
@@ -101,7 +106,6 @@ or
 - `import`
 - `return`
 - `var`
-
 
 ## 1.6. Types
 
@@ -276,8 +280,11 @@ func intDivision(numerator int, denominator int) (int, int, error) {
   var remainder int = numerator%denominator
   return result, remainder
 }
-
 ```
+
+//TODO:conitnue
+// https://www.programiz.com/golang/errors
+// https://go.dev/blog/error-handling-and-go
 
 ## 1.12. Control flow
 
@@ -317,7 +324,7 @@ switch i {
 case 1:
   fmt.Println("one")
 case 2, 3:
-  fmt.Println("two and 3")
+  fmt.Println("two and three")
 case 4:
   fmt.Println("four")
 default:
@@ -325,12 +332,170 @@ default:
 }
 ```
 
-// TODO: more https://gobyexample.com/switch
+Switch can be used without expressions making it behave like if/else
+
+```go
+    t := time.Now()
+    switch {
+    case t.Hour() < 12: // If
+        fmt.Println("It's before noon")
+    default: // else
+        fmt.Println("It's after noon")
+    }
+```
+
+Type switch compares types instead of values
+
+```go
+whatAmI := func(i interface{}) {
+        switch t := i.(type) {
+        case bool:
+            fmt.Println("I'm a bool")
+        case int:
+            fmt.Println("I'm an int")
+        default:
+            fmt.Printf("Don't know type %T\n", t)
+        }
+    }
+    
+    whatAmI(true) // I'm a bool
+    whatAmI(1) // I'm an int
+    whatAmI("hey") // Don't know type string
+```
 
 18.44
 
-### 1.12.3. for loop
+### 1.12.3. For loop
 
-## 1.13. h
+## 1.13. Data Structures
+
+### 1.13.1. Arrays
+
+> Note: Arrays are:
+>
+> - Fixed length
+> - Same Type values
+> - Indexable
+> - Stored contiguously in memory
+
+```go
+// Array initialisation
+var intArr [3]int32 // It's initialised with default value, there fore [0, 0, 0]
+// or
+var intArray [3]int32{1,2,3}
+// or
+intArray := [...]int32{1,2,3} // infered length
+
+// Fixed Length: Can only hold 3 values
+// Same type Value: Each value is of type int32
+// array [0, 0, 0]
+//        |  |  |
+// index  0  1  2
+
+// Contiguous store: each value of int32 is 4 bytes, overall intArr allocates 12 bytes
+
+intArr[1] = 42 // sets the second element to 42
+
+fmt.Println(intArr[0]) // access first element
+fmt.Println(intArr[1:3]) // access element 1 and 2
+
+// & - returns memory address
+fmt.Println(&intArr[0]) // 0x14000122004
+fmt.Println(&intArr[0]) // 0x14000122008
+fmt.Println(&intArr[0]) // 0x1400012200c
+```
+
+2d arrays
+
+```go
+//      [row][column]
+var twoD [2][3]int
+for i := 0; i < 2; i++ {
+    for j := 0; j < 3; j++ {
+        twoD[i][j] = i + j
+    }
+}
+fmt.Println(twoD) // [[0 1 2] [1 2 3]]
+```
+
+### 1.13.2. Slices
+
+> Slices wraps arrays to give a more general, powerful, and convenient interface to sequences of data
+
+```go
+// Initialise a slice
+var intSlice []int32 = []int32{4,5,6}
+// or
+var intSlice []int32 = make(int32[], 3)
+intSlice[0] = 4
+intSlice[1] = 5
+intSlice[2] = 6
+
+// [4, 5, 6]
+fmt.Println(len(intSlice), cap(intSlice)) // 3, 3
+intSlice = append(intSlice, 7) // changes the memory location
+// [4, 5, 6, 7, *, *]
+// 🚫: * cannot be accessed unless more elements are appended
+fmt.Println(len(intSlice), cap(intSlice)) // 4, 6
+
+
+// can append another slice or multiple values
+var intSlice2 []int32 = []int32{8,9}
+intSlice = append(intSlice, intSlice2...) // [4, 5, 6, 7, 8, 9]
+// or
+intSlice = append(intSlice, 7, 8) // will render the same result
+```
+
+> Note 💡: Good idea to allocate expected amount of capacity to avoid constantly reallocating slice memory and affecting performance
+
+| Function                              | Return                    | Description                                                                                           |
+| ------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `make(type[], length, capacity)`      | `type[]`returns new slice | another way to create a slice. (Capacity is optional)                                                 |
+| `append()`                            | slice with new capacity   | adds element to a slice                                                                               |
+| `copy(destinationSlice, originSlice)` |                           | copy element of one slice to another. Does not change destination capacity, if origin differs in size |
+| `len(slice)`                          | `int`                     | find the length of a slice                                                                            |
+| `cap(int)`                            | `int`                     | capacity of the slice before it has to reallocate again                                               |
+
+"Slice operator" `slice[low:high]`
+
+```go
+var l []string = []string{a, b, c, d, e, f}
+//                           [a b c d e f]
+fmt.Println("sl3:", s[2:5])//[c d e]
+fmt.Println("sl3:", s[:5])// [a b c d e]
+fmt.Println("sl3:", s[2:])// [c d e f]
+```
+
+Multi-dimensional data structures. Length of the inner slice can vary, unlike with multi-dimensional arrays
+
+```go
+twoD := make([][]int, 3)
+for i := 0; i < 3; i++ {
+    innerLen := i + 1
+    twoD[i] = make([]int, innerLen)
+    for j := 0; j < innerLen; j++ {
+        twoD[i][j] = i + j
+    }
+}
+fmt.Println("2d: ", twoD) // 2d:  [[0] [1 2] [2 3 4]]
+```
+
+More about slices implementation in go https://go.dev/blog/slices-intro
+
+### 1.13.3. Maps `map[string]int32`
+
+```go
+var myMap = map[string]uint8 = make(map[string]uint8)
+// Key - string, value uint8
+
+// or direct Initialisation
+var ageMap = map[string]uint8{"Roman": 26, "Wun": 30}
+fmt.Println(ageMap["Roman"]) // 26
+fmt.Println(ageMap["IDon't Exist"]) //⚠️ if doesn't exists, returns default value, ie 0 here
+// can check if that value actually exists like this
+var age, exists = ageMap("IDon't Exist") // age = 0, exists = false
+```
 
 ## 1.14. Sources
+- [Go By Example](https://gobyexample.com/)
+- [Programiz](https://www.programiz.com/golang)
