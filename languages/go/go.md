@@ -7,7 +7,7 @@
 5. Built in concurrency
 6. Simple
 
-> Useful: go package docs https://pkg.go.dev/
+> Useful: go package docs <https://pkg.go.dev/>
 
 - [1. Go](#1-go)
   - [1.1. Initialising the project](#11-initialising-the-project)
@@ -28,12 +28,15 @@
   - [1.12. Control flow](#112-control-flow)
     - [1.12.1. If/Else](#1121-ifelse)
     - [1.12.2. Switch](#1122-switch)
-    - [1.12.3. For loop](#1123-for-loop)
   - [1.13. Data Structures](#113-data-structures)
     - [1.13.1. Arrays](#1131-arrays)
     - [1.13.2. Slices](#1132-slices)
     - [1.13.3. Maps `map[string]int32`](#1133-maps-mapstringint32)
-  - [1.14. Sources](#114-sources)
+  - [1.14. Iteration](#114-iteration)
+    - [1.14.1. `range`](#1141-range)
+    - [1.14.2. While loop](#1142-while-loop)
+    - [1.14.3. For loop](#1143-for-loop)
+  - [1.15. Sources](#115-sources)
 
 ## 1.1. Initialising the project
 
@@ -363,9 +366,6 @@ whatAmI := func(i interface{}) {
     whatAmI("hey") // Don't know type string
 ```
 
-18.44
-
-### 1.12.3. For loop
 
 ## 1.13. Data Structures
 
@@ -480,7 +480,7 @@ for i := 0; i < 3; i++ {
 fmt.Println("2d: ", twoD) // 2d:  [[0] [1 2] [2 3 4]]
 ```
 
-More about slices implementation in go https://go.dev/blog/slices-intro
+More about slices implementation in go <https://go.dev/blog/slices-intro>
 
 ### 1.13.3. Maps `map[string]int32`
 
@@ -494,8 +494,90 @@ fmt.Println(ageMap["Roman"]) // 26
 fmt.Println(ageMap["IDon't Exist"]) //⚠️ if doesn't exists, returns default value, ie 0 here
 // can check if that value actually exists like this
 var age, exists = ageMap("IDon't Exist") // age = 0, exists = false
+
+// Delete entry form map
+delete(ageMap, "Roman")
+
+// Number of Key/Value Pairs
+var pairs = len(ageMap)
+
+// Remove all Keys
+clear(ageMap)
 ```
 
-## 1.14. Sources
+Look at `maps` package for more useful utility functions
+
+## 1.14. Iteration
+
+### 1.14.1. `range`
+
+> ⚠️: Has a random order of elements when using range with Map
+
+```go
+// SLICES
+var nums []int{2, 3, 4}
+sum := 0
+for _, num := range nums {
+  sum += num
+}
+
+for index, num := range nums {
+  fmt.Println("index:", i, " num:", num)
+}
+
+
+// MAP
+kvs := map[string]string{"a": "banana", "b": "apple",}
+for key, value := range kvs {
+  fmt.Printf("%s -> %s\n", k, v)
+}
+```
+
+When iterating a string it iterates over Unicode code points.
+
+- First value is the starting byte index of the rune
+- Second is the rune itself
+
+### 1.14.2. While loop
+
+```go
+for i<10 {
+  fmt.Println(i)
+  i = i + 1
+}
+
+// or 
+for {
+  if i > = 10 {
+    break
+  }
+  fmt.Println(i)
+  i = i + 1
+}
+```
+
+### 1.14.3. For loop
+
+```go
+for i := 7; i <=9: i ++ {
+  fmt.Println(i)
+}
+```
+
+can also use `continue` keyword
+
+| shorthand | action           |
+| --------- | ---------------- |
+| i--       | decrements by 1  |
+| i++       | increments by 1  |
+| i+=10     | increments by 10 |
+| i-+10     | decrements by 10 |
+| i*=10     | multiply by 10   |
+| i/=10     | divide by 10     |
+
+27:00
+
+## 1.15. Sources
+
 - [Go By Example](https://gobyexample.com/)
 - [Programiz](https://www.programiz.com/golang)
