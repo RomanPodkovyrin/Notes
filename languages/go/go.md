@@ -24,6 +24,9 @@
   - [1.9. Casting](#19-casting)
   - [1.10. Function](#110-function)
     - [1.10.1. Multiple returns](#1101-multiple-returns)
+    - [1.10.2. Varadic functions](#1102-varadic-functions)
+    - [1.10.3. Closures](#1103-closures)
+    - [1.10.4. Recursion](#1104-recursion)
   - [1.11. Error Handling](#111-error-handling)
   - [1.12. Control flow](#112-control-flow)
     - [1.12.1. If/Else](#1121-ifelse)
@@ -247,6 +250,68 @@ func intDivision(numerator int, denominator int) (int, int) {
 }
 
 ```
+
+### 1.10.2. Varadic functions
+
+> Can be called with any number of trailing arguments
+
+```go
+package main
+
+import "fmt"
+
+func sum(nums ...int) {
+  // here nums is [int]
+  fmt.Print(nums, " ")
+  total := 0
+  
+  for _, num := range nums {
+    total += num
+  }
+  
+  fmt.Println(total)
+}
+
+
+sum(1, 2) // [1 2] 3
+sum(1, 2, 3) // [1 2 3] 6
+
+
+// it can also be called with a slice by spreading it with ...
+nums := []int{1, 2, 3, 4}
+sum(nums...) // [ 1 2 3 4] 10
+```
+
+### 1.10.3. Closures
+
+> Go supports **anonymous functions**, which can form closures
+
+```go
+ function closes over the variable i to form a closure.
+
+func intSeq() func() int { // returns anonymous function which returns an integer
+  i := 0
+  // Anonymous function which *closes over* the variable `i` to form a closure
+  return func() int {
+    i++
+    return i
+  }
+}
+
+
+nextInt := intSeq() // assigns function to variable
+// this function captures it's own i value which will be different
+// for a newly initialised function variable
+
+fmt.Println(nextInt()) // 1
+fmt.Println(nextInt()) // 2
+fmt.Println(nextInt()) // 3
+
+newInts := intSeq()
+fmt.Println(newInts()) // 1
+```
+
+### 1.10.4. Recursion
 
 ## 1.11. Error Handling
 
