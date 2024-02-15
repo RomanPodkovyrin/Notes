@@ -67,7 +67,59 @@ go 1.21
 //TODO
 
 ## 1.3. How to import local package
-//TODOs
+
+Say we have the following structure:
+
+```bash
+<root>/
+ |-- util/
+      |-- util1.go
+      |-- util2.go
+ |-- main.go
+```
+
+`util1.go`
+
+```go
+package util
+
+func IntMin(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+```
+
+`util2.go`
+
+```go
+package util
+
+func IntMin(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+```
+
+Because `util1.go` and `util2.go` are in the same package they can be called without explicit import
+
+To call it from `main.go`
+
+```go
+package main
+  util1 "companies-house-watcher/util"
+  util2 "companies-house-watcher/util"
+)
+
+func main() {
+  util1.IntMin(1, 2)
+  util2.IntMin(1, 2)
+}
+
+```
 
 ## 1.4. File structure
 
@@ -127,7 +179,7 @@ or
 | **int8**, **int16**, **int32**, **int64**     | 1, 2, 4, 8 byte integers                                         | 0                      |
 | **uint**                                      | Positive Integers either 32 or 64 bits, depends on the system    | 0                      |
 | **uint8**, **uint16**, **uint32**, **uint64** | 1, 2, 4, 8 byte positive integer                                 | 0                      |
-| **rune**     (alias for **int32**)            | Used for characters                                              | 0                      |
+| **rune** (alias for **int32**)                | Used for characters                                              | 0                      |
 | **string**                                    | Sequence of characters                                           | ""                     |
 | **byte** (alias for **uint8**)                | a byte of 8 bits of non negative ints                            | 0                      |
 | **complex64**, **complex128**                 | complex number `2+4i`, `-9.5+18.3i`                              | 0 Real and 0 Imaginary |
@@ -220,7 +272,7 @@ import "fmt"
 
 func main() {
     printMe("Roman")
-    
+
     var numerator int = 11
     var denominator int = 2
     var result int = intDivision(numerator, denominator)
@@ -243,7 +295,7 @@ func main() {
   var numerator int = 11
   var denominator int = 2
   var result, remainder int = intDivision(numerator, denominator)
-  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder) 
+  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder)
   // Result of division is 5 and the remainder is 1
 }
 
@@ -268,11 +320,11 @@ func sum(nums ...int) {
   // here nums is [int]
   fmt.Print(nums, " ")
   total := 0
-  
+
   for _, num := range nums {
     total += num
   }
-  
+
   fmt.Println(total)
 }
 
@@ -327,7 +379,7 @@ fmt.Println(newInts()) // 1
 ```go
 
 import (
-  "errors" 
+  "errors"
   "fmt"
 )
 
@@ -336,10 +388,10 @@ func main() {
   var denominator int = 2
   var result, remainder, err = intDivision(numerator, denominator)
   if err!=nil{
-    fmt.Printf(err.Error()) 
+    fmt.Printf(err.Error())
     return
   }
-  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder) 
+  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder)
   // Result of division is 5 and the remainder is 1
 }
 
@@ -429,12 +481,11 @@ whatAmI := func(i interface{}) {
             fmt.Printf("Don't know type %T\n", t)
         }
     }
-    
+
     whatAmI(true) // I'm a bool
     whatAmI(1) // I'm an int
     whatAmI("hey") // Don't know type string
 ```
-
 
 ## 1.14. Data Structures
 
@@ -615,7 +666,7 @@ for i<10 {
   i = i + 1
 }
 
-// or 
+// or
 for {
   if i > = 10 {
     break
@@ -641,7 +692,7 @@ can also use `continue` keyword
 | i++       | increments by 1  |
 | i+=10     | increments by 10 |
 | i-+10     | decrements by 10 |
-| i*=10     | multiply by 10   |
+| i\*=10    | multiply by 10   |
 | i/=10     | divide by 10     |
 
 27:00
