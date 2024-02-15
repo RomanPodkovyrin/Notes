@@ -12,34 +12,35 @@
 - [1. Go](#1-go)
   - [1.1. Initialising the project](#11-initialising-the-project)
   - [1.2. Folder structure convention](#12-folder-structure-convention)
-  - [1.3. File structure](#13-file-structure)
-  - [1.4. Execution](#14-execution)
-  - [1.5. All Key words](#15-all-key-words)
-  - [1.6. Types](#16-types)
-  - [1.7. Initialisation](#17-initialisation)
-    - [1.7.1. Constant](#171-constant)
-  - [1.8. Strings](#18-strings)
-    - [1.8.1. String length ⚠️](#181-string-length-️)
-    - [1.8.2. Runes](#182-runes)
-  - [1.9. Casting](#19-casting)
-  - [1.10. Function](#110-function)
-    - [1.10.1. Multiple returns](#1101-multiple-returns)
-    - [1.10.2. Varadic functions](#1102-varadic-functions)
-    - [1.10.3. Closures](#1103-closures)
-    - [1.10.4. Recursion](#1104-recursion)
-  - [1.11. Error Handling](#111-error-handling)
-  - [1.12. Control flow](#112-control-flow)
-    - [1.12.1. If/Else](#1121-ifelse)
-    - [1.12.2. Switch](#1122-switch)
-  - [1.13. Data Structures](#113-data-structures)
-    - [1.13.1. Arrays](#1131-arrays)
-    - [1.13.2. Slices](#1132-slices)
-    - [1.13.3. Maps `map[string]int32`](#1133-maps-mapstringint32)
-  - [1.14. Iteration](#114-iteration)
-    - [1.14.1. `range`](#1141-range)
-    - [1.14.2. While loop](#1142-while-loop)
-    - [1.14.3. For loop](#1143-for-loop)
-  - [1.15. Sources](#115-sources)
+  - [1.3. How to import local package](#13-how-to-import-local-package)
+  - [1.4. File structure](#14-file-structure)
+  - [1.5. Execution](#15-execution)
+  - [1.6. All Key words](#16-all-key-words)
+  - [1.7. Types](#17-types)
+  - [1.8. Initialisation](#18-initialisation)
+    - [1.8.1. Constant](#181-constant)
+  - [1.9. Strings](#19-strings)
+    - [1.9.1. String length ⚠️](#191-string-length-️)
+    - [1.9.2. Runes](#192-runes)
+  - [1.10. Casting](#110-casting)
+  - [1.11. Function](#111-function)
+    - [1.11.1. Multiple returns](#1111-multiple-returns)
+    - [1.11.2. Varadic functions](#1112-varadic-functions)
+    - [1.11.3. Closures](#1113-closures)
+    - [1.11.4. Recursion](#1114-recursion)
+  - [1.12. Error Handling](#112-error-handling)
+  - [1.13. Control flow](#113-control-flow)
+    - [1.13.1. If/Else](#1131-ifelse)
+    - [1.13.2. Switch](#1132-switch)
+  - [1.14. Data Structures](#114-data-structures)
+    - [1.14.1. Arrays](#1141-arrays)
+    - [1.14.2. Slices](#1142-slices)
+    - [1.14.3. Maps `map[string]int32`](#1143-maps-mapstringint32)
+  - [1.15. Iteration](#115-iteration)
+    - [1.15.1. `range`](#1151-range)
+    - [1.15.2. While loop](#1152-while-loop)
+    - [1.15.3. For loop](#1153-for-loop)
+  - [1.16. Sources](#116-sources)
 
 ## 1.1. Initialising the project
 
@@ -65,7 +66,10 @@ go 1.21
 
 //TODO
 
-## 1.3. File structure
+## 1.3. How to import local package
+//TODOs
+
+## 1.4. File structure
 
 ```go
 package main // special package name, tells the compiler to look for the entry point here (main function)
@@ -76,7 +80,7 @@ func main(){
 }
 ```
 
-## 1.4. Execution
+## 1.5. Execution
 
 - `go build main.go` compiles into binary file
 - `./main` runs the program
@@ -85,7 +89,7 @@ or
 
 - `go run main.go` compiles and runs
 
-## 1.5. All Key words
+## 1.6. All Key words
 
 - `break`
 - `default`
@@ -113,7 +117,7 @@ or
 - `return`
 - `var`
 
-## 1.6. Types
+## 1.7. Types
 
 | Type                                          | Description                                                      | Default value          |
 | --------------------------------------------- | ---------------------------------------------------------------- | ---------------------- |
@@ -138,7 +142,7 @@ or
 | Function  |                | nil           |
 | error     | interface type | nil           |
 
-## 1.7. Initialisation
+## 1.8. Initialisation
 
 ```go
 var defaultVar string // initialised with default value
@@ -157,7 +161,7 @@ fmt.Println(intVal, boolVal, stringVal) //1 true Hello there!
 
 ```
 
-### 1.7.1. Constant
+### 1.8.1. Constant
 
 ```go
 const pi float64 // cannot declare constants without values
@@ -165,7 +169,7 @@ const pi float64 = 3.141592653589793238462643383279502884197
 pi = 1.2 // cannot do this
 ```
 
-## 1.8. Strings
+## 1.9. Strings
 
 ```go
 var text string ="Hello \nWorld"
@@ -173,7 +177,7 @@ var text string `hello
 world` // Allows to format the string directly
 ```
 
-### 1.8.1. String length ⚠️
+### 1.9.1. String length ⚠️
 
 ```go
 fmt.Println(len("test")) // 4
@@ -191,14 +195,14 @@ import "unicode/utf8"
 fmt.Println(utf8.RuneCountInString("γ")) // 1
 ```
 
-### 1.8.2. Runes
+### 1.9.2. Runes
 
 ```go
 var myRune rune = 'a'
 fmt.Println(myRune) // 97
 ```
 
-## 1.9. Casting
+## 1.10. Casting
 
 ```go
 var floatNum float32 = 10.1
@@ -208,7 +212,7 @@ var result floatNum + float32(intNum)
 fmt.Println(result) // 12.1
 ```
 
-## 1.10. Function
+## 1.11. Function
 
 ```go
 package main // special package name, tells the compiler to look for the entry point here (main function)
@@ -232,7 +236,7 @@ func intDivision(numerator int, denominator int) int {
 }
 ```
 
-### 1.10.1. Multiple returns
+### 1.11.1. Multiple returns
 
 ```go
 func main() {
@@ -251,7 +255,7 @@ func intDivision(numerator int, denominator int) (int, int) {
 
 ```
 
-### 1.10.2. Varadic functions
+### 1.11.2. Varadic functions
 
 > Can be called with any number of trailing arguments
 
@@ -282,7 +286,7 @@ nums := []int{1, 2, 3, 4}
 sum(nums...) // [ 1 2 3 4] 10
 ```
 
-### 1.10.3. Closures
+### 1.11.3. Closures
 
 > Go supports **anonymous functions**, which can form closures
 
@@ -311,9 +315,9 @@ newInts := intSeq()
 fmt.Println(newInts()) // 1
 ```
 
-### 1.10.4. Recursion
+### 1.11.4. Recursion
 
-## 1.11. Error Handling
+## 1.12. Error Handling
 
 > Note: Unlike other programming languages, go doesn't use `try/catch` to handle errors. Go communicates error via an explicit separate return value Those are handled with
 >
@@ -354,9 +358,9 @@ func intDivision(numerator int, denominator int) (int, int, error) {
 // https://www.programiz.com/golang/errors
 // https://go.dev/blog/error-handling-and-go
 
-## 1.12. Control flow
+## 1.13. Control flow
 
-### 1.12.1. If/Else
+### 1.13.1. If/Else
 
 ```go
 num := 42
@@ -383,7 +387,7 @@ if num := 9000; num < 0 {
 
 > Note: There is no `ternary if` in Go 😭
 
-### 1.12.2. Switch
+### 1.13.2. Switch
 
 ```go
 
@@ -432,9 +436,9 @@ whatAmI := func(i interface{}) {
 ```
 
 
-## 1.13. Data Structures
+## 1.14. Data Structures
 
-### 1.13.1. Arrays
+### 1.14.1. Arrays
 
 > Note: Arrays are:
 >
@@ -483,7 +487,7 @@ for i := 0; i < 2; i++ {
 fmt.Println(twoD) // [[0 1 2] [1 2 3]]
 ```
 
-### 1.13.2. Slices
+### 1.14.2. Slices
 
 > Slices wraps arrays to give a more general, powerful, and convenient interface to sequences of data
 
@@ -547,7 +551,7 @@ fmt.Println("2d: ", twoD) // 2d:  [[0] [1 2] [2 3 4]]
 
 More about slices implementation in go <https://go.dev/blog/slices-intro>
 
-### 1.13.3. Maps `map[string]int32`
+### 1.14.3. Maps `map[string]int32`
 
 ```go
 var myMap = map[string]uint8 = make(map[string]uint8)
@@ -572,9 +576,9 @@ clear(ageMap)
 
 Look at `maps` package for more useful utility functions
 
-## 1.14. Iteration
+## 1.15. Iteration
 
-### 1.14.1. `range`
+### 1.15.1. `range`
 
 > ⚠️: Has a random order of elements when using range with Map
 
@@ -603,7 +607,7 @@ When iterating a string it iterates over Unicode code points.
 - First value is the starting byte index of the rune
 - Second is the rune itself
 
-### 1.14.2. While loop
+### 1.15.2. While loop
 
 ```go
 for i<10 {
@@ -621,7 +625,7 @@ for {
 }
 ```
 
-### 1.14.3. For loop
+### 1.15.3. For loop
 
 ```go
 for i := 7; i <=9: i ++ {
@@ -642,7 +646,7 @@ can also use `continue` keyword
 
 27:00
 
-## 1.15. Sources
+## 1.16. Sources
 
 - [Go By Example](https://gobyexample.com/)
 - [Programiz](https://www.programiz.com/golang)
