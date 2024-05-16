@@ -1,27 +1,81 @@
 site_name: Notes
+site_url: http://docs.romanempire.dev
 
+repo_url: https://github.com/RomanPodkovyrin/Notes
+repo_name: Notes
 # locale: ru
-
+nav:
+  - Home: index.md
+  - About: about.md
+  - AI: /ai
+# extra:
+#   alternate:
+#     - name: English
+#       link: / #/en/ 
+#       lang: en
+    # - name: Russian
+    #   link: /ru/
+    #   lang: ru
+      
 theme:
+  logo: assets/duck-logo-noboarders.png
+  favicon: assets/duck-logo-noboarders.png
+  language: en
   name: material #mkdocs #readthedocs
   palette:
          # Palette toggle for light mode
     - scheme: default
+      primary: white
+      accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - scheme: slate
+      primary: black
+      accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to light mode
   # color_mode: dark
   
 markdown_extensions:
+  - abbr
+  - admonition
   - attr_list
+  - def_list
+  - footnotes
   - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
   
+  
+
 # plugins:
 #   - glightbox
 
