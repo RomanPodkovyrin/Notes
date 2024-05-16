@@ -16,7 +16,7 @@ Two main ways of doing user authentication
 >
 > - A stateful session between client and server.
 
-![session diagram](.img/session.drawio.svg)
+![session diagram](img/session.drawio.svg)
 
 Authentication Steps:
 
@@ -36,7 +36,7 @@ Cons:
 > `Stateless` - Managed on the client
 > `JWT` - JSON Web Token
 
-![token diagram](.img/token.drawio.svg)
+![token diagram](img/token.drawio.svg)
 
 Authentication steps:
 
@@ -54,7 +54,7 @@ JWT is signed using
 - a secret (**HMAC algorithm**)
 - or a public/private key using (**RSA** or **ECDSA**)
 
-![jwt diagram](.img/jwt.drawio.svg)
+![jwt diagram](img/jwt.drawio.svg)
 
 JWT use cases:
 

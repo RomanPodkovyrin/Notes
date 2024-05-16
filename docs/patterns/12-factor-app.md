@@ -37,7 +37,7 @@ There are always a one-to-one correlation between the codebase and the app:
   - Each component in a distributed system is an app, and each can individually comply with 12 factor
 - Multiple apps sharing the same code is a violation  of 12 factor. The solution here is to factor shared code into libraries which can be included through the dependency manger.
 
-![Codebase and Deploys](.img/codebase-deploys.png)
+![Codebase and Deploys](img/codebase-deploys.png)
 
 There is only one codebase per app, but there will be many deploys of the app.
 
@@ -104,7 +104,7 @@ A codebase is transform into a (non-development) deploy through 3 stages:
 
 **The 12 factor app uses strict separation between the build, release and run stages.**
 
-![](.img/release.png)
+![](img/release.png)
 
 Every release should always have a unique  release ID, such as a timestamp of the release, or an incrementing number. Releases are an append-only ledger and a release cannot be mutated once it's created. Any changes must crate new releases.
 

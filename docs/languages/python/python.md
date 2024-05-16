@@ -91,7 +91,7 @@
   - [10.3. Create pre-populated](#103-create-pre-populated)
   - [10.4. Look up](#104-look-up)
   - [10.5. Number of pairs](#105-number-of-pairs)
-  - [10.6. `in` check if a <u>**key**</u> is in the dictionary (does not work for <u>**value**</u>)](#106-in-check-if-a-ukeyu-is-in-the-dictionary-does-not-work-for-uvalueu)
+  - [10.6. `in` check if a **key** is in the dictionary (does not work for **value**)](#106-in-check-if-a-key-is-in-the-dictionary-does-not-work-for-value)
   - [10.7. Check if value is in the dictionary](#107-check-if-value-is-in-the-dictionary)
   - [10.8. Looping and dictonaries](#108-looping-and-dictonaries)
   - [10.9. Glossary](#109-glossary)
@@ -811,7 +811,7 @@ False
 <_io.TextIOWrapper name='mbox.txt' mode='r' encoding='cp1252'>
 ```
 
-<img src=".img/image-20200601141927255.png" alt="image-20200601141927255" style="zoom: 50%;" />
+![](img/image-20200601141927255.png)
 
 ## 8.4. Text files and lines
 
@@ -1111,7 +1111,7 @@ for i in range(len(numbers)):
 
 Checking if values refer to two different objects with the same value or if they both refer to the same object
 
-<img src=".img/image-20200608132501981.png" alt="image-20200608132501981" style="zoom:50%;" />
+![](img/image-20200608132501981.png)
 
 ### 9.10.1. `is` - refer to the dame object, checks for `Identity`
 
@@ -1660,7 +1660,7 @@ while True:
 mysock.close()
 ```
 
-<img src=".img/image-20200625131334591.png" alt="image-20200625131334591" style="zoom:50%;" />
+![](img/image-20200625131334591.png)
 
 Answer:
 

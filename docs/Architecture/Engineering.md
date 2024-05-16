@@ -1,5 +1,7 @@
 # 1. Engineering
+
 Made during Placement year at Kainos 2020-2021
+
 - [1. Engineering](#1-engineering)
 - [2. Key Learning objectives](#2-key-learning-objectives)
 - [3. Being cynical](#3-being-cynical)
@@ -60,7 +62,9 @@ Made during Placement year at Kainos 2020-2021
   - [5.6. Challenges](#56-challenges)
   - [5.7. Benefits](#57-benefits)
 - [6. General Architecture chat 23/07/21](#6-general-architecture-chat-230721)
+
 # 2. Key Learning objectives
+
 - How to build operational ready and stable software
 - Extend the familiarity of executing the code in the remote environment
 - Structure the knowledge about cloud computing
@@ -68,6 +72,7 @@ Made during Placement year at Kainos 2020-2021
 - Extend the appreciation of software failures, their reasons and patterns to mitigate
 
 # 3. Being cynical
+
 - Bad things will happen
 - You should not trust data coming as your input or coming back from downstream
 - NFRs help protect the system functions
@@ -76,6 +81,7 @@ Made during Placement year at Kainos 2020-2021
 # 4. Running and developing code
 
 ## 4.1. Local environments
+
 You control everything
 - Permissions
 - Network rules ingress/egress
@@ -95,7 +101,9 @@ You control everything
 
 -  Access to filesystem
    - Easy to verify what actually is running
+
 ### 4.1.1. What it simplifies
+
 - Communication over localhost(stable)
 - Most likely scale factor of 1
   - Scalability issues/considerations
@@ -108,6 +116,7 @@ You control everything
   - Separations of components
 
 ## 4.2. Remove environment - why we need it?
+
 - Code verification
   - Did i commit and push everything ?
   - Is it buildable on CI server?
@@ -124,7 +133,8 @@ You control everything
   - Components/libraries/extensions presence and version
 
 ## 4.3. Remote environments and pipelines
-1. Automation 
+
+1. Automation
    1. Biggest advantages
 2. Consistency
 3. Anyone can deploy
@@ -134,16 +144,20 @@ You control everything
 6. Immediate feedback
 
 ## 4.4. Remote Environments
+
 - What is different
 - What will work differently?
 - Will it work?
 - How to manage?
-![](.img/remote_environment.png)
+![](img/remote_environment.png)
 
 ## 4.5. Communicating over network
-![](.img/commsOverNet.png)
+
+![](img/commsOverNet.png)
 It's complicated and not stable
+
 ## 4.6. Deploying remotely
+
 - Will it run on remote OS/runtime?
 - Source of extension/libraries
   - Is that library available?
@@ -155,7 +169,9 @@ It's complicated and not stable
 - Scale
   - What happens when there is more than one instance?
 - Stability patterns (covered later)
+
 ## 4.7. Remote == available in internet
+
 1. Ensure it is behind authentication
 2. Ensure authentication is not trivial (admin/admin: defaults)
 3. Test data setup
@@ -170,6 +186,7 @@ It's complicated and not stable
    2. Security policies
 
 ## 4.8. Principles for secure engineering
+
 - Developers work closely with Security Engineers and Security Architects to understand how new features impact security.
 - Applications are built in such a way that the OWASP Top 10 Application Security Risks are mitigated.
 - Applications are built using language specific secure coding guidelines
@@ -181,6 +198,7 @@ It's complicated and not stable
 - Developers and operations personnel are familiar with the project's incident response playbook
 
 ## 4.9. Hybrid Environments
+
 Components deployed locally + communicating with cloud infra:
 - When you need to share a database
 - When you need to share many microservices
@@ -191,13 +209,15 @@ Components deployed locally + communicating with cloud infra:
   - Service Bus
 - When integrating with remote services/API's
 
-![](.img/hybridEnvironments.png)
+![](img/hybridEnvironments.png)
 
 ### 4.9.1. Auth
+
 You need to access resources from you machine - ot means that, in most cases, it can be accessed from internet.
 You need authenticated code
 
 ## 4.10. Cloud Computing
+
 - Public cloud
   - Azure, AWS, Google Cloud
   - Publically shared virtual Resources
@@ -218,29 +238,37 @@ You need authenticated code
 -  Servers
 
 ### 4.10.1. Types of offerings
-![](.img/types.png)
+
+![](img/types.png)
 
 #### 4.10.1.1. PaaS can be extended with CaaS and FaaS
-![](.img/PaaS.png)
+
+![](img/PaaS.png)
+
 ### 4.10.2. Shared responsibility
-![](.img/responsibility.png)
+
+![](img/responsibility.png)
 
 ### 4.10.3. Why bother?
+
 - A great flexibility of scale (for vertical and horizontal scaling)
 - Ability to fine tine your costs
 - A lot of problems that don't solve business need are solved for you (VM provisioning, OS patching, DB clusters, etc)
 - Provides delivery efficiency
 
 ### 4.10.4. Impact on your work/design?
+
 - You have to be careful with fine-tuning - it may be easy to overprovision (and have a big bill)
 - It runs on shared responsibility model
 - You can hit noisy neighbors problems
 - There's huge capacity - but it is not unlimited
 
 ### 4.10.5. Security in Cloud
+
 Cloud security is a responsibility that is shared between the cloud provider and the customer.
 
 #### 4.10.5.1. The Top 7 Advanced Cloud Security Challenges
+
 - Increased Attack Surface
 - Lack of Visibility and Tracking
 - Ever-Changing Workloads
@@ -251,12 +279,14 @@ Cloud security is a responsibility that is shared between the cloud provider and
 - Cloud and Governance
 
 ### 4.10.6. Pillars of Cloud Security
+
 - Visibility and Compliance
 - Compute-based security
 - Network Protections
 - Identity security
 
 ### 4.10.7. NIST Cyber Security Framework
+
 - Identify
   - Asset Management
   - Business Environment
@@ -287,15 +317,18 @@ Cloud security is a responsibility that is shared between the cloud provider and
   - Communications
 
 ## 4.11. Observability
+
 You can create perfect and stable software which is able to handle any error
  but there will still be problems regardless
 
  `Observability` - is a measure of how easy is it to interpret system states from logs
 
  ### 4.11.1. Pillars of observability
- ![](.img/observability.png)
+
+ ![](img/observability.png)
 
  #### 4.11.1.1. Logging - what to log
+
 Keep in mind who will be using logs:
 1. Machines - for for monitoring and alerting purpose
 2. Ops - to assess healthiness and state of system
@@ -318,11 +351,13 @@ What to log
 - Threats and vulnerabilities
 
 #### 4.11.1.2. Logging - what not to log
+
 - Personal identifiable information (PII)
 - Financial data
 - Secrets: passwords, security keys, auth tokens
 
 #### 4.11.1.3. Logging - when to log
+
 - Ensure that logging is correct place ( not silenced by some "if")
 - Ensure that logging is precise
 - Ensure that logging is consistent
@@ -335,6 +370,7 @@ What can go wrong?
 How logging can help here?
 
 #### 4.11.1.4. Logging - levels
+
 Logging can impact performance on Production:
 - Divide logs into levels
 - Not all information are always needed/useful
@@ -348,6 +384,7 @@ Levels
 - Debug - lowest level - specific and detailed information - usuals used for debugging purpose
 
 #### 4.11.1.5. Logging - structured logging
+
 Logs will be mainly used by machines (scripts) and ops - make it parseable => they have to be in consistent structure: 
 - who - name
 - When
@@ -356,17 +393,22 @@ Logs will be mainly used by machines (scripts) and ops - make it parseable => th
 - With appropriate log level
 
 #### 4.11.1.6. Metrics
+
 Metrics are a numerical representation of data that can be used to determine a service or component's overall behavior over time
+
 ##### 4.11.1.6.1. Metrics - anatomy of a metric
+
 - Name
 - Datetime (point in time)
 - Value
 - Attributes/Tags(label: value)
 
 #### 4.11.1.7. Tracing
+
 - Distributed tracing, also called distributed request tracing, is a method used to profile and monitor applications, especially those built using a microservices 
 
 ##### 4.11.1.7.1. Key concepts
+
 - Trace
 - Span - references to other spans
 - Tags - key value pairs
@@ -374,10 +416,12 @@ Metrics are a numerical representation of data that can be used to determine a s
 - Span context - caries data
 
 ##### 4.11.1.7.2. Alerting
+
 - When an event on the system happens that requires human intervention on alert should be raised
 - Alerts could be mails, sms, etc
 
 ##### 4.11.1.7.3. Alerting - some good practices
+
 - Multi-User alerting
 - Alert Noise Reduction
 - Enriched Incident Context
@@ -387,16 +431,22 @@ Metrics are a numerical representation of data that can be used to determine a s
 - Incident History Audit
 
 #### 4.11.1.8. When to think about observability 
-![](.img/observability-dev.png)
+
+![](img/observability-dev.png)
 
 ## 4.12. Stability Patterns
+
 ### 4.12.1. SLAs & Failures
-![](.img/sla.png)
+
+![](img/sla.png)
 
 ### 4.12.2. Failures
+
 - Main reason of the failure are the integration points
 - Every out of process can and eventually will kill the system (unless we cater for it)
+
 ### 4.12.3. In spec vs out of spec failures
+
 - In spec failures
   - TCP Connection refused
   - HTTP response code 500
@@ -407,25 +457,30 @@ Metrics are a numerical representation of data that can be used to determine a s
   - Server stream binary data
 
 ### 4.12.4. Stability
+
 - Allow systems to cater for failures and/or unexpected behaviors
 
 ### 4.12.5. Integration Points
+
 - Every Integration point will eventually fail in some way, and you need to be prepared for that failure
 - Failures propagate quickly when you code isn't defensive enough
 - Integration point failures take several forms. e.g. protocol violation, slow response, or outright hang
 - Debugging integration point failures usually requires peeling back a layer of abstraction - packet sniffers (hard or impossible to do PaaS / FaaS)
 
 ### 4.12.6. Chain Reaction
+
 - FAilure moves horizontally across tiers
 - Common in search engines and app servers
 - One server down will jeopardize the rest
 - Look for resource leak
 
 ### 4.12.7. Cascading Failure
+
 - Failure moves vertically across tiers
 - Common in enterprise services
 
 ### 4.12.8. Users
+
 - The user amount and behaviours can cause a lot of strain
   - Shed the load - eg limit the amount fo data being passed to smaller datasets
 - Some malicious users
@@ -434,6 +489,7 @@ Metrics are a numerical representation of data that can be used to determine a s
   - Try bot protection
 
 ### 4.12.9. Blocked Threads
+
 - All requests threads blocked = "crash"
 - Hung request handlers leads to 
   - less capacity
@@ -443,6 +499,7 @@ Metrics are a numerical representation of data that can be used to determine a s
 - Don't wait forever
 
 ### 4.12.10. Slow Responses
+
 - Worse than failing quickly as ties down resources
   - Caller backed off, but the server is still doing the compute
 - Can trigger cascading Failures
@@ -451,6 +508,7 @@ Metrics are a numerical representation of data that can be used to determine a s
 - Hunt for memory leaks or resource contention
 
 ### 4.12.11. Attacks of self-denial - tips
+
 - Avoid deep links
 - Static landing pages
 - CDN diverts or throttles users
@@ -458,29 +516,36 @@ Metrics are a numerical representation of data that can be used to determine a s
 - Session only on 2nd click
 
 # 5. 16/07 Data Solution Architecture - Data Mesh
+
 ## 5.1. Why it's important to us
+
 - Published mid 2019
 - Most importantly, for the right organizations, Data Mesh provides their best option to achieve long term agility in exploiting data assets
 - TLDR - Must Partition correctly and govern effectively
 
 ## 5.2. Typical Data flow
-![](.img/dataFlow.png)
+
+![](img/dataFlow.png)
 Architecture decomposition is orthogonal to the axis of change when introducing or enhancing features, leading to coupling and slower delivery
 
 ## 5.3. Global Governance and Open Standards
-![](.img/globalGovernance.png)
+
+![](img/globalGovernance.png)
 
 ## 5.4. 4 Principles
+
 - Domain Ownership
-   ![](.img/dataOwnership.png)
+   ![](img/dataOwnership.png)
 - Data as a product
 - Sef-serve data platform
 - Federated computational governance
 
 ## 5.5. Conway's Law
+
 "Any organisation that designs a system (defined broadly) will produce a design whose structure is a copy of the organisation's communication structure"
 
 ## 5.6. Challenges
+
 - Acceptance of duplicate data
 - Data contract management
 - Business not always optimal
@@ -490,6 +555,7 @@ Architecture decomposition is orthogonal to the axis of change when introducing 
 - Scale of changes for benefit realization / potential long haul
 
 ## 5.7. Benefits
+
 - Use localised expertise/skills
 - Decoupling for technical agility/less 'competition'
 - Harder data functions centralised/standardised
@@ -497,5 +563,7 @@ Architecture decomposition is orthogonal to the axis of change when introducing 
 - More delivered sooner
 
 For the right organisations, Data Mesh provides their best option to achieve long term agility in exploiting data assets
+
 # 6. General Architecture chat 23/07/21
+
 Welcomed new people and discussed what could be the future topics

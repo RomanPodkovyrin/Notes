@@ -66,31 +66,45 @@
     - [7.5.5. JMeter](#755-jmeter)
 
 ## 1.1. Preview
+
 Testing is often refereed as quality assurance.
+
 ### 1.1.1. Verification
+
 Did we build the thing right?
+
 - Does it do what it is meant
 - Have we build the thing right?
+
 #### 1.1.1.1. Verification testing examples
+
 - Acceptance testing 
 - Compatibility testing
 - Performance testing
 - Accessibility testing
 - Security testing
+
 ### 1.1.2. Why do we test?
+
 - Missed requirements
 - Developer error
 - Missed user scenario
 - Edge cases/ complex systems
+
 ### 1.1.3. What are we assessing against?
+
 #### 1.1.3.1. Requirements
+
 - Functional requirements
   - How the software behaves
     - Business requirements
   - Non Functional requirements
     - technology and security
+
 ### 1.1.4. What are we assessing against?
+
 #### 1.1.4.1. Quality criteria
+
 - Capability - does required functions
 - Charisma - appeals to the user
 - Reliability - consistent
@@ -99,30 +113,39 @@ Did we build the thing right?
 - Compatibility
 - Performance
 
+![](img/testing.png)
 
-![](.img/testing.png)
 ## 1.2. What do we test?
+
 ### 1.2.1. Unit testing
+
 - small components
 - Components = methods
 - golden rules of unit testing, one the bug you are testing should fail 
 
 ### 1.2.2. Integration testing
+
 - testing integration of components
 
 ### 1.2.3. User Interface testing
+
 - Usually tests the entire stack of the application
 - Tests ui user would use
 
 ## 1.3. What does a pass look like?
+
 Positive testing:
+
 - Prove you application works as expected
 
 Negative testing:
+
 - Prove that you application gracefully handles invalid input.
 
 ## 1.4. Defect Report
+
 What makes a good defect report?
+
 - What you did
   - Detailed steps to reproduce
 - What you expected to see
@@ -134,39 +157,48 @@ What makes a good defect report?
     - What impact does this have?
 
 ## 1.5. How to do testing?
+
 - Static Testing
   - Finding defects without executing code
 - Dynamic Testing
   - Automatic testing?
 
 ## 1.6. Testing Techniques
+
 - Boundary Value Analysis
   - Testing boundaries between partitions
 - Equivalence Class Partitioning
   - Allows you to partition set of tests into different groups
 
-![](.img/equivalenceclasstesting.png)
+![](img/equivalenceclasstesting.png)
+
 - Decision Table Based Testing
   - aka As Cause-Effect table
 
-![](.img/decisiontesting.png)
+![](img/decisiontesting.png)
+
 # 2. Manual Testing
+
 ## 2.1. Scripted Testing
+
 - Tests where certain data is needed
 - Testers have low domain knowledge
-![](.img/scriptedTesting.png)
+![](img/scriptedTesting.png)
 
 ## 2.2. Exploratory Testing
+>
 > Exploratory testing is where the tester explores the system based on their expectations of its behavior, assessing if it meets out model.
 > Those expectations are formed from explicit and implicit requirements
 
 # 3. Automation Testing
+
 - Quick
 - Reliable
 
 Good where is can be difficult, tedious, or error prone to do manually
 
 Applied effectively, test automation can:
+
 - reduce repetitive manual testing
 - test areas hard to test manually
 - verify existing functionality hasn't broken (regression testing)
@@ -174,12 +206,14 @@ Applied effectively, test automation can:
 - decrease defect detection time
 
 Examples:
+
 - Backend (API, DB, Cookies) validation
 - Acceptance checks to ensure previously developed features have nod regressed
 - Verifying network traffic between two components contain a hashed GUID
 - Generating synthetic data to check pagination within n report. 
 
 Types of Automation
+
 - Unit
 - Integration
 - User Interface
@@ -190,10 +224,13 @@ Types of Automation
 - Security
   
 ## 3.1. Automation Test Pyramid
-![](.img/atomationTestignPyramid.png)
+
+![](img/atomationTestignPyramid.png)
 
 ## 3.2. Manual vs Automated: Pros
+
 Automated:
+
 - Fast to execute
 - Doesn't get bored
 - Hight attention to detail
@@ -202,18 +239,22 @@ Automated:
 - Low long term cost
 
 Manual:
+
 - Creativity
 - High ROI (Return of Investments) initially 
 - Lower technical skill lever entry point
 - Takes in a broader view
 
 ## 3.3. Manual vs Automated: Cons
+
 Automated:
+
 - Maintenance cost
 - Low ROI (Initially)
 - Only does what we think of when we create it
 
 Manual:
+
 - Slow to Execute
 - Can get bored / distracted affecting attention to detail
 - Harder to do technical testing
@@ -221,22 +262,31 @@ Manual:
 - Handover costs
 
 # 4. When to do testing?
+
 Testing should take place throughout the Software Development Life Cycle (SDLC)
+
 ## 4.1. The cost of testing...
+
 The more code or systems the test uses, the more expensive it is to run
-![](.img/costOfTesting.png)
+![](img/costOfTesting.png)
+
 ## 4.2. Cost of defects ...
+
 The earlier we find defects, the cheaper they are to rectify
-![](.img/defectsTestingCost.png)
+![](img/defectsTestingCost.png)
 
 ## 4.3. Shift Left
+
 Push testing activities early as possible (to the left)
+
 - Test requirements before code is written
 - Automate tests early to give fastest feedback
 - Imagine test cases and talk them through
 
-![](.img/shiftLeft.png)
+![](img/shiftLeft.png)
+
 ## 4.4. Test cheat sheet
+
 - `Claims testing` - Challenge what it claims it does
 - `User testing` - Be as a user
 - `Stress testing` - Overwhelm it
@@ -245,21 +295,27 @@ Push testing activities early as possible (to the left)
 - `Data testing` - Test what it does with and to data
 
 # 5. Who does the testing?
+
 ## 5.1. Test as a Team
+
 Quality is a team responsibility.
 The entire team is responsible for delivering a quality product:
+
 - Refining requirements
 - Refining test approaches ( 3 amigos)
 - Creating automation
 - Manual test execution
 
 ## 5.2. Test Lean
+
 Reduce duplication between test layers
+
 - Test Pyramid
 - Collaborate, use team skills to create, refine & execute
 - Low (context appropriate) documentation
 
 ## 5.3. Testing Tools
+
 - Accessibility​
   - Wave scanner​
   - Accessibility heuristics​
@@ -287,6 +343,7 @@ Reduce duplication between test layers
   - SauceLabs​
 
 ## 5.4. Take-aways
+
 Testing is:​
 
 - Analysing and discovering requirements to understand the expectations of a product.​
@@ -316,7 +373,9 @@ Collaboration, peer review, communication is important.​
 - Testing a product without knowing the rules or requirements is hard.​
 
 - Tests can take place at any point in a product (system)
+
 ---
+
 - A mix of manual and automated is a good thing.​
 We can’t, and shouldn’t, automate everything​
 We can’t, and shouldn’t, do everything manually​
@@ -327,37 +386,53 @@ We can’t, and shouldn’t, do everything manually​
 
     ​
     ​
+
 # 6. Practical Day 1
+
 ## 6.1. Automated Testing
+
 ## 6.2. Unit Testing
+
 Verify individual units of source code
-![](.img/unitTesting.png)
+![](img/unitTesting.png)
+
 ## 6.3. What does good look like?
-![](.img/unitGood.png)
+
+![](img/unitGood.png)
 
 ## 6.4. Test Coverage
+
 start with 60%, aim to achieve 80%-90%. 100% is impractical
-![](.img/testCoverage.png)
+![](img/testCoverage.png)
+
 ## 6.5. Evergreen Tests
+
 Tests that always pass, that's bad.
+
 ## 6.6. Best Practices
+
 - Unit tests should be independed
 - Test only one code at a time
 
 ## 6.7. Unit Tests FIRST
+
 - Fast
 - Isolatable/Independed
 - ...
 
 ## 6.8. TDD
+
 - Write the tests first
 - Make them fail
 - write code
 - Make them pass
 
 ## 6.9. Integration Testing
+
 - makes sure modules/ components work properly together
+
 ---
+
 - Run reasonably fast
 - Test how your code interacts with framework
 - my mock or stub external dependencies
@@ -365,8 +440,11 @@ Tests that always pass, that's bad.
 - may or may not run in parallel
 
 test names should be as long as possible, the longer and more descriptive the better
+
 ## 6.10. Automated UI Testing
+
 Why do automated ui testing?
+
 - saves time
 - verifies functionality and specifications
 - faster
@@ -374,6 +452,7 @@ Why do automated ui testing?
 - can run efficiently on ci/cd
 
 Drawbacks 
+
 - false sense of quality
 - slow feedback
 - test can be brittle
@@ -384,16 +463,23 @@ Drawbacks
 - data maintenance
 
 ## 6.11. What is selenium?
-is a free open-source automated testing framework used to validate a web applications across different browsers and platforms
-### 6.11.1. Selenium Webdriver
-![](.img/seleniumdriver.png)
 
-### 6.11.2. Selenium Grid![](.img/seleniumGrid.png)
+is a free open-source automated testing framework used to validate a web applications across different browsers and platforms
+
+### 6.11.1. Selenium Webdriver
+
+![](img/seleniumdriver.png)
+
+### 6.11.2. Selenium Grid![](img/seleniumGrid.png)
+
 ### 6.11.3. Locating UI elements
+
 Selenium identifies UI elements using "locators"
+
 - a locator should uniquely identify te element under consideration"
 
 Locator types:
+
 - ID
 - Name
 - CSS
@@ -404,11 +490,14 @@ Locator types:
 - Partial link text
 
 ## 6.12. Selenium Test Frameworks
+
 - Junit
 - TestNG
 - Hamcrest or AssertJ
 - Apache Ant/Maven
+
 ## 6.13. Page Object Model
+
 - Separation of concerns
   - Tests and their implementations are separated into different layers of code. 
   - `page class` - handles all user interactions with a given page
@@ -417,6 +506,7 @@ Locator types:
 - Test scripts define the high-level business logic, and delegate all the corresponding implementation to page classes:
 
 ## 6.14. Page waits
+
 - Implicit waits
   - `driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);`
   - Should be used with caution and only when necessary
@@ -427,7 +517,9 @@ Locator types:
   - much more flexible in slow environments
   - could disguise performance issues
   - recommended for async calls
+
 ## 6.15. Webdriver functions
+
 - Screenshots
 - Handling alerts
 - Handling pop-up windows
@@ -435,19 +527,23 @@ Locator types:
 - keyboard interactions
 
 # 7. Automated Testing - day 2
+
 ## 7.1. Cucumber BDD
+
 software tool that supports behavior-driven development(BDD)
 
 Supports over a dozen of different software platforms
+
 - ruby on rails
 - selenium
 - picocontainer
 - spring framework
 - watir
 
-
 bridge between business and technical language. 
+
 ## 7.2. Advantages of Cucumber BDD
+
 - can be used as requirements
 - acceptance criteria
 - testers can easily read test cases
@@ -456,9 +552,13 @@ bridge between business and technical language.
 - everyone in dev team relies on the same scenarios. Scenarios are requirements, acceptance criteria
 
 ## 7.3. Cucumber Structure
-![](.img/cucumberstructure.png)
+
+![](img/cucumberstructure.png)
+
 ## 7.4. Cucumber Keywords
-![](.img/cucumberCode.png)
+
+![](img/cucumberCode.png)
+
 - feature - info about functionality adn purpose of app
 - scenario - represents particular functionality
 - given - specifies pre-condition
@@ -466,31 +566,47 @@ bridge between business and technical language.
 - then - expected result
 - and
 - background
-  ![](.img/cucumberExample.png)
+  ![](img/cucumberExample.png)
+
 ## 7.5. Performance Testing
-![](.img/performanceTesting.png)
+
+![](img/performanceTesting.png)
+
 ### 7.5.1. The consequences
+
 Lost sales
+
 - too slow, people get bored
 
 Lost customers
+
 - customer switch to competitor if website fails to load
 
 Reputation
+
 - search engines de-index 'dead' sites
 - newspaper story
 
 Time-critical service
+
 - people are not able to book critical appointments, pay a bill
+
 ### 7.5.2. NFR Requirements
-![](.img/nfr.png)
+
+![](img/nfr.png)
+
 ### 7.5.3. Load distribution
-![](.img/loadDistribution.png)
+
+![](img/loadDistribution.png)
 
 ### 7.5.4. Utilisation metrics
-![](.img/utilisationMetrics.png)
+
+![](img/utilisationMetrics.png)
+
 ### 7.5.5. JMeter
+
 open source java based performance test tool
+
 - cross-platform any os with java
 - scalable with distributed mode
 - multi-protocol support

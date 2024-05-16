@@ -238,7 +238,7 @@ Some other responsibilities depend. Eg
 > The cloud provider would be responsible for maintaining the actual database
 > The consumer is responsible for data that gets ingested into the database
 
-![Shared responsibility](.img/shared-responsibility.svg)
+![Shared responsibility](img/shared-responsibility.svg)
 
 - `SaaS` - Software As A Service
   - Outlook email, Calendar, Microsoft Office 365
@@ -471,7 +471,7 @@ How you're able to manage your cloud environment and resources. You can manage t
 
 Applies to all the cloud service types.
 
-![shared responsibility](./.img/shared-responsibility.svg)
+![shared responsibility](./img/shared-responsibility.svg)
 
 #### 1.1.6.2. Describe Infrastructure as a Service (IaaS)
 
@@ -581,7 +581,7 @@ Introduction to core architecture components of Azure.
 #### 1.2.1.1. Get started with Azure accounts
 
 One Azure account can create multiple separate subscriptions. For example, your company might use a single Azure account for your business and separate subscriptions for development, marketing, and sales departments. Then resources can be created within each subscriptions.
-![Account Scope Levels](./.img/account-scope-levels.png)
+![Account Scope Levels](./img/account-scope-levels.png)
 
 ##### 1.2.1.1.1. What is the Microsoft Learn sandbox?
 
@@ -671,7 +671,7 @@ Azure, has datacenters around the world. They aren't individually accessible. Da
 
 `Availability Zones` (**AZ**) - are physically separate datacenters within an Azure region. Each **AZ** is made up of one or more datacenters equipped with independent power, cooling and networking. An availability zone is set up to be an isolation boundary. If one zone goes down, the other continues working. Availability zones are connected through high-speed, private fiber-opting networks.
 
-![Availability Zones](./.img/availability-zones.png)
+![Availability Zones](./img/availability-zones.png)
 
 > :exclamation: Important: To ensure resiliency, a minimum of 3 separate **AZ** are present in all availability zone-enabled regions. However, not all Azure Regions currently support availability zones
 
@@ -693,7 +693,7 @@ Most **Azure regions** are paired with other **region** withing the same **geogr
 
 Examples of **region pairs** in Azure are **West US** paired with **East US** and **South-East Asia** paired with **East Asia**.
 
-![Region Pairs](.img/region-pairs.png)
+![Region Pairs](img/region-pairs.png)
 
 ###### 1.2.1.3.4.1. Additional Advantages of region pairs:
 
@@ -728,7 +728,7 @@ The management infrastructure includes Azure resources and resource groups, subs
 
 `resource` basic building block of Azure. Anything you create, provision, deploy, etc is a resource.
 
-![resource group](.img/resource-group.png)
+![resource group](img/resource-group.png)
 `Resource groups` groupings of resources. When resource is created it should be placed into a resource group.
 
 - Single resource can only be assigned to 1 resource group at a time. Resources can be moved between groups.
@@ -741,7 +741,7 @@ The management infrastructure includes Azure resources and resource groups, subs
 
 `Subscriptions` are unit of management, billing, and scale. Similar to how **resource groups** are a way to logically organise resources, subscriptions allow you to logically organise your resource groups and facilitate billing.
 
-![Subscriptions](.img/subscriptions.png)
+![Subscriptions](img/subscriptions.png)
 
 - Using Azure requires an Azure subscription
 - Subscription provides you with authenticated and authorised access to Azure products and services
@@ -784,7 +784,7 @@ Additional subscriptions can be created for resources or billing management purp
 ##### 1.2.1.4.5. Management group, subscriptions, and resource group hierarchy
 
 A flexible structure of **management groups** and **subscriptions** can be build to organise **resources** into a hierarchy for unified policy adn access management
-![management-groups-subscriptions](.img/management-groups-subscriptions.png)
+![management-groups-subscriptions](img/management-groups-subscriptions.png)
 
 Example of management group uses:
 
@@ -837,7 +837,7 @@ Verify VM and associated **resources** have been created
 
 You should see:
 
-![Azure resource example](.img/azure-resources-example.png)
+![Azure resource example](img/azure-resources-example.png)
 
 - List of resources in the **resource group**
   - **Storage account** and **virtual network** are associated with the Learn sandbox
@@ -1508,13 +1508,13 @@ Azure Storage offers 2 options for how your data is replicated in the primary re
 - `Locally Redundant Storage` (LRS) Replicates data 3 times within a single data center in the primary region
   - LRS provides at least 11 nines of durability (99.999999999%) of objects over a given year.
 
-    ![Locally redundant storage](./img/../.img/locally-redundant-storage.png)
+    ![Locally redundant storage](./img/../img/locally-redundant-storage.png)
 
    - LRS is the lowest-cost redundancy option and offers the least durability compared to other options.
    - LRS protects data against server rack and drive failures. However, does not protect data from a disaster within a data center. Recommended to use (ZRS, GRS, GZRS)
 - `Zone-redundant Storage` (ZRS) replicates data synchronously across 2 Azure availability zones in the primary region.
   - Offers durability of Azure storage data objects of at least 12 nines (99.9999999999%) over a given year.
-  ![zone redundant storage](.img/zone-redundant-storage.png)
+  ![zone redundant storage](img/zone-redundant-storage.png)
   - The data is still accessible for both read and write operations even if a zone becomes unavailable. No remounting of Azure file shares from the connected clients is required
   - Azure undertakes networking updates, such as DNS repointing. Those updates may affect your application if you access data before the updates have completed.
 
@@ -1538,12 +1538,12 @@ Additional copy of date in your storage account to a secondary region that is hu
 Azure offers 2 options for copying your data to a secondary region:
 
 - `Geo-redundant Storage` (GRS) is similar to running LRS in two regions
-  ![geo redundant storage](.img/geo-redundant-storage.png)
+  ![geo redundant storage](img/geo-redundant-storage.png)
   - Copies your data synchronously 3 times within a single physical location in the primary region using LRS.
   - It then copies your data asynchronously to a single physical location in the secondary region (the region pair) using LRS.
   - GRS offers durability for Azure Storage data objects of at least 16 nines (99.99999999999999%) over a given year.
 - `Geo-zone Storage` (GZRS) is similar to running ZRS in the primary region and LRS in the secondary region
-  ![geo zone redundant storage](.img/geo-zone-redundant-storage.png)
+  ![geo zone redundant storage](img/geo-zone-redundant-storage.png)
   - GZRS combines high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication.
   - Data in a GZRS storage account is copied across 3 Azure availability zones in the primary region (like ZRS) and is also replicated to a secondary geographic region, using LRS, for protection from regional disasters.
   - Microsoft recommends using GZRS for application requiring maximum consistency, durability and availability, excellent performance, and resilience for disaster recovery.
@@ -1632,7 +1632,7 @@ Create new storage account
 Create Blob container ad upload a picture
 
 1. Under **Data storage**, select `Containers`
-   ![storage account menu](.img/storage-account-menu.png)
+   ![storage account menu](img/storage-account-menu.png)
 2. Select `+ Container` and complete the information
 
 | Setting             | Value                                      |
@@ -1660,7 +1660,7 @@ You should receive an error message similar to the following
 1. Go back to Azure portal
 2. Select Change access level
 3. Set public access level to blob (anonymous read access for blobs only)
-  ![blob access level](.img/blob-access-level.png)
+  ![blob access level](img/blob-access-level.png)
 4. Select OK
 5. Refresh the tab where you attempt to access the file earlier
 
@@ -1797,11 +1797,11 @@ You can create resources directly in the managed domain, but they aren't synchro
 
 In a hybrid environment with an on-premises AD DS environment, Azure AD Connect synchronises identity information with Azure AD, which is then synchronised to the managed domain.
 
-![azure active directory sync topology](.img/azure-active-directory-sync-topology-7359f2b8.png)
+![azure active directory sync topology](img/azure-active-directory-sync-topology-7359f2b8.png)
 
 #### 1.2.4.2. Describe Azure authentication methods
 
-![password less convenience security](.img/passwordless-convenience-security.png)
+![password less convenience security](img/passwordless-convenience-security.png)
 
 Authentication methods:
 
@@ -1824,7 +1824,7 @@ Authentication methods:
 
 Azure AD External Identities - refers to all the ways you can security interact with users outside your organisation.
 
-![azure active directory external identities](.img/azure-active-directory-external-identities.png)
+![azure active directory external identities](img/azure-active-directory-external-identities.png)
 
 The following capabilities make up External Identities:
 
@@ -1849,7 +1849,7 @@ When can I use conditional access?
 - Require users to access your application only from managed devices.
 - Block access from untrusted sources
 
-![conditional access](.img/conditional-access.png)
+![conditional access](img/conditional-access.png)
 
 #### 1.2.4.5. Describe Azure role-based access control (Azure RBAC)
 
@@ -1860,7 +1860,7 @@ Role-based access control is applied to a scope, which is a resource or set of r
 `Management group`, `subscription`, or `resource admin` must be given the role of owner, to have increased control and authority
 
 `Observer` who isn't expected to make any updates, might be given a role of Reader. Enabling them to review or observer the management group, subscription, or resource group.
-![role based access scope](.img/role-based-access-scope.png)
+![role based access scope](img/role-based-access-scope.png)
 
 Scopes include:
 
@@ -1895,7 +1895,7 @@ Zero trust security model is based on those guiding principles:
 
 Goal is to prevent information being stolen by those who aren't authorised to access it.
 
-![defense depth](.img/defense-depth.png)
+![defense depth](img/defense-depth.png)
 
 Each layer provides protection if the other is breached. Slows down the attack and provides alert information that security team can act upon, either automatically or manually
 
@@ -1949,7 +1949,7 @@ Defender for Cloud 3 vital needs:
 - `Secure` – Harden resources and services with Azure Security Benchmark
 - `Defend` – Detect and resolve threats to resources, workloads, and services.
 
-![assess secure defend](.img/assess-secure-defend.png)
+![assess secure defend](img/assess-secure-defend.png)
 
 ##### 1.2.4.8.5. Security alerts
 
@@ -2021,7 +2021,7 @@ To migrate to Azure, you might:
 
 Here's a diagram that shows the basic configuration:
 
-![](.img/estimate-costs-architecture.png)
+![](img/estimate-costs-architecture.png)
 
 In practice, you would define your requirements in greater detail. But here are some basic facts and requirements to get you started:
 
@@ -2137,7 +2137,7 @@ Each component in the blueprint definition is known as an artifact.
 - It is possible for artifacts to have no additional parameters (configs). Eg, Deploy threat detection on SQL servers policy, which requires no additional configurations
 - Artifacts can also contain 1 or more parameters for configuration. Following screenshot shows the allowed locations policy. Policy includes a parameter that specifies allowed locations
 
-![allowed locations](.img/allowed-locations.png)
+![allowed locations](img/allowed-locations.png)
 
 - You can specify a parameter's value when you create the blueprint definition or when you assign the blueprint definition to a scope. This way we have a flexibility to specify relevant config at each scope.
 
@@ -2186,15 +2186,15 @@ Azure Policy service allows to create, assign, and manage policies that control 
 
 Through Azure portal, PowerShell, Azure CLI, or Azure Resource Manager template.
 
-![resource lock](.img/resource-lock.png)
+![resource lock](img/resource-lock.png)
 
-![read only lock](.img/read-only-lock.png)
+![read only lock](img/read-only-lock.png)
 
-![failed to create warning](.img/failed-to-create-warning.png)
+![failed to create warning](img/failed-to-create-warning.png)
 
-![resource lock change](.img/resource-lock-change.png)
+![resource lock change](img/resource-lock-change.png)
 
-![storage delete lock warning](.img/storage-delete-lock-warning.png)
+![storage delete lock warning](img/storage-delete-lock-warning.png)
 
 #### 1.3.2.4. Describe the purpose of the Service Trust portal
 
@@ -2325,7 +2325,7 @@ Recommendations are divided into five categories:
 - `Operational Excellence`: process and workflow efficiency, resource manageability, and deployment best practices.
 - `Cost`: Optimise and reduce overall Azure spending
 
-![azure advisor dashboard](.img/azure-advisor-dashboard.png)
+![azure advisor dashboard](img/azure-advisor-dashboard.png)
 
 #### 1.3.4.2. Describe Azure Service Health
 
@@ -2347,7 +2347,7 @@ Azure Monitor can monitor:
 - On-premises resources
 - Multi-cloud resources
 
-![azure monitor overview](.img/azure-monitor-overview.svg)
+![azure monitor overview](img/azure-monitor-overview.svg)
 
 **Left**: List of sources of logging and metric data.
 
@@ -2359,7 +2359,7 @@ Azure Monitor can monitor:
 
 `Azure Monitor Alerts` - Automated way to stay informed on when Azure Monitor detects a threshold being crossed
 
-![azure monitor alerts](.img/azure-monitor-alerts.png)
+![azure monitor alerts](img/azure-monitor-alerts.png)
 
 `Application Insights` - monitors web applications that are running in Azure, on-premises, or in the different cloud environment.
 

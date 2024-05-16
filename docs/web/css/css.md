@@ -11,7 +11,7 @@
     - [1.1.2. Grid Properties](#112-grid-properties)
       - [1.1.2.1. Properties for the Parent (Grid container)](#1121-properties-for-the-parent-grid-container)
         - [1.1.2.1.1. display](#11211-display)
-        - [1.1.2.1.2. grid-template-columns & grid-template-rows](#11212-grid-template-columns--grid-template-rows)
+        - [1.1.2.1.2. grid-template-columns \& grid-template-rows](#11212-grid-template-columns--grid-template-rows)
         - [1.1.2.1.4. grid-template-areas](#11214-grid-template-areas)
         - [1.1.2.1.5. grid-template](#11215-grid-template)
         - [1.1.2.1.6. grid-column-gap](#11216-grid-column-gap)
@@ -78,16 +78,16 @@ The children (i.e. direct descendants) of the grid container. Here the `item` el
 ```
 #### 1.1.1.3. Grid Line
 The dividing lines that make up the structure of the grid. They can be either vertical (“column grid lines”) or horizontal (“row grid lines”) and reside on either side of a row or column. Here the yellow line is an example of a column grid line.
-![](./.img/terms-grid-line.svg)
+![](./img/terms-grid-line.svg)
 #### 1.1.1.4. Grid Cell
 The space between two adjacent row and two adjacent column grid lines. It’s a single “unit” of the grid. Here’s the grid cell between row grid lines 1 and 2, and column grid lines 2 and 3.
-![](./.img/terms-grid-cell.svg)
+![](./img/terms-grid-cell.svg)
 #### 1.1.1.5. Grid Track
 The space between two adjacent grid lines. You can think of them like the columns or rows of the grid. Here’s the grid track between the second and third row grid lines.
-![](./.img/terms-grid-track.svg)
+![](./img/terms-grid-track.svg)
 #### 1.1.1.6. Grid Area
 The total space surrounded by four grid lines. A grid area may be composed of any number of grid cells. Here’s the grid area between row grid lines 1 and 3, and column grid lines 1 and 3.
-![](./.img/terms-grid-area.svg)
+![](./img/terms-grid-area.svg)
 ### 1.1.2. Grid Properties
 #### 1.1.2.1. Properties for the Parent (Grid container)
 ##### 1.1.2.1.1. display
@@ -123,7 +123,7 @@ Defines the columns and rows of the grid with a space-separated list of values. 
  }
  ```
 
- ![](./img/../.img/template-columns-rows-01.svg) 
+ ![](./img/../img/template-columns-rows-01.svg) 
 
  or you can name lines explicitly
  ```css
@@ -132,7 +132,7 @@ Defines the columns and rows of the grid with a space-separated list of values. 
     grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
   }
  ```
- ![](./.img/template-column-rows-02.svg)
+ ![](./img/template-column-rows-02.svg)
 
  Line can have more than one name 
  ```css
@@ -205,7 +205,7 @@ item-a {
 }
 ```
 
-![](.img/dddgrid-template-areas.svg)
+![](img/dddgrid-template-areas.svg)
 Each row in declaration needs to have the same number of cells
 
 
@@ -236,7 +236,7 @@ Each row in declaration needs to have the same number of cells
 ##### 1.1.2.2.9. align-self
 ##### 1.1.2.2.10. place-self
 ### 1.1.3. CSS Grid
-![](./.img/cssGrid.png)
+![](./img/cssGrid.png)
 
 ### 1.1.4. Grid Features
 - Fixed and Fluid Tracks

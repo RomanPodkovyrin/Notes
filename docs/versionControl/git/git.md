@@ -23,7 +23,7 @@ Git is a distributed version control system
 
 ## 1.1. Git 101
 
-![git diagrams](.img/git.png)
+![git diagrams](img/git.png)
 > This diagram is missing remote repo
 
 ## 1.2. Scenarios
@@ -134,19 +134,19 @@ git ls-files -v | grep ^[h]
 
 ## 1.4. Merge
 
-![git merge digram](.img/merge.png)
+![git merge digram](img/merge.png)
 
 ## 1.5. Rebase
 
 - Rebasing is the process of moving or combining a sequence of commit to a new base commit
 - Rebasing allows developers to maintain a linear project history
-![rebase diagram](.img/rebase.png)
+![rebase diagram](img/rebase.png)
 
 > Reasons to rebase is to maintain a clean commit history (just if you were working off an up to date master)
 >
 ## 1.6. Rebase vs Merge
 
-![rebase and merge diagram](.img/rebasevsmerge.png)
+![rebase and merge diagram](img/rebasevsmerge.png)
 
 ## 1.7. Resetting local branch to origin
 

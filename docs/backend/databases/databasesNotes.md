@@ -32,14 +32,21 @@
   - [1.4. Day 4](#14-day-4)
 
 ## 1.1. Day 1
+
 Huge amount of personal or sensitive data is stored, we as developers need ot know how to handle them
+
 ### 1.1.1. Relational Databases
+
 In relational databases, tabels are defined in terms of it's columns
 
 column should have a name and a datatype
+
 ### 1.1.2. Naming conventional
+
 Really depends on what your team is using
+
 ### 1.1.3. Datatypes
+
 - `char`
 - `varchar`
 - `int`
@@ -53,29 +60,35 @@ Really depends on what your team is using
 `Candidate key` - any key that is unique
 
 ## 1.2. Day 2 
+
 ### 1.2.1. Entitiy Integrity 
+
 ### 1.2.2. Referential Integrity
-![](.img/referentialIntegrity.png)
+
+![](img/referentialIntegrity.png)
 - `one-to-one`  the same primary key can unique in both tables?
 - `one-to-many` one publisher may have many related books, the most common relationship type. Many end manages the relationship as this is where the relationship is created
 - `many-to-many` might use junction table 
-  ![](.img/manyToManyExample.png)
+  ![](img/manyToManyExample.png)
   standart naming convention for linked tables is `project-employee`, for table joining `employee` and `project`, the junction table would be called `assignmnet`
 
 
 > one-to-one can also be one-to-(0-1) relationship
-![](.img/onetooneexample.png)
+![](img/onetooneexample.png)
 
 `Composite key` - is a primary key that is made up from many attributes to create a unigue identifier. Each attribute makes up the key. Often found in a junction table to manage a many to many relationship
 
 `Candidate key` - a field that can be used to uniquely identify a record but may not actually be a primary key e.g. national insurance number
 
 `trigger` - something that get's triggered when running DML statements
+
 ### 1.2.3. DML
+
 Data Manipulation Language
 > Select is not always categorized in DML definition
 
 #### 1.2.3.1. SELECT
+
 Lets you select data and lets you express an answer
 ```sql
 SELECT 1;
@@ -109,7 +122,9 @@ SELECT 1 + 2;
 |     3 |
 +-------+
 ```
+
 ##### 1.2.3.1.1. Aliese
+
 ```sql
 SELECT 1 + 2 AS Answer;
 ```
@@ -167,12 +182,14 @@ SELECT DISTINCT type FROM titles;
 Will return distinct fields, which will make sure that there is only one of each with no duplicates
 
 #### 1.2.3.2. WHERE
+
 ```sql
 SELECT * FROM publishers where LENGTH(pub_name) <= 5;
 ```
-![](.img/operators.png)
+![](img/operators.png)
 
 #### 1.2.3.3. ORDER BY
+
 ```sql
 SELECT title, price FROM titles ORDER BY price;
 ```
@@ -189,24 +206,33 @@ WHERE price BETWEEN 10 AND 20
 ORDER BY price;
 ```
 > *Be careful with this*, it's not what it appears
+>
 #### 1.2.3.4. IN
+
 ```sql
 SELECT * FROM authors WHERE state IN ('WI', "CL");
 ```
+
 #### 1.2.3.5. LIKE
+
 ```sql
 SELECT au_fname FROM authors WHERE au_fname LIKE '';
 ```
 `%` whild card, anything and of any numbers
 `_` exacly one character
+
 #### 1.2.3.6. INSERT
+
 #### 1.2.3.7. UPDATE
+
 #### 1.2.3.8. DELETE
 
 ## 1.3. Day 3
+>
 > Use `JOIN` instead of subquerry, because subquerry is slow.
 
 ### 1.3.1. Order By
+
 ```sql
 SELECT title, price, ytd_sales FROM titles ORDER BY 2;
 ```
@@ -214,8 +240,10 @@ means orders by second column.
 ```sql
 SELECT title, price, ytd_sales, price * ytd_sales AS 'revenue' FROM titles ORDER BY revenue;
 ```
+
 ### 1.3.2. GROUP BY
-![](.img/aggregateFunctions.png)
+
+![](img/aggregateFunctions.png)
 
 
 > `aggregate functions`if the value is NULL, it will not count it and therefore row will be ignored
@@ -225,6 +253,7 @@ SELECT pub_id, count(price) FROM titles GROUP BY pub_id;
 ```
 
 ### 1.3.3. Joining Tables
+
 ```sql
  SELECT CONCAT(au_fname, ' ', au_lname), 
        credits.au_id, title_id 
@@ -235,6 +264,7 @@ SELECT pub_id, count(price) FROM titles GROUP BY pub_id;
 > `JOIN` implies `INNER JOIN`
 
 ### 1.3.4. Exercise
+
 Problem statement:
 1. Table with two columns: book and publisher
 2. Add a third column for author
@@ -304,8 +334,11 @@ FROM
 ```
 
 ### 1.3.5. UNION
+
 ### 1.3.6. VIEW
+
 ### 1.3.7. INSERT
+
 ```sql
  INSERT INTO publishers 
    VALUES ('9990', 'Jardin Inc.', 'Camden', 'NJ', 'USA');
@@ -316,13 +349,18 @@ FROM
 ```
 
 ### 1.3.8. UPDATE
+
 This statement is used to change data in existing rows in a table or view, either by adding new data or by modifying existing data. 
+
 ### 1.3.9. DELETE
+
 ```sql
 DELETE FROM tablename 
   WHERE clause;
 ```
+
 ### 1.3.10. Assignment
+
 ```sql
 CREATE TABLE Employee (
     EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
@@ -366,6 +404,7 @@ FROM
 
 INSERT INTO EmployeeBio (EmployeeID, CV, Image, FavouriteTechnology) VALUES (2, 'roman.pdf', 'roman.jpg', 'Ocaml');
 ```
+
 ## 1.4. Day 4
 
 1. Countries with zero population

@@ -1,4 +1,5 @@
 # 1. Web
+
 - [1. Web](#1-web)
 - [2. Native Front-End Web Development](#2-native-front-end-web-development)
   - [2.1. Considering Your Audience](#21-considering-your-audience)
@@ -51,8 +52,11 @@
   - [12.1. Promisify wrapper](#121-promisify-wrapper)
 
 # 2. Native Front-End Web Development
+
 Web standards; HTML; CSS; JavaScript; Foundation; Sass; Responsive design; Accessibility
+
 ## 2.1. Considering Your Audience
+
 `User configuration`
 
 Many browsers support the ability to disable web page styles or JavaScript behaviour, and some browsers support extensions that modify styles or behaviour. 
@@ -60,11 +64,13 @@ Many browsers support the ability to disable web page styles or JavaScript behav
 `Atypical user agent software`
 
 Some consumers of a web page might not use a typical web browser. These might be:
+
 - Bots, web crawlers, or spiders that read your content into search engines or aggregators
 - Screen readers and other software used to make content more widely accessible to people with disabilities
 - Reduced-feature browsers such as those embedded into simple mobile applications
 
 ### 2.1.1. Screen Readers
+
 When you design your application, it is important to consider screen readers, particularly when producing content that might be difficult to express non-visually:
 
 - Text that appears within an image (e.g. images with macro text that propagate on social media, commonly called “memes”)
@@ -72,6 +78,7 @@ When you design your application, it is important to consider screen readers, pa
 - Non-prose content of applications, including navigation bars, forms, and menus
 
 ### 2.1.2. Accessibility
+
 Those disabilities might include: 
 
 - Impaired vision
@@ -82,6 +89,7 @@ Those disabilities might include:
 - Reduced vocabulary
 
 ### 2.1.3. Web Content Accessibility Guidelines (WCAG)
+
 The guidelines come in the form of a technical document with recommendations that follow the “four principles of accessibility:
 
 - Perceivable
@@ -90,8 +98,11 @@ The guidelines come in the form of a technical document with recommendations tha
 - Robust
 
 #### 2.1.3.1. A/AA/AAA Compliance
+
 ### 2.1.4. Best Practices in Audience Inclusion
+
 #### 2.1.4.1. Progressive Enhancements
+
 Progressive enhancement is the principle that states that all users should be able to access the content in your application. The term deliberately inverts the sense of “graceful degradation” to imply that the basic functionality of the application should be considered the minimum level, or starting point, rather than adding “degradation” as a feature requiring more work; instead, the progressive enhancement should be considered to require more work on top of the basic application.
 
  According to the principle:
@@ -102,12 +113,14 @@ Progressive enhancement is the principle that states that all users should be ab
   - You start with basic form and functionality available to all users (even those where users have disabled functionality including cookies, JavaScript, or choose their own styling)
   - You then add extra form and behaviour for smart mobile devices and modern graphical browsers; Extra form comes from external CSS, and extra behaviour comes from external JavaScript
 
-
 #### 2.1.4.2. Responsive Design
+
 An application that exhibits responsible design is able to change in response to the viewport
 
 # 3. Overview
+
 ## 3.1. Static and Dynamic Websites
+
 Static, something that is written but not changes. 
 Dynamic, changes it's content and state
 
@@ -118,7 +131,9 @@ Dynamic, changes it's content and state
 `JavaScript` Provides dynamic behaviour
 
 ## 3.2. HTML
+
 ### 3.2.1. Tags, Attributes and Elements
+
 ```html
 <html> marks beggining of html </html>
 <!-- tags can also have attributes to further define the tag's behaviour-->
@@ -126,8 +141,11 @@ Dynamic, changes it's content and state
 <!--void element has no content so it doesn't need a closing tag, like hr horizontal rule line -->
 <hr>
 ```
+
 Character entities allow to display characters which otherwise would be treated by html as syntax
+
 ### 3.2.2. HTML Document Structure
+
 ```html
 <!--Document is used to display version-->
 <!DOCTYPE html> 
@@ -140,11 +158,13 @@ This is some body content that appears within the browser window.
 </body> 
 </html>
 ```
+
 The `<title>` element represents the page title. Its contents often appear in the title of the browser window or the tab containing the web page. Browsers typically use the page title when you create bookmarks to that page. The `<body>` element contains the structure and content of the web page. In listing 1.1, the body contains only plain text, and there are no tags or elements within the body that define any further structure
 
-![Listing 1.1 as rendered in the Chrome browser](.img/htmlexample.png)
+![Listing 1.1 as rendered in the Chrome browser](img/htmlexample.png)
 
 Body content with tags
+
 ```html
 ... 
 <body> 
@@ -159,16 +179,20 @@ Body content with tags
 </body> 
 ...
 ```
-![](.img/htmlExampleWithTags.png)
+
+![](img/htmlExampleWithTags.png)
 
 ### 3.2.3. Lists
+
 #### 3.2.3.1. Unordered listing
+
 ```html
 <ul> 
 <li>First list item</li> 
 <li>Second list item</li> 
 </ul>
 ```
+
 <hr>
 <ul> 
 <li>First list item</li> 
@@ -176,6 +200,7 @@ Body content with tags
 </ul>
 
 #### 3.2.3.2. Ordered listing
+
 ```html
 <ol> 
 <li>First list item</li> 
@@ -189,9 +214,11 @@ Body content with tags
 </ol>
 
 ### 3.2.4. Links
+
 ```html
 <a href="somepage.html" title="mouseover text">Clickable text</a>
 ```
+
 <a href="somepage.html" title="mouseover text">Clickable text</a>
 <hr>
 anchor
@@ -199,18 +226,22 @@ anchor
 ```html
 <a name="anchortext">Some interesting text</a>
 ```
+
 <a name="anchortext">Some interesting text</a>
 
 The name attribute creates an anchor within the page to which links can refer by specifying `href=’#anchorname’` to link to points within the same page, or `href=’somepage.html#anchorname’` to link to that specific interesting text within another document. This technique is used in some long documents that have a table of contents at the top, including pages that you might read on Wikipedia. 
 <hr>
 
 ### 3.2.5. Images
+
 ```html
 <img src="wharrgarbl.jpg" alt="Picture of a dog drinking water">
 ```
 
 ### 3.2.6. Tables
+
 HTML provides several elements to specify tabular data. A table might look like this:
+
 ```html
 <table> 
 <thead> 
@@ -242,8 +273,6 @@ HTML provides several elements to specify tabular data. A table might look like 
 </tfoot> 
 <caption>This is a lovely table</caption> 
 </table>
-
-
 
 The elements of the table describe its components both in terms of semantics and in contents:
 
@@ -273,16 +302,22 @@ The following are inputs that don’t use the `<input>` tag:
 all this typically consists within `<form>` element, form needs to have action with the url where it is submitted
 
 The `<legend>` and `<fieldset>` tags are often used together within forms to make it easier to navigate around large sets of often complex input types. 
+
 # 4. CSS
+
 ## 4.1. CSS Properties
+
 ```css
 font-family: Serif;font-size: 12pt;
 color: blue;
 margin: 2px 1em 5mm 8pt;# silly to mix units like it, don't do it
 background: url("img/bg.png") #A0A no-repeat fixed;
 ```
+
 ## 4.2. CSS Selectors
+
 isses element names to change styling
+
 ```css
 body { 
    color: blue; 
@@ -294,20 +329,25 @@ p {
 ```
 
 ## 4.3. Classes and IDs
+
 HTML elements support the attributes class and id. These attributes are used to mark their elements as belonging to a group (class) or having a particular identifier (ID) so that they can be manipulated in JavaScript through the document object model (DOM), or selected in CSS.  The assumption (and indeed the specification) is that you can have multiple elements with the same class, but only a single element with a given id. 
 
 html with class
+
 ```html
  <h6 class=’classname’>…</h6>
 ```
+
 <div>
 
 secting this class from attribute in css
+
 ```css
 h6.classname {
     font-family: Serif; 
 }
 ```
+
 > To select the element with a given ID, prefix the ID with a hash/pound/octothorpe: “#id”
 
 ## 4.4. Pseudoclasses
@@ -323,6 +363,7 @@ You can select the ::before and ::after
 ```
 
 ## 4.5. Demarcating Content with `div` and `span`
+
 ```css
 <div></div> <span></span>
 ```
@@ -331,6 +372,7 @@ In general, you might consider the following guidelines:
 
 - Use `<div>` elements when you want to treat a block of content as a block, in relation to other blocks. This is a common thing to do, because web pages are often constructed with building blocks of text content, graphical content, navigation bars, and title sections.
 - Use `<span>` elements when you want to mark a word or phrase of text within a paragraph, in the same way you might use `<em>` or `<strong>`. You can then style by specifying a class or ID on that word or phrase.
+
 ## 4.6. In-line, Embedded, and Linked Stylesheets
 
 - In-line styles
@@ -341,6 +383,7 @@ In general, you might consider the following guidelines:
 - Embedded styles
   
     are included within `<style>` elements within the HTML source. Example:
+
     ```css <style> 
     h1 { font-family: wingdings; font-size:32; } 
     body {color: blue; } 
@@ -354,9 +397,11 @@ In general, you might consider the following guidelines:
 with linked stylesheets, think about order of linking
 
 ## 4.7. Modularising your Stylesheets
+
 can give a different stylesheets for a printed version of your page
 
 ## 4.8. CSS Extension Languages
+
 `Sass` (Syntactically Awesome Style Sheets) and Less are variations of CSS used for styling but with syntactical additions. Stylesheets written with CSS extension languages must be compiled to native CSS so that the browser can render them correctly. 
 
 ## 4.9. Google Fonts
@@ -367,6 +412,7 @@ can give a different stylesheets for a printed version of your page
 ```
 
 ## 4.10. JavaScript
+>
 > The JavaScript versions implemented by the major browsers cannot be said to implement any particular version. Rather, they use JavaScript engines that support, to a greater or lesser extent, features of JavaScript that implement, to a greater or lesser extent, the ECMAScript standards.
 
 ## 4.11. Document Object Model (DOM)
@@ -388,6 +434,7 @@ You can get the root element of a document (usually its `<html>` element) by que
 Elements have an id, a classList, a name, and contents accessible through the innerHTML property.
 
 # 5. Front-End Applications
+
 Node.js is a JavaScript runtime engine typically used to run server-side JavaScript code. It is based on the V8 JavaScript engine, used in Google Chrome. 
 
 he Node ecosystem is vast, and includes many frameworks in their own right. Tying them all together is a package ecosystem.
@@ -417,6 +464,7 @@ server.listen(7999, 'localhost', () => {
 ```
 
 ## 5.1. The package.json File
+
 **name and version** are defined by the developer of the package, and together form a unique identifier. The name can’t be more than 214 characters long and the version is in the form M.m.p (for Major version, minor version, and patch level). 
 
 **scripts** is where you define the commands that run at certain points in the package lifecycle, such as “install”, “build”, or “test”. 
@@ -426,6 +474,7 @@ server.listen(7999, 'localhost', () => {
 Rather than include a license, you might include a line "private": true,. This tells the packager that this package will not be distributed through any repository. If you include this line you do not need to specify a license.
 
 If you upload to a repository, you should also include an author field. It might look like this:
+
 ```javascript
        "author": { 
           "name":  "Jeremy Smyth", 
@@ -437,9 +486,13 @@ If you upload to a repository, you should also include an author field. It might
 **dependencies** are required to run the application. 
 
 **devDependencies** are required to develop and build the application, but are typically not deployed with the application. For example, client applications don’t need to import TypeScript into the browser.
+
 # 6. Express
+
 Basic framework which allows you to do routing in server-side applications
+
 ## 6.1. Routes
+
 Express routes incoming web requests based on the HTTP method and the requested resource.
 
 The following example might be used to list all cars:
@@ -471,7 +524,9 @@ app.listen(7999, function() {
    console.log('Express started') 
 });
 ```
+
 ## 6.2. Middleware
+
 You can set functions which will run regardless of route.
 
 ```javascript
@@ -493,8 +548,8 @@ Middleware is often used for state management and authentication.
 
 # 7. Introduction to Nunjucks
 
-
 To enable it in your Express application is simple:
+
 ```javascript
 const nunjucks = require('nunjucks'); 
 ... 
@@ -510,24 +565,33 @@ app.get('/sample', function (req, res) {
 ```
 
 ## 7.1. Gulp
+
 Typical Gulp tasks might:
+
 - Clean the project directory of previously-compiled assets
 - Compile templates or code to browser-native languages
 - Watch source directories for changes, and compile those changes
 - Serve assets, both precompiled and changed
 
 # 8. Web Services
+
 ## 8.1. GET, POST, PUT, DELETE
+
 `GET` -  in which only the HTTP request header is sent and the form data are submitted as part of the file name, using a special syntax 
 `POST` - , in which the filename in the header remains unchanged, and the request is contained in the HTTP body.
 
 The special syntax for GET requests include the ?, &, and = characters, as well as escape sequences such as %20 which indicate the hexadecimal codes for characters not supported in HTTP headers, including spaces, and the three reserved characters listed.
+
 ## 8.2. Web Services
+
 Web services can sometimes works as a client in relation to other classes
+
 ## 8.3. RESTful Web Services
+
 RESTful Web services refer to the REST architecture, which in turn is short for Representational State Transfer. REST defines a set of standards or constraints that dictate how clients can request resources of a server, and how state is communicated between client and server. 
 
 # 9. Nunjucks Template Basics
+
 ```javascript
 {{ myvar }} 
 {{ mynum * 3 }}
@@ -556,11 +620,14 @@ RESTful Web services refer to the REST architecture, which in turn is short for 
 <h1>This replaces the default content.</h1> 
 {% endblock %} 
 ```
+
 # 10. Working with forms
+
 The “action” attribute defaults to the current resource.
 The “method” defaults to GET, but you can choose POST to submit larger quantities of data. In a RESTful application, you might also use PUT or DELETE to create or remove data from the back end from your forms. 
 
 # 11. Params
+
 ```javascript
 router.get('football/:team/player/:player'), function(req, res) {
    var ip = req.ip
@@ -580,6 +647,7 @@ var player = req.query.player
 ```
 
 # 12. Database API and Asynchronous
+
 ```javascript
 // connection
 const mysql = require('mysql'); 
@@ -601,6 +669,7 @@ con.query(sql, cityid, function (err, rows) {
 ```
 
 ## 12.1. Promisify wrapper
+
 ```javascript
 function wrapDB(credentials) {
    return {

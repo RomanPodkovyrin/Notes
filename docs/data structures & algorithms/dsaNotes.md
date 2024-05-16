@@ -22,11 +22,11 @@
 
 ## Time Complexity
 
-https://www.bigocheatsheet.com/
+<https://www.bigocheatsheet.com/>
 
 `Big O` - a mathematical notation that describes the limiting behaviour of a function when the argument tends towards a particular value or infinity.
 
-<img src=".img/BigOGraph.jpg" width="500">
+![](img/BigOGraph.jpg)
 
 **Polynomial Runtimes** - Considered efficient and adequate to be used.
 

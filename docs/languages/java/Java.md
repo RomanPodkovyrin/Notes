@@ -289,7 +289,7 @@ public int calcPay() {
    return (salary / 12) + Math.round(commissionRate * salesTotal); 
 }
 ```
-![](.img/accessModifiers.png)
+![](img/accessModifiers.png)
 
 #### 1.3.9.2. Overriding Methods Inherited from Object
 
