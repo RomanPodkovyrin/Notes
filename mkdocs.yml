@@ -32,7 +32,8 @@ theme:
     - navigation.tracking
     - navigation.path
     - navigation.footer
-    # - toc.integrate
+    - toc.integrate
+    - navigation.top
     # - navigation.tabs
     # - navigation.tabs.sticky
     # - navigation.sections
