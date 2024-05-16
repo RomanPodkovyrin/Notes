@@ -1,0 +1,50 @@
+site_name: Notes
+
+# locale: ru
+
+theme:
+  name: material #mkdocs #readthedocs
+  palette:
+         # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  # color_mode: dark
+  
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  
+# plugins:
+#   - glightbox
+
+# nav: 
+#   - Home: index.md
+#   - Software Notes:
+#       - Languages:
+#         - Go: languages/go/go.md
+        # - Java: kb/disk-management/formatting-drive-automount.md
+        # - JS: kb/disk-management/mount-a-new-drive.md
+        # - "GPT PMBR Size Mismatch will be corrected by w(rite)" : kb/disk-management/gpt-pmbr-size-mismatch-will-be-corrected-by-write.md
+      # - Minio:
+      #     - OLD : kb/minio/old.md
+      #     - Connecting to minio over s3fs: kb/minio/minio-over-s3fs.md
+      #     - creating users and assigning policies: kb/minio/s3-policies.md
+      # - PHP:
+      #     - Install PHP: kb/php/install-php.md
+      #     - Wordpress permissions: kb/php/wordpress-permissions.md
+      # - Docker:
+      #     - Installing Docker: kb/docker/installing-docker.md
+      #     - Basics of docker: kb/docker/basics-of-docker.md
+      #     - Installing jellyfin: kb/docker/installing-jellyfin.md
+      #     - "Docker: Intro and notes": kb/docker/docker-intro-and-notes.md
+      #     - Exporting and importing: kb/docker/exporting-and-importing.md
+      #     - Docker Architecture: kb/docker/docker-architecture.md
+      #     - Bulk retag: kb/docker/bulk-retag.md
