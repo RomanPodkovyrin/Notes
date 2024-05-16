@@ -4,10 +4,17 @@ site_url: http://docs.romanempire.dev
 repo_url: https://github.com/RomanPodkovyrin/Notes
 repo_name: Notes
 # locale: ru
-nav:
-  - Home: index.md
-  - About: about.md
-  - AI: /ai
+# nav:
+#   - Home: index.md
+#   - About: about.md
+#   - Languages: /languages
+
+copyright: Copyright &copy; Roman Podkovyrin
+extra:
+  generator: false
+  # social:
+  #   - icon: fontawesome/brands/mastodon 
+  #     link: https://fosstodon.org/@squidfunk
 # extra:
 #   alternate:
 #     - name: English
@@ -18,6 +25,17 @@ nav:
     #   lang: ru
       
 theme:
+  features:
+    - search.suggest
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.path
+    - navigation.footer
+    # - toc.integrate
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.sections
   logo: assets/duck-logo-noboarders.png
   favicon: assets/duck-logo-noboarders.png
   language: en
@@ -41,6 +59,7 @@ theme:
   # color_mode: dark
   
 markdown_extensions:
+  - tables
   - abbr
   - admonition
   - attr_list
@@ -52,6 +71,7 @@ markdown_extensions:
       alternate_style: true
   - toc:
       permalink: true
+      # title: On this page
   # Python Markdown Extensions
   - pymdownx.arithmatex:
       generic: true
