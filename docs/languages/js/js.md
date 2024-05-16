@@ -1,3 +1,6 @@
+---
+icon: material/language-javascript
+---
 # 1. JavaScript
 
 

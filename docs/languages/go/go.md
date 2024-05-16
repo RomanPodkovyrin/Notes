@@ -1,3 +1,6 @@
+---
+icon: material/language-go
+---
 # 1. Go
 
 1. Statically typed

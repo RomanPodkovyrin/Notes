@@ -1,3 +1,6 @@
+---
+icon: material/language-kotlin
+---
 # 1. Kotlin
 
 It is a high level strongly statically typed language that combines functional and technical part in a same place

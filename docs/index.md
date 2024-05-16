@@ -102,13 +102,13 @@ graph TD
         G1 -->|Resolves| API1
 ```
 
-## 1.4. Apache Kafka
+- 1.4. Apache Kafka
 
-## 1.5. AsyncAPI
+- 1.5. AsyncAPI
 
-## 1.6. RPC
+- 1.6. RPC
 
-## 1.7. WebSocket
+- 1.7. WebSocket
 
 ```mermaid
 graph TD
@@ -129,10 +129,8 @@ graph TD
         WS1 -->|Publish/Subscribe| B2
 ```
 
-## 1.8. Webhook
+- 1.8. Webhook
 
-## 1.9. MQTT
+- 1.9. MQTT
 
-## 1.10. AMQP
-
-## 1.11. Resources
+- 1.10. AMQP

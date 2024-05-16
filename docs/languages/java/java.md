@@ -1,3 +1,7 @@
+---
+# title: Built-in blog plugin
+icon: material/language-java
+---
 # 1. Java
 
 ## 1.1. Introduction to Java

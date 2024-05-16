@@ -1,3 +1,6 @@
+---
+icon: material/language-python
+---
 # 1. Python 3
 
 # 2. Variables, expressions, and Statements

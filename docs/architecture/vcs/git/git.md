@@ -1,3 +1,6 @@
+---
+icon: material/git
+---
 # 1. Git
 
 Git is a distributed version control system

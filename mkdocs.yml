@@ -133,7 +133,6 @@ markdown_extensions:
 
   
 nav:
-  - About: about.md
   - Languages:
     - languages/index.md
     - Go: languages/go/go.md
@@ -146,20 +145,26 @@ nav:
     - Kotlin: languages/kotlin/kotlin.md
     - Python: languages/python/python.md
   - DevOps: 
+    - devops/index.md
     - Cloud: 
-      - AZ-900: devops/cloud/azure/az-900/az-900.md
+      - Azure: 
+        - AZ-900: devops/cloud/azure/az-900/az-900.md
     - Containerisation: 
       - Docker Compose: devops/containerisation/docker-compose.md
   - Security: 
+    - security/index.md
     - Authentication: security/authentication/authentication.md
   - Software Engineering: 
-    - Version Control System (VCS): architecture/vcs/git/git.md
+    - architecture/index.md
+    - Version Control System (VCS): 
+      - GIT: architecture/vcs/git/git.md
     - Data Structures & Algorithms: architecture/data-structures-and-algorithms/dsa.md
     - Software Development Patterns: 
       - 12 Factor Apps: architecture/patterns/12-factor-app/12-factor-app.md
       - Test Driven Development: architecture/patterns/tdd/tdd.md
     - Testing: architecture/testing/testing.md
   - Web Development and Backend:
+    - web-dev-and-backend/index.md
     - API Architecture: 
       - REST: web-dev-and-backend/api/rest/rest.md
     - Backend: 
@@ -168,6 +173,7 @@ nav:
       #   - Springboot: 
     - Web Development:
       - web-dev-and-backend/web/web.md
+  # - About: about.md
   
     
     

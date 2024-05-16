@@ -1,3 +1,6 @@
+---
+icon: material/language-typescript
+---
 # 1. TypeScript
 A typed superset of JavaScript
 

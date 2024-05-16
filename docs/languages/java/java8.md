@@ -1,3 +1,6 @@
+---
+icon: material/language-java
+---
 # Java 8
 
 ## Lambda
