@@ -1,28 +1,26 @@
 site_name: Notes
 site_url: http://docs.romanempire.dev
+site_author: Roman Podkovyrin
+site_description: >-
+  Documentation in Markdown of my notes
 
 repo_url: https://github.com/RomanPodkovyrin/Notes
 repo_name: Notes
-# locale: ru
-# nav:
-#   - Home: index.md
-#   - About: about.md
-#   - Languages: /languages
+
 
 copyright: Copyright &copy; Roman Podkovyrin
 extra:
   generator: false
-  # social:
-  #   - icon: fontawesome/brands/mastodon 
-  #     link: https://fosstodon.org/@squidfunk
-# extra:
-#   alternate:
-#     - name: English
-#       link: / #/en/ 
-#       lang: en
-    # - name: Russian
-    #   link: /ru/
-    #   lang: ru
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/RomanPodkovyrin
+  # alternate:
+  #   - name: English
+  #     link: / #/en/ 
+  #     lang: en
+  #   - name: Russian
+  #     link: /ru/
+  #     lang: ru
       
 theme:
   features:
@@ -32,9 +30,16 @@ theme:
     - navigation.tracking
     - navigation.path
     - navigation.footer
-    - toc.integrate
+    # - toc.integrate
     - navigation.top
-    # - navigation.tabs
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.indexes
+    - navigation.tabs
+    # - navigation.indexes
     # - navigation.tabs.sticky
     # - navigation.sections
   logo: assets/duck-logo-noboarders.png
@@ -90,7 +95,6 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
-  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - toc:
@@ -107,42 +111,63 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
-  - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  
-  
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
 
-# plugins:
-#   - glightbox
-
-# nav: 
-#   - Home: index.md
-#   - Software Notes:
-#       - Languages:
-#         - Go: languages/go/go.md
-        # - Java: kb/disk-management/formatting-drive-automount.md
-        # - JS: kb/disk-management/mount-a-new-drive.md
-        # - "GPT PMBR Size Mismatch will be corrected by w(rite)" : kb/disk-management/gpt-pmbr-size-mismatch-will-be-corrected-by-write.md
-      # - Minio:
-      #     - OLD : kb/minio/old.md
-      #     - Connecting to minio over s3fs: kb/minio/minio-over-s3fs.md
-      #     - creating users and assigning policies: kb/minio/s3-policies.md
-      # - PHP:
-      #     - Install PHP: kb/php/install-php.md
-      #     - Wordpress permissions: kb/php/wordpress-permissions.md
-      # - Docker:
-      #     - Installing Docker: kb/docker/installing-docker.md
-      #     - Basics of docker: kb/docker/basics-of-docker.md
-      #     - Installing jellyfin: kb/docker/installing-jellyfin.md
-      #     - "Docker: Intro and notes": kb/docker/docker-intro-and-notes.md
-      #     - Exporting and importing: kb/docker/exporting-and-importing.md
-      #     - Docker Architecture: kb/docker/docker-architecture.md
-      #     - Bulk retag: kb/docker/bulk-retag.md
+  
+nav:
+  - About: about.md
+  - Languages:
+    - languages/index.md
+    - Go: languages/go/go.md
+    - Java: 
+      - Java: languages/java/java.md
+      - Java 8: languages/java/java8.md
+    - Javascript: 
+      - Vanila JS: languages/js/js.md
+      - TypeScript: languages/typescript/typescript.md
+    - Kotlin: languages/kotlin/kotlin.md
+    - Python: languages/python/python.md
+  - DevOps: 
+    - Cloud: 
+      - AZ-900: devops/cloud/azure/az-900/az-900.md
+    - Containerisation: 
+      - Docker Compose: devops/containerisation/docker-compose.md
+  - Security: 
+    - Authentication: security/authentication/authentication.md
+  - Software Engineering: 
+    - Version Control System (VCS): architecture/vcs/git/git.md
+    - Data Structures & Algorithms: architecture/data-structures-and-algorithms/dsa.md
+    - Software Development Patterns: 
+      - 12 Factor Apps: architecture/patterns/12-factor-app/12-factor-app.md
+      - Test Driven Development: architecture/patterns/tdd/tdd.md
+    - Testing: architecture/testing/testing.md
+  - Web Development and Backend:
+    - API Architecture: 
+      - REST: web-dev-and-backend/api/rest/rest.md
+    - Backend: 
+      - Databases: web-dev-and-backend/backend/databases/db.md
+      # - Frameworks: 
+      #   - Springboot: 
+    - Web Development:
+      - web-dev-and-backend/web/web.md
+  
+    
+    

@@ -1,5 +1,10 @@
 # 1. Web
 
+!!! bug "Bad Frontend Dev"
+
+    I know, something is seriously wrong with style of this page. It aint' my fault. It worked fine in all other Markdown viewers.
+    This page is a good reason why you shouldn't let me touch frontend. Can't be asked to fix it tho
+   
 # 2. Native Front-End Web Development
 
 Web standards; HTML; CSS; JavaScript; Foundation; Sass; Responsive design; Accessibility

@@ -1,6 +1,5 @@
 # 1. API Architectures
 
-
 ## 1.1. REST
 
 REST - representational state transfer
