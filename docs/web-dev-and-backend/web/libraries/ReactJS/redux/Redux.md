@@ -3,7 +3,6 @@
 Predictable state container designed to help you write JavaScript apps that behave consistently across client, server, and native environments and are easy to test.
 
 Mostly used as a state management tool with React, it can also be used with other frameworks or libraries.
-[Code example](code/learn-redux)
 
 
 ## 1.1. What problem does it solve ?
@@ -231,8 +230,6 @@ npm install @reduxjs/toolkit
 ```
 
 ## 2.3. Basic Tutorial: Counter Application
-
-[Code Example](code/basic-counter-app)
 
 ## 2.4. Library
 
