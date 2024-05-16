@@ -10,37 +10,37 @@
 > Useful: go package docs <https://pkg.go.dev/>
 
 - [1. Go](#1-go)
-  - [1.1. Initialising the project](#11-initialising-the-project)
-  - [1.2. Folder structure convention](#12-folder-structure-convention)
-  - [1.3. How to import local package](#13-how-to-import-local-package)
-  - [1.4. File structure](#14-file-structure)
-  - [1.5. Execution](#15-execution)
-  - [1.6. All Key words](#16-all-key-words)
-  - [1.7. Types](#17-types)
-  - [1.8. Initialisation](#18-initialisation)
-    - [1.8.1. Constant](#181-constant)
-  - [1.9. Strings](#19-strings)
-    - [1.9.1. String length ⚠️](#191-string-length-️)
-    - [1.9.2. Runes](#192-runes)
-  - [1.10. Casting](#110-casting)
-  - [1.11. Function](#111-function)
-    - [1.11.1. Multiple returns](#1111-multiple-returns)
-    - [1.11.2. Varadic functions](#1112-varadic-functions)
-    - [1.11.3. Closures](#1113-closures)
-    - [1.11.4. Recursion](#1114-recursion)
-  - [1.12. Error Handling](#112-error-handling)
-  - [1.13. Control flow](#113-control-flow)
-    - [1.13.1. If/Else](#1131-ifelse)
-    - [1.13.2. Switch](#1132-switch)
-  - [1.14. Data Structures](#114-data-structures)
-    - [1.14.1. Arrays](#1141-arrays)
-    - [1.14.2. Slices](#1142-slices)
-    - [1.14.3. Maps `map[string]int32`](#1143-maps-mapstringint32)
-  - [1.15. Iteration](#115-iteration)
-    - [1.15.1. `range`](#1151-range)
-    - [1.15.2. While loop](#1152-while-loop)
-    - [1.15.3. For loop](#1153-for-loop)
-  - [1.16. Sources](#116-sources)
+    - [1.1. Initialising the project](#11-initialising-the-project)
+    - [1.2. Folder structure convention](#12-folder-structure-convention)
+    - [1.3. How to import local package](#13-how-to-import-local-package)
+    - [1.4. File structure](#14-file-structure)
+    - [1.5. Execution](#15-execution)
+    - [1.6. All Key words](#16-all-key-words)
+    - [1.7. Types](#17-types)
+    - [1.8. Initialisation](#18-initialisation)
+        - [1.8.1. Constant](#181-constant)
+    - [1.9. Strings](#19-strings)
+        - [1.9.1. String length ⚠️](#191-string-length-️)
+        - [1.9.2. Runes](#192-runes)
+    - [1.10. Casting](#110-casting)
+    - [1.11. Function](#111-function)
+        - [1.11.1. Multiple returns](#1111-multiple-returns)
+        - [1.11.2. Varadic functions](#1112-varadic-functions)
+        - [1.11.3. Closures](#1113-closures)
+        - [1.11.4. Recursion](#1114-recursion)
+    - [1.12. Error Handling](#112-error-handling)
+    - [1.13. Control flow](#113-control-flow)
+        - [1.13.1. If/Else](#1131-ifelse)
+        - [1.13.2. Switch](#1132-switch)
+    - [1.14. Data Structures](#114-data-structures)
+        - [1.14.1. Arrays](#1141-arrays)
+        - [1.14.2. Slices](#1142-slices)
+        - [1.14.3. Maps `map[string]int32`](#1143-maps-mapstringint32)
+    - [1.15. Iteration](#115-iteration)
+        - [1.15.1. `range`](#1151-range)
+        - [1.15.2. While loop](#1152-while-loop)
+        - [1.15.3. For loop](#1153-for-loop)
+    - [1.16. Sources](#116-sources)
 
 ## 1.1. Initialising the project
 
@@ -50,7 +50,7 @@
 
 Therefore when we are initialising a new project we are initialising a new module.
 
-- `go mod init my_module` initialise the module (usually it's the repo url)
+-   `go mod init my_module` initialise the module (usually it's the repo url)
 
 The file `go.mod` contains:
 
@@ -73,8 +73,8 @@ Say we have the following structure:
 ```bash
 <root>/
  |-- util/
-      |-- util1.go
-      |-- util2.go
+            |-- util1.go
+            |-- util2.go
  |-- main.go
 ```
 
@@ -84,10 +84,10 @@ Say we have the following structure:
 package util
 
 func IntMin(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+        if a < b {
+                return a
+        }
+        return b
 }
 ```
 
@@ -97,10 +97,10 @@ func IntMin(a, b int) int {
 package util
 
 func IntMin(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+        if a < b {
+                return a
+        }
+        return b
 }
 ```
 
@@ -110,13 +110,13 @@ To call it from `main.go`
 
 ```go
 package main
-  util1 "companies-house-watcher/util"
-  util2 "companies-house-watcher/util"
+    util1 "companies-house-watcher/util"
+    util2 "companies-house-watcher/util"
 )
 
 func main() {
-  util1.IntMin(1, 2)
-  util2.IntMin(1, 2)
+    util1.IntMin(1, 2)
+    util2.IntMin(1, 2)
 }
 
 ```
@@ -128,46 +128,46 @@ package main // special package name, tells the compiler to look for the entry p
 import "fmt"
 
 func main(){
-    fmt.Println("Hello World!")
+        fmt.Println("Hello World!")
 }
 ```
 
 ## 1.5. Execution
 
-- `go build main.go` compiles into binary file
-- `./main` runs the program
+-   `go build main.go` compiles into binary file
+-   `./main` runs the program
 
 or
 
-- `go run main.go` compiles and runs
+-   `go run main.go` compiles and runs
 
 ## 1.6. All Key words
 
-- `break`
-- `default`
-- `func`
-- `interface`
-- `select`
-- `case`
-- `defer`
-- `go`
-- `map`
-- `struct`
-- `chan`
-- `else`
-- `goto`
-- `package`
-- `switch`
-- `const`
-- `fallthrough`
-- `if`
-- `range`
-- `type`
-- `continue`
-- `for`
-- `import`
-- `return`
-- `var`
+-   `break`
+-   `default`
+-   `func`
+-   `interface`
+-   `select`
+-   `case`
+-   `defer`
+-   `go`
+-   `map`
+-   `struct`
+-   `chan`
+-   `else`
+-   `goto`
+-   `package`
+-   `switch`
+-   `const`
+-   `fallthrough`
+-   `if`
+-   `range`
+-   `type`
+-   `continue`
+-   `for`
+-   `import`
+-   `return`
+-   `var`
 
 ## 1.7. Types
 
@@ -271,20 +271,20 @@ package main // special package name, tells the compiler to look for the entry p
 import "fmt"
 
 func main() {
-    printMe("Roman")
+        printMe("Roman")
 
-    var numerator int = 11
-    var denominator int = 2
-    var result int = intDivision(numerator, denominator)
-    fmt.PrintLn(result) // 5
+        var numerator int = 11
+        var denominator int = 2
+        var result int = intDivision(numerator, denominator)
+        fmt.PrintLn(result) // 5
 }
 
 func printMe(name string) {
-    fmt.Println("Hello", name) // Hello Roman
+        fmt.Println("Hello", name) // Hello Roman
 }
 
 func intDivision(numerator int, denominator int) int {
-    return numerator/denominator
+        return numerator/denominator
 }
 ```
 
@@ -292,17 +292,17 @@ func intDivision(numerator int, denominator int) int {
 
 ```go
 func main() {
-  var numerator int = 11
-  var denominator int = 2
-  var result, remainder int = intDivision(numerator, denominator)
-  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder)
-  // Result of division is 5 and the remainder is 1
+    var numerator int = 11
+    var denominator int = 2
+    var result, remainder int = intDivision(numerator, denominator)
+    fmt.Printf("Result of division is %v and the remainder is %V", result, remainder)
+    // Result of division is 5 and the remainder is 1
 }
 
 func intDivision(numerator int, denominator int) (int, int) {
-  var result int = numerator/denominator
-  var remainder int = numerator%denominator
-  return result, remainder
+    var result int = numerator/denominator
+    var remainder int = numerator%denominator
+    return result, remainder
 }
 
 ```
@@ -317,15 +317,15 @@ package main
 import "fmt"
 
 func sum(nums ...int) {
-  // here nums is [int]
-  fmt.Print(nums, " ")
-  total := 0
+    // here nums is [int]
+    fmt.Print(nums, " ")
+    total := 0
 
-  for _, num := range nums {
-    total += num
-  }
+    for _, num := range nums {
+        total += num
+    }
 
-  fmt.Println(total)
+    fmt.Println(total)
 }
 
 
@@ -346,12 +346,12 @@ sum(nums...) // [ 1 2 3 4] 10
  function closes over the variable i to form a closure.
 
 func intSeq() func() int { // returns anonymous function which returns an integer
-  i := 0
-  // Anonymous function which *closes over* the variable `i` to form a closure
-  return func() int {
-    i++
-    return i
-  }
+    i := 0
+    // Anonymous function which *closes over* the variable `i` to form a closure
+    return func() int {
+        i++
+        return i
+    }
 }
 
 
@@ -373,36 +373,36 @@ fmt.Println(newInts()) // 1
 
 > Note: Unlike other programming languages, go doesn't use `try/catch` to handle errors. Go communicates error via an explicit separate return value Those are handled with
 >
-> - `New()`
-> - `Errorf()`
+> -   `New()`
+> -   `Errorf()`
 
 ```go
 
 import (
-  "errors"
-  "fmt"
+    "errors"
+    "fmt"
 )
 
 func main() {
-  var numerator int = 11
-  var denominator int = 2
-  var result, remainder, err = intDivision(numerator, denominator)
-  if err!=nil{
-    fmt.Printf(err.Error())
-    return
-  }
-  fmt.Printf("Result of division is %v and the remainder is %V", result, remainder)
-  // Result of division is 5 and the remainder is 1
+    var numerator int = 11
+    var denominator int = 2
+    var result, remainder, err = intDivision(numerator, denominator)
+    if err!=nil{
+        fmt.Printf(err.Error())
+        return
+    }
+    fmt.Printf("Result of division is %v and the remainder is %V", result, remainder)
+    // Result of division is 5 and the remainder is 1
 }
 
 func intDivision(numerator int, denominator int) (int, int, error) {
-  var err error
-  if denominator == 0 {
-      return 0, 0, err
-  }
-  var result int = numerator/denominator
-  var remainder int = numerator%denominator
-  return result, remainder
+    var err error
+    if denominator == 0 {
+            return 0, 0, err
+    }
+    var result int = numerator/denominator
+    var remainder int = numerator%denominator
+    return result, remainder
 }
 ```
 
@@ -417,23 +417,23 @@ func intDivision(numerator int, denominator int) (int, int, error) {
 ```go
 num := 42
  if num < 0 {
-    fmt.Println(num, "is negative")
-  } else if num < 10 {
-    fmt.Println(num, "has 1 digit")
-  } else {
-    fmt.Println(num, "has multiple digits")
-  }
+        fmt.Println(num, "is negative")
+    } else if num < 10 {
+        fmt.Println(num, "has 1 digit")
+    } else {
+        fmt.Println(num, "has multiple digits")
+    }
 ```
 
 Values can be declared in If statements, those will be available in current and subsecant branches
 
 ```go
 if num := 9000; num < 0 {
-  fmt.Println(num, "is negative")
+    fmt.Println(num, "is negative")
 } else if num < 10 {
-  fmt.Println(num, "has 1 digit")
+    fmt.Println(num, "has 1 digit")
 } else {
-  fmt.Println(num, "has multiple digits")
+    fmt.Println(num, "has multiple digits")
 }
 ```
 
@@ -446,45 +446,45 @@ if num := 9000; num < 0 {
 i := 2
 switch i {
 case 1:
-  fmt.Println("one")
+    fmt.Println("one")
 case 2, 3:
-  fmt.Println("two and three")
+    fmt.Println("two and three")
 case 4:
-  fmt.Println("four")
+    fmt.Println("four")
 default:
-  fmt.Println("All other numvers")
+    fmt.Println("All other numvers")
 }
 ```
 
 Switch can be used without expressions making it behave like if/else
 
 ```go
-    t := time.Now()
-    switch {
-    case t.Hour() < 12: // If
-        fmt.Println("It's before noon")
-    default: // else
-        fmt.Println("It's after noon")
-    }
+        t := time.Now()
+        switch {
+        case t.Hour() < 12: // If
+                fmt.Println("It's before noon")
+        default: // else
+                fmt.Println("It's after noon")
+        }
 ```
 
 Type switch compares types instead of values
 
 ```go
 whatAmI := func(i interface{}) {
-        switch t := i.(type) {
-        case bool:
-            fmt.Println("I'm a bool")
-        case int:
-            fmt.Println("I'm an int")
-        default:
-            fmt.Printf("Don't know type %T\n", t)
+                switch t := i.(type) {
+                case bool:
+                        fmt.Println("I'm a bool")
+                case int:
+                        fmt.Println("I'm an int")
+                default:
+                        fmt.Printf("Don't know type %T\n", t)
+                }
         }
-    }
 
-    whatAmI(true) // I'm a bool
-    whatAmI(1) // I'm an int
-    whatAmI("hey") // Don't know type string
+        whatAmI(true) // I'm a bool
+        whatAmI(1) // I'm an int
+        whatAmI("hey") // Don't know type string
 ```
 
 ## 1.14. Data Structures
@@ -493,10 +493,10 @@ whatAmI := func(i interface{}) {
 
 > Note: Arrays are:
 >
-> - Fixed length
-> - Same Type values
-> - Indexable
-> - Stored contiguously in memory
+> -   Fixed length
+> -   Same Type values
+> -   Indexable
+> -   Stored contiguously in memory
 
 ```go
 // Array initialisation
@@ -509,8 +509,8 @@ intArray := [...]int32{1,2,3} // infered length
 // Fixed Length: Can only hold 3 values
 // Same type Value: Each value is of type int32
 // array [0, 0, 0]
-//        |  |  |
-// index  0  1  2
+//                |    |    |
+// index    0    1    2
 
 // Contiguous store: each value of int32 is 4 bytes, overall intArr allocates 12 bytes
 
@@ -528,12 +528,12 @@ fmt.Println(&intArr[0]) // 0x1400012200c
 2d arrays
 
 ```go
-//      [row][column]
+//            [row][column]
 var twoD [2][3]int
 for i := 0; i < 2; i++ {
-    for j := 0; j < 3; j++ {
-        twoD[i][j] = i + j
-    }
+        for j := 0; j < 3; j++ {
+                twoD[i][j] = i + j
+        }
 }
 fmt.Println(twoD) // [[0 1 2] [1 2 3]]
 ```
@@ -580,7 +580,7 @@ intSlice = append(intSlice, 7, 8) // will render the same result
 
 ```go
 var l []string = []string{a, b, c, d, e, f}
-//                           [a b c d e f]
+//                                                     [a b c d e f]
 fmt.Println("sl3:", s[2:5])//[c d e]
 fmt.Println("sl3:", s[:5])// [a b c d e]
 fmt.Println("sl3:", s[2:])// [c d e f]
@@ -591,13 +591,13 @@ Multi-dimensional data structures. Length of the inner slice can vary, unlike wi
 ```go
 twoD := make([][]int, 3)
 for i := 0; i < 3; i++ {
-    innerLen := i + 1
-    twoD[i] = make([]int, innerLen)
-    for j := 0; j < innerLen; j++ {
-        twoD[i][j] = i + j
-    }
+        innerLen := i + 1
+        twoD[i] = make([]int, innerLen)
+        for j := 0; j < innerLen; j++ {
+                twoD[i][j] = i + j
+        }
 }
-fmt.Println("2d: ", twoD) // 2d:  [[0] [1 2] [2 3 4]]
+fmt.Println("2d: ", twoD) // 2d:    [[0] [1 2] [2 3 4]]
 ```
 
 More about slices implementation in go <https://go.dev/blog/slices-intro>
@@ -638,41 +638,41 @@ Look at `maps` package for more useful utility functions
 var nums []int{2, 3, 4}
 sum := 0
 for _, num := range nums {
-  sum += num
+    sum += num
 }
 
 for index, num := range nums {
-  fmt.Println("index:", i, " num:", num)
+    fmt.Println("index:", i, " num:", num)
 }
 
 
 // MAP
 kvs := map[string]string{"a": "banana", "b": "apple",}
 for key, value := range kvs {
-  fmt.Printf("%s -> %s\n", k, v)
+    fmt.Printf("%s -> %s\n", k, v)
 }
 ```
 
 When iterating a string it iterates over Unicode code points.
 
-- First value is the starting byte index of the rune
-- Second is the rune itself
+-   First value is the starting byte index of the rune
+-   Second is the rune itself
 
 ### 1.15.2. While loop
 
 ```go
 for i<10 {
-  fmt.Println(i)
-  i = i + 1
+    fmt.Println(i)
+    i = i + 1
 }
 
 // or
 for {
-  if i > = 10 {
-    break
-  }
-  fmt.Println(i)
-  i = i + 1
+    if i > = 10 {
+        break
+    }
+    fmt.Println(i)
+    i = i + 1
 }
 ```
 
@@ -680,7 +680,7 @@ for {
 
 ```go
 for i := 7; i <=9: i ++ {
-  fmt.Println(i)
+    fmt.Println(i)
 }
 ```
 
@@ -699,5 +699,5 @@ can also use `continue` keyword
 
 ## 1.16. Sources
 
-- [Go By Example](https://gobyexample.com/)
-- [Programiz](https://www.programiz.com/golang)
+-   [Go By Example](https://gobyexample.com/)
+-   [Programiz](https://www.programiz.com/golang)

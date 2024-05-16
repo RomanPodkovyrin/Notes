@@ -13,5 +13,5 @@ function filterByTerm(input: Array<Link>, searchTerm: string) {
 
 filterByTerm(
   [{ url: "string1" }, { url: "string2" }, { url: "string3" }],
-  "java"
+  "java",
 );

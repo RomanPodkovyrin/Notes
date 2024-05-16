@@ -1,20 +1,20 @@
 # Authentication Methods
 
 - [Authentication Methods](#authentication-methods)
-  - [Session](#session)
-  - [(JWT) Token-Based Authentication](#jwt-token-based-authentication)
-  - [Resources](#resources)
+    - [Session](#session)
+    - [(JWT) Token-Based Authentication](#jwt-token-based-authentication)
+    - [Resources](#resources)
 
 Two main ways of doing user authentication
 
-- Session Cookies
-- JWT
+-   Session Cookies
+-   JWT
 
 ## Session
 
 > `Stateful` - Managed on the server
 >
-> - A stateful session between client and server.
+> -   A stateful session between client and server.
 
 ![session diagram](img/session.drawio.svg)
 
@@ -28,8 +28,8 @@ Authentication Steps:
 
 Cons:
 
-- Vulnerable to CSRF (Cross-side request forgery)
-- The session is stored on the server and due to most of the databases in the cloud being scaled horizontally that introduces a huge bottleneck issue.
+-   Vulnerable to CSRF (Cross-side request forgery)
+-   The session is stored on the server and due to most of the databases in the cloud being scaled horizontally that introduces a huge bottleneck issue.
 
 ## (JWT) Token-Based Authentication
 
@@ -41,8 +41,7 @@ Cons:
 Authentication steps:
 
 1. User submits login form
-2. The server creates JWT
-    - This is created with a private key on the server
+2. The server creates JWT - This is created with a private key on the server
 3. Sends JWT to the client
 4. Client Browser saves JWT in local storage
 5. Future requests signed JWT header validated
@@ -51,47 +50,47 @@ The user information is stored in the JWT, which gets deserialized once the JWT 
 
 JWT is signed using
 
-- a secret (**HMAC algorithm**)
-- or a public/private key using (**RSA** or **ECDSA**)
+-   a secret (**HMAC algorithm**)
+-   or a public/private key using (**RSA** or **ECDSA**)
 
 ![jwt diagram](img/jwt.drawio.svg)
 
 JWT use cases:
 
-- `Authorization:` Once the user is logged in, it allows the user to access services, resources, and routes permitted with that token.
-- `Information Exchange:` Good way of security transmitting info between parties. Because of using public/private keys for signing, it can be verified that content hasn’t been tampered with.
+-   `Authorization:` Once the user is logged in, it allows the user to access services, resources, and routes permitted with that token.
+-   `Information Exchange:` Good way of security transmitting info between parties. Because of using public/private keys for signing, it can be verified that content hasn’t been tampered with.
 
 Payload content:
 
-- Registered Claims:
-  - `iss` - issuer
-  - `sub` - Subject
-  - `aud` - audience
-  - `exp` - Expiration Time
-  - `nbf` - Not Before
-  - `iat` - Issued At
-  - `jti` - JWT ID
-  - `typ` - Type
-  - `cty` - Content Type
-- Public Claims: https://www.iana.org/assignments/jwt/jwt.xhtml
-- Can also add private claims
+-   Registered Claims:
+    -   `iss` - issuer
+    -   `sub` - Subject
+    -   `aud` - audience
+    -   `exp` - Expiration Time
+    -   `nbf` - Not Before
+    -   `iat` - Issued At
+    -   `jti` - JWT ID
+    -   `typ` - Type
+    -   `cty` - Content Type
+-   Public Claims: https://www.iana.org/assignments/jwt/jwt.xhtml
+-   Can also add private claims
 
-- Note
-  - As JWTs are sent through HTTP headers, you should keep them small.
+-   Note
+    -   As JWTs are sent through HTTP headers, you should keep them small.
 
 Pro:
 
-- Because all the info is stored in the token, don’t need to store any information on the server
-  - Can be validated with a private key on the server, which solves the scaling issue
-  - Can use the same JWT across different services
-  - For example when using microservices
+-   Because all the info is stored in the token, don’t need to store any information on the server
+    -   Can be validated with a private key on the server, which solves the scaling issue
+    -   Can use the same JWT across different services
+    -   For example when using microservices
 
 Cons:
 
-- JWT can be highjacked
-- Due to them being stateless, harder to revoke
+-   JWT can be highjacked
+-   Due to them being stateless, harder to revoke
 
 ## Resources
 
-- [JWT.IO](https://jwt.io/)
-- [https://datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1)
+-   [JWT.IO](https://jwt.io/)
+-   [https://datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1)
