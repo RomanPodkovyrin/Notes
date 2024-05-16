@@ -9,39 +9,6 @@
 
 > Useful: go package docs <https://pkg.go.dev/>
 
-- [1. Go](#1-go)
-    - [1.1. Initialising the project](#11-initialising-the-project)
-    - [1.2. Folder structure convention](#12-folder-structure-convention)
-    - [1.3. How to import local package](#13-how-to-import-local-package)
-    - [1.4. File structure](#14-file-structure)
-    - [1.5. Execution](#15-execution)
-    - [1.6. All Key words](#16-all-key-words)
-    - [1.7. Types](#17-types)
-    - [1.8. Initialisation](#18-initialisation)
-        - [1.8.1. Constant](#181-constant)
-    - [1.9. Strings](#19-strings)
-        - [1.9.1. String length ⚠️](#191-string-length-️)
-        - [1.9.2. Runes](#192-runes)
-    - [1.10. Casting](#110-casting)
-    - [1.11. Function](#111-function)
-        - [1.11.1. Multiple returns](#1111-multiple-returns)
-        - [1.11.2. Varadic functions](#1112-varadic-functions)
-        - [1.11.3. Closures](#1113-closures)
-        - [1.11.4. Recursion](#1114-recursion)
-    - [1.12. Error Handling](#112-error-handling)
-    - [1.13. Control flow](#113-control-flow)
-        - [1.13.1. If/Else](#1131-ifelse)
-        - [1.13.2. Switch](#1132-switch)
-    - [1.14. Data Structures](#114-data-structures)
-        - [1.14.1. Arrays](#1141-arrays)
-        - [1.14.2. Slices](#1142-slices)
-        - [1.14.3. Maps `map[string]int32`](#1143-maps-mapstringint32)
-    - [1.15. Iteration](#115-iteration)
-        - [1.15.1. `range`](#1151-range)
-        - [1.15.2. While loop](#1152-while-loop)
-        - [1.15.3. For loop](#1153-for-loop)
-    - [1.16. Sources](#116-sources)
-
 ## 1.1. Initialising the project
 
 `Module` - Collection of Packages

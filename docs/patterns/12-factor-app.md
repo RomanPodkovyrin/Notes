@@ -1,19 +1,5 @@
 # 1. The 12 Factor App
 
-- [1. The 12 Factor App](#1-the-12-factor-app)
-    - [1.1. I. Codebase](#11-i-codebase)
-    - [1.2. II. Dependencies](#12-ii-dependencies)
-    - [1.3. III. Config](#13-iii-config)
-    - [1.4. IV. Backing Services](#14-iv-backing-services)
-    - [1.5. V. Build, release, run](#15-v-build-release-run)
-    - [1.6. VI. Processes](#16-vi-processes)
-    - [1.7. VII. Port binding](#17-vii-port-binding)
-    - [1.8. VIII. Concurrency](#18-viii-concurrency)
-    - [1.9. IX. Disposability](#19-ix-disposability)
-    - [1.10. X. Dev/prod parity](#110-x-devprod-parity)
-    - [1.11. XI. Logs](#111-xi-logs)
-    - [1.12. XII. Admin processes](#112-xii-admin-processes)
-- [2. Resources](#2-resources)
 
 In modern era, software is created as `web apps`, or `software-as-a-service`. 12 factor app is a methodology for building `software-as-a-service` apps that:
 

@@ -1,10 +1,5 @@
 # Authentication Methods
 
-- [Authentication Methods](#authentication-methods)
-    - [Session](#session)
-    - [(JWT) Token-Based Authentication](#jwt-token-based-authentication)
-    - [Resources](#resources)
-
 Two main ways of doing user authentication
 
 -   Session Cookies

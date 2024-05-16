@@ -1,12 +1,5 @@
 # 1. JavaScript
 
-- [1. JavaScript](#1-javascript)
-    - [1.1. JavaScript vs ECMAScript](#11-javascript-vs-ecmascript)
-- [2. Printout](#2-printout)
-- [3. Variable declaration and definition](#3-variable-declaration-and-definition)
-- [4. Access modifiers](#4-access-modifiers)
-- [5. Primitive Types in JavaScript](#5-primitive-types-in-javascript)
-- [6. Reference](#6-reference)
 
 JavaScript can function as both a **procedural** and an **object oriented language**.
 

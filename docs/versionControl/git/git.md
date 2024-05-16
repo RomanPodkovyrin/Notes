@@ -2,25 +2,6 @@
 
 Git is a distributed version control system
 
-- [1. Git](#1-git)
-    - [1.1. Git 101](#11-git-101)
-    - [1.2. Scenarios](#12-scenarios)
-        - [1.2.1. Modifying pushed commit (changes and message)](#121-modifying-pushed-commit-changes-and-message)
-        - [1.2.2. Pushed a few changes that were not supposed to be committed](#122-pushed-a-few-changes-that-were-not-supposed-to-be-committed)
-        - [1.2.3. Cherry Picking](#123-cherry-picking)
-        - [1.2.4. Git seems to be running quite slow locally](#124-git-seems-to-be-running-quite-slow-locally)
-        - [1.2.5. Creating and Pushing new branch](#125-creating-and-pushing-new-branch)
-        - [1.2.6. Squashing commits that contain a merge](#126-squashing-commits-that-contain-a-merge)
-        - [1.2.7. Revert part of the commit](#127-revert-part-of-the-commit)
-        - [1.2.8. Gitignore file without deleting it, and not tracking changes](#128-gitignore-file-without-deleting-it-and-not-tracking-changes)
-    - [1.3. Tags](#13-tags)
-    - [1.4. Merge](#14-merge)
-    - [1.5. Rebase](#15-rebase)
-    - [1.6. Rebase vs Merge](#16-rebase-vs-merge)
-    - [1.7. Resetting local branch to origin](#17-resetting-local-branch-to-origin)
-    - [1.8. Rebasing feature branch with develop when the branched is based on another feature branch](#18-rebasing-feature-branch-with-develop-when-the-branched-is-based-on-another-feature-branch)
-- [2. Reference](#2-reference)
-
 ## 1.1. Git 101
 
 ![git diagrams](img/git.png)

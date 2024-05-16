@@ -7,20 +7,8 @@ https://reactjs.org/tutorial/tutorial.html
 -   Reactive Updates
 -   Virtual views in memory
 
-## 1.1. Table of Contents
 
-- [1. React](#1-react)
-    - [1.1. Table of Contents](#11-table-of-contents)
-    - [1.2. Setup](#12-setup)
-- [2. React.Component](#2-reactcomponent)
-    - [2.1. Types:](#21-types)
-        - [2.1.1. Function component](#211-function-component)
-        - [2.1.2. Class Component](#212-class-component)
-- [3. State](#3-state)
-    - [3.1. useState()](#31-usestate)
-- [4. Reference](#4-reference)
-
-## 1.2. Setup
+## 1.1. Setup
 
 `npx create-react-app my-app`
 

@@ -1,31 +1,4 @@
 # 1. TypeScript
-
-- [1. TypeScript](#1-typescript)
-    - [1.1. tsconfig.json](#11-tsconfigjson)
-    - [1.2. Types](#12-types)
-        - [1.2.1. Boolean](#121-boolean)
-        - [1.2.2. Number](#122-number)
-        - [1.2.3. String](#123-string)
-        - [1.2.4. Array](#124-array)
-        - [1.2.5. Tuple](#125-tuple)
-        - [1.2.6. Enum](#126-enum)
-        - [1.2.7. Unknown](#127-unknown)
-        - [1.2.8. Any](#128-any)
-        - [1.2.9. Void](#129-void)
-        - [1.2.10. Null and Undefined](#1210-null-and-undefined)
-        - [1.2.11. Never](#1211-never)
-        - [1.2.12. Object](#1212-object)
-    - [1.3. Interface and Fields](#13-interface-and-fields)
-    - [1.4. Extending Interfaces](#14-extending-interfaces)
-    - [1.5. Type Aliases](#15-type-aliases)
-    - [1.6. Union Types](#16-union-types)
-    - [1.7. Intersection Types](#17-intersection-types)
-    - [1.8. Literal Types](#18-literal-types)
-    - [1.9. Nullable Types](#19-nullable-types)
-    - [1.10. Optional Chaining](#110-optional-chaining)
-    - [1.11. Indexing Interlude](#111-indexing-interlude)
-- [2. Reference](#2-reference)
-
 A typed superset of JavaScript
 
 ```typescript

@@ -1,26 +1,7 @@
-# API Architectures
+# 1. API Architectures
 
-- [API Architectures](#api-architectures)
-        - [REST](#rest)
-                - [end point options](#end-point-options)
-                - [HTTP methods](#http-methods)
-                - [Headers](#headers)
-                - [Data (Body)](#data-body)
-                - [Authentication](#authentication)
-                - [HTTP Status Codes and Error Messages](#http-status-codes-and-error-messages)
-                - [API Version](#api-version)
-        - [SOAP](#soap)
-        - [GRAPHQL](#graphql)
-        - [Apache Kafka](#apache-kafka)
-        - [AsyncAPI](#asyncapi)
-        - [RPC](#rpc)
-        - [WebSocket](#websocket)
-        - [Webhook](#webhook)
-        - [MQTT](#mqtt)
-        - [AMQP](#amqp)
-        - [Resources](#resources)
 
-## REST
+## 1.1. REST
 
 REST - representational state transfer
 
@@ -33,7 +14,7 @@ sequenceDiagram
         Server-->>Client: Return data as JSON
 ```
 
-### end point options
+### 1.1.1. end point options
 
 -   `:` - variable
     -   `/users/:username/repos`
@@ -41,7 +22,7 @@ sequenceDiagram
 -   `&` - Query parameters separator - `?query1=value1&query2=value2
 `
 
-### HTTP methods
+### 1.1.2. HTTP methods
 
 -   `GET`
     -   This request is used to get a resource from a server. If you perform a `GET` request, the server looks for the data you requested and sends it back to you. In other words, a `GET` request performs a `READ` operation. This is the default request method.
@@ -52,7 +33,7 @@ sequenceDiagram
 -   `DELETE`
     -   This request is used to delete a resource from a server. If you perform a `DELETE` request, the server deletes an entry in the database and tells you whether the deletion is successful. In other words, a `DELETE` request performs a `DELETE` operation.
 
-### Headers
+### 1.1.3. Headers
 
 Provides information to both client an server.
 
@@ -64,25 +45,25 @@ eg.
 
 -   `Content-Type: application/json`
 
-### Data (Body)
+### 1.1.4. Data (Body)
 
 Information to be sent to the server. This is usually used with `POST`, `PUT`, `PATCH` or `DELETE`
 
-### Authentication
+### 1.1.5. Authentication
 
 There are 2 ways to authenticate yourself:
 
 1. With a username and password
 2. With a secret token (Like oAuth)
 
-### HTTP Status Codes and Error Messages
+### 1.1.6. HTTP Status Codes and Error Messages
 
 -   200+ means the request has `succeeded`.
 -   300+ means the request is `redirected` to another URL
 -   400+ means an `error that originates from the client` has occurred
 -   500+ means an `error that originates from the server` has occurred
 
-### API Version
+### 1.1.7. API Version
 
 Requesting specific api version
 
@@ -93,9 +74,9 @@ Requesting specific api version
 2. In a request header
     - Specify version with an `Accept` header
 
-## SOAP
+## 1.2. SOAP
 
-## GRAPHQL
+## 1.3. GRAPHQL
 
 ```mermaid
 graph TD
@@ -114,13 +95,13 @@ graph TD
         G1 -->|Resolves| API1
 ```
 
-## Apache Kafka
+## 1.4. Apache Kafka
 
-## AsyncAPI
+## 1.5. AsyncAPI
 
-## RPC
+## 1.6. RPC
 
-## WebSocket
+## 1.7. WebSocket
 
 ```mermaid
 graph TD
@@ -141,12 +122,12 @@ graph TD
         WS1 -->|Publish/Subscribe| B2
 ```
 
-## Webhook
+## 1.8. Webhook
 
-## MQTT
+## 1.9. MQTT
 
-## AMQP
+## 1.10. AMQP
 
-## Resources
+## 1.11. Resources
 
 -   [Understanding And Using REST APIs](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/)

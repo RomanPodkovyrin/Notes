@@ -5,49 +5,22 @@ Predictable state container designed to help you write JavaScript apps that beha
 Mostly used as a state management tool with React, it can also be used with other frameworks or libraries.
 [Code example](code/learn-redux)
 
-## 1.1. Table of Contents
 
-- [1. Redux](#1-redux)
-    - [1.1. Table of Contents](#11-table-of-contents)
-    - [1.2. What problem does it solve ?](#12-what-problem-does-it-solve-)
-    - [1.3. Setup](#13-setup)
-    - [1.4. STORE](#14-store)
-    - [1.5. Example](#15-example)
-    - [1.6. Actions](#16-actions)
-    - [1.7. Reducers](#17-reducers)
-    - [1.8. Store](#18-store)
-    - [1.9. Why use Redux?](#19-why-use-redux)
-    - [Thunk Explained](#thunk-explained)
-        - [Installation](#installation)
-        - [How to use](#how-to-use)
-- [2. Redux Toolkit](#2-redux-toolkit)
-    - [2.1. What's included](#21-whats-included)
-    - [2.2. Installation](#22-installation)
-        - [2.2.1. With Create React App](#221-with-create-react-app)
-        - [2.2.2. Existing App](#222-existing-app)
-    - [2.3. Basic Tutorial: Counter Application](#23-basic-tutorial-counter-application)
-    - [2.4. Library](#24-library)
-        - [2.4.1. `configureStore`](#241-configurestore)
-        - [Usage](#usage)
-            - [Basic Example](#basic-example)
-            - [Full Example](#full-example)
-- [3. Reference](#3-reference)
-
-## 1.2. What problem does it solve ?
+## 1.1. What problem does it solve ?
 
 React for example only flows in one direction, so if you want to pass data(props) from one component between multiple components, you can only pass it to one. You can solve it by `moving up the state` in React components. But it can get very complex which at some point it will be very hard to justify moving up the state to a higher component.
 
 Redux solves it by storing data separately, which can be accessed from each component independently
 
-## 1.3. Setup
+## 1.2. Setup
 
 `npm install redux react-redux`
 
-## 1.4. STORE
+## 1.3. STORE
 
 Holds all the information, like a global pool of data
 
-## 1.5. Example
+## 1.4. Example
 
 ```javascript
 import { createStore } from "redux";
@@ -84,7 +57,7 @@ store.dispatch(decrement());
 store.dispatch(decrement());
 ```
 
-## 1.6. Actions
+## 1.5. Actions
 
 Events which send data from your application to your redux store.
 
@@ -104,7 +77,7 @@ const setLoginStatus = (name, password) => {
 };
 ```
 
-## 1.7. Reducers
+## 1.6. Reducers
 
 Pure functions that take the current state of an application, perform an action and return a new state. Those states are stored as objects, and they specify how the state of an application changes in response to an action sent to the store.
 
@@ -135,7 +108,7 @@ const LoginComponent = (state = initialState, action) => {
 
 > As pure functions they don't change the data in the object passed to them or preform any side effects in the application. Given the same objects, they should always produce the same result
 
-## 1.8. Store
+## 1.7. Store
 
 Holds the application state. There is only one store in any Redux application. You can access the state stored, update the state, and register or unregister listeners via helper methods
 
@@ -147,7 +120,7 @@ import { createStore } from "redux";
 const store = createStore(LoginComponent);
 ```
 
-## 1.9. Why use Redux?
+## 1.8. Why use Redux?
 
 -   no need for states to e lifted up
 -   easier to trace which action causes any change
@@ -161,13 +134,13 @@ const store = createStore(LoginComponent);
 -   Easy to test
     -   since it's using pure functions
 
-## Thunk Explained
+## 1.9. Thunk Explained
 
 Redux Thunk is middleware that allows you to return functions, rather than just actions, within Redux.
 
 > Use case: This middleware can handle actions that might not be synchronous, for example, using axios to send a GET request. Redux Thunk allows us to dispatch those actions asynchronously and resolve each promise that gets returned.
 
-### Installation
+### 1.9.1. Installation
 
 -   `npm install redux-thunk --save`
 
@@ -181,7 +154,7 @@ import rootReducer from "./reducers/index";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 ```
 
-### How to use
+### 1.9.2. How to use
 
 After including Thunk with `applyMiddleware(thunk)`, you can start dispatching actions asynchronously.
 
@@ -323,9 +296,9 @@ function configureStore<S = any, A extends Action = AnyAction>(
 ): EnhancedStore<S, A>
 ```
 
-### Usage
+### 2.4.2. Usage
 
-#### Basic Example
+#### 2.4.2.1. Basic Example
 
 ```ts
 import { configureStore } from "@reduxjs/toolkit";
@@ -336,7 +309,7 @@ const store = configureStore({ reducer: rootReducer });
 // The store now has redux-thunk added and the Redux DevTools Extension is turned on
 ```
 
-#### Full Example
+#### 2.4.2.2. Full Example
 
 ```ts
 import { configureStore } from "@reduxjs/toolkit";

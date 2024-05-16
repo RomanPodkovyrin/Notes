@@ -1,130 +1,8 @@
 # 1. Python 3
 
-# 2. Contents
+# 2. Variables, expressions, and Statements
 
-- [1. Python 3](#1-python-3)
-- [2. Contents](#2-contents)
-- [3. Variables, expressions, and Statements](#3-variables-expressions-and-statements)
-        - [3.1. Types](#31-types)
-        - [3.2. Variables](#32-variables)
-                - [3.2.1. Python reserved keywords](#321-python-reserved-keywords)
-        - [3.3. Operators and operands](#33-operators-and-operands)
-                - [3.3.1. Order of operations](#331-order-of-operations)
-        - [3.4. String operations](#34-string-operations)
-                - [3.4.1. Concatenation](#341-concatenation)
-                - [3.4.2. Multiplication](#342-multiplication)
-        - [3.5. User Input](#35-user-input)
-        - [3.6. Glossary](#36-glossary)
-- [4. Conditional Execution](#4-conditional-execution)
-        - [4.1. Boolean expressions](#41-boolean-expressions)
-        - [4.2. Conditional execution](#42-conditional-execution)
-        - [4.3. Catching exceptions using try and except](#43-catching-exceptions-using-try-and-except)
-        - [4.4. Short-circuit evaluation of logical expressions](#44-short-circuit-evaluation-of-logical-expressions)
-        - [4.5. Glossary](#45-glossary)
-- [5. Functions](#5-functions)
-        - [5.1. Built-in Functions](#51-built-in-functions)
-        - [5.2. Math functions](#52-math-functions)
-        - [5.3. Random numbers](#53-random-numbers)
-        - [5.4. Type conversion](#54-type-conversion)
-        - [5.5. New Functions](#55-new-functions)
-                - [5.5.1. Default arguments](#551-default-arguments)
-                - [5.5.2. Variable-length Arguments](#552-variable-length-arguments)
-        - [5.6. Glossary](#56-glossary)
-- [6. Iteration](#6-iteration)
-        - [6.1. The while statement](#61-the-while-statement)
-        - [6.2. Continue and Break](#62-continue-and-break)
-        - [6.3. Loops](#63-loops)
-                - [6.3.1. Range()](#631-range)
-                        - [6.3.1.1. else](#6311-else)
-        - [6.4. Glossary](#64-glossary)
-- [7. Strings](#7-strings)
-        - [7.1. Assessing characters](#71-assessing-characters)
-        - [7.2. Length](#72-length)
-        - [7.3. Traversal](#73-traversal)
-        - [7.4. String slices](#74-string-slices)
-                - [7.4.1. Reverse a string](#741-reverse-a-string)
-        - [7.5. Strings are immutable](#75-strings-are-immutable)
-        - [7.6. The `in` operator](#76-the-in-operator)
-        - [7.7. String comparison](#77-string-comparison)
-        - [7.8. String methods](#78-string-methods)
-        - [7.9. Parsing strings](#79-parsing-strings)
-        - [7.10. Format Operator](#710-format-operator)
-        - [7.11. Glossary](#711-glossary)
-- [8. Files](#8-files)
-        - [8.1. Opening files modes](#81-opening-files-modes)
-        - [8.2. The file object attributes](#82-the-file-object-attributes)
-        - [8.3. Opening files](#83-opening-files)
-        - [8.4. Text files and lines](#84-text-files-and-lines)
-        - [8.5. Reading files](#85-reading-files)
-        - [8.6. Searching through a file](#86-searching-through-a-file)
-        - [8.7. Writing files](#87-writing-files)
-        - [8.8. Glossary](#88-glossary)
-- [9. Lists](#9-lists)
-        - [9.1. Lists are mutable](#91-lists-are-mutable)
-        - [9.2. Dims as variables](#92-dims-as-variables)
-        - [9.3. `in` operator](#93-in-operator)
-        - [9.4. Traversing a list](#94-traversing-a-list)
-                - [9.4.1. next() iteration](#941-next-iteration)
-        - [9.5. List operations](#95-list-operations)
-                - [9.5.1. `+`](#951-)
-                - [9.5.2. `*`](#952-)
-        - [9.6. List slices](#96-list-slices)
-        - [9.7. List methods](#97-list-methods)
-                - [9.7.1. append()](#971-append)
-                - [9.7.2. extends()](#972-extends)
-                - [9.7.3. sort()](#973-sort)
-                - [9.7.4. pop()](#974-pop)
-                - [9.7.5. del](#975-del)
-                - [9.7.6. remove()](#976-remove)
-        - [9.8. Lists and functions](#98-lists-and-functions)
-        - [9.9. Lists and strings](#99-lists-and-strings)
-        - [9.10. Objects and values](#910-objects-and-values)
-                - [9.10.1. `is` - refer to the dame object, checks for `Identity`](#9101-is---refer-to-the-dame-object-checks-for-identity)
-                - [9.10.2. Aliasing](#9102-aliasing)
-        - [9.11. List arguments](#911-list-arguments)
-                - [9.11.1. Modifies the list](#9111-modifies-the-list)
-                - [9.11.2. Creates new list](#9112-creates-new-list)
-        - [9.12. Glossary](#912-glossary)
-- [10. Dictionaries](#10-dictionaries)
-        - [10.1. Create](#101-create)
-        - [10.2. Add](#102-add)
-        - [10.3. Create pre-populated](#103-create-pre-populated)
-        - [10.4. Look up](#104-look-up)
-        - [10.5. Number of pairs](#105-number-of-pairs)
-        - [10.6. `in` check if a **key** is in the dictionary (does not work for **value**)](#106-in-check-if-a-key-is-in-the-dictionary-does-not-work-for-value)
-        - [10.7. Check if value is in the dictionary](#107-check-if-value-is-in-the-dictionary)
-        - [10.8. Looping and dictonaries](#108-looping-and-dictonaries)
-        - [10.9. Glossary](#109-glossary)
-- [11. Tuples](#11-tuples)
-        - [11.1. Comparing Tuples](#111-comparing-tuples)
-        - [11.2. Tuple Assignment](#112-tuple-assignment)
-        - [11.3. Dictionaries and tuples](#113-dictionaries-and-tuples)
-        - [11.4. Multiple assignment with dictionaries](#114-multiple-assignment-with-dictionaries)
-        - [11.5. Using tuples as keys in dictionaries](#115-using-tuples-as-keys-in-dictionaries)
-        - [11.6. Glossary](#116-glossary)
-- [12. Regular Expressions](#12-regular-expressions)
-        - [12.1. search()](#121-search)
-        - [12.2. Special characters](#122-special-characters)
-        - [12.3. Extracting data using regular expressions](#123-extracting-data-using-regular-expressions)
-        - [12.4. Combining searching and extracting](#124-combining-searching-and-extracting)
-        - [12.5. Combining searching and extracting](#125-combining-searching-and-extracting)
-        - [12.6. Glossary](#126-glossary)
-- [13. Networked Programs](#13-networked-programs)
-        - [13.1. The world's simplest web browser](#131-the-worlds-simplest-web-browser)
-        - [13.2. Retrieving an image over HTTP](#132-retrieving-an-image-over-http)
-        - [13.3. Retrieving web pages with urllib](#133-retrieving-web-pages-with-urllib)
-        - [13.4. Reading binary files using urllib](#134-reading-binary-files-using-urllib)
-        - [13.5. Parsing HTML and scraping the web](#135-parsing-html-and-scraping-the-web)
-        - [13.6. Parsing HTML using regular expressions](#136-parsing-html-using-regular-expressions)
-- [14. Using Web Services](#14-using-web-services)
-- [15. Object-oriented programming](#15-object-oriented-programming)
-- [16. Using Databases and SQL](#16-using-databases-and-sql)
-- [17. Visualising data](#17-visualising-data)
-- [18. Reference](#18-reference)
-
-# 3. Variables, expressions, and Statements
-
-## 3.1. Types
+## 2.1. Types
 
 ```python
 >>> type('hello world')
@@ -146,7 +24,7 @@ Will output the class of the variable
 
 `,` in print are interpreted as spaces
 
-## 3.2. Variables
+## 2.2. Variables
 
 ```python
 text = 'Hello friend'
@@ -166,7 +44,7 @@ Variables can:
 
 -   Start variables with lowercase letters
 
-### 3.2.1. Python reserved keywords
+### 2.2.1. Python reserved keywords
 
 |   and    |   del   |  from  |   None   | True  |
 | :------: | :-----: | :----: | :------: | :---: |
@@ -177,7 +55,7 @@ Variables can:
 | continue | finally |   is   |  raise   | async |
 |   def    |   for   | lambda |  return  | await |
 
-## 3.3. Operators and operands
+## 2.3. Operators and operands
 
 `operators` - are specific symbols that represent computations
 
@@ -193,7 +71,7 @@ Variables can:
 | %         | Modulus - remainder of the division of left operand by the right | `5 % 2` |
 | \*\*      | Exponentiation                                                   | `2**4`  |
 
-### 3.3.1. Order of operations
+### 2.3.1. Order of operations
 
 Using acronym **PEMDAS**, from highest to lowest
 
@@ -203,9 +81,9 @@ Using acronym **PEMDAS**, from highest to lowest
 -   **A**ddition and **S**ubtraction, which also have the same precedence
 -   Operators with the same precedence are evaluated from left to right
 
-## 3.4. String operations
+## 2.4. String operations
 
-### 3.4.1. Concatenation
+### 2.4.1. Concatenation
 
 `+` can be used to concatenate two strings together
 
@@ -216,7 +94,7 @@ Using acronym **PEMDAS**, from highest to lowest
 100500
 ```
 
-### 3.4.2. Multiplication
+### 2.4.2. Multiplication
 
 `*` can be used to repeat string a given number of times.
 
@@ -227,7 +105,7 @@ Using acronym **PEMDAS**, from highest to lowest
 Test Test Test
 ```
 
-## 3.5. User Input
+## 2.5. User Input
 
 ```python
 >>> user_input = input("Give me your name?\n")
@@ -240,7 +118,7 @@ Is you are expecting an integer you are going to need to convert **string** to *
 12
 ```
 
-## 3.6. Glossary
+## 2.6. Glossary
 
 -   `assignment` A statement that assigns a value to a variable.
 -   `concatenate` To join two operands end to end.
@@ -261,9 +139,9 @@ Is you are expecting an integer you are going to need to convert **string** to *
 -   `value` One of the basic units of data, like a number or string, that a program manipulates.
 -   `variable` A name that refers to a value.
 
-# 4. Conditional Execution
+# 3. Conditional Execution
 
-## 4.1. Boolean expressions
+## 3.1. Boolean expressions
 
 | Comparison operators | Action                 |
 | -------------------- | ---------------------- |
@@ -281,7 +159,7 @@ Is you are expecting an integer you are going to need to convert **string** to *
 | and               |
 | or                |
 
-## 4.2. Conditional execution
+## 3.2. Conditional execution
 
 ```python
 if x < 3:
@@ -292,7 +170,7 @@ else:
         print('big')
 ```
 
-## 4.3. Catching exceptions using try and except
+## 3.3. Catching exceptions using try and except
 
 ```python
 inp = input('Enter Fahrenheit Temp')
@@ -306,7 +184,7 @@ except:
         print('something else')
 ```
 
-## 4.4. Short-circuit evaluation of logical expressions
+## 3.4. Short-circuit evaluation of logical expressions
 
 Logical expressions are evaluated from left to right. if in `and` the first part of the condition evaluates to **False** then there is no reason to evaluate the rest, you can return zero.
 
@@ -316,7 +194,7 @@ Logical expressions are evaluated from left to right. if in `and` the first part
 >>> x >= 2 and y != 0 and (x/y) > 2
 ```
 
-## 4.5. Glossary
+## 3.5. Glossary
 
 -   `body` The sequence of statements within a compound statement.
 -   `boolean expression` An expression whose value is either True or False.
@@ -332,9 +210,9 @@ Logical expressions are evaluated from left to right. if in `and` the first part
 -   `traceback` A list of the functions that are executing, printed when an exception occurs.
 -   `short circuit` When Python is part-way through evaluating a logical expression and stops the evaluation because Python knows the final value for the expression without needing to evaluate the rest of the expression.
 
-# 5. Functions
+# 4. Functions
 
-## 5.1. Built-in Functions
+## 4.1. Built-in Functions
 
 |                                                                                  |                                                                                  | Built-in Functions                                                            |                                                                                    |                                                                                   |
 | :------------------------------------------------------------------------------- | :------------------------------------------------------------------------------- | :---------------------------------------------------------------------------- | :--------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
@@ -353,7 +231,7 @@ Logical expressions are evaluated from left to right. if in `and` the first part
 | [`compile()`](https://docs.python.org/3/library/functions.html#compile)          | [`globals()`](https://docs.python.org/3/library/functions.html#globals)          | [`map()`](https://docs.python.org/3/library/functions.html#map)               | [`reversed()`](https://docs.python.org/3/library/functions.html#reversed)          | [`__import__()`](https://docs.python.org/3/library/functions.html#__import__)     |
 | [`complex()`](https://docs.python.org/3/library/functions.html#complex)          | [`hasattr()`](https://docs.python.org/3/library/functions.html#hasattr)          | [`max()`](https://docs.python.org/3/library/functions.html#max)               | [`round()`](https://docs.python.org/3/library/functions.html#round)                |                                                                                   |
 
-## 5.2. Math functions
+## 4.2. Math functions
 
 To use [math](https://docs.python.org/3.0/library/math.html) module
 
@@ -361,7 +239,7 @@ To use [math](https://docs.python.org/3.0/library/math.html) module
 import math
 ```
 
-## 5.3. Random numbers
+## 4.3. Random numbers
 
 ```python
 import random
@@ -378,7 +256,7 @@ t = [1, 2, 3]
 random.choice(t)
 ```
 
-## 5.4. Type conversion
+## 4.4. Type conversion
 
 ```python
 >>> int('32')
@@ -424,7 +302,7 @@ False
 '€'
 ```
 
-## 5.5. New Functions
+## 4.5. New Functions
 
 ```python
 def sum(a, b):
@@ -432,7 +310,7 @@ def sum(a, b):
         return added
 ```
 
-### 5.5.1. Default arguments
+### 4.5.1. Default arguments
 
 ```python
 def sum(a=4, b=2)
@@ -442,7 +320,7 @@ def sum(a=4, b=2)
 
 `def func(a=1, b) ` is not allowed because calling `func(5)` will set a but will leave b with not value
 
-### 5.5.2. Variable-length Arguments
+### 4.5.2. Variable-length Arguments
 
 if you don't know the number of arguments needed in the function
 
@@ -471,7 +349,7 @@ Nina
 ('Nina', 'DC')
 ```
 
-## 5.6. Glossary
+## 4.6. Glossary
 
 -   `algorithm` A general process for solving a category of problems.
 -   `argument `A value provided to a function when the function is called. This value is assigned to the corresponding parameter in the function.
@@ -493,9 +371,9 @@ Nina
 -   `return value` The result of a function. If a function call is used as an expression, the return value is the value of the expression.
 -   `void function` A function that does not return a value.
 
-# 6. Iteration
+# 5. Iteration
 
-## 6.1. The while statement
+## 5.1. The while statement
 
 ```python
 n = 5
@@ -504,7 +382,7 @@ while n > 0:
         n = n - 1
 ```
 
-## 6.2. Continue and Break
+## 5.2. Continue and Break
 
 ```python
 while True:
@@ -517,7 +395,7 @@ while True:
 print('Done!')
 ```
 
-## 6.3. Loops
+## 5.3. Loops
 
 ```python
 friends = ['Josh', 'Glenn', 'Sally']
@@ -526,7 +404,7 @@ for friend in friends:
 print('Done')
 ```
 
-### 6.3.1. Range()
+### 5.3.1. Range()
 
 ```python
 for x in range(6):
@@ -549,7 +427,7 @@ for x in range(2,30,3)
 
 `range(2,30,3)` is from **2** to **29** but with increments of **3**
 
-#### 6.3.1.1. else
+#### 5.3.1.1. else
 
 ```python
 for x in range (6):
@@ -558,7 +436,7 @@ else:
         print('Finally finished!')
 ```
 
-## 6.4. Glossary
+## 5.4. Glossary
 
 -   `accumulator` A variable used in a loop to add up or accumulate a result.
 -   `counter` A variable used in a loop to count the number of times something happened. We initialize a counter to zero and then increment the counter each time we want to “count” something.
@@ -568,16 +446,16 @@ else:
 -   `infinite loop` A loop in which the terminating condition is never satisfied or for which there is no terminating condition.
 -   `iteration` Repeated execution of a set of statements using either a function that calls itself or a loop.
 
-# 7. Strings
+# 6. Strings
 
-## 7.1. Assessing characters
+## 6.1. Assessing characters
 
 ```python
 >>> fruit = 'banana'
 >>> letter = fruit[0]
 ```
 
-## 7.2. Length
+## 6.2. Length
 
 ```python
 >>> fruit = 'banana'
@@ -585,7 +463,7 @@ else:
 6
 ```
 
-## 7.3. Traversal
+## 6.3. Traversal
 
 Can use index or
 
@@ -594,7 +472,7 @@ for char in fruit:
         print(char)
 ```
 
-## 7.4. String slices
+## 6.4. String slices
 
 ```python
 >>> s = 'Monty Python'
@@ -618,7 +496,7 @@ Python
 ''
 ```
 
-### 7.4.1. Reverse a string
+### 6.4.1. Reverse a string
 
 ```python
 >>> a = "!dlrow olleH"
@@ -627,7 +505,7 @@ Python
 Hello world!
 ```
 
-## 7.5. Strings are immutable
+## 6.5. Strings are immutable
 
 Cannon change a character as indexes.
 
@@ -637,7 +515,7 @@ Cannon change a character as indexes.
 TypeError: 'str' object does not support item assignment
 ```
 
-## 7.6. The `in` operator
+## 6.6. The `in` operator
 
 Boolean operator
 
@@ -648,7 +526,7 @@ True
 False
 ```
 
-## 7.7. String comparison
+## 6.7. String comparison
 
 ```python
 if word == 'banana':
@@ -659,7 +537,7 @@ elif wor > 'banana':
         print('Your word comes after banana')
 ```
 
-## 7.8. String methods
+## 6.8. String methods
 
 Can use `dir(obj)` to find out methods for the object, or just is this [site](https://docs.python.org/3/library/stdtypes.html#string-methods)
 
@@ -716,7 +594,7 @@ True
 False
 ```
 
-## 7.9. Parsing strings
+## 6.9. Parsing strings
 
 ```python
 >>> data = 'From stephen.marquard@uct.ac.za Sat Jan
@@ -730,7 +608,7 @@ False
 >>> print(ho
 ```
 
-## 7.10. Format Operator
+## 6.10. Format Operator
 
 `%` allows to contract strings, which can be replaced with data stored in variables.
 
@@ -751,7 +629,7 @@ False
 'In 3 years I have spotted 0.1 camels.'
 ```
 
-## 7.11. Glossary
+## 6.11. Glossary
 
 -   `counter` A variable used to count something, usually initialized to zero and then incremented.
 -   `empty string `A string with no characters and length 0, represented by two quotation marks.
@@ -770,9 +648,9 @@ False
 -   `slice` A part of a string specified by a range of indices.
 -   `traverse` To iterate through the items in a sequence, performing a similar operation on each.
 
-# 8. Files
+# 7. Files
 
-## 8.1. Opening files modes
+## 7.1. Opening files modes
 
 | Mode  | Description                                                                                                                                                                                                                                |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -789,7 +667,7 @@ False
 | `a+`  | Opens a file for both appending and reading. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing.                  |
 | `ab+` | Opens a file for both appending and reading in binary format. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing. |
 
-## 8.2. The file object attributes
+## 7.2. The file object attributes
 
 | Attribute        | Description                                                            |
 | ---------------- | ---------------------------------------------------------------------- |
@@ -798,7 +676,7 @@ False
 | `file.name`      | Returns name of the file.                                              |
 | `file.softspace` | Returns false if space explicitly required with print, true otherwise. |
 
-## 8.3. Opening files
+## 7.3. Opening files
 
 `mbox.txt` stored in the same directory as where the python is run
 
@@ -810,7 +688,7 @@ False
 
 ![](img/image-20200601141927255.png)
 
-## 8.4. Text files and lines
+## 7.4. Text files and lines
 
 ```python
 >>> stuff = 'Hello\nWorld!'
@@ -827,7 +705,7 @@ Y
 3
 ```
 
-## 8.5. Reading files
+## 7.5. Reading files
 
 Counting lines
 
@@ -852,7 +730,7 @@ If you know the file to be small you can read the whole file at once
 0
 ```
 
-## 8.6. Searching through a file
+## 7.6. Searching through a file
 
 ```python
 fhand = open('mbox.txt')
@@ -871,7 +749,7 @@ for line in fhand:
         print(line)
 ```
 
-## 8.7. Writing files
+## 7.7. Writing files
 
 ```python
 >>> fout = open('output.txt', 'w')
@@ -884,7 +762,7 @@ If the file already exists opening it in `write mode` clears out the old data
 
 Closing files is more important in writing, but can also be done with reading
 
-## 8.8. Glossary
+## 7.8. Glossary
 
 -   `catch` To prevent an exception from terminating a program using the try and except statements.
 -   `newline` A special character used in files and strings to indicate the end of a line.
@@ -892,7 +770,7 @@ Closing files is more important in writing, but can also be done with reading
 -   `Quality Assurance` A person or team focused on insuring the overall quality of a software product. QA is often involved in testing a product and identifying problems before the product is released.
 -   `text file` A sequence of characters stored in permanent storage like a hard drive.
 
-# 9. Lists
+# 8. Lists
 
 ```python
 >>> numbers = [10, 20, 30, 40]
@@ -900,7 +778,7 @@ Closing files is more important in writing, but can also be done with reading
 >>> mix = ['spam', 2.0, 5, [10,20]]
 ```
 
-## 9.1. Lists are mutable
+## 8.1. Lists are mutable
 
 ```python
 >>> numbers = [17, 123]
@@ -909,7 +787,7 @@ Closing files is more important in writing, but can also be done with reading
 [17, 5]
 ```
 
-## 9.2. Dims as variables
+## 8.2. Dims as variables
 
 ```python
 >>> array = [5, 10, 15, 20]
@@ -918,7 +796,7 @@ Closing files is more important in writing, but can also be done with reading
 5, 10, 15, 20
 ```
 
-## 9.3. `in` operator
+## 8.3. `in` operator
 
 ```python
 >>> cheeses = ['Cheddar', 'Edam', 'Gouda']
@@ -928,7 +806,7 @@ True
 False
 ```
 
-## 9.4. Traversing a list
+## 8.4. Traversing a list
 
 ```python
 for cheese in cheeses:
@@ -940,7 +818,7 @@ for i in range(len(numbers)):
         numbers[i] = numbers[i] * 2
 ```
 
-### 9.4.1. next() iteration
+### 8.4.1. next() iteration
 
 ```python
 >>> g = (x ** 2 for x in range(10))
@@ -950,9 +828,9 @@ for i in range(len(numbers)):
 1
 ```
 
-## 9.5. List operations
+## 8.5. List operations
 
-### 9.5.1. `+`
+### 8.5.1. `+`
 
 ```python
 >>> a = [1, 2, 3]
@@ -962,7 +840,7 @@ for i in range(len(numbers)):
 [1, 2, 3, 4, 5, 6]
 ```
 
-### 9.5.2. `*`
+### 8.5.2. `*`
 
 ```python
 >>> [0] * 4
@@ -971,7 +849,7 @@ for i in range(len(numbers)):
 [1, 2, 3, 1, 2, 3, 1, 2, 3]
 ```
 
-## 9.6. List slices
+## 8.6. List slices
 
 ```python
 >>> t = ['a', 'b', 'c', 'd', 'e', 'f']
@@ -990,9 +868,9 @@ for i in range(len(numbers)):
 ['a', 'x', 'y', 'd', 'e', 'f']
 ```
 
-## 9.7. List methods
+## 8.7. List methods
 
-### 9.7.1. append()
+### 8.7.1. append()
 
 ```python
 >>> t = ['a', 'b', 'c']
@@ -1001,7 +879,7 @@ for i in range(len(numbers)):
 ['a', 'b', 'c', 'd']
 ```
 
-### 9.7.2. extends()
+### 8.7.2. extends()
 
 ```python
 >>> t1 = ['a', 'b', 'c']
@@ -1011,7 +889,7 @@ for i in range(len(numbers)):
 ['a', 'b', 'c', 'd', 'e']
 ```
 
-### 9.7.3. sort()
+### 8.7.3. sort()
 
 ```python
 >>> t = ['d', 'c', 'e', 'b', 'a']
@@ -1020,7 +898,7 @@ for i in range(len(numbers)):
 ['a', 'b', 'c', 'd', 'e']
 ```
 
-### 9.7.4. pop()
+### 8.7.4. pop()
 
 ```python
 >>> t = ['a', 'b', 'c']
@@ -1029,7 +907,7 @@ for i in range(len(numbers)):
 ['a', 'c']
 ```
 
-### 9.7.5. del
+### 8.7.5. del
 
 ```python
 >>> t = ['a', 'b', 'c']
@@ -1045,7 +923,7 @@ for i in range(len(numbers)):
 ['a', 'f']
 ```
 
-### 9.7.6. remove()
+### 8.7.6. remove()
 
 ```python
 >>> t = ['a', 'b', 'c']
@@ -1054,7 +932,7 @@ for i in range(len(numbers)):
 ['a', 'c']
 ```
 
-## 9.8. Lists and functions
+## 8.8. Lists and functions
 
 ```python
 >>> nums = [3, 41, 12, 9, 74, 15]
@@ -1070,7 +948,7 @@ for i in range(len(numbers)):
 25
 ```
 
-## 9.9. Lists and strings
+## 8.9. Lists and strings
 
 ```python
 >>> s = 'spam'
@@ -1100,13 +978,13 @@ for i in range(len(numbers)):
 'pining for the fjords'
 ```
 
-## 9.10. Objects and values
+## 8.10. Objects and values
 
 Checking if values refer to two different objects with the same value or if they both refer to the same object
 
 ![](img/image-20200608132501981.png)
 
-### 9.10.1. `is` - refer to the dame object, checks for `Identity`
+### 8.10.1. `is` - refer to the dame object, checks for `Identity`
 
 ```python
 >>> a = 'banana'
@@ -1129,7 +1007,7 @@ Lists here are
 -   `Equivalent` - because have the same elements
 -   `Non Identical` - because they are not the same object
 
-### 9.10.2. Aliasing
+### 8.10.2. Aliasing
 
 ```python
 >>> a = [1, 2, 3]
@@ -1138,7 +1016,7 @@ Lists here are
 True
 ```
 
-## 9.11. List arguments
+## 8.11. List arguments
 
 Lists are mutable so when it is passed into the function and gets modified there, there is no need to return.
 
@@ -1154,7 +1032,7 @@ def delete_head(t):
 ['b', 'c']
 ```
 
-### 9.11.1. Modifies the list
+### 8.11.1. Modifies the list
 
 ```python
 >>> t1 = [1, 2]
@@ -1165,7 +1043,7 @@ def delete_head(t):
 None
 ```
 
-### 9.11.2. Creates new list
+### 8.11.2. Creates new list
 
 ```python
 >>> t3 = t1 +[3]
@@ -1175,7 +1053,7 @@ None
 False
 ```
 
-## 9.12. Glossary
+## 8.12. Glossary
 
 -   `aliasing` A circumstance where two or more variables refer to the same object.
 -   `delimiter` A character or string used to indicate where a string should be split.
@@ -1189,9 +1067,9 @@ False
 -   `object` Something a variable can refer to. An object has a type and a value.
 -   `reference` The association between a variable and its value.
 
-# 10. Dictionaries
+# 9. Dictionaries
 
-## 10.1. Create
+## 9.1. Create
 
 ```python
 >>> eng2sp = dict() # Creaes new dictionarry with no items
@@ -1199,7 +1077,7 @@ False
 {}
 ```
 
-## 10.2. Add
+## 9.2. Add
 
 ```python
 >>> eng2sp['one'] = 'uno'
@@ -1207,7 +1085,7 @@ False
 {'one': 'uno'}
 ```
 
-## 10.3. Create pre-populated
+## 9.3. Create pre-populated
 
 ```python
 >>> eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
@@ -1215,7 +1093,7 @@ False
 {'one': 'uno', 'three': 'tres', 'two': 'dos'} # dictonary order is unpredictable
 ```
 
-## 10.4. Look up
+## 9.4. Look up
 
 ```python
 >>> print(eng2sp['two'])
@@ -1234,14 +1112,14 @@ None
 'not in the dictionary'
 ```
 
-## 10.5. Number of pairs
+## 9.5. Number of pairs
 
 ```python
 >>> len(eng2sp)
 3
 ```
 
-## 10.6. `in` check if a <u>**key**</u> is in the dictionary (does not work for <u>**value**</u>)
+## 9.6. `in` check if a <u>**key**</u> is in the dictionary (does not work for <u>**value**</u>)
 
 ```python
 >>> 'one' in eng2sp
@@ -1250,7 +1128,7 @@ True
 False
 ```
 
-## 10.7. Check if value is in the dictionary
+## 9.7. Check if value is in the dictionary
 
 ```python
 >>> vals = list(eng2sp.values())
@@ -1258,7 +1136,7 @@ False
 True
 ```
 
-## 10.8. Looping and dictonaries
+## 9.8. Looping and dictonaries
 
 ```python
 counts = { 'chuck' : 1, 'annie' : 42, 'jan': 100}
@@ -1272,7 +1150,7 @@ chuck 1
 annie 42
 ```
 
-## 10.9. Glossary
+## 9.9. Glossary
 
 -   `dictionary` A mapping from a set of keys to their corresponding values.
 -   `hashtable `The algorithm used to implement Python dictionaries.
@@ -1286,7 +1164,7 @@ annie 42
 -   `nested loops` When there are one or more loops “inside” of another loop. The inner loop runs to completion each time the outer loop runs once.
 -   `value` An object that appears in a dictionary as the second part of a key-value pair. This is more specific than our previous use of the word “value”.
 
-# 11. Tuples
+# 10. Tuples
 
 > -   Tuples are immutable
 > -   Tuples are comparable
@@ -1334,7 +1212,7 @@ Can also use slice operator
 ('b', 'c')
 ```
 
-## 11.1. Comparing Tuples
+## 10.1. Comparing Tuples
 
 ```python
 >>> (0, 1, 2) < (0, 3, 4)
@@ -1369,7 +1247,7 @@ print(res)
 ['yonder', 'window', 'breaks', 'light', 'what', 'soft', 'but', 'in']
 ```
 
-## 11.2. Tuple Assignment
+## 10.2. Tuple Assignment
 
 Python allows to have tuple on the right side of assignment
 
@@ -1393,7 +1271,7 @@ With this it allows us to swap two values with each other
 >>> uname, domain = addr.split('@')
 ```
 
-## 11.3. Dictionaries and tuples
+## 10.3. Dictionaries and tuples
 
 Dictionaries have a method called `items` that returns a list of tuples, where each tuples is a key-value pair
 
@@ -1407,14 +1285,14 @@ Dictionaries have a method called `items` that returns a list of tuples, where e
 [('a', 10), ('b', 1), ('c', 22)]
 ```
 
-## 11.4. Multiple assignment with dictionaries
+## 10.4. Multiple assignment with dictionaries
 
 ```python
 for key, val in list(d.items()):
         print(val, key)
 ```
 
-## 11.5. Using tuples as keys in dictionaries
+## 10.5. Using tuples as keys in dictionaries
 
 > Tuples are hashable
 
@@ -1422,7 +1300,7 @@ for key, val in list(d.items()):
 directory[last, first] = number
 ```
 
-## 11.6. Glossary
+## 10.6. Glossary
 
 -   `comparable` A type where one value can be checked to see if it is greater than, less than, or equal to another value of the same type. Types which are comparable can be put in a list and sorted.
 -   `data structure` A collection of related values, often organized in lists, dictionaries, tuples, etc.
@@ -1435,9 +1313,9 @@ directory[last, first] = number
 -   `tuple` An immutable sequence of elements.
 -   `tuple assignment` An assignment with a sequence on the right side and a tuple of variables on the left. The right side is evaluated and then its elements are assigned to the variables on the left.
 
-# 12. Regular Expressions
+# 11. Regular Expressions
 
-## 12.1. search()
+## 11.1. search()
 
 Returns a Boolean saying if the value was found.
 
@@ -1450,7 +1328,7 @@ for line in hand:
         	print(line)
 ```
 
-## 12.2. Special characters
+## 11.2. Special characters
 
 | Character              | Meaning                                                                              | Example             |
 | ---------------------- | ------------------------------------------------------------------------------------ | ------------------- | --- | --- |
@@ -1521,7 +1399,7 @@ for line in hand:
 
 For Quantifiers, default is greedy. By appending ? you make it reluctant
 
-## 12.3. Extracting data using regular expressions
+## 11.3. Extracting data using regular expressions
 
 Use `findall()` to extract all sub-strings matching regex from a string
 
@@ -1545,7 +1423,7 @@ for line in hand:
         	print(x)
 ```
 
-## 12.4. Combining searching and extracting
+## 11.4. Combining searching and extracting
 
 Want to find number on lines which start with X-
 
@@ -1590,7 +1468,7 @@ for line in hand:
 ['0.0000']
 ```
 
-## 12.5. Combining searching and extracting
+## 11.5. Combining searching and extracting
 
 Lets extract the hour from this line
 
@@ -1614,7 +1492,7 @@ for line in hand:
 ['15']
 ```
 
-## 12.6. Glossary
+## 11.6. Glossary
 
 -   `brittle code` Code that works when the input data is in a particular format but is prone to breakage if there is some deviation from the correct format. We call this “brittle code” because it is easily broken.
 -   `greedy matching` The notion that the + and \* characters in a regular expression expand outward to match the largest possible string.
@@ -1623,9 +1501,9 @@ for line in hand:
 -   `wild card` A special character that matches any character. In regular expressions
     the wild-card character is the period.
 
-# 13. Networked Programs
+# 12. Networked Programs
 
-## 13.1. The world's simplest web browser
+## 12.1. The world's simplest web browser
 
 ```python
 import socket
@@ -1677,7 +1555,7 @@ b'Hello world'
 b'Hello world'
 ```
 
-## 13.2. Retrieving an image over HTTP
+## 12.2. Retrieving an image over HTTP
 
 ```python
 import socket
@@ -1741,7 +1619,7 @@ $ python urljpeg.py
         Content-Type: image/jpeg
 ```
 
-## 13.3. Retrieving web pages with urllib
+## 12.3. Retrieving web pages with urllib
 
 ```python
 import urllib.request
@@ -1766,7 +1644,7 @@ for line in fhand:
 print(counts)
 ```
 
-## 13.4. Reading binary files using urllib
+## 12.4. Reading binary files using urllib
 
 Sometimes you want to retrieve a non-text file, such as image or video file
 
@@ -1797,14 +1675,14 @@ print(size, 'characters copied.')
 fhand.close()
 ```
 
-## 13.5. Parsing HTML and scraping the web
+## 12.5. Parsing HTML and scraping the web
 
 One of the main uses for `urllib` capability in Python is to scrape the web.
 
 Web scraping is when we write a program that pretends to be a web browser and
 retrieves pages, then examines the data in those pages looking for patterns.
 
-## 13.6. Parsing HTML using regular expressions
+## 12.6. Parsing HTML using regular expressions
 
 ```html
 <h1>The First Page</h1>
@@ -1814,15 +1692,15 @@ retrieves pages, then examines the data in those pages looking for patterns.
 </p>
 ```
 
-# 14. Using Web Services
+# 13. Using Web Services
 
-# 15. Object-oriented programming
+# 14. Object-oriented programming
 
-# 16. Using Databases and SQL
+# 15. Using Databases and SQL
 
-# 17. Visualising data
+# 16. Visualising data
 
-# 18. Reference
+# 17. Reference
 
 -   Python For Everybody: Exploring Data in Python3
 -

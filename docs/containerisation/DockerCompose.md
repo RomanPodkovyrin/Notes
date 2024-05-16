@@ -1,9 +1,5 @@
 # 1. Docker
 
-- [1. Docker](#1-docker)
-    - [1.1. Other Docker Compose params](#11-other-docker-compose-params)
-    - [1.2. Networks](#12-networks)
-
 https://docs.docker.com/get-started/08_using_compose/
 
 docker-compose.yml

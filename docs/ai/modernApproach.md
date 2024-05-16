@@ -1,7 +1,5 @@
 # Artificial Intelligence - A Modern Approach
 
-
-
 # Part I Artificial Intelligence
 
 ## What is AI ?

@@ -1,36 +1,5 @@
 # 1. Databases
 
-- [1. Databases](#1-databases)
-        - [1.1. Day 1](#11-day-1)
-                - [1.1.1. Relational Databases](#111-relational-databases)
-                - [1.1.2. Naming conventional](#112-naming-conventional)
-                - [1.1.3. Datatypes](#113-datatypes)
-        - [1.2. Day 2](#12-day-2)
-                - [1.2.1. Entitiy Integrity](#121-entitiy-integrity)
-                - [1.2.2. Referential Integrity](#122-referential-integrity)
-                - [1.2.3. DML](#123-dml)
-                        - [1.2.3.1. SELECT](#1231-select)
-                                - [1.2.3.1.1. Aliese](#12311-aliese)
-                        - [1.2.3.2. WHERE](#1232-where)
-                        - [1.2.3.3. ORDER BY](#1233-order-by)
-                        - [1.2.3.4. IN](#1234-in)
-                        - [1.2.3.5. LIKE](#1235-like)
-                        - [1.2.3.6. INSERT](#1236-insert)
-                        - [1.2.3.7. UPDATE](#1237-update)
-                        - [1.2.3.8. DELETE](#1238-delete)
-        - [1.3. Day 3](#13-day-3)
-                - [1.3.1. Order By](#131-order-by)
-                - [1.3.2. GROUP BY](#132-group-by)
-                - [1.3.3. Joining Tables](#133-joining-tables)
-                - [1.3.4. Exercise](#134-exercise)
-                - [1.3.5. UNION](#135-union)
-                - [1.3.6. VIEW](#136-view)
-                - [1.3.7. INSERT](#137-insert)
-                - [1.3.8. UPDATE](#138-update)
-                - [1.3.9. DELETE](#139-delete)
-                - [1.3.10. Assignment](#1310-assignment)
-        - [1.4. Day 4](#14-day-4)
-
 ## 1.1. Day 1
 
 Huge amount of personal or sensitive data is stored, we as developers need ot know how to handle them

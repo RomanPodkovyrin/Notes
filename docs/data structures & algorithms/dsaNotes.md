@@ -1,26 +1,9 @@
-# Data Structures and Algorithms
+# 1. Data Structures and Algorithms
 
-- [Data Structures and Algorithms](#data-structures-and-algorithms)
-- [Algorithms](#algorithms)
-        - [Time Complexity](#time-complexity)
-        - [Space Complexity](#space-complexity)
-        - [Recursion and Space Complexity](#recursion-and-space-complexity)
-        - [Search Algorithms](#search-algorithms)
-                - [Linear Search - `O(n)`](#linear-search---on)
-                - [Binary Search - `O(log n)`](#binary-search---olog-n)
-        - [Sort Algorithms](#sort-algorithms)
-- [Data Structures](#data-structures)
-        - [Arrays](#arrays)
-        - [Linked Lists](#linked-lists)
-        - [Stack](#stack)
-        - [Circular Queue](#circular-queue)
-        - [Queue](#queue)
-        - [Deque (Double-ended Queue)](#deque-double-ended-queue)
-- [Sources](#sources)
 
-# Algorithms
+# 2. Algorithms
 
-## Time Complexity
+## 2.1. Time Complexity
 
 <https://www.bigocheatsheet.com/>
 
@@ -45,13 +28,13 @@
 | `O(2^n)` | Exponential Time                    | Usually used in brute force algorithms |
 | `O(n!)`  | Factorial Time / Combinatorial Time | Travelling salesman                    |
 
-## Space Complexity
+## 2.2. Space Complexity
 
 Like time complexity, is measured in the worst case scenario.
 
 The size of the data structure doesn't matter in space complexity calculation. What matters is how much additional storage is needed as the algorithm progresses.
 
-## Recursion and Space Complexity
+## 2.3. Recursion and Space Complexity
 
 > In languages like python which prefer iterative approaches, languages have maximum recursive depth after which the operation fails.
 >
@@ -60,9 +43,9 @@ The size of the data structure doesn't matter in space complexity calculation. W
 -   Recursive approach doesn't modify underlying data
 -   In recursive approach additional storage is used for arguments and function calls to be stored on the stack (Hence the stack overflow error)
 
-## Search Algorithms
+## 2.4. Search Algorithms
 
-### Linear Search - `O(n)`
+### 2.4.1. Linear Search - `O(n)`
 
 List **L** of **n** and target **T**, find the index of the target **T** in **L**.
 
@@ -126,7 +109,7 @@ public class Search {
 
 -   Only makes sense to use on short lists
 
-### Binary Search - `O(log n)`
+### 2.4.2. Binary Search - `O(log n)`
 
 Given an array A of n elements with values $A_0$ , $A_1$ , $A_2$ , … , $A _{n − 1}$ sorted such that $A_0$ ≤ $A_1$ ≤ $A_2$ ≤ ⋯ ≤ $A_{n − 1}$, and target value T, find the index of T in A.
 
@@ -263,9 +246,9 @@ Recursive
 
 -   Only works on sorted lists
 
-## Sort Algorithms
+## 2.5. Sort Algorithms
 
-# Data Structures
+# 3. Data Structures
 
 <style type="text/css">
 .tg    {border-collapse:collapse;border-spacing:0;}
@@ -483,7 +466,7 @@ Recursive
 </table>
 <!-- Can by modified with https://www.tablesgenerator.com/html_tables# -->
 
-## Arrays
+## 3.1. Arrays
 
 Contiguous Data Structure - Easy to retrieve the data as they can be referred by the index
 
@@ -496,7 +479,7 @@ Two types of Arrays:
 
 > Because python is using a heterogeneous structure, it uses pointers to refer to different type elements
 
-## Linked Lists
+## 3.2. Linked Lists
 
 Self Referential Objects
 
@@ -518,7 +501,7 @@ Self Referential Objects
             B-->A;
 ```
 
-## Stack
+## 3.3. Stack
 
 Last-In-First-Out
 
@@ -534,9 +517,9 @@ Last-In-First-Out
 -   `IsFull`: Check if the stack is full
 -   `Peek`: Get the value of the top element without removing it
 
-## Circular Queue
+## 3.4. Circular Queue
 
-## Queue
+## 3.5. Queue
 
 First-In-First-Out
 
@@ -567,7 +550,7 @@ Types of Queue
 -   **Priority Queue** - Insertion occurs based on the arrival of the values and removal based on priority
 -   **Deque** - insertion and removal can be performed in other way
 
-## Deque (Double-ended Queue)
+## 3.6. Deque (Double-ended Queue)
 
 Insertion and removal of elements can either be performed from the front or the rear. Does not follow FIFO rule
 
@@ -578,6 +561,6 @@ Insertion and removal of elements can either be performed from the front or the 
      C<-->D[Removal & Insertion]
 ```
 
-# Sources
+# 4. Sources
 
 -   [freeCodeCamp](https://www.youtube.com/watch?v=8hly31xKli0) Stopped at 2:56

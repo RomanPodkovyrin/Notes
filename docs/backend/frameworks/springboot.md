@@ -1,8 +1,5 @@
 # Spring Boot
 
-- [Spring Boot](#spring-boot)
-    - [Resources](#resources)
-
 Java backend framework
 It comes with lots of features included: `security`, `logging`, `metrics`, `connecting to db`, `production ready`, `microservices`,`dependency injection`, `configuration` and etc.
 

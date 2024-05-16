@@ -2,20 +2,6 @@
 
 ## 1.1. TOC
 
-- [1. TDD and Refactoring](#1-tdd-and-refactoring)
-     - [1.1. TOC](#11-toc)
-     - [1.2. TDD](#12-tdd)
-          - [1.2.1. Steps](#121-steps)
-          - [1.2.2. Attributes of Good Code](#122-attributes-of-good-code)
-          - [1.2.3. Two Important Classes of Test:](#123-two-important-classes-of-test)
-          - [1.2.4. Properties of Good Tests:](#124-properties-of-good-tests)
-          - [1.2.5. Common Testing anti pattern](#125-common-testing-anti-pattern)
-          - [1.2.6. In TDD](#126-in-tdd)
-     - [1.3. Refactoring Legacy Code](#13-refactoring-legacy-code)
-          - [1.3.1. Approval Testing](#131-approval-testing)
-          - [1.3.2. Steps](#132-steps)
-- [2. Reference](#2-reference)
-
 ## 1.2. TDD
 
 Is about driving development from test. Offers a more iterative approach
