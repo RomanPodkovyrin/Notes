@@ -1,0 +1,124 @@
+site_name: Notes
+site_url: http://docs.romanempire.dev
+
+repo_url: https://github.com/RomanPodkovyrin/Notes
+repo_name: Notes
+# locale: ru
+# nav:
+#   - Home: index.md
+#   - About: about.md
+#   - Languages: /languages
+
+copyright: Copyright &copy; Roman Podkovyrin
+extra:
+  generator: false
+  # social:
+  #   - icon: fontawesome/brands/mastodon 
+  #     link: https://fosstodon.org/@squidfunk
+# extra:
+#   alternate:
+#     - name: English
+#       link: / #/en/ 
+#       lang: en
+    # - name: Russian
+    #   link: /ru/
+    #   lang: ru
+      
+theme:
+  features:
+    - search.suggest
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.path
+    - navigation.footer
+    # - toc.integrate
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.sections
+  logo: assets/duck-logo-noboarders.png
+  favicon: assets/duck-logo-noboarders.png
+  language: en
+  name: material #mkdocs #readthedocs
+  palette:
+         # Palette toggle for light mode
+    - scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  # color_mode: dark
+  
+markdown_extensions:
+  - tables
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+      # title: On this page
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  
+  
+
+# plugins:
+#   - glightbox
+
+# nav: 
+#   - Home: index.md
+#   - Software Notes:
+#       - Languages:
+#         - Go: languages/go/go.md
+        # - Java: kb/disk-management/formatting-drive-automount.md
+        # - JS: kb/disk-management/mount-a-new-drive.md
+        # - "GPT PMBR Size Mismatch will be corrected by w(rite)" : kb/disk-management/gpt-pmbr-size-mismatch-will-be-corrected-by-write.md
+      # - Minio:
+      #     - OLD : kb/minio/old.md
+      #     - Connecting to minio over s3fs: kb/minio/minio-over-s3fs.md
+      #     - creating users and assigning policies: kb/minio/s3-policies.md
+      # - PHP:
+      #     - Install PHP: kb/php/install-php.md
+      #     - Wordpress permissions: kb/php/wordpress-permissions.md
+      # - Docker:
+      #     - Installing Docker: kb/docker/installing-docker.md
+      #     - Basics of docker: kb/docker/basics-of-docker.md
+      #     - Installing jellyfin: kb/docker/installing-jellyfin.md
+      #     - "Docker: Intro and notes": kb/docker/docker-intro-and-notes.md
+      #     - Exporting and importing: kb/docker/exporting-and-importing.md
+      #     - Docker Architecture: kb/docker/docker-architecture.md
+      #     - Bulk retag: kb/docker/bulk-retag.md
