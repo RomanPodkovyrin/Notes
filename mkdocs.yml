@@ -118,7 +118,10 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.tabbed:
-      alternate_style: true
+        alternate_style: true
+        slugify: !!python/object/apply:pymdownx.slugs.slugify
+          kwds:
+            case: lower
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.highlight:
@@ -133,7 +136,11 @@ markdown_extensions:
             class: mermaid
             format: !!python/name:pymdownx.superfences.fence_code_format
 
-  
+extra_javascript:
+  # - javascripts/mathjax.js
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - Languages:
     - languages/index.md
@@ -160,7 +167,11 @@ nav:
     - architecture/index.md
     - Version Control System (VCS): 
       - GIT: architecture/vcs/git/git.md
-    - Data Structures & Algorithms: architecture/data-structures-and-algorithms/dsa.md
+    - Data Structures & Algorithms: 
+      - Complexity: architecture/data-structures-and-algorithms/complexity/complexity.md
+      - Algorithms: architecture/data-structures-and-algorithms/algorithms/algorithms.md
+      - Structuers: architecture/data-structures-and-algorithms/structures/structures.md
+      
     - Software Development Patterns: 
       - 12 Factor Apps: architecture/patterns/12-factor-app/12-factor-app.md
       - Test Driven Development: architecture/patterns/tdd/tdd.md
