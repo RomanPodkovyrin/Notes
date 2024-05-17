@@ -10,40 +10,45 @@ icon: material/language-java
 
 #### 1.1.1.1. Acronyms
 
-`JVM`
-Java Virtual Machine: This is what allows Java to be cross platform—the source code compiles to a bytecode (or machine code) that runs on the JVM rather than running directly on the hosting hardware.
-`JRE`
-Java Runtime Environment: This is what you install when you download Java because a website or application needs it. It consists of a JVM suited to your platform, along with the core Java libraries.
-`JDK`
-Java Development Kit: This is the bare minimum you’ll need to develop Java applications. It consists of a JRE along with tools used to compile and package Java applications.
-`IDE`
-Integrated Development Environment: This is an application like IntelliJ, Eclipse, or Netbeans that makes developing full applications so much easier. We’ll spend a lot of time in one of these.
+`JVM`  
+**Java Virtual Machine**: This is what allows Java to be cross platform—the source code compiles to a bytecode (or machine code) that runs on the JVM rather than running directly on the hosting hardware.
+
+`JRE`  
+**Java Runtime Environment**: This is what you install when you download Java because a website or application needs it. It consists of a JVM suited to your platform, along with the core Java libraries.
+
+`JDK`  
+**Java Development Kit**: This is the bare minimum you’ll need to develop Java applications. It consists of a JRE along with tools used to compile and package Java applications.
+
+`IDE`  
+**Integrated Development Environment**: This is an application like IntelliJ, Eclipse, or Netbeans that makes developing full applications so much easier. We’ll spend a lot of time in one of these.
 
 #### 1.1.1.2. Classes
 
-All Java code is contained in classes. A class is a unit of code contained within a .java file in a project filesystem, and when compiled becomes a .class file in the filesystem or in a .jar file. It has:
+All Java code is contained in classes. A class is a unit of code contained within a `.java` file in a project filesystem, and when compiled becomes a `.class` file in the filesystem or in a `.jar` file. It has:
 
-        - A name (by which it can be referred to)
-        - Fields (in which data can be stored, i.e. variables)
-        - Methods (functions that operate on the fields, or perform some task)
+- A name (by which it can be referred to)
+- Fields (in which data can be stored, i.e. variables)
+- Methods (functions that operate on the fields, or perform some task)
 
-> The name of the class matches the name of the file that contains it.
->
+> The name of the class matches the name of the file that contains it.  
 > A class is a definition; therefore the fields declared in it don’t actually exist. To make it do something useful an instance of the class or Object must be created. An object created from a class will contain the fields declared in that class, and the class methods will operate on these fields. Note that multiple objects of a class can be created, and each will have their own copies of the fields.
 
 ### 1.1.2. Minimum Viable Java
 
 The class is declared with the following code:
+
+```java
 public class Hello {
+```
 
 The following list is a very high-level description of what just happened. We’ll drill into all of these later, but for now let’s stick to the bullet points:
 
--   “public” is an access modifier that controls who and what can use this class.
--   “class” is a keyword.
--   “Hello” is the name of the class being declared.
--   The contents of the class are between opening and closing braces, ”{” and ”}”. An area bounded by braces is known as a block. All class code must be contained within this block, with a few well-defined exceptions.
--   Inside the class, there’s another container, this one called “main”. This is called a method, and it behaves just like a function in some other languages.
--   The actual work is performed by something that looks like a function, written System.out.println. This is a bit object-oriented, and we’ll come back to this in due course
+- “public” is an access modifier that controls who and what can use this class.
+- “class” is a keyword.
+- “Hello” is the name of the class being declared.
+- The contents of the class are between opening and closing braces, `{` and `}`. An area bounded by braces is known as a block. All class code must be contained within this block, with a few well-defined exceptions.
+- Inside the class, there’s another container, this one called `main`. This is called a method, and it behaves just like a function in some other languages.
+- The actual work is performed by something that looks like a function, written `System.out.println`. This is a bit object-oriented, and we’ll come back to this in due course.
 
 ### 1.1.3. Packages and the JRE Libraries
 
@@ -52,9 +57,9 @@ import java.io.PrintStream;
 import java.net.URL;
 ```
 
-`Package java.lang` is implicitly imported into every file
+`Package java.lang` is implicitly imported into every file.
 
-## 1.2. 2 Java Syntax
+## 1.2. Java Syntax
 
 ### 1.2.1. The String Class
 
@@ -63,19 +68,19 @@ String s1 = "Hello";
 String s2 = new String("Hello").intern(); // turns it into s1?
 ```
 
-## 1.3. 3 SOLID Principles of Object-Oriented Programming
+## 1.3. SOLID Principles of Object-Oriented Programming
 
 ### 1.3.1. Introduction
 
 SOLID means:
 
--   Single responsibility
--   Open/closed
--   Liskov substitution
--   Interface segregation
--   Dependency inversion
+- Single responsibility
+- Open/closed
+- Liskov substitution
+- Interface segregation
+- Dependency inversion
 
-### 1.3.2. 3.2 Classes
+### 1.3.2. Classes
 
 ```java
 class <classname> {
@@ -85,19 +90,19 @@ class <classname> {
 
 ```java
 public class Employee {
-     public short number;// employee number
-     public int salary;    // current salary in pence
-     public String name;// employee name
+    public short number; // employee number
+    public int salary;   // current salary in pence
+    public String name;  // employee name
 }
 ```
 
-#### 1.3.2.1. SOLID Principle: Single responsibility
+#### 1.3.2.1. SOLID Principle: Single Responsibility
 
-Each class should have a single responsibility. Could mean that the class should be responsible for knowing things about or manupulating one real-world thing.
+Each class should have a single responsibility. Could mean that the class should be responsible for knowing things about or manipulating one real-world thing.
 
 ### 1.3.3. Objects
 
-variable contains reference to the object
+A variable contains reference to the object.
 
 ```java
 Employee emp1 = new Employee();
@@ -110,45 +115,44 @@ emp1.name = "A. Smith";
 ### 1.3.4. Creating Classes
 
 ```java
-public static void main(String[] args){
-     Employee emp1 = new Employee();
-     emp1.number = 10;
-     emp1.salary = 15000_00;
-     emp1.name     = "A. Smith";
-     String message =
-            String.format("Employee %d: %s, £%,.2f.",
-            emp1.number, emp1.name, emp1.salary/100.0);
-     System.out.println(message);
+public static void main(String[] args) {
+    Employee emp1 = new Employee();
+    emp1.number = 10;
+    emp1.salary = 15000_00;
+    emp1.name = "A. Smith";
+    String message = String.format("Employee %d: %s, £%,.2f.",
+            emp1.number, emp1.name, emp1.salary / 100.0);
+    System.out.println(message);
 }
 ```
 
-http://docs.oracle.com/javase/9/docs/api/java/util/Formatter.html#syntax
+[Formatter syntax documentation](http://docs.oracle.com/javase/9/docs/api/java/util/Formatter.html#syntax)
 
-> `%d` Digits, i.e. a whole number.
-> `%s` A string.
-> `%f` A floating point number, further specified with:
-> `,` Add a comma as a thousands separator.
+> `%d` Digits, i.e. a whole number.  
+> `%s` A string.  
+> `%f` A floating point number, further specified with:  
+> `,` Add a comma as a thousands separator.  
 > `.2` Place two digits after the decimal point.
 
 ### 1.3.5. Methods
 
 ```java
-public class Employee{
-     public short number;    // employee number
-     public int salary;        // employee salary in pence
-     public String name;     // employee name
+public class Employee {
+    public short number;   // employee number
+    public int salary;     // employee salary in pence
+    public String name;    // employee name
 
-     public int calcPay(){ // calculate monthly pay in pence
-            return salary / 12;
-     }
+    public int calcPay() { // calculate monthly pay in pence
+        return salary / 12;
+    }
 }
 ```
 
-> When you divide an int by an int, any fractional part is discarded. This is not the same as rounding.
+> When you divide an `int` by an `int`, any fractional part is discarded. This is not the same as rounding.
 
 #### 1.3.5.1. Method Parameters
 
-Java passes by value
+Java passes by value.
 
 ```java
 int i = 0;
@@ -163,16 +167,19 @@ func3(a);
 // s still has the value "Hello"
 // a still has the name "Bob"
 ...
-void func1(int i){
-     i = 10;
+
+void func1(int i) {
+    i = 10;
 }
-void func2(String s){
-     s = "World";
+
+void func2(String s) {
+    s = "World";
 }
-void func3(Employee e){
-     Employee x = new Employee();
-     x.name = "Fred";
-     e = x;
+
+void func3(Employee e) {
+    Employee x = new Employee();
+    x.name = "Fred";
+    e = x;
 }
 ```
 
@@ -180,56 +187,56 @@ void func3(Employee e){
 
 ```java
 public Employee() {
-     number = -1;
+    number = -1;
 }
 ```
 
-c# passses by reference
+c# passes by reference
 
-```c
+```csharp
 // C# code
 int x = 10;
-int *y = & x;         // y is a pointer to x
-int z = (int) y;    // z contains the memory address of x
+int *y = &x;       // y is a pointer to x
+int z = (int) y;   // z contains the memory address of x
 ```
 
 #### 1.3.6.1. Object Destruction
 
 ```java
 void MyMethod() {
-     Employee emp1 = new Employee();
-     emp1.number = 10;
-     emp1.salary = 15000_00;
-     return;    // the new Employee will be destroyed
+    Employee emp1 = new Employee();
+    emp1.number = 10;
+    emp1.salary = 15000_00;
+    return;    // the new Employee will be destroyed
 }
 ```
 
-use `this()` to call a constructor within the class
+Use `this()` to call a constructor within the class.
 
 ### 1.3.7. Encapsulation
 
-Don't allow direct access the variables, it's better to provide methods with constraints which allow to change and retrieve values from object
+Don't allow direct access to the variables; it's better to provide methods with constraints which allow to change and retrieve values from the object.
 
--   prevents bugs
--   give security to who can run manipulate vields
--   Simplifies use of the class (because it hides implementation details)
+- Prevents bugs
+- Provides security for who can manipulate fields
+- Simplifies use of the class (because it hides implementation details)
 
 ```java
 public class Employee {
-     private short number;
+    private short number;
 
-     public short getNumber() {
-     return number;
-     }
+    public short getNumber() {
+        return number;
+    }
 
-public boolean setNumber(short thisNumber){
-     if (thisNumber > 0) {
+    public boolean setNumber(short thisNumber) {
+        if (thisNumber > 0) {
             number = thisNumber;
             return true;
-     } else {
+        } else {
             return false;
-     }
-     }
+        }
+    }
 }
 ```
 
@@ -237,18 +244,18 @@ public boolean setNumber(short thisNumber){
 
 In Java, a class can have two methods that only differ by the number or type of parameters they take. One use for overloading methods is to provide methods that can be called using different data types.
 
-Can have multiple methods with the same name which have differenct signature
+You can have multiple methods with the same name which have different signatures.
 
 ```java
-public boolean setNumber(String thisNumber){
-     short s = Short.parseShort(thisNumber);
-     return setNumber(s);
+public boolean setNumber(String thisNumber) {
+    short s = Short.parseShort(thisNumber);
+    return setNumber(s);
 }
 ```
 
 ### 1.3.9. Inheritance
 
-lets you create a new object which behaves the same as another class, but with more methods and values,without completely rewritting the previouse class
+Lets you create a new object which behaves the same as another class, but with more methods and values, without completely rewriting the previous class.
 
 ```java
 public class SalesEmployee extends Employee {
@@ -260,19 +267,20 @@ public class SalesEmployee extends Employee {
 // This won't work initially
 @Override
 public int calcPay() {
-     return (salary / 12) + Math.round(commissionRate * salesTotal);
+    return (salary / 12) + Math.round(commissionRate * salesTotal);
 }
 ```
 
-![](img/accessModifiers.png)
+![Access Modifiers](img/accessModifiers.png)
 
 #### 1.3.9.2. Overriding Methods Inherited from Object
 
-`equals`
-compares an argument with this object and returns true if they are equal in some meaningful way. For example, you might compare an Employee object with this object and return true if the name, number, and salary fields are equal. Note that this method doesn’t require that two variables point to the same object instance.
+`equals`  
+Compares an argument with this object and returns true if they are equal in some meaningful way. For example, you might compare an Employee object with this object and return true if the name, number, and salary fields are equal. Note that this method doesn’t require that two variables point to the same object instance.
 
-     Note that the inherited equals method declares a parameter of type Object. You can use instanceof to test an object’s class before casting from Object. For example:Bear in mind that instanceof also returns true for subclasses.
-     ```java
+Note that the inherited `equals` method declares a parameter of type Object. You can use `instanceof` to test an object’s class before casting from Object. For example: Bear in mind that `instanceof` also returns true for subclasses.
+
+```java
      public boolean equals(Object obj){
             if (obj instanceof Employee){
                  Employee emp = (Employee) obj;
@@ -281,13 +289,18 @@ compares an argument with this object and returns true if they are equal in some
                         && this.getSalary() == emp.getSalary();
             } else return false;
      }
+```
 
-````
-     The related hashCode method generates a hash from the object’s properties. It can be used to test for value equality, but is more frequently used in collections that store objects based on their hash.
+     The related hashCode method generates a hash from the object’s properties. 
+     It can be used to test for value equality, but is more frequently used 
+     in collections that store objects based on their hash.
 `clone`
      returns a new object that has the same values (i.e. would pass the equals test) as this object.
 
-     You must also implement the Cloneable interface Interfaces are described later in this chapter. in your class to indicate to the Object.clone method that your class can clone its own objects.The inherited clone method declares that it throws the CloneNotSupportedException. Exceptions are covered in a later chapter.
+     You must also implement the Cloneable interface Interfaces are described later in this chapter. 
+     in your class to indicate to the Object.clone method that your class can clone its own objects.
+     The inherited clone method declares that it throws the CloneNotSupportedException. 
+     Exceptions are covered in a later chapter.
 `toString`
      returns a string that describes an object. For example, you might return a string that says “Employee 15 is named A. Smith and earns £15000.00 per year” for an employee with those values.
 
