@@ -143,10 +143,17 @@ git ls-files -v | grep ^[h]
     ```
     But git doesn't notice the change or doesn't recognise it fully. In this scenario you can have changed formatting on your local machine, but remote will have the old formatting
     
-An easy fix for it is to make git notice case
+An easy fix for it is to make git notice case, changes it just in the folder run.
+
 ```
 git config core.ignorecase false
 ```
+
+To change it globally:
+```
+git config --global core.ignorecase true
+```
+
 ### 1.2.10. Rebasing feature branch with develop when the branched is based on another feature branch
 
 !!! note ""
