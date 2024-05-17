@@ -25,8 +25,9 @@ extra:
 theme:
   features:
     - search.suggest
-    - navigation.instant
-    - navigation.instant.progress
+    # No page reload breaks latex formatting 
+    #- navigation.instant
+    #- navigation.instant.progress
     - navigation.tracking
     - navigation.path
     - navigation.footer
