@@ -1,26 +1,27 @@
 ---
 icon: material/language-go
 ---
+
 # 1. Go
 
 1. Statically typed
 2. Strongly typed
 3. Go is compiled
-4. Fast Compile time
-5. Built in concurrency
+4. Fast compile time
+5. Built-in concurrency
 6. Simple
 
-> Useful: go package docs <https://pkg.go.dev/>
+> Useful: [Go package docs](https://pkg.go.dev/)
 
-## 1.1. Initialising the project
+## 1.1. Initialising the Project
 
 `Module` - Collection of Packages
 
-`Package` - Folder that contains a collection of go files
+`Package` - Folder that contains a collection of Go files
 
-Therefore when we are initialising a new project we are initialising a new module.
+Therefore, when initializing a new project, we are initialising a new module.
 
--   `go mod init my_module` initialise the module (usually it's the repo url)
+- `go mod init my_module` initialises the module (usually it's the repo URL)
 
 The file `go.mod` contains:
 
@@ -30,22 +31,22 @@ module my_module
 go 1.21
 ```
 
-> Note: when installing external packages, `go.mod` will also include those and their version.
+> Note: When installing external packages, `go.mod` will also include those and their versions.
 
-## 1.2. Folder structure convention
+## 1.2. Folder Structure Convention
 
 //TODO
 
-## 1.3. How to import local package
+## 1.3. How to Import Local Package
 
 Say we have the following structure:
 
 ```bash
 <root>/
- |-- util/
-            |-- util1.go
-            |-- util2.go
- |-- main.go
+ ├── util/
+ │       ├── util1.go
+ │       ├── util2.go
+ └── main.go
 ```
 
 `util1.go`
@@ -54,10 +55,10 @@ Say we have the following structure:
 package util
 
 func IntMin(a, b int) int {
-        if a < b {
-                return a
-        }
-        return b
+    if a < b {
+        return a
+    }
+    return b
 }
 ```
 
@@ -67,16 +68,16 @@ func IntMin(a, b int) int {
 package util
 
 func IntMin(a, b int) int {
-        if a < b {
-                return a
-        }
-        return b
+    if a < b {
+        return a
+    }
+    return b
 }
 ```
 
-Because `util1.go` and `util2.go` are in the same package they can be called without explicit import
+Because `util1.go` and `util2.go` are in the same package, they can be called without explicit import.
 
-To call it from `main.go`
+To call them from `main.go`:
 
 ```go
 package main
@@ -88,56 +89,55 @@ func main() {
     util1.IntMin(1, 2)
     util2.IntMin(1, 2)
 }
-
 ```
 
-## 1.4. File structure
+## 1.4. File Structure
 
 ```go
 package main // special package name, tells the compiler to look for the entry point here (main function)
 import "fmt"
 
-func main(){
-        fmt.Println("Hello World!")
+func main() {
+    fmt.Println("Hello, World!")
 }
 ```
 
 ## 1.5. Execution
 
--   `go build main.go` compiles into binary file
--   `./main` runs the program
+- `go build main.go` compiles into a binary file
+- `./main` runs the program
 
 or
 
--   `go run main.go` compiles and runs
+- `go run main.go` compiles and runs
 
-## 1.6. All Key words
+## 1.6. Keywords
 
--   `break`
--   `default`
--   `func`
--   `interface`
--   `select`
--   `case`
--   `defer`
--   `go`
--   `map`
--   `struct`
--   `chan`
--   `else`
--   `goto`
--   `package`
--   `switch`
--   `const`
--   `fallthrough`
--   `if`
--   `range`
--   `type`
--   `continue`
--   `for`
--   `import`
--   `return`
--   `var`
+- `break`
+- `default`
+- `func`
+- `interface`
+- `select`
+- `case`
+- `defer`
+- `go`
+- `map`
+- `struct`
+- `chan`
+- `else`
+- `goto`
+- `package`
+- `switch`
+- `const`
+- `fallthrough`
+- `if`
+- `range`
+- `type`
+- `continue`
+- `for`
+- `import`
+- `return`
+- `var`
 
 ## 1.7. Types
 
@@ -147,12 +147,12 @@ or
 | **float32**, **float64**                      | 4 and 8 byte decimal `20.2`                                      | 0.0                    |
 | **int**                                       | Integers, `1`, `-10` either 32 or 64 bits, depends on the system | 0                      |
 | **int8**, **int16**, **int32**, **int64**     | 1, 2, 4, 8 byte integers                                         | 0                      |
-| **uint**                                      | Positive Integers either 32 or 64 bits, depends on the system    | 0                      |
-| **uint8**, **uint16**, **uint32**, **uint64** | 1, 2, 4, 8 byte positive integer                                 | 0                      |
+| **uint**                                      | Positive integers either 32 or 64 bits, depends on the system    | 0                      |
+| **uint8**, **uint16**, **uint32**, **uint64** | 1, 2, 4, 8 byte positive integers                                | 0                      |
 | **rune** (alias for **int32**)                | Used for characters                                              | 0                      |
 | **string**                                    | Sequence of characters                                           | ""                     |
-| **byte** (alias for **uint8**)                | a byte of 8 bits of non negative ints                            | 0                      |
-| **complex64**, **complex128**                 | complex number `2+4i`, `-9.5+18.3i`                              | 0 Real and 0 Imaginary |
+| **byte** (alias for **uint8**)                | A byte of 8 bits of non-negative ints                            | 0                      |
+| **complex64**, **complex128**                 | Complex number `2+4i`, `-9.5+18.3i`                              | 0 Real and 0 Imaginary |
 
 | Type      | Description    | Default value |
 | --------- | -------------- | ------------- |
@@ -162,7 +162,7 @@ or
 | Slices    |                | nil           |
 | Pointers  |                | nil           |
 | Function  |                | nil           |
-| error     | interface type | nil           |
+| error     | Interface type | nil           |
 
 ## 1.8. Initialisation
 
@@ -170,20 +170,17 @@ or
 var defaultVar string // initialised with default value
 var inferredVar = "string" // Infers the type from the assigned value
 
-// Can assign multiple var at once(can, mix types too)
+// Can assign multiple var at once (can mix types too)
 var intVal, boolVal, stringVal = 1, true, "Hello there!"
-fmt.Println(intVal, boolVal, stringVal) //1 true Hello there!
+fmt.Println(intVal, boolVal, stringVal) // 1 true Hello there!
 
-
-// Sort hand variable declaration
-
-intVal:= 2
+// Short hand variable declaration
+intVal := 2
 intVal, boolVal, stringVal := 1, true, "Hello there!"
-fmt.Println(intVal, boolVal, stringVal) //1 true Hello there!
-
+fmt.Println(intVal, boolVal, stringVal) // 1 true Hello there!
 ```
 
-### 1.8.1. Constant
+### 1.8.1. Constants
 
 ```go
 const pi float64 // cannot declare constants without values
@@ -194,22 +191,22 @@ pi = 1.2 // cannot do this
 ## 1.9. Strings
 
 ```go
-var text string ="Hello \nWorld"
-var text string `hello
+var text string = "Hello \nWorld"
+var text string = `hello
 world` // Allows to format the string directly
 ```
 
-### 1.9.1. String length ⚠️
+### 1.9.1. String Length ⚠️
 
 ```go
 fmt.Println(len("test")) // 4
-// it returns the number of bytes rather than string length
-// Ascii 1 byte, Unicode is either 1 or 2
+// It returns the number of bytes rather than string length
+// ASCII 1 byte, Unicode is either 1 or 2 bytes
 // a = 1 byte
-// γ = 2 byte
+// γ = 2 bytes
 ```
 
-to make life easy, can import package for returning string length rather than number of bytes
+To make life easier, import a package for returning string length rather than number of bytes:
 
 ```go
 import "unicode/utf8"
@@ -230,54 +227,53 @@ fmt.Println(myRune) // 97
 var floatNum float32 = 10.1
 var intNum int32 = 2
 
-var result floatNum + float32(intNum)
+var result = floatNum + float32(intNum)
 fmt.Println(result) // 12.1
 ```
 
-## 1.11. Function
+## 1.11. Functions
 
 ```go
 package main // special package name, tells the compiler to look for the entry point here (main function)
 import "fmt"
 
 func main() {
-        printMe("Roman")
+    printMe("Roman")
 
-        var numerator int = 11
-        var denominator int = 2
-        var result int = intDivision(numerator, denominator)
-        fmt.PrintLn(result) // 5
+    var numerator int = 11
+    var denominator int = 2
+    var result int = intDivision(numerator, denominator)
+    fmt.Println(result) // 5
 }
 
 func printMe(name string) {
-        fmt.Println("Hello", name) // Hello Roman
+    fmt.Println("Hello", name) // Hello Roman
 }
 
 func intDivision(numerator int, denominator int) int {
-        return numerator/denominator
+    return numerator / denominator
 }
 ```
 
-### 1.11.1. Multiple returns
+### 1.11.1. Multiple Returns
 
 ```go
 func main() {
     var numerator int = 11
     var denominator int = 2
     var result, remainder int = intDivision(numerator, denominator)
-    fmt.Printf("Result of division is %v and the remainder is %V", result, remainder)
+    fmt.Printf("Result of division is %v and the remainder is %v", result, remainder)
     // Result of division is 5 and the remainder is 1
 }
 
 func intDivision(numerator int, denominator int) (int, int) {
-    var result int = numerator/denominator
-    var remainder int = numerator%denominator
+    var result int = numerator / denominator
+    var remainder int = numerator % denominator
     return result, remainder
 }
-
 ```
 
-### 1.11.2. Varadic functions
+### 1.11.2. Variadic Functions
 
 > Can be called with any number of trailing arguments
 
@@ -298,14 +294,14 @@ func sum(nums ...int) {
     fmt.Println(total)
 }
 
+func main() {
+    sum(1, 2) // [1 2] 3
+    sum(1, 2, 3) // [1 2 3] 6
 
-sum(1, 2) // [1 2] 3
-sum(1, 2, 3) // [1 2 3] 6
-
-
-// it can also be called with a slice by spreading it with ...
-nums := []int{1, 2, 3, 4}
-sum(nums...) // [ 1 2 3 4] 10
+    // it can also be called with a slice by spreading it with ...
+    nums := []int{1, 2, 3, 4}
+    sum(nums...) // [1 2 3 4] 10
+}
 ```
 
 ### 1.11.3. Closures
@@ -313,7 +309,7 @@ sum(nums...) // [ 1 2 3 4] 10
 > Go supports **anonymous functions**, which can form closures
 
 ```go
- function closes over the variable i to form a closure.
+// function closes over the variable i to form a closure.
 
 func intSeq() func() int { // returns anonymous function which returns an integer
     i := 0
@@ -324,19 +320,19 @@ func intSeq() func() int { // returns anonymous function which returns an intege
     }
 }
 
+func main() {
+    nextInt := intSeq() // assigns function to variable
+    // this function captures its own i value which will be different
+    // for a newly initialised function variable
 
-nextInt := intSeq() // assigns function to variable
-// this function captures it's own i value which will be different
-// for a newly initialised function variable
+    fmt.Println(nextInt()) // 1
+    fmt.Println(nextInt()) // 2
+    fmt.Println(nextInt()) // 3
 
-fmt.Println(nextInt()) // 1
-fmt.Println(nextInt()) // 2
-fmt.Println(nextInt()) // 3
-
-newInts := intSeq()
-fmt.Println(newInts()) // 1
+    newInts := intSeq()
+    fmt.Println(newInts()) // 1
 ```
-
+    
 ### 1.11.4. Recursion
 
 ## 1.12. Error Handling
