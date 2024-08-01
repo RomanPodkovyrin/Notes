@@ -82,11 +82,11 @@ Functional Interfaces:
     ```
 -   `Function:` a generic interface that takes 1 argument and produces a result. Has a Single Abstract Method (SAM) which accepts an argument of type T and produces a result of type R. Ex [stream.map](http://stream.map) method.
 
-          ```java
-          List<String> names = Array.asList("Roman", "Scott", "Alex");
-          Function<String, Integer> nameMappingFunction = String::length;
-          List<Integer> nameLength = name.stream().map(nameMappingFunction).collect(Collectors.toList());
-          ```
+```java
+List<String> names = Array.asList("Roman", "Scott", "Alex");
+Function<String, Integer> nameMappingFunction = String::length;
+List<Integer> nameLength = name.stream().map(nameMappingFunction).collect(Collectors.toList());
+```
 
 ## Streams
 
@@ -129,85 +129,83 @@ Stream operator:
 
 -   `forEach` Loops over stream elements
 
-          ```java
-          empList.stream().forEach(e -> e.salaryIncrement(10.0));
-          ```
+
 
           - **It’s a terminal operation**: after the operation is performed, the stream pipeline is considered consumed and can no longer be used
 
 -   `map` produces a new stream after applying a function to each element of the original stream.
 
-          ```jsx
-          Integer[] empIds = {1, 2, 3};
-          List<Employee> employees = Stream.of(empIds)
-                  .map(employeeRepository::findById)
-                  .collect(Collectors.toList());
+```jsx
+Integer[] empIds = {1, 2, 3};
+List<Employee> employees = Stream.of(empIds)
+        .map(employeeRepository::findById)
+        .collect(Collectors.toList());
 
-          assertEquals(employees.size(), empIds.length);
-          ```
+assertEquals(employees.size(), empIds.length);
+```
 
 -   `collect` Gets stuff out of the stream once we are done with it. Performs mutable fold operations (repackaging elements to some data structures and applying some additional logic.)
 -   `filter` Produces a new stream that contains elements that pass the given predicate
 
-          ```java
-          Integer[] ids = {1, 2, 3, 4};
+```java
+Integer[] ids = {1, 2, 3, 4};
 
-          List<Employee> employees = Stream.of(ids)
-                  .map(empoyeeRepository::findById)
-                  .filter(e -> e !=null)
-                  .filter(e -> e.getSalary() > 200000)
-                  .collect(Collectors.toList());
-          ```
+List<Employee> employees = Stream.of(ids)
+        .map(empoyeeRepository::findById)
+        .filter(e -> e !=null)
+        .filter(e -> e.getSalary() > 200000)
+        .collect(Collectors.toList());
+```
 
 -   `findFirst` returns an **\*\*\*\***Optional**\*\*\*\*** for the first entry in the stream
 
-          ```java
-          Integer[] ids = {1, 2, 3, 4}
+```java
+Integer[] ids = {1, 2, 3, 4}
 
-          Employee employee = Stream.of(ids)
-                  .map(employeeRepository::findById)
-                  .filter(e -> e != null)
-                  .filter(e -> e.getSalary() > 100000)
-                  .findFirst()
-                  .orElse(null);
-          ```
+Employee employee = Stream.of(ids)
+        .map(employeeRepository::findById)
+        .filter(e -> e != null)
+        .filter(e -> e.getSalary() > 100000)
+        .findFirst()
+        .orElse(null);
+```
 
 -   `toArray` Returns array of the stream
 
-          ```java
-          Employee[] employees = empList.stream().toArray(Employee[]::new);
-          // Employee[]::new    creates an empty array which is filled with elements from the stream
-          ```
+```java
+Employee[] employees = empList.stream().toArray(Employee[]::new);
+// Employee[]::new    creates an empty array which is filled with elements from the stream
+```
 
 -   `flatMap` Fattens the data structure
 
-          ```java
-          List<List<String>> namesNested = Arrays.asList(
-                  Arrays.asList("Jeff", "Bezos"),
-                  Arrays.asList("Bill", "Gates"),
-                  Arrays.asList("Mark", "Zuckerberg"));
+```java
+List<List<String>> namesNested = Arrays.asList(
+        Arrays.asList("Jeff", "Bezos"),
+        Arrays.asList("Bill", "Gates"),
+        Arrays.asList("Mark", "Zuckerberg"));
 
-          List<String> namesFlatStream = namesNested.stream()
-                  .flatMap(Collection::stream)
-                  .collect(Collectors.toList());
-          ```
+List<String> namesFlatStream = namesNested.stream()
+        .flatMap(Collection::stream)
+        .collect(Collectors.toList());
+```
 
 -   `peek` Similar to forEach(), but unlike it it’s not terminal. Returns a new stream which can be used further.
 
-          ```java
-          Employee[] arrayOfEmps = {
-              new Employee(1, "Jeff Bezos", 100000.0),
-              new Employee(2, "Bill Gates", 200000.0),
-              new Employee(3, "Mark Zuckerberg", 300000.0)
-          };
+```java
+Employee[] arrayOfEmps = {
+new Employee(1, "Jeff Bezos", 100000.0),
+new Employee(2, "Bill Gates", 200000.0),
+new Employee(3, "Mark Zuckerberg", 300000.0)
+};
 
-          List<Employee> empList = Arrays.asList(arrayOfEmps);
+List<Employee> empList = Arrays.asList(arrayOfEmps);
 
-          empList.stream()
-              .peek(e -> e.salaryIncrement(10.0))
-              .peek(System.out::println)
-              .collect(Collectors.toList());
-          ```
+empList.stream()
+.peek(e -> e.salaryIncrement(10.0))
+.peek(System.out::println)
+.collect(Collectors.toList());
+```
 
 ### Method Types and Pipelines
 
@@ -222,25 +220,25 @@ Operations:
 
 -   Intermediate and terminal
 
-          ```java
-          Long count = empList.stream()
-                  .filter(e -> e.getSalary() > 20000)
-                  .count();
-          ```
+```java
+Long count = empList.stream()
+        .filter(e -> e.getSalary() > 20000)
+        .count();
+```
 
 -   Short-circuit operation: allows computations on **infinite** streams to complete in finite time.
 
-          ```java
-          Stream<Integer> infiniteStream = Stream.iterate(2, i -> i * 2);
-          // Stream.iterate() creats an infinite stream
+```java
+Stream<Integer> infiniteStream = Stream.iterate(2, i -> i * 2);
+// Stream.iterate() creats an infinite stream
 
-          List<Integer> collect = infiniteStream
-              .skip(3)
-              .limit(5)
-              .collect(Collectors.toList());
+List<Integer> collect = infiniteStream
+.skip(3)
+.limit(5)
+.collect(Collectors.toList());
 
-          assertEquals(collect, Arrays.asList(16, 32, 64, 128, 256));
-          ```
+assertEquals(collect, Arrays.asList(16, 32, 64, 128, 256));
+```
 
 ### Lazy Evaluation
 
@@ -249,11 +247,14 @@ Operations:
 
 For example, `list.stream().filter(x -> x > 0).map(x -> x * 2).sum()` is a stream expression that filters a list of numbers by keeping only the positive ones, doubles each element, and returns the sum of the resulting list.
 
+
+
 TODO:
 
 -   **Default methods**: You can provide default implementations for interface methods, which can be overridden by implementing classes if needed. Default methods enable backward compatibility and multiple inheritances of behaviour in interfaces. For example, `interface A { default void foo() { System.out.println("A"); } }` is an interface with a default method foo().
 -   **Method references**: You can refer to existing methods by name instead of writing lambda expressions. Method references are useful when you want to pass a method as an argument to another method or use it as a constructor reference. For example, `System.out::println` is a method reference that refers to the println method of the System.out class.
 -   **Optional**: A new class that represents a value that may or may not be present. Optional helps you avoid null pointer exceptions and write more robust code by forcing you to explicitly handle the absence of a value. For example, `Optional<String> name = Optional.ofNullable(getName()); name.ifPresent(System.out::println);` is an example of using Optional to get a name from a method that may return null and print it if it is present.
+-   **peek**: Talk about the dangers of using peek as side effect
 
 ## Source
 
