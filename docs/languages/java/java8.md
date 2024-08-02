@@ -1,9 +1,9 @@
 ---
 icon: material/language-java
 ---
-# Java 8
+# 1. Java 8
 
-## Lambda
+## 1.1. Lambda
 
 Functional approach to writing methods. Anonymous functions can be passed as arguments to other methods or stored in variables. Simplifies the use of APIs that rely on callbacks or event handlers.
 
@@ -27,13 +27,13 @@ Lambdas are used when passed as a parameter to a function
 ArrayList<Integer> nums = new ArrayList<>();
 nums.add(42);
 nums.add(300);
-nums.(90000);
+nums.add(90000);
 nums.forEach( (n) -> {
         System.out.println(n);
 });
 ```
 
-### Functional Interfaces
+### 1.1.1. Functional Interfaces
 
 Functional Interfaces:
 
@@ -41,24 +41,24 @@ Functional Interfaces:
 
     - `void accept(T t);` Single Abstractor Method (**SAM**), Accepts single argument of type T
     - `default Consumer<T> and Then(Consumer<? super T> after);` default method used for composition
-    ```java
-    Consumer<String> printConsumer = t -> System.out.println(t);
-    Stream<String> cities = Stream.of("London", "New York", "Mexico City");
-    cities.forEach(printConsumer);
-    ```
+```java
+Consumer<String> printConsumer = t -> System.out.println(t);
+Stream<String> cities = Stream.of("London", "New York", "Mexico City");
+cities.forEach(printConsumer);
+```
 
     - Composing Multiple consumers
-    ```java
-    Stream<String> cities = Stream.of("London", "New York", "Mexico City");
-    Consumer<List<String>> upperCaseConsumer = list -> {
-        for (int i=0; i < list.size(); i++) {
-                list.set(i, list.get(i).toUpperCase());
-        }
-    };
-    Consumer<List<String>> printConsumer = list -> list.stream().forEach(System.out::println);
+```java
+Stream<String> cities = Stream.of("London", "New York", "Mexico City");
+Consumer<List<String>> upperCaseConsumer = list -> {
+for (int i=0; i < list.size(); i++) {
+        list.set(i, list.get(i).toUpperCase());
+}
+};
+Consumer<List<String>> printConsumer = list -> list.stream().forEach(System.out::println);
 
-    upperCaseconsumer.andThen(printConsumer).accept(cities);
-    ```
+upperCaseconsumer.andThen(printConsumer).accept(cities);
+```
 
 - `Supplier:` indicates that this implementation is a supplier of results
     - `get()`
@@ -85,13 +85,15 @@ Function<String, Integer> nameMappingFunction = String::length;
 List<Integer> nameLength = name.stream().map(nameMappingFunction).collect(Collectors.toList());
 ```
 
-## Streams
+## 1.2. Streams
 
-A new API for processing collections of data in a declarative way. Streams support lazy evaluation, parallel execution, and functional operations such as **map**, **filter**, **reduce**, and **collect**.
+![](img/streamflow.svg)
+
+A new API for processing collections of data in a declarative way. Consists of a source, followed by zero or more intermediate operations;and a terminal operation. Streams support lazy evaluation, parallel execution, and functional operations such as **map**, **filter**, **reduce**, and **collect**.
 
 - Stream is not a data structure and it never modifies the underlying data source.
 
-### Stream Creation
+### 1.2.1. Stream Creation
 
 ```java
 // Array
@@ -122,15 +124,7 @@ empStreamBuilder.accept(arrayOfEmps[2]);
 Stream<Employee> empStream = empStreamBuilder.build();
 ```
 
-Stream operator:
-
-- `forEach` Loops over stream elements
-    - **It’s a terminal operation**: after the operation is performed, the stream pipeline is considered consumed and can no longer be used
-```java
-List<String> names = Arrays.asList("Larry", "Steve", "James");
-
-names.forEach(System.out::println);
-```
+#### 1.2.1.1. Intermediate Operators
 
 - `map` produces a new stream after applying a function to each element of the original stream.
 ```java
@@ -142,7 +136,6 @@ List<Employee> employees = Stream.of(empIds)
 assertEquals(employees.size(), empIds.length);
 ```
 
-- `collect` Gets stuff out of the stream once we are done with it. Performs mutable fold operations (repackaging elements to some data structures and applying some additional logic.)
 - `filter` Produces a new stream that contains elements that pass the given predicate
 ```java
 Integer[] ids = {1, 2, 3, 4};
@@ -154,7 +147,7 @@ List<Employee> employees = Stream.of(ids)
         .collect(Collectors.toList());
 ```
 
-- `findFirst` returns an **\*\*\*\***Optional**\*\*\*\*** for the first entry in the stream
+- `findFirst` returns an **Optional** for the first entry in the stream
 ```java
 Integer[] ids = {1, 2, 3, 4}
 
@@ -185,10 +178,6 @@ List<String> namesFlatStream = namesNested.stream()
 ```
 
 - `peek` Similar to forEach(), but unlike it it’s not terminal. Returns a new stream which can be used further.
-  
-!!! note ""
-    Only to be used for debugging to observe the vales passing through. Do not use for any logic or side effects. As this might not be called in some instances
-
 ```java
 Employee[] arrayOfEmps = {
 new Employee(1, "Jeff Bezos", 100000.0),
@@ -203,15 +192,38 @@ empList.stream()
 .peek(System.out::println)
 .collect(Collectors.toList());
 ```
+!!! note ""
+    `peek` should only be used for debugging to observe the vales passing through. Do not use for any logic or side effects. As this might not be called in some instances
+- 'anyMatch' 
+- 'distinct'
+- 'skip'
+- 'sorted'
 
-### Method Types and Pipelines
+#### 1.2.1.2. Terminal Operations
+
+- `forEach` Loops over stream elements
+```java
+List<String> names = Arrays.asList("Larry", "Steve", "James");
+
+names.stream().forEach(System.out::println);
+```
+    - **It’s a terminal operation**: after the operation is performed, the stream pipeline is considered consumed and can no longer be used
+
+- `collect` Gets stuff out of the stream once we are done with it. Performs mutable fold operations (repackaging elements to some data structures and applying some additional logic.)
+- 'count'
+- 'max'
+- 'min'
+- 'reduce'
+- 'summaryStatistics'
+
+### 1.2.2. Method Types and Pipelines
 
 Operations:
 
 - `Intermediate:` returns stream on which further processing can be done
 - `Terminal:` Mark the stream as consumed, after which point it can no longer be used further.
 
-### Stream Pipeline
+### 1.2.3. Stream Pipeline
 
 - A stream pipeline consists of a steam source, followed by zero or more intermediate operation, and a terminal operation.
 
@@ -235,7 +247,7 @@ List<Integer> collect = infiniteStream
 assertEquals(collect, Arrays.asList(16, 32, 64, 128, 256));
 ```
 
-### Lazy Evaluation
+### 1.2.4. Lazy Evaluation
 
 - Computation of the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed
     - All Intermediate operations are lazy, so they’re not executed until a result of a processing is actually needed.
@@ -251,7 +263,7 @@ TODO:
 - **Optional**: A new class that represents a value that may or may not be present. Optional helps you avoid null pointer exceptions and write more robust code by forcing you to explicitly handle the absence of a value. For example, `Optional<String> name = Optional.ofNullable(getName()); name.ifPresent(System.out::println);` is an example of using Optional to get a name from a method that may return null and print it if it is present.
 - **peek**: Talk about the dangers of using peek as side effect
 
-## Source
+## 1.3. Source
 
 - [W3schools.com](https://www.w3schools.com/java/java_lambda.asp)
 - [medium.com](https://medium.com/swlh/understanding-java-8s-consumer-supplier-predicate-and-function-c1889b9423d)
