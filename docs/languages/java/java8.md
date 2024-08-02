@@ -194,10 +194,17 @@ empList.stream()
 ```
 !!! note ""
     `peek` should only be used for debugging to observe the vales passing through. Do not use for any logic or side effects. As this might not be called in some instances
-- 'anyMatch' 
-- 'distinct'
-- 'skip'
-- 'sorted'
+- `anyMatch`
+- `distinct`
+- `skip` skips n number of elements in the stream
+```java
+IntStream
+        .range(1, 10)
+        .skip(5)
+        .forEach(System.out::println)
+        //6, 7, 8, 9
+```
+- `sorted`
 
 #### 1.2.1.2. Terminal Operations
 
@@ -205,16 +212,70 @@ empList.stream()
 ```java
 List<String> names = Arrays.asList("Larry", "Steve", "James");
 
-names.stream().forEach(System.out::println);
+names
+        .stream()
+        .forEach(System.out::println);
 ```
     - **It’s a terminal operation**: after the operation is performed, the stream pipeline is considered consumed and can no longer be used
 
 - `collect` Gets stuff out of the stream once we are done with it. Performs mutable fold operations (repackaging elements to some data structures and applying some additional logic.)
-- 'count'
-- 'max'
-- 'min'
-- 'reduce'
-- 'summaryStatistics'
+- `count` Counts elements in the stream
+```java
+int count = IntStream
+        .range(1,10)
+        .filter(x -> x <= 2)
+        .count();
+        
+// count = 2
+```
+- `sum` sum numerical elements of the stream.
+```java
+int output = IntStream
+        .range(1,5)
+        .sum()
+// output = 10
+```
+- `max`
+```java
+int count = IntStream
+        .range(1,10)
+        .max();
+        
+// count = 9
+```
+
+- `min`
+```java
+int count = IntStream
+        .range(1,10)
+        .min();
+        
+// count = 1
+```
+- `average`
+```java
+Arrays.stream(new int[] {2, 4, 6, 8, 10})
+        .average()
+        .ifPresent(System.out::println)
+// 6
+```
+
+- `reduce` aggregates
+```java
+double total = Stream.of(7.3, 1.5, 4.8)
+        .reduce(0.0, (Double a, Double b) -> a + b);
+        // First argument: starting value
+        // Second argument: 
+                // a: running total
+                // b: new element passed in
+// total = 
+```
+- `summaryStatistics`
+```java
+IntSummaryStatistics summary = IntStream.of(7, 2, 19, 88, 73, 4, 10)
+        .summaryStatistics();
+// summary: {count=7, sum=203, min=2, average=29.000, max=88}
+```
 
 ### 1.2.2. Method Types and Pipelines
 
@@ -268,3 +329,4 @@ TODO:
 - [W3schools.com](https://www.w3schools.com/java/java_lambda.asp)
 - [medium.com](https://medium.com/swlh/understanding-java-8s-consumer-supplier-predicate-and-function-c1889b9423d)
 - [stackify.com](https://stackify.com/streams-guide-java-8/)
+- [Youtube: Java 8 STREAMS Tutorial](https://www.youtube.com/watch?v=t1-YZ6bF-g0)
