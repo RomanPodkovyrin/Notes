@@ -1,6 +1,6 @@
 <div class="grid cards" markdown>
 
--   :material-language-java:{ .lg .middle } **Languages**
+- :material-language-java:{ .lg .middle } **Languages**
 
     ***
 
@@ -8,22 +8,23 @@
 
     [:octicons-arrow-right-24: Go to](languages)
 
--   :material-server:{ .lg .middle } **DevOps**
+- :material-server:{ .lg .middle } **DevOps**
 
     ***
 
     DevOps notes and cloud certifications
+
     [:octicons-arrow-right-24: Go to](devops)
 
--   :material-security:{ .lg .middle } **Security**
+- :material-security:{ .lg .middle } **Security**
 
     ***
 
     Security notes and processes
 
     [:octicons-arrow-right-24: Go to](security)
-    
--   :material-git:{ .lg .middle } **Software Engineering**
+
+- :material-git:{ .lg .middle } **Software Engineering**
 
     ***
 
@@ -31,7 +32,7 @@
 
     [:octicons-arrow-right-24: Go to](architecture)
 
--   :material-web:{ .lg .middle } **Web Development and Backend**
+- :material-web:{ .lg .middle } **Web Development and Backend**
 
     ***
 
