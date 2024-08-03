@@ -37,17 +37,19 @@ nums.forEach( (n) -> {
 
 Functional Interfaces:
 
-- `Consumer:` accepts a single input and returns no output
+#### 1.1.1.1. Consumer
 
-    - `void accept(T t);` Single Abstractor Method (**SAM**), Accepts single argument of type T
-    - `default Consumer<T> and Then(Consumer<? super T> after);` default method used for composition
+`Consumer:` accepts a single input and returns no output
+
+- `void accept(T t);` Single Abstractor Method (**SAM**), Accepts single argument of type T
+- `default Consumer<T> andThen(Consumer<? super T> after);` default method used for composition of multiple consumers. Returns a functional Consumer interface that can be daisy chained in sequence.
 ```java
-Consumer<String> printConsumer = t -> System.out.println(t);
+Consumer<String> printConsumer = (t) -> System.out.println(t);
 Stream<String> cities = Stream.of("London", "New York", "Mexico City");
 cities.forEach(printConsumer);
 ```
 
-    - Composing Multiple consumers
+- Composing Multiple consumers
 ```java
 Stream<String> cities = Stream.of("London", "New York", "Mexico City");
 Consumer<List<String>> upperCaseConsumer = list -> {
@@ -60,25 +62,90 @@ Consumer<List<String>> printConsumer = list -> list.stream().forEach(System.out:
 upperCaseconsumer.andThen(printConsumer).accept(cities);
 ```
 
-- `Supplier:` indicates that this implementation is a supplier of results
-    - `get()`
+- Using `Consumer` interface to store a lambda expression in a variable
+```java
+ArrayList<Integer> numbers = new ArrayList<Integer>();
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+numbers.add(4);
+Consumer<Integer> method = (n) -> { System.out.println(n); };
+numbers.forEach( method );
+```
+
+- Using Lambda expression as a method parameter
+```java
+interface StringFunction {
+  String run(String str);
+}
+
+public class Main {
+  public static void main(String[] args) {
+    StringFunction exclaim = (s) -> s + "!";
+    StringFunction ask = (s) -> s + "?";
+    printFormatted("Hello", exclaim); // Hello!
+    printFormatted("Hello", ask); // Hello?
+  }
+  public static void printFormatted(String str, StringFunction format) {
+    String result = format.run(str);
+    System.out.println(result);
+  }
+}
+```
+
+#### 1.1.1.2. Supplier
+
+`Supplier:` indicates that this implementation is a supplier of results
+
+- `get()`
 ```java
 Supplier<Double> doubleSupplier1 = () -> Math.random();
 DoubleSupplier doubleSupplier2 = Math::random;
 
-System.out.println(doubleSupplier1.get());
-System.out.println(doubleSupplier2.getAsDouble());
+System.out.println(doubleSupplier1.get()); // Prints a random value
+System.out.println(doubleSupplier2.getAsDouble()); // Prints a random value
 
 ```
-- `Predicate:` Boolean-valued function of an argument. Mainly used to filter data from Java Steam. The filter method of a stream accepts a predicate to filter the data and returns a new stream satisfying the predicate
-    - `test()` accepts an argument and returns a boolean value
+
+- Primary use of this interface is to enable deferred execution. For example using it with an optional. This method is triggered if optional does not have data
+```java
+public void supplierWithOptional(){
+    Supplier<Double> doubleSupplier = () -> Math.random();
+    Optional<Double> optionalDouble = Optional.empty();
+    System.out.println(optionalDouble.orElseGet(doubleSupplier));
+}
+``` 
+
+#### 1.1.1.3. Predicate
+
+`Predicate:` Boolean-valued function of an argument. Mainly used to filter data from Steam. The filter method of a stream accepts a predicate to filter the data and returns a new stream satisfying the predicate
+- `test()` accepts an argument and returns a boolean value
 ```java
 List<String> names = Arrays.asList("Roman", "Scott", "Alex");
 Predicate<String> nameStartsWithS = str -> str.startsWith("S");
 
 names.stream().filter(nameStartsWithS).forEach(System.out::println);
 ```
-- `Function:` a generic interface that takes 1 argument and produces a result. Has a Single Abstract Method (SAM) which accepts an argument of type T and produces a result of type R. Ex [stream.map](http://stream.map) method.
+
+- Predicate provides default and static methods for composition and other
+```java
+default Predicate<T> and(Predicate<? super T> other);
+default Predicate<T> or(Predicate<? super T> other);
+static <T> Predicate<T> isEquals(Object targetRef);
+default Predicate<T> negate();
+```
+
+- Example use
+```java
+List<String> names = Arrays.asList("John", "Smith", "Samueal", "Catley", "Sie");
+Predicate<String> startPredicate = str -> str.startsWith("S");
+Predicate<String> lengthPredicate = str -> str.length() >= 5;
+names.stream().filter(startPredicate.and(lengthPredicate)).forEach(System.out::println);
+```
+
+#### 1.1.1.4. Function
+
+`Function:` a generic interface that takes 1 argument and produces a result. Has a Single Abstract Method (SAM) which accepts an argument of type T and produces a result of type R. Ex [stream.map](http://stream.map) method.
 ```java
 List<String> names = Array.asList("Roman", "Scott", "Alex");
 Function<String, Integer> nameMappingFunction = String::length;
@@ -87,7 +154,9 @@ List<Integer> nameLength = name.stream().map(nameMappingFunction).collect(Collec
 
 ## 1.2. Streams
 
-![](img/streamflow.svg)
+<!-- ![](img/streamflow.svg) -->
+![Stream flow](img/streamflow_light.svg#only-light)
+![Stream flow](img/streamflow_dark.svg#only-dark)
 
 A new API for processing collections of data in a declarative way. Consists of a source, followed by zero or more intermediate operations;and a terminal operation. Streams support lazy evaluation, parallel execution, and functional operations such as **map**, **filter**, **reduce**, and **collect**.
 
@@ -326,7 +395,7 @@ TODO:
 
 ## 1.3. Source
 
-- [W3schools.com](https://www.w3schools.com/java/java_lambda.asp)
-- [medium.com](https://medium.com/swlh/understanding-java-8s-consumer-supplier-predicate-and-function-c1889b9423d)
-- [stackify.com](https://stackify.com/streams-guide-java-8/)
+- [W3schools.com: Java Lambda Expressions](https://www.w3schools.com/java/java_lambda.asp)
+- [medium.com: Understanding Java 8’s Consumer, Supplier, Predicate and Function](https://medium.com/swlh/understanding-java-8s-consumer-supplier-predicate-and-function-c1889b9423d)
+- [stackify.com: A Guide to Java Streams in Java 8: In-Depth Tutorial With Examples](https://stackify.com/streams-guide-java-8/)
 - [Youtube: Java 8 STREAMS Tutorial](https://www.youtube.com/watch?v=t1-YZ6bF-g0)
