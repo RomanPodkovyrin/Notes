@@ -193,7 +193,7 @@ empStreamBuilder.accept(arrayOfEmps[2]);
 Stream<Employee> empStream = empStreamBuilder.build();
 ```
 
-#### 1.2.1.1. Intermediate Operators
+### 1.2.2. Intermediate Operators
 
 - `map` produces a new stream after applying a function to each element of the original stream.
 ```java
@@ -275,7 +275,7 @@ IntStream
 ```
 - `sorted`
 
-#### 1.2.1.2. Terminal Operations
+### 1.2.3. Terminal Operations
 
 - `forEach` Loops over stream elements
 ```java
@@ -346,14 +346,14 @@ IntSummaryStatistics summary = IntStream.of(7, 2, 19, 88, 73, 4, 10)
 // summary: {count=7, sum=203, min=2, average=29.000, max=88}
 ```
 
-### 1.2.2. Method Types and Pipelines
+### 1.2.4. Method Types and Pipelines
 
 Operations:
 
 - `Intermediate:` returns stream on which further processing can be done
 - `Terminal:` Mark the stream as consumed, after which point it can no longer be used further.
 
-### 1.2.3. Stream Pipeline
+### 1.2.5. Stream Pipeline
 
 - A stream pipeline consists of a steam source, followed by zero or more intermediate operation, and a terminal operation.
 
@@ -377,13 +377,12 @@ List<Integer> collect = infiniteStream
 assertEquals(collect, Arrays.asList(16, 32, 64, 128, 256));
 ```
 
-### 1.2.4. Lazy Evaluation
+### 1.2.6. Lazy Evaluation
 
 - Computation of the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed
     - All Intermediate operations are lazy, so they’re not executed until a result of a processing is actually needed.
 
 For example, `list.stream().filter(x -> x > 0).map(x -> x * 2).sum()` is a stream expression that filters a list of numbers by keeping only the positive ones, doubles each element, and returns the sum of the resulting list.
-
 
 
 TODO:
