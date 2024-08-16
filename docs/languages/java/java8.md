@@ -172,8 +172,10 @@ private static Employee[] arrayOfEmps = {
         new Employee(3, "Mark Zuckerberg", 300000.0)
 };
 Stream.of(arrayOfEmps);
+```
 
-// List
+```java
+// or obtain stream from already existing list
 List<Employee> empList = Arrays.asList(arrayOfEmps);
 empList.stream();
 ```
@@ -183,6 +185,9 @@ Java 8 added a new `stream()` method to the Collection interface
 ```java
 // Create a stream out of individual objects
 Stream.of(arrayOfEmps[0], arrayOfEmps[1], arrayOfEmps[2]);
+```
+
+```java
 // Or using a Stream.builder()
 Stream.Builder<Employee> empStreamBuilder = Stream.builder();
 
@@ -265,6 +270,14 @@ empList.stream()
     `peek` should only be used for debugging to observe the vales passing through. Do not use for any logic or side effects. As this might not be called in some instances
 - `anyMatch`
 - `distinct`
+- `limit` Limits stream to n number of elements
+```java
+List<Integer> collect = infiniteStream
+        .skip(3)
+        .limit(5)
+        .collect(Collectors.toList());
+```
+
 - `skip` skips n number of elements in the stream
 ```java
 IntStream
@@ -273,7 +286,82 @@ IntStream
         .forEach(System.out::println)
         //6, 7, 8, 9
 ```
-- `sorted`
+- `sorted` sorts elements
+    - Natural Order
+```java
+List<String> list = Arrays
+.asList("9", "A", "Z", "1", "B", "Y", "4", "a", "c");
+
+List<String> sortedList = list
+   .stream()
+   .sorted()
+   .collect(Collectors.toList());
+// or
+List<String> sortedList = list.stream()
+   .sorted((o1,o2)-> o1.compareTo(o2))
+   .collect(Collectors.toList());
+// or
+List<String> sortedList = list.stream()
+   .sorted(Comparator.naturalOrder())
+   .collect(Collectors.toList());
+// 1 4 9 A B Y Z a c
+```
+
+    - In Reverse Order
+```java
+List<String> list = Arrays
+.asList("9", "A", "Z", "1", "B", "Y", "4", "a", "c");
+
+        
+List<String> sortedList = list.stream()
+   .sorted((o1,o2)-> o2.compareTo(o1))
+   .collect(Collectors.toList());
+// OR
+List<String> sortedList = list.stream()
+   .sorted(Comparator.reverseOrder())
+   .collect(Collectors.toList());
+// c a Z Y B A 9 4 1
+```
+    - Object Sort
+```java
+// name and age fields
+static List<User> users = Arrays.asList(
+            new User("C", 30),
+            new User("D", 40),
+            new User("A", 10),
+            new User("B", 20),
+            new User("E", 50));
+
+List<User> sortedList = users.stream()
+        .sorted((o1, o2) -> o1.getAge() - o2.getAge())
+        .collect(Collectors.toList());
+// or            
+List<User> sortedList = users.stream()
+        .sorted(Comparator.comparingInt(User::getAge))
+        .collect(Collectors.toList());
+/*
+User{name='A', age=10}
+User{name='B', age=20}
+User{name='C', age=30}
+User{name='D', age=40}
+User{name='E', age=50}
+*/
+```
+
+    - Object Reverse Order
+```java
+List<User> sortedList = users.stream()
+        .sorted(Comparator.comparingInt(User::getAge)
+        .reversed())
+        .collect(Collectors.toList());
+/*
+User{name='E', age=50}
+User{name='D', age=40}
+User{name='C', age=30}
+User{name='B', age=20}
+User{name='A', age=10}
+*/
+```
 
 ### 1.2.3. Terminal Operations
 
@@ -282,12 +370,23 @@ IntStream
 List<String> names = Arrays.asList("Larry", "Steve", "James");
 
 names
-        .stream()
-        .forEach(System.out::println);
+   .stream()
+   .forEach(System.out::println);
 ```
     - **It’s a terminal operation**: after the operation is performed, the stream pipeline is considered consumed and can no longer be used
 
 - `collect` Gets stuff out of the stream once we are done with it. Performs mutable fold operations (repackaging elements to some data structures and applying some additional logic.)
+```java
+List<Employee> employees = empList.stream()
+        .collect(Collectors.toList());
+```
+
+- `toArray` Like Collect previously, but specifically return array
+```java
+Employee[] employees = empList
+        .stream()
+        .toArray(Employee[]::new);
+```
 - `count` Counts elements in the stream
 ```java
 int count = IntStream
