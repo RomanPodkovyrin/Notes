@@ -268,8 +268,35 @@ empList.stream()
 ```
 !!! note ""
     `peek` should only be used for debugging to observe the vales passing through. Do not use for any logic or side effects. As this might not be called in some instances
-- `anyMatch`
-- `distinct`
+- `anyMatch` take a predicate and return a boolean true if any match
+```java
+List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
+boolean oneEven = intList.stream().anyMatch(i -> i % 2 == 0);
+// true
+```
+
+- `allMatch` take a predicate and return a boolean true if all match
+```java
+List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
+    
+boolean allEven = intList.stream().allMatch(i -> i % 2 == 0);
+// false
+```
+
+- `noneMatch` take a predicate and return a boolean true if none match
+```java
+List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
+boolean noneMultipleOfThree = intList.stream().noneMatch(i -> i % 3 == 0);
+//false
+```
+
+- `#ct` returns the #ct elements in the stream, eliminating duplicates. It uses the equals() method of the elements to decide whether two elements are equal or not
+```java
+List<Integer> intList = Arrays.asList(2, 5, 3, 2, 4, 3);
+List<Integer> #ctIntList = intList.stream().#ct().collect(Collectors.toList());
+//2, 5, 3, 4
+```
+
 - `limit` Limits stream to n number of elements
 ```java
 List<Integer> collect = infiniteStream
@@ -286,6 +313,7 @@ IntStream
         .forEach(System.out::println)
         //6, 7, 8, 9
 ```
+
 - `sorted` sorts elements
     - Natural Order
 ```java
@@ -322,6 +350,7 @@ List<String> sortedList = list.stream()
    .collect(Collectors.toList());
 // c a Z Y B A 9 4 1
 ```
+
     - Object Sort
 ```java
 // name and age fields
@@ -438,12 +467,43 @@ double total = Stream.of(7.3, 1.5, 4.8)
                 // b: new element passed in
 // total = 
 ```
+
 - `summaryStatistics`
 ```java
 IntSummaryStatistics summary = IntStream.of(7, 2, 19, 88, 73, 4, 10)
         .summaryStatistics();
 // summary: {count=7, sum=203, min=2, average=29.000, max=88}
 ```
+
+- `joining`
+```java
+String empNames = empList.stream()
+      .map(Employee::getName)
+      .collect(Collectors.joining(", ")) // Joins string
+      .toString();
+    
+// "Roman, Bob, James"
+```
+
+- `toSet`
+```java
+Set<String> empNames = empList.stream()
+        .map(Employee::getName)
+        .collect(Collectors.toSet());
+    
+```
+
+- `toCollection` extract the elements into any other collection by passing in a `Supplier<Collection>`. We can also use a constructor reference for the Supplier
+```java
+Vector<String> empNames = empList.stream()
+        .map(Employee::getName)
+        .collect(Collectors.toCollection(Vector::new));
+```
+
+- `partitioningBy`
+- `groupingBy`
+- `mapping`
+- `reducing`
 
 ### 1.2.4. Method Types and Pipelines
 
@@ -483,13 +543,39 @@ assertEquals(collect, Arrays.asList(16, 32, 64, 128, 256));
 
 For example, `list.stream().filter(x -> x > 0).map(x -> x * 2).sum()` is a stream expression that filters a list of numbers by keeping only the positive ones, doubles each element, and returns the sum of the resulting list.
 
+Processing streams lazily allows avoiding examining all the data when that’s not necessary. This behaviour becomes even more important when the input stream is infinite and not just very large.
+
+### 1.2.7. Stream call specializations
+
+There are primitive streams `IntStream`, `LongStream`, and `DoubleStream`
+
+You can use them like this
+
+```java
+Integer latestEmpId = empList.stream()
+      .mapToInt(Employee::getId) // Convert to Int stream
+      .max()
+      .orElseThrow(NoSuchElementException::new);
+```
+
+#### 1.2.7.1. .of creation
+```java
+IntStream.of(1, 2, 3);
+
+IntStream.range(10, 20)
+//stream of numbers 10 to 19.
+```
+
+
+`Stream.of(1, 2, 3)` is not the same as `IntStream.of(1, 2, 3)`, one is `Stream<Integer>` another is `IntStream`
+same with `map()` and `mapToInt()`
+
 
 TODO:
 
 - **Default methods**: You can provide default implementations for interface methods, which can be overridden by implementing classes if needed. Default methods enable backward compatibility and multiple inheritances of behaviour in interfaces. For example, `interface A { default void foo() { System.out.println("A"); } }` is an interface with a default method foo().
 - **Method references**: You can refer to existing methods by name instead of writing lambda expressions. Method references are useful when you want to pass a method as an argument to another method or use it as a constructor reference. For example, `System.out::println` is a method reference that refers to the println method of the System.out class.
 - **Optional**: A new class that represents a value that may or may not be present. Optional helps you avoid null pointer exceptions and write more robust code by forcing you to explicitly handle the absence of a value. For example, `Optional<String> name = Optional.ofNullable(getName()); name.ifPresent(System.out::println);` is an example of using Optional to get a name from a method that may return null and print it if it is present.
-- **peek**: Talk about the dangers of using peek as side effect
 
 ## 1.3. Source
 
@@ -497,3 +583,4 @@ TODO:
 - [medium.com: Understanding Java 8’s Consumer, Supplier, Predicate and Function](https://medium.com/swlh/understanding-java-8s-consumer-supplier-predicate-and-function-c1889b9423d)
 - [stackify.com: A Guide to Java Streams in Java 8: In-Depth Tutorial With Examples](https://stackify.com/streams-guide-java-8/)
 - [Youtube: Java 8 STREAMS Tutorial](https://www.youtube.com/watch?v=t1-YZ6bF-g0)
+- [Java 8 – How to sort list with stream.sorted()](https://mkyong.com/java8/java-8-how-to-sort-list-with-stream-sorted/)
