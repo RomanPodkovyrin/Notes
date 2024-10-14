@@ -221,6 +221,11 @@
 </table>
 <!-- Can by modified with https://www.tablesgenerator.com/html_tables# -->
 
+There are two types of structures:
+
+- Linear - Data Elements arranged in the sequential manner
+- Non-Linear
+
 ## 1.1. Arrays
 
 Contiguous Data Structure - Easy to retrieve the data as they can be referred by the index
