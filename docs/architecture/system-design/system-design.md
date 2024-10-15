@@ -6,7 +6,8 @@ icon: material/connection
 
 ## 1.1. Computer Architecture
 
-![](img/computer.excalidraw.svg){ width="300" }
+![](img/computer-light.excalidraw.svg#only-light){ width="300" }
+![](img/computer-dark.excalidraw.svg#only-dark){ width="300" }
 
 Computures use bit's (0 or 1) to represent data and commands
 
@@ -95,4 +96,4 @@ Can only achieve 2 out of those properties at the same time
 
 # 2. Resources
 
-- [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 9:00
+- [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 10:20
