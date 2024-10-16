@@ -17,12 +17,19 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         ...       # Other markdown pages, images and other files.
 
 requrements:
+```
 pip install mkdocs-material
+```
 for mac 
+```
 pipx install mkdocs-material
+```
 to run the server 
 ```
 mkdocs serve
 ```
 
 user 4 space indents
+
+Good place to get SVG images
+www.svgrepo.com
