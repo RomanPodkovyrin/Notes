@@ -38,8 +38,7 @@ Can read/write from RAM/Disk/Cache data
 ![Stream flow](img/app-architecture-light.excalidraw.svg#only-light)
 ![Stream flow](img/app-architecture-dark.excalidraw.svg#only-dark)
 
-- `CI/CD` - Continuous Integration and Continuous Deployment
-    - e.g. Jenkins, Github Actions
+-   `CI/CD` - Continuous Integration and Continuous Deployment
 
 - `Load Balancer` - ensures the user requests are evenly distributed between servers
     - e.g. Nginx
@@ -94,7 +93,7 @@ Can only achieve 2 out of those properties at the same time
 
 !!! note "Can only achieve 2 out of those properties at the same time"
     
-    - `CA` - Prioritises both consistency and availability. They do not tolerate network partitions an always aim for strong consistency. 
+    - `CA` - Prioritises both consistency and availability. They do not tolerate network partitions an always aim for strong consistency.
         - RDBMS
     - `AP` - Prioritise availability and partitioning tolerance over strict consistency. They systems may provide eventual consistency, where data may take some time to propagate and become consistent across all nodes.
         - Cassandra, DynamoDB
@@ -109,11 +108,11 @@ Usually measured as 99.999%
 
 !!! example "Example"
     Running service with 99.9% availability, allows for 8.76 hour of downtime a year
-    ```365*24 * 0.001 = 8.76 Hours```
+    `365*24 * 0.001 = 8.76 Hours`
 
     99.999% only allows 5 mins of downtime a year
     
-    
+ 
 !!! note "SLO-Service Level Objectives"
     Example. Can set that our service should respond to the request within 300ms  99.9% of the time
 
@@ -141,7 +140,34 @@ We use the following criteria to access that:
     When it comes to optimising speed, it often affects the other metric. For example increasing throughput by batching jobs, will decrease latency
 
 ## 1.4. Networking Basics
+
+-   `IP Address` - unique identifier
+    -   `IPv4` - 32-bit -> 4B addresses
+    -   `IPv6` - 128-bit -> 340T
+
+![](img/ipheader-light.excalidraw.svg#only-light){width=300}
+![](img/ipheader-dark.excalidraw.svg#only-dark){width=300}
+
+![](img/app-layer-light.excalidraw.svg#only-light){width=300}
+![](img/app-layer-dark.excalidraw.svg#only-dark){width=300}
+
+TRANSPORT LAYER
+
+| Factor              | TCP                                                                   | UDP                                                                     |
+| ------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `Connection type`     | Requires an established connection before transmitting data           | No connection is needed to start and end a data transfer                |
+| `Data sequence`      | Can sequence data (send in a specific order)                          | Cannot sequence or arrange data                                         |
+| `Data retransmission` | Can retransmit data if packets fail to arrive                         | No data retransmitting. Lost data can’t be retrieved                    |
+|  `Delivery`           | Delivery is guaranteed                                                | Delivery is not guaranteed                                              |
+| `Check for errors`    | Thorough error-checking guarantees data arrives in its intended state | Minimal error-checking covers the basics but may not prevent all errors |
+| `Broadcasting`        | Not supported                                                         | Supported                                                               |
+| `Speed`               | Slow, but complete data delivery                                      | Fast, but at risk of incomplete data delivery                           |
+
+![](img/transport-layer-light.excalidraw.svg#only-light)
+![](img/transport-layer-dark.excalidraw.svg#only-dark)
+
 # 2. Resources
 
-- [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 10:20
-- [CAP Theorem](https://tsaiprabhanj.medium.com/cap-therom-a515a6c4c81e)
+-   [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 14:42
+-   [CAP Theorem](https://tsaiprabhanj.medium.com/cap-therom-a515a6c4c81e)
+-   [TCP vs UDP: What’s the Difference and Which Protocol Is Better?](https://www.avast.com/c-tcp-vs-udp-difference#:~:text=The%20main%20difference%20between%20TCP,reliable%20but%20works%20more%20quickly.)
