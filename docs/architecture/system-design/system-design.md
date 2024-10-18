@@ -318,8 +318,8 @@ HTTP Example
 - `DELETE` -> `DELETE` /api/products/:id
 
 ### Communication formats
-
 !!! info "**JSON** (JavaScript Object Notation)"
+
     - **Characteristics:**
         - `Lightweight` data-interchange format
         - `Human-readable` and easy to understand
@@ -329,60 +329,62 @@ HTTP Example
         - Supports `nested` structures
     - **Data Types:**
         - `String`, `Number`, `Boolean`, `Array`, `Object`, `null`
-    - **Pros:**
+    - :white_check_mark: **Pros:**
         - `Wide support` across languages and platforms
         - Easy to `parse` and `generate`
         - Compact compared to XML
-    - **Cons:**
+    - :x: **Cons:**
         - No support for `comments`
         - Limited `data type` support (e.g., no date type)
-    - **Use Cases:**
+    - :bulb: **Use Cases:**
         - `Web APIs`, `Configuration` files, `Data storage`
 
 !!! info "**XML** (eXtensible Markup Language)"
+
     - **Characteristics:**
         - `Markup language` that defines a set of rules for encoding documents
         - `Self-descriptive` and flexible
     - **Structure:**
         - Uses `tags` to define elements
         - Supports `attributes` within tags
-    - **Features:**
+    - :gear: **Features:**
         - `Namespaces` for avoiding name conflicts
         - `DTD` and `XML Schema` for defining structure
-    - **Pros:**
+    - :white_check_mark: **Pros:**
         - `Highly extensible`
         - Strong `support for metadata`
         - `Validation` capabilities
-    - **Cons:**
+    - :x: **Cons:**
         - More `verbose` than JSON or Protocol Buffers
         - Can be `overly complex` for simple data
-    - **Use Cases:**
+    - :bulb: **Use Cases:**
         - `SOAP` web services, `Configuration` files, `Data interchange` in enterprise systems
 
 !!! info "**Protocol Buffers** (Protobuf)"
+
     - **Characteristics:**
         - `Binary` serialization format developed by Google
         - `Language-neutral`, platform-neutral, extensible
     - **Structure:**
         - Defines message types in `.proto` files
         - Strongly `typed fields`
-    - **Features:**
+    - :gear: **Features:**
         - `Backward` and `forward compatibility`
         - `Code generation` for multiple languages
-    - **Pros:**
+    - :white_check_mark: **Pros:**
         - `Smaller` size compared to JSON and XML
         - `Faster` parsing and serialization
         - `Strict typing` reduces errors
-    - **Cons:**
+    - :x: **Cons:**
         - Not `human-readable` in binary form
         - Requires `additional tooling` for development
         - Less `flexible` than JSON or XML for dynamic structures
-    - **Use Cases:**
+    - :bulb: **Use Cases:**
         - `High-performance` RPC systems (e.g., gRPC)
         - `Inter-service communication` in microservices
         - `Data storage` where space efficiency is crucial
 
-**Comparison:**
+:bar_chart: **Comparison**
 
 - `JSON`: Best for web applications and APIs where human readability is important
 - `XML`: Suitable for complex data with metadata requirements and where extensive tooling support is beneficial
@@ -396,11 +398,11 @@ HTTP Example
         - Uses `standard HTTP methods` (GET, POST, PUT, DELETE)
         - Typically uses `JSON` for data exchange
         - `Resource-oriented` design
-    - **Pros:**
+    - :white_check_mark: **Pros:**
         - Simple and widely adopted
         - Scalable and cacheable
         - Separation of client and server
-    - **Cons:**
+    - :x: **Cons:**
         - Potential for `over-fetching` or `under-fetching` data
         - Multiple round trips for complex data requirements
 
@@ -409,11 +411,11 @@ HTTP Example
         - `Single endpoint` for all operations
         - `Strongly typed schema`-based queries
         - Allows clients to request `specific data`
-    - **Pros:**
+    - :white_check_mark: **Pros:**
         - Avoids over-fetching and under-fetching
         - `Flexible` data retrieval
         - Strong typing and introspection
-    - **Cons:**
+    - :x: **Cons:**
         - Complex queries can impact `server performance`
         - Only uses `POST` requests
         - Always responds with `HTTP 200` (error handling complexity)
@@ -424,18 +426,18 @@ HTTP Example
         - Built on `HTTP/2` protocol
         - Uses `Protocol Buffers` for serialization
         - Supports `streaming` (unary, server, client, bidirectional)
-    - **Pros:**
+    - :white_check_mark: **Pros:**
         - `High performance` and low latency
         - Efficient `binary serialization`
         - Strong typing with protocol buffers
         - Supports `multiplexing` and server push
-    - **Cons:**
+    - :x: **Cons:**
         - Less `human-readable` (binary format)
         - Requires HTTP/2 support
         - Limited `browser support`
         - Steeper learning curve compared to REST
 
-**Each paradigm has its strengths and is suited for different use cases:**
+:bulb: **Use Cases**
 
 - `REST`: Good for public APIs and CRUD operations
 - `GraphQL`: Ideal for complex data requirements and multiple client types
@@ -443,6 +445,7 @@ HTTP Example
 
 # 2. Resources
 
--   [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 14:42
+
+-   [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 27:23
 -   [CAP Theorem](https://tsaiprabhanj.medium.com/cap-therom-a515a6c4c81e)
 -   [TCP vs UDP: What’s the Difference and Which Protocol Is Better?](https://www.avast.com/c-tcp-vs-udp-difference#:~:text=The%20main%20difference%20between%20TCP,reliable%20but%20works%20more%20quickly.)
