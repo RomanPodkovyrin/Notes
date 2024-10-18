@@ -9,7 +9,7 @@ icon: material/connection
 ![](img/computer-light.excalidraw.svg#only-light){ width="300" }
 ![](img/computer-dark.excalidraw.svg#only-dark){ width="300" }
 
-Computures use bit's (0 or 1) to represent data and commands
+Computers use **bits** (0 or 1) to represent data and commands
 
 - `bit` - 0 or 1
 - `byte` - 8 bits
@@ -17,22 +17,31 @@ Computures use bit's (0 or 1) to represent data and commands
 - `MB` - 1024 KBs
 - `GB` - 1024 MBs
 - `TB` - 1024 GBs
-- etc...
+- *etc...*
 
 ### 1.1.1. Storage
 
-Arranged from slowest to fastest and largest to smallest possible size:
+Arranged from **slowest to fastest** and **largest to smallest** possible size:
 
-- `HDD` | `SSD` - Non-volatile (retains data without power)
-- `RAM` - Volatile (loses data without power)
+- `HDD` | `SSD` - **Non-volatile** (retains data without power)
+- `RAM` - **Volatile** (loses data without power)
 - `Cache` - Order of CPU looking for data in cache (L1 -> L2 -> L3 -> RAM)
 
 ### 1.1.2. CPU
 
-Fetches decodes and executes instructions
+!!! tip "CPU Functions"
+    - **Fetches**, **decodes**, and **executes** instructions
+    - Can read/write from RAM/Disk/Cache data
 
-Can read/write from RAM/Disk/Cache data
-
+!!! warning "Memory Access"
+    CPU accesses memory in this order:
+    
+    1. L1 Cache
+    2. L2 Cache
+    3. L3 Cache
+    4. RAM
+    
+    :zap: *Faster access, but smaller capacity as you go up the list*
 ## 1.2. **High-level Architecture of a Production App**
 
 ![Stream flow](img/app-architecture-light.excalidraw.svg#only-light)
@@ -126,31 +135,32 @@ Usually measured as 99.999%
 !!! note "SLA-Service Level Agreements"
     More like format contracts with the users. They define a minimum level of service we're committing to provide. If your availability drops below our stated availability in the SLA, we might have to provide refunds.
 
-### 1.3.4. Accessing System Resilience
+### 1.3.4. Assessing System Resilience
 
-We use the following criteria to access that:
+We use the following criteria to assess system resilience:
 
-- `Reliability`
-    - Ensuring system works correctly and consistently
-- `Fault Tolerance`
-    - How does system handle unexpected failures or attacks
-- `Redundancy`
-    - Having a system backup that takes over when part of the system fails
-- `Speed`
+- :shield: `Reliability`
+    - Ensuring system works **correctly** and **consistently**
+- :collision: `Fault Tolerance`
+    - How does system handle **unexpected failures** or **attacks**
+- :repeat: `Redundancy`
+    - Having a system **backup** that takes over when part of the system fails
+- :zap: `Speed`
     - `Throughput` - How much data our system can handle over a certain period of time
-        - Server Throughput is measured in `RPS` requests per second
-        - DB Throughput is measured in `QPS` Queries per second
-        - Data throughput measured in `B/s` Bytes per second
-    - `Latency` - How long it takes to handle a single requests
+        - Server Throughput is measured in `RPS` (requests per second)
+        - DB Throughput is measured in `QPS` (Queries per second)
+        - Data throughput measured in `B/s` (Bytes per second)
+    - `Latency` - How long it takes to handle a single request
 
-!!! danger ""
-    When it comes to optimising speed, it often affects the other metric. For example increasing throughput by batching jobs, will decrease latency
+!!! danger "Speed Optimization Trade-off"
+    When it comes to optimising speed, it often affects other metrics. For example, increasing throughput by batching jobs will decrease latency.
 
-## 1.4. Networking Basics
+## :globe_with_meridians: 1.4. Networking Basics
 
--   `IP Address` - unique identifier
-    -   `IPv4` - 32-bit -> 4B addresses
-    -   `IPv6` - 128-bit -> 340T
+!!! info "IP Addresses"
+    - `IP Address` - unique identifier
+        - `IPv4` - **32-bit** -> 4B addresses
+        - `IPv6` - **128-bit** -> 340T addresses
 
 ![](img/ipheader-light.excalidraw.svg#only-light){width=300}
 ![](img/ipheader-dark.excalidraw.svg#only-dark){width=300}
@@ -192,12 +202,19 @@ Translates domain names into IP addresses
 
 ### 1.4.2. Application Protocol
 
-#### 1.4.2.1. HTTP
+Here's the formatted version of your Markdown using the specified guidelines:
 
-- Hypertext transfer protocol
-- Build on TCP/IP
-- It's a request response protocol
-- Uses Methods and Status Codes
+#### :globe_with_meridians: 1.4.2.1. HTTP
+
+- HyperText Transfer Protocol
+- Built on `TCP/IP`
+- It's a **request-response** protocol
+- Uses **Methods** and **Status Codes**
+
+!!! tip "Key Features"
+    - :arrow_up_down: **Stateless** protocol
+    - :closed_lock_with_key: Supports **HTTPS** for secure communication
+    - :repeat: Allows for **persistent connections** (HTTP/1.1+)
 
 ![](img/http-light.excalidraw.svg#only-light)
 ![](img/http-dark.excalidraw.svg#only-dark)
@@ -231,82 +248,94 @@ Translates domain names into IP addresses
     - `501 Not Implemented`: The server does not support the functionality required to fulfil the request
     - `503 Service Unavailable`: The server is not ready to handle the request, often used for maintenance or overload
 
-#### 1.4.2.2. Web Socket
+Here's the formatted version of your Markdown using the specified guidelines:
 
-- Full-duplex, bidirectional communication
-- Enables real-time data transfer
-- Runs over a single TCP connection
-- Designed for low-latency, high-frequency updates
-- Etc, used for chats and streaming
+#### :electric_plug: 1.4.2.2. Web Socket
+
+!!! info "Web Socket Characteristics"
+    - Full-duplex, **bidirectional** communication
+    - Enables **real-time** data transfer
+    - Runs over a single `TCP` connection
+    - Designed for **low-latency**, **high-frequency** updates
+    - Used for chats and streaming
 
 ![](img/websocket-light.excalidraw.svg#only-light)
 ![](img/websocket-dark.excalidraw.svg#only-dark)
 
-#### 1.4.2.3. WebRTC
+#### :video_camera: 1.4.2.3. WebRTC
 
-- Web Real-Time Communication
-- Enables direct peer-to-peer communication
-- Supports video, voice, and data sharing
-- Works without plugins or additional software
+!!! info "WebRTC Features"
+    - Web Real-Time Communication
+    - Enables direct **peer-to-peer** communication
+    - Supports **video**, **voice**, and **data** sharing
+    - Works without plugins or additional software
 
-#### 1.4.2.4. MQTT
+#### :satellite: 1.4.2.4. MQTT
 
-- Message Queuing Telemetry Transport
-- Lightweight publish-subscribe messaging protocol
-- Designed for constrained devices and low-bandwidth networks
-- Uses a broker to manage message distribution
+!!! info "MQTT Basics"
+    - Message Queuing Telemetry Transport
+    - Lightweight **publish-subscribe** messaging protocol
+    - Designed for **constrained devices** and **low-bandwidth** networks
+    - Uses a **broker** to manage message distribution
 
 ![](img/mqtt-light.excalidraw.svg#only-light)
 ![](img/mqtt-dark.excalidraw.svg#only-dark)
 
-#### 1.4.2.5. AMQP
+#### :rabbit: 1.4.2.5. AMQP
 
-- Advanced Message Queuing Protocol
-- Open standard for message-oriented middleware
-- Supports point-to-point and publish-subscribe patterns
-- Ensures reliable message delivery
+!!! info "AMQP Characteristics"
+    - Advanced Message Queuing Protocol
+    - Open standard for **message-oriented middleware**
+    - Supports **point-to-point** and **publish-subscribe** patterns
+    - Ensures **reliable** message delivery
 
-#### 1.4.2.6. SMTP
+#### :envelope: 1.4.2.6. SMTP
 
-- Simple Mail Transfer Protocol
-- Used for sending and routing email
-- Works on a store-and-forward model
-- Operates on TCP port 25 by default
+!!! info "SMTP Basics"
+    - Simple Mail Transfer Protocol
+    - Used for **sending** and **routing** email
+    - Works on a **store-and-forward** model
+    - Operates on `TCP port 25` by default
 
-#### 1.4.2.7. IMAP
+#### :inbox_tray: 1.4.2.7. IMAP
 
-- Internet Message Access Protocol
-- Retrieves email messages from a mail server
-- Allows management of mailboxes on server
-- Keeps messages on server, enabling access from multiple devices
+!!! info "IMAP Features"
+    - Internet Message Access Protocol
+    - **Retrieves** email messages from a mail server
+    - Allows **management** of mailboxes on server
+    - Keeps messages on server, enabling **access from multiple devices**
 
-#### 1.4.2.8. POP3
+#### :outbox_tray: 1.4.2.8. POP3
 
-- Post Office Protocol version 3
-- Used to retrieve email from a mail server
-- Typically downloads messages to a local device
-- Simpler than IMAP, with fewer features
+!!! info "POP3 Characteristics"
+    - Post Office Protocol version 3
+    - Used to **retrieve** email from a mail server
+    - Typically **downloads** messages to a local device
+    - **Simpler** than IMAP, with fewer features
 
-#### 1.4.2.9. FTP
+#### :file_folder: 1.4.2.9. FTP
 
-- Used for transferring files between client and server
-- Supports both binary and ASCII file transfers
-- Uses separate control and data connections
+!!! info "FTP Basics"
+    - File Transfer Protocol
+    - Used for **transferring files** between client and server
+    - Supports both **binary** and **ASCII** file transfers
+    - Uses separate **control** and **data** connections
 
-#### 1.4.2.10. SSH
+#### :closed_lock_with_key: 1.4.2.10. SSH
 
-- Secure Shell
-- Provides secure remote login and other network services
-- Encrypts all traffic between client and server
-- Often used for remote command execution and file transfers
+!!! info "SSH Features"
+    - Secure Shell
+    - Provides **secure remote login** and other network services
+    - **Encrypts** all traffic between client and server
+    - Often used for **remote command execution** and **file transfers**
 
-#### 1.4.2.11. RPC
+#### :telephone_receiver: 1.4.2.11. RPC
 
-- Remote Procedure Call
-- Allows program to execute a procedure on another computer
-- Can be implemented over various transport protocols
-- Abstracts the complexities of network communication
-
+!!! info "RPC Characteristics"
+    - Remote Procedure Call
+    - Allows program to execute a procedure on **another computer**
+    - Can be implemented over **various transport protocols**
+    - **Abstracts** the complexities of network communication
 
 ## 1.5. API Design
 
