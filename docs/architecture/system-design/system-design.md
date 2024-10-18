@@ -33,47 +33,54 @@ Fetches decodes and executes instructions
 
 Can read/write from RAM/Disk/Cache data
 
-## 1.2. High-level Architecture of a Production App
+## 1.2. **High-level Architecture of a Production App**
 
 ![Stream flow](img/app-architecture-light.excalidraw.svg#only-light)
 ![Stream flow](img/app-architecture-dark.excalidraw.svg#only-dark)
 
--   `CI/CD` - Continuous Integration and Continuous Deployment
+!!! info
+    - **`CI/CD`** - Continuous Integration and Continuous Deployment  
+    - **`Load Balancer`** - Ensures user requests are evenly distributed between servers  
+        :white_check_mark: Example: **Nginx**  
+    - **`Logging & Monitoring`** - Standard practice is to store logs on a separate server from the production server  
+        :white_check_mark: Examples: **DataDog, Sentry, Prometheus**  
+    - **`Alert Server`** - Accumulates and sends out issue updates, either to users or developer Slack chats, to inform about issues.
 
-- `Load Balancer` - ensures the user requests are evenly distributed between servers
-    - e.g. Nginx
-- `Logging & Monitoring` - standard practice is to store those on a separate server from production server.
-    - e.g. DataDog, Sentry, Prometheus
-- `Alert Server` - Accumulates and sends out issue updates either to users or Developer Slack chat for example to inform of an issue
+---
 
-### 1.2.1. Investigation Process
+### 1.2.1. **Investigation Process**
+:mag: Once developers are informed of an issue, follow these steps to investigate
+    
+1. **Identify** the issue in the logs  
+2. Use **Pipelines** to deploy to a safe environment and **replicate** the issue  
+    :warning: Never use **production** for this  
+3. **Release a quick patch** to get things working again
 
-Once Developer were informed of an issue, it needs to be investigated, usually in the following order
+---
 
-1. Identify an issue in the logs
-2. Using Pipelines deploy to a safe environment to replicate the issue
-    - Never use production for this
-3. Release a quick patch, to get things working again
+## 1.3. **Good Design Requirements**
+- **`Scalability`** - System should grow with its user base  
+- **`Maintainability`** - Ensure ease of future development and improvements  
+- **`Efficiency`** - Optimal use of resources  
+- **`Reliability`** - System remains stable when things go wrong
 
-## 1.3. Good Design Requirements
+---
 
-- `Scalability` - system should grow with it's user base
-- `Maintainability` - making it easier for future devs to maintain and improve our system
-- `Efficiency` - making the best use of our resources
-- `Reliability` - maintains it's composure when things go wrong
+### 1.3.1. **3 Key Elements of System Design**
 
-### 1.3.1. 3 Key Elements of System Design
+!!! info ":gear: **Moving Data**"
+    - Ensure data flows seamlessly between components (user, system, databases)  
+    - **Optimized for speed and security**
 
-- `Moving Data` - ensuring data can flow seamlessly between components, either between user and system of databases. This needs to be optimised for speed and security.
-- `Storing Data` - about understanding:
-    - Access patterns
-    - Indexing strategies
-    - Backup solutions
-    - Data is readily available
-    - Stored securely
-- `Transforming Data` - taking raw data and turning it into meaningful information
-    - Aggregating log files for analysis
-    - Converting user input into a different format
+!!! info ":floppy_disk: **Storing Data**"
+    - Consider **Access patterns, Indexing strategies, Backup solutions**  
+    - Data should be **readily available** and **stored securely**
+
+!!! info ":arrows_clockwise: **Transforming Data**"
+    - Convert raw data into meaningful information  
+    - Aggregate log files for analysis  
+    - Convert user input into different formats
+
 
 ### 1.3.2. CAP Theorem A.K.A Brewer's Theorem
 
