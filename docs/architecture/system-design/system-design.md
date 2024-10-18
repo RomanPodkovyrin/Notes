@@ -166,6 +166,109 @@ TRANSPORT LAYER
 ![](img/transport-layer-light.excalidraw.svg#only-light)
 ![](img/transport-layer-dark.excalidraw.svg#only-dark)
 
+### 1.4.1. DNS - Domain Name System
+
+Translates domain names into IP addresses
+
+`ICANN` - Internet Corporation For Assigned Names and Numbers, functioning of DNS is overseen by ICANN, which coordinates the global IP address base and domain name system
+
+#### 1.4.1.1. Types of Records in DNS
+
+| Type  | Description                                                           | Example                           |
+|-------|-----------------------------------------------------------------------|-----------------------------------|
+| A     | Maps a domain name to an IPv4 address                                 | example.com -> 192.168.0.42       |
+| AAAA  | Maps a domain name to an IPv6 address                                 |                                   |
+| CNAME | Canonical Name, direct an alias domain to a canonical domain          | example -> original.com           |
+| TXT   | Allows to store text info, such as SPF and email verification records |                                   |
+| NS    | Nameserver                                                            | coen.ns.cloudflare.com            |
+| MX    | Main Exchanger                                                        | example.com -> mail.protonmail.ch |
+
+### 1.4.2. Application Protocol
+
+#### 1.4.2.1. HTTP
+
+    - Hypertext transfer protocol
+    - Build on tcp/ip
+    - It's a request response protocol with no memory
+    - Uses Methods and Status Code
+
+##### 1.4.2.1.1. Codes
+
+!!! success "2xx Success Codes"
+    - `200 OK`: The standard response for successful request
+    - `201 Created`: Signifies that a new resource has been successfully created
+    - `204 No Content`: Indicates that the server successfully processed the request, but is not return any content
+
+!!! warning "3xx Redirection Codes"
+    - `301 Moved Permanently`: The URL of the requested resource has been changed permanently. The new URL is given in the response
+    - `302 Found`: Indicated that the resource is temporarily located at another URI
+    - `304 Not Modified`: Informs the client that the chached version of the response is still valid and can be used
+
+!!! failure "4xx Client Error Codes"
+    - `400 Bad Request`: The server cannot process the requested due to a client error
+    - `401 Unauthorized`: Authentication is required for the requested to be completed
+    - `403 Forbidden`: The server understands the requested but refuses to authorize it
+    - `404 Not Found`: The server can't find the requested resource
+    - `429 Too Many Requests`: The user has sent too many requests in a given amount of time
+
+!!! bug "5xx Server Error Codes"
+    - `500 Internal Server Error`: A generic error message when the server encounters an unexpected condition
+    - `501 Not Implemented`: The server does not support the functionality required to fulfil the request
+    - `503 Service Unavailable`: The server is not ready to handle the request, often used for maintenance or overload
+
+#### 1.4.2.2. Web Socket
+    - Full-duplex, bidirectional communication
+    - Enables real-time data transfer
+    - Runs over a single TCP connection
+    - Designed for low-latency, high-frequency updates
+#### 1.4.2.3. WebRTC
+Web Real-Time Communication
+Enables direct peer-to-peer communication
+Supports video, voice, and data sharing
+Works without plugins or additional software
+
+#### 1.4.2.4. MQTT
+
+Message Queuing Telemetry Transport
+Lightweight publish-subscribe messaging protocol
+Designed for constrained devices and low-bandwidth networks
+Uses a broker to manage message distribution
+#### 1.4.2.5. AMQP
+Advanced Message Queuing Protocol
+Open standard for message-oriented middleware
+Supports point-to-point and publish-subscribe patterns
+Ensures reliable message delivery
+#### 1.4.2.6. SMTP
+Simple Mail Transfer Protocol
+Used for sending and routing email
+Works on a store-and-forward model
+Operates on TCP port 25 by default
+#### 1.4.2.7. IMAP
+Internet Message Access Protocol
+Retrieves email messages from a mail server
+Allows management of mailboxes on server
+Keeps messages on server, enabling access from multiple devices
+#### 1.4.2.8. POP3
+Post Office Protocol version 3
+Used to retrieve email from a mail server
+Typically downloads messages to a local device
+Simpler than IMAP, with fewer features
+#### 1.4.2.9. FTP
+Used for transferring files between client and server
+Supports both binary and ASCII file transfers
+Uses separate control and data connections
+#### 1.4.2.10. SSH
+Secure Shell
+Provides secure remote login and other network services
+Encrypts all traffic between client and server
+Often used for remote command execution and file transfers
+#### 1.4.2.11. RPC
+Remote Procedure Call
+Allows program to execute a procedure on another computer
+Can be implemented over various transport protocols
+Abstracts the complexities of network communication
+
+
 # 2. Resources
 
 -   [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 14:42
