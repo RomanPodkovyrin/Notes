@@ -187,10 +187,13 @@ Translates domain names into IP addresses
 
 #### 1.4.2.1. HTTP
 
-    - Hypertext transfer protocol
-    - Build on tcp/ip
-    - It's a request response protocol with no memory
-    - Uses Methods and Status Code
+- Hypertext transfer protocol
+- Build on TCP/IP
+- It's a request response protocol
+- Uses Methods and Status Codes
+
+![](img/http-light.excalidraw.svg#only-light)
+![](img/http-dark.excalidraw.svg#only-dark)
 
 ##### 1.4.2.1.1. Codes
 
@@ -217,56 +220,83 @@ Translates domain names into IP addresses
     - `503 Service Unavailable`: The server is not ready to handle the request, often used for maintenance or overload
 
 #### 1.4.2.2. Web Socket
-    - Full-duplex, bidirectional communication
-    - Enables real-time data transfer
-    - Runs over a single TCP connection
-    - Designed for low-latency, high-frequency updates
+
+- Full-duplex, bidirectional communication
+- Enables real-time data transfer
+- Runs over a single TCP connection
+- Designed for low-latency, high-frequency updates
+- Etc, used for chats and streaming
+
+![](img/websocket-light.excalidraw.svg#only-light)
+![](img/websocket-dark.excalidraw.svg#only-dark)
+
 #### 1.4.2.3. WebRTC
-Web Real-Time Communication
-Enables direct peer-to-peer communication
-Supports video, voice, and data sharing
-Works without plugins or additional software
+
+- Web Real-Time Communication
+- Enables direct peer-to-peer communication
+- Supports video, voice, and data sharing
+- Works without plugins or additional software
 
 #### 1.4.2.4. MQTT
 
-Message Queuing Telemetry Transport
-Lightweight publish-subscribe messaging protocol
-Designed for constrained devices and low-bandwidth networks
-Uses a broker to manage message distribution
+- Message Queuing Telemetry Transport
+- Lightweight publish-subscribe messaging protocol
+- Designed for constrained devices and low-bandwidth networks
+- Uses a broker to manage message distribution
+
+![](img/mqtt-light.excalidraw.svg#only-light)
+![](img/mqtt-dark.excalidraw.svg#only-dark)
+
 #### 1.4.2.5. AMQP
-Advanced Message Queuing Protocol
-Open standard for message-oriented middleware
-Supports point-to-point and publish-subscribe patterns
-Ensures reliable message delivery
+
+- Advanced Message Queuing Protocol
+- Open standard for message-oriented middleware
+- Supports point-to-point and publish-subscribe patterns
+- Ensures reliable message delivery
+
 #### 1.4.2.6. SMTP
-Simple Mail Transfer Protocol
-Used for sending and routing email
-Works on a store-and-forward model
-Operates on TCP port 25 by default
+
+- Simple Mail Transfer Protocol
+- Used for sending and routing email
+- Works on a store-and-forward model
+- Operates on TCP port 25 by default
+
 #### 1.4.2.7. IMAP
-Internet Message Access Protocol
-Retrieves email messages from a mail server
-Allows management of mailboxes on server
-Keeps messages on server, enabling access from multiple devices
+
+- Internet Message Access Protocol
+- Retrieves email messages from a mail server
+- Allows management of mailboxes on server
+- Keeps messages on server, enabling access from multiple devices
+
 #### 1.4.2.8. POP3
-Post Office Protocol version 3
-Used to retrieve email from a mail server
-Typically downloads messages to a local device
-Simpler than IMAP, with fewer features
+
+- Post Office Protocol version 3
+- Used to retrieve email from a mail server
+- Typically downloads messages to a local device
+- Simpler than IMAP, with fewer features
+
 #### 1.4.2.9. FTP
-Used for transferring files between client and server
-Supports both binary and ASCII file transfers
-Uses separate control and data connections
+
+- Used for transferring files between client and server
+- Supports both binary and ASCII file transfers
+- Uses separate control and data connections
+
 #### 1.4.2.10. SSH
-Secure Shell
-Provides secure remote login and other network services
-Encrypts all traffic between client and server
-Often used for remote command execution and file transfers
+
+- Secure Shell
+- Provides secure remote login and other network services
+- Encrypts all traffic between client and server
+- Often used for remote command execution and file transfers
+
 #### 1.4.2.11. RPC
-Remote Procedure Call
-Allows program to execute a procedure on another computer
-Can be implemented over various transport protocols
-Abstracts the complexities of network communication
+
+- Remote Procedure Call
+- Allows program to execute a procedure on another computer
+- Can be implemented over various transport protocols
+- Abstracts the complexities of network communication
+
+
+## API Design
 
 
 # 2. Resources
