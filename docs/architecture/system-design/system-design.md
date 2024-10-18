@@ -197,6 +197,11 @@ Translates domain names into IP addresses
 
 ##### 1.4.2.1.1. Codes
 
+!!! info "1xx Information Codes"
+    - `100 Continue`: Indicates that the client should continue the request or ignore the response if the request is already finished
+    - `101 Switching Protocols`:  Indicates protocol the server is switching too
+    - `102 Processing`: WebDav, the server has received and is processing the request, not response is yet available.
+
 !!! success "2xx Success Codes"
     - `200 OK`: The standard response for successful request
     - `201 Created`: Signifies that a new resource has been successfully created
@@ -296,8 +301,145 @@ Translates domain names into IP addresses
 - Abstracts the complexities of network communication
 
 
-## API Design
+## 1.5. API Design
 
+### 1.5.1. CRUD Operations
+
+Basic operation of any data driven application
+
+![](img/crud-light.excalidraw.svg#only-light){width=300}
+![](img/crud-dark.excalidraw.svg#only-dark){width=300}
+
+HTTP Example
+
+- `CREATE` -> `POST` /api/products
+- `READ` -> `GET` /api/products
+- `UPDATE` -> `PUT` /api/products/:id
+- `DELETE` -> `DELETE` /api/products/:id
+
+### Communication formats
+
+!!! info "**JSON** (JavaScript Object Notation)"
+    - **Characteristics:**
+        - `Lightweight` data-interchange format
+        - `Human-readable` and easy to understand
+        - Based on a `subset of JavaScript`
+    - **Structure:**
+        - Uses `key-value pairs` and `arrays`
+        - Supports `nested` structures
+    - **Data Types:**
+        - `String`, `Number`, `Boolean`, `Array`, `Object`, `null`
+    - **Pros:**
+        - `Wide support` across languages and platforms
+        - Easy to `parse` and `generate`
+        - Compact compared to XML
+    - **Cons:**
+        - No support for `comments`
+        - Limited `data type` support (e.g., no date type)
+    - **Use Cases:**
+        - `Web APIs`, `Configuration` files, `Data storage`
+
+!!! info "**XML** (eXtensible Markup Language)"
+    - **Characteristics:**
+        - `Markup language` that defines a set of rules for encoding documents
+        - `Self-descriptive` and flexible
+    - **Structure:**
+        - Uses `tags` to define elements
+        - Supports `attributes` within tags
+    - **Features:**
+        - `Namespaces` for avoiding name conflicts
+        - `DTD` and `XML Schema` for defining structure
+    - **Pros:**
+        - `Highly extensible`
+        - Strong `support for metadata`
+        - `Validation` capabilities
+    - **Cons:**
+        - More `verbose` than JSON or Protocol Buffers
+        - Can be `overly complex` for simple data
+    - **Use Cases:**
+        - `SOAP` web services, `Configuration` files, `Data interchange` in enterprise systems
+
+!!! info "**Protocol Buffers** (Protobuf)"
+    - **Characteristics:**
+        - `Binary` serialization format developed by Google
+        - `Language-neutral`, platform-neutral, extensible
+    - **Structure:**
+        - Defines message types in `.proto` files
+        - Strongly `typed fields`
+    - **Features:**
+        - `Backward` and `forward compatibility`
+        - `Code generation` for multiple languages
+    - **Pros:**
+        - `Smaller` size compared to JSON and XML
+        - `Faster` parsing and serialization
+        - `Strict typing` reduces errors
+    - **Cons:**
+        - Not `human-readable` in binary form
+        - Requires `additional tooling` for development
+        - Less `flexible` than JSON or XML for dynamic structures
+    - **Use Cases:**
+        - `High-performance` RPC systems (e.g., gRPC)
+        - `Inter-service communication` in microservices
+        - `Data storage` where space efficiency is crucial
+
+**Comparison:**
+
+- `JSON`: Best for web applications and APIs where human readability is important
+- `XML`: Suitable for complex data with metadata requirements and where extensive tooling support is beneficial
+- `Protocol Buffers`: Ideal for high-performance scenarios and when working with strongly typed data in multiple languages
+
+### API Paradigms
+
+!!! info " **REST** (Representational State Transfer)"
+    - **Characteristics:**
+        - `Stateless` architecture
+        - Uses `standard HTTP methods` (GET, POST, PUT, DELETE)
+        - Typically uses `JSON` for data exchange
+        - `Resource-oriented` design
+    - **Pros:**
+        - Simple and widely adopted
+        - Scalable and cacheable
+        - Separation of client and server
+    - **Cons:**
+        - Potential for `over-fetching` or `under-fetching` data
+        - Multiple round trips for complex data requirements
+
+!!! info "**GraphQL**"
+    - **Characteristics:**
+        - `Single endpoint` for all operations
+        - `Strongly typed schema`-based queries
+        - Allows clients to request `specific data`
+    - **Pros:**
+        - Avoids over-fetching and under-fetching
+        - `Flexible` data retrieval
+        - Strong typing and introspection
+    - **Cons:**
+        - Complex queries can impact `server performance`
+        - Only uses `POST` requests
+        - Always responds with `HTTP 200` (error handling complexity)
+        - Steeper learning curve
+
+!!! info "**gRPC** (Google Remote Procedure Call)"
+    - **Characteristics:**
+        - Built on `HTTP/2` protocol
+        - Uses `Protocol Buffers` for serialization
+        - Supports `streaming` (unary, server, client, bidirectional)
+    - **Pros:**
+        - `High performance` and low latency
+        - Efficient `binary serialization`
+        - Strong typing with protocol buffers
+        - Supports `multiplexing` and server push
+    - **Cons:**
+        - Less `human-readable` (binary format)
+        - Requires HTTP/2 support
+        - Limited `browser support`
+        - Steeper learning curve compared to REST
+
+**Each paradigm has its strengths and is suited for different use cases:**
+
+- `REST`: Good for public APIs and CRUD operations
+- `GraphQL`: Ideal for complex data requirements and multiple client types
+- `gRPC`: Excellent for microservices and high-performance inter-service communication
 
 # 2. Resources
 
