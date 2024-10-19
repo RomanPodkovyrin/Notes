@@ -1,91 +1,93 @@
-# Authentication Methods
+# :lock: Authentication Methods
 
-Two main ways of doing user authentication
+Two main ways of doing user authentication:
 
--   Session Cookies
--   JWT
+1. Session Cookies
+2. JWT (JSON Web Tokens)
 
-## Session
+## :cookie: Session
 
-> `Stateful` - Managed on the server
->
-> -   A stateful session between client and server.
+!!! info "Stateful Authentication"
+    - Managed on the server
+    - Creates a stateful session between client and server
 
 ![session diagram](img/session.drawio.svg)
 
-Authentication Steps:
+### :clipboard: Authentication Steps:
 
 1. User submits login form
-2. The server validates and creates a session that is stored in the database
-3. Responds to the client with a session ID
-4. Client Browser stores session ID in the cookie
+2. Server validates and creates a session stored in the database
+3. Server responds to the client with a session ID
+4. Client browser stores session ID in the cookie
 5. Browser sends cookies with future requests for authentication
 
-Cons:
+### :x: Cons:
 
--   Vulnerable to CSRF (Cross-side request forgery)
--   The session is stored on the server and due to most of the databases in the cloud being scaled horizontally that introduces a huge bottleneck issue.
+- Vulnerable to CSRF (Cross-Site Request Forgery)
+- Session storage on server introduces scalability issues in horizontally scaled cloud databases
 
-## (JWT) Token-Based Authentication
+## :key: (JWT) Token-Based Authentication
 
-> `Stateless` - Managed on the client
-> `JWT` - JSON Web Token
+!!! info "Stateless Authentication"
+    - Managed on the client
+    - JWT: JSON Web Token
 
 ![token diagram](img/token.drawio.svg)
 
-Authentication steps:
+### :clipboard: Authentication Steps:
 
 1. User submits login form
-2. The server creates JWT - This is created with a private key on the server
-3. Sends JWT to the client
-4. Client Browser saves JWT in local storage
-5. Future requests signed JWT header validated
+2. Server creates JWT (signed with a private key)
+3. Server sends JWT to the client
+4. Client browser saves JWT in local storage
+5. Future requests include signed JWT header for validation
 
 The user information is stored in the JWT, which gets deserialized once the JWT signature is verified.
 
-JWT is signed using
-
--   a secret (**HMAC algorithm**)
--   or a public/private key using (**RSA** or **ECDSA**)
+!!! tip "JWT Signing"
+    JWT can be signed using:
+    
+    - A secret (**HMAC algorithm**)
+    - A public/private key pair (**RSA** or **ECDSA**)
 
 ![jwt diagram](img/jwt.drawio.svg)
 
-JWT use cases:
+### :bulb: JWT Use Cases:
 
--   `Authorization:` Once the user is logged in, it allows the user to access services, resources, and routes permitted with that token.
--   `Information Exchange:` Good way of security transmitting info between parties. Because of using public/private keys for signing, it can be verified that content hasn’t been tampered with.
+- **Authorization**: Allows user access to permitted services, resources, and routes
+- **Information Exchange**: Secure method for transmitting verified information between parties
 
-Payload content:
+### :package: Payload Content:
 
--   Registered Claims:
-    -   `iss` - issuer
-    -   `sub` - Subject
-    -   `aud` - audience
-    -   `exp` - Expiration Time
-    -   `nbf` - Not Before
-    -   `iat` - Issued At
-    -   `jti` - JWT ID
-    -   `typ` - Type
-    -   `cty` - Content Type
--   Public Claims: https://www.iana.org/assignments/jwt/jwt.xhtml
--   Can also add private claims
+1. **Registered Claims**:
+    - `iss`: Issuer
+    - `sub`: Subject
+    - `aud`: Audience
+    - `exp`: Expiration Time
+    - `nbf`: Not Before
+    - `iat`: Issued At
+    - `jti`: JWT ID
+    - `typ`: Type
+    - `cty`: Content Type
 
--   Note
-    -   As JWTs are sent through HTTP headers, you should keep them small.
+2. **Public Claims**: [IANA JWT Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml)
+3. **Private Claims**: Custom claims can be added
 
-Pro:
+!!! warning "Note"
+    Keep JWTs small as they are sent through HTTP headers.
 
--   Because all the info is stored in the token, don’t need to store any information on the server
-    -   Can be validated with a private key on the server, which solves the scaling issue
-    -   Can use the same JWT across different services
-    -   For example when using microservices
+### :white_check_mark: Pros:
 
-Cons:
+- No server-side storage required (all info in token)
+- Solves scaling issues (validated with server's private key)
+- Can use same JWT across different services (e.g., microservices)
 
--   JWT can be highjacked
--   Due to them being stateless, harder to revoke
+### :x: Cons:
 
-## Resources
+- JWT can be hijacked
+- Harder to revoke due to stateless nature
 
--   [JWT.IO](https://jwt.io/)
--   [https://datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1)
+## :books: Resources
+
+- [JWT.IO](https://jwt.io/)
+- [RFC 7519: JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1)
