@@ -1,117 +1,117 @@
-# Threat Modelling
+# :shield: Threat Modelling
 
-## Security Matters
+## :exclamation: Security Matters
 
-`Optimist Bias`:
+!!! warning "Optimist Bias"
+    - 'It will not happen to us'
+    - 'We have "good" security'
 
-- 'It will not happen to us'
-- 'We have "good" security'
-
-## Secure by design/Secure by default
+## :lock: Secure by design/Secure by default
 
 - Think about security from the start
 - Move security assurance as early as possible ('Shift left')
 
-## What is "Good Security"?
+## :question: What is "Good Security"?
 
-## Risk-based security
+## :balance_scale: Risk-based security
 
 - There is no absolute security
 
-`Threat Modelling` - Context-specific Risk-based security assessment. Reviewing a system architecture to indentify threats
+!!! info "Threat Modelling"
+    Context-specific Risk-based security assessment. Reviewing a system architecture to identify threats
 
-## Threat modelling fundamentals
+## :building_construction: Threat modelling fundamentals
 
-- Scope definition
-- Information Assets
-- Information Systems
-- Threat Actors
-- Data Flows
-- Data flow Diagrams
-- Attack Trees (optional)
-- STRIDE Analysis
-- Threat catalog
-- Mitigations/Control
-- Risk
+1. Scope definition
+2. Information Assets
+3. Information Systems
+4. Threat Actors
+5. Data Flows
+6. Data flow Diagrams
+7. Attack Trees (optional)
+8. STRIDE Analysis
+9. Threat catalog
+10. Mitigations/Control
+11. Risk
 
-## Start with the solution
+## :rocket: Start with the solution
 
 - `Scope or Trust Boundaries`: what are we responsible for
-- `Information assets`: Where is info stored adn how sensitive it is
+- `Information assets`: Where is info stored and how sensitive it is
 - `Information Systems`: Where processes info and interact with users or other systems
 - `Data Flow`: Where does info travel from and to
 
-## Dataflow notation
+## :art: Dataflow notation
 
 DFD notation
 
-## Tools you can use
+## :toolbox: Tools you can use
 
-- Draw.io - for [drawing](https://www.drawio.com/blog/threat-modelling) threat modelling diagrams
+- [Draw.io](https://www.drawio.com/blog/threat-modelling) - for drawing threat modelling diagrams
 - AWS Threat Composer
 - Microsoft Threat Modelling Tool
 - OWASP's Threat Dragon
 - OWASP's pytm
 - TaaC-AI
 
-## Threat Actors
+## :busts_in_silhouette: Threat Actors
 
-- Different types of external threat actors:
-  - Script kiddies
-  - Professional bug hunters
-  - Cybercriminal gangs
-  - Cyber adversary mercenaries
-  - Nation state actors
-- Internal actors
-  - Malicious or compromised insiders
-  - Accidental leaks
+!!! info "External threat actors"
+    - Script kiddies
+    - Professional bug hunters
+    - Cybercriminal gangs
+    - Cyber adversary mercenaries
+    - Nation state actors
 
-## Threats, Attacks, Vulnerabilities
+!!! warning "Internal actors"
+    - Malicious or compromised insiders
+    - Accidental leaks
 
-- Vulnerabilities: Weakness in systems or processes that can be ...
+## :bomb: Threats, Attacks, Vulnerabilities
 
-## Threat Catalogues
+- Vulnerabilities: Weakness in systems or processes that can be exploited
 
-- MITRE ATT%CK - Adversarial Tactics, Techiques & Common Knowledge
+## :book: Threat Catalogues
+
+- MITRE ATT&CK - Adversarial Tactics, Techniques & Common Knowledge
   - CWE
   - CVE
-- NIST - National Vulnerabilitiy Database
+- NIST - National Vulnerability Database
 
-## STRIDE
+## :dart: STRIDE
 
 - `S`poofing - authentication
-- `T`empering - integrity
+- `T`ampering - integrity
 - `R`epudiation - non repudiation
-- `I`nformatiom Disclosure
-- `D`eniol of Service
-- `E`levation of Privilage
+- `I`nformation Disclosure
+- `D`enial of Service
+- `E`levation of Privilege
 
-## Connecting Threat Models Secure Delivery
+## :link: Connecting Threat Models Secure Delivery
 
-Mapping Standard to a lightweight workflow
+!!! tip "Mapping Standard to a lightweight workflow"
 
-- Feature Design
-  - Architecture
-  - Threat Model + Customer Security Standards
-  - Security Controls
-- Spring Delivery
-  - Story Acceptance Criteria
-  - Implementation
-- Release
-  - Assurance (Security Testing, Pentest)
-- Operations
-  - Monitoring
-  - Alerting
-  - Incident
-  - Response
-  - Disaster
-  - Recovery
+    1. **Feature Design**
+       - Architecture
+       - Threat Model + Customer Security Standards
+       - Security Controls
 
+    2. **Sprint Delivery**
+       - Story Acceptance Criteria
+       - Implementation
 
+    3. **Release**
+       - Assurance (Security Testing, Pentest)
 
-## Example
+    4. **Operations**
+       - Monitoring
+       - Alerting
+       - Incident Response
+       - Disaster Recovery
 
-Threat model of the small business that wants to integrate payment services into their store
+## :eyes: Example
 
-![](img/threatmodel-light.drawio.svg#only-light)
-![](img/threatmodel-dark.drawio.svg#only-dark)
+Threat model of a small business that wants to integrate payment services into their store
+
+![Threat model light](img/threatmodel-light.drawio.svg#only-light)
+![Threat model dark](img/threatmodel-dark.drawio.svg#only-dark)
