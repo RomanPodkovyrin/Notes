@@ -155,7 +155,7 @@ We use the following criteria to assess system resilience:
 !!! danger "Speed Optimization Trade-off"
     When it comes to optimising speed, it often affects other metrics. For example, increasing throughput by batching jobs will decrease latency.
 
-## :globe_with_meridians: 1.4. Networking Basics
+## 1.4. :globe_with_meridians: 1.4. Networking Basics
 
 !!! info "IP Addresses"
     - `IP Address` - unique identifier
@@ -204,7 +204,7 @@ Translates domain names into IP addresses
 
 Here's the formatted version of your Markdown using the specified guidelines:
 
-#### :globe_with_meridians: 1.4.2.1. HTTP
+#### 1.4.2.1. :globe_with_meridians: HTTP
 
 - HyperText Transfer Protocol
 - Built on `TCP/IP`
@@ -250,7 +250,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
 
 Here's the formatted version of your Markdown using the specified guidelines:
 
-#### :electric_plug: 1.4.2.2. Web Socket
+#### 1.4.2.2. :electric_plug: Web Socket
 
 !!! info "Web Socket Characteristics"
     - Full-duplex, **bidirectional** communication
@@ -262,7 +262,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
 ![](img/websocket-light.excalidraw.svg#only-light)
 ![](img/websocket-dark.excalidraw.svg#only-dark)
 
-#### :video_camera: 1.4.2.3. WebRTC
+#### 1.4.2.3. :video_camera: WebRTC
 
 !!! info "WebRTC Features"
     - Web Real-Time Communication
@@ -270,7 +270,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
     - Supports **video**, **voice**, and **data** sharing
     - Works without plugins or additional software
 
-#### :satellite: 1.4.2.4. MQTT
+#### 1.4.2.4. :satellite: MQTT
 
 !!! info "MQTT Basics"
     - Message Queuing Telemetry Transport
@@ -281,7 +281,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
 ![](img/mqtt-light.excalidraw.svg#only-light)
 ![](img/mqtt-dark.excalidraw.svg#only-dark)
 
-#### :rabbit: 1.4.2.5. AMQP
+#### 1.4.2.5. :rabbit: AMQP
 
 !!! info "AMQP Characteristics"
     - Advanced Message Queuing Protocol
@@ -289,7 +289,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
     - Supports **point-to-point** and **publish-subscribe** patterns
     - Ensures **reliable** message delivery
 
-#### :envelope: 1.4.2.6. SMTP
+#### 1.4.2.6. :envelope: SMTP
 
 !!! info "SMTP Basics"
     - Simple Mail Transfer Protocol
@@ -297,7 +297,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
     - Works on a **store-and-forward** model
     - Operates on `TCP port 25` by default
 
-#### :inbox_tray: 1.4.2.7. IMAP
+#### 1.4.2.7. :inbox_tray: IMAP
 
 !!! info "IMAP Features"
     - Internet Message Access Protocol
@@ -305,7 +305,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
     - Allows **management** of mailboxes on server
     - Keeps messages on server, enabling **access from multiple devices**
 
-#### :outbox_tray: 1.4.2.8. POP3
+#### 1.4.2.8. :outbox_tray: POP3
 
 !!! info "POP3 Characteristics"
     - Post Office Protocol version 3
@@ -313,7 +313,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
     - Typically **downloads** messages to a local device
     - **Simpler** than IMAP, with fewer features
 
-#### :file_folder: 1.4.2.9. FTP
+#### 1.4.2.9. :file_folder: FTP
 
 !!! info "FTP Basics"
     - File Transfer Protocol
@@ -321,7 +321,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
     - Supports both **binary** and **ASCII** file transfers
     - Uses separate **control** and **data** connections
 
-#### :closed_lock_with_key: 1.4.2.10. SSH
+#### 1.4.2.10. :closed_lock_with_key: SSH
 
 !!! info "SSH Features"
     - Secure Shell
@@ -329,7 +329,7 @@ Here's the formatted version of your Markdown using the specified guidelines:
     - **Encrypts** all traffic between client and server
     - Often used for **remote command execution** and **file transfers**
 
-#### :telephone_receiver: 1.4.2.11. RPC
+#### 1.4.2.11. :telephone_receiver: RPC
 
 !!! info "RPC Characteristics"
     - Remote Procedure Call
@@ -353,7 +353,7 @@ HTTP Example
 - `UPDATE` -> `PUT` /api/products/:id
 - `DELETE` -> `DELETE` /api/products/:id
 
-### Communication formats
+### 1.5.2. Communication formats
 !!! info "**JSON** (JavaScript Object Notation)"
 
     - **Characteristics:**
@@ -426,7 +426,7 @@ HTTP Example
 - `XML`: Suitable for complex data with metadata requirements and where extensive tooling support is beneficial
 - `Protocol Buffers`: Ideal for high-performance scenarios and when working with strongly typed data in multiple languages
 
-### API Paradigms
+### 1.5.3. API Paradigms
 
 !!! info " **REST** (Representational State Transfer)"
     - **Characteristics:**
