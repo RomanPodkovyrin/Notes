@@ -1,213 +1,223 @@
----
-icon: material/git
----
 # 1. Git
 
 Git is a distributed version control system
 
-## 1.1. Git 101
+## 1.1. :beginner: Git 101
 
 ![git diagrams](img/git.png)
 
-> This diagram is missing remote repo
+!!! info "Note"
+    This diagram is missing the remote repo
 
-## 1.2. Scenarios
+## 1.2. :scroll: Scenarios
 
-### 1.2.1. Modifying pushed commit (changes and message)
+### 1.2.1. :pencil2: Modifying pushed commit (changes and message)
 
-!!! note ""
-    If you pushed a commit but realise you pushed something wrong up, you can amend your previous commit by making any changes then using
+!!! tip "Amending a pushed commit"
+    If you pushed a commit but realize you pushed something wrong, you can amend your previous commit:
 
-1. `git commit --no-edit --amend` to change commit message
+1. To change commit content without changing message:
+   ```
+   git commit --no-edit --amend
+   ```
 
-2. `git commit -amend -m 'New commit message'` you will need to do git
-3. `push --force` to push it up
+2. To change commit message:
+   ```
+   git commit --amend -m 'New commit message'
+   ```
 
-### 1.2.2. Pushed a few changes that were not supposed to be committed
+3. After amending, force push the changes:
+   ```
+   git push --force
+   ```
 
-!!! note ""
-    You have pushed changed you weren't supposed to.
+### 1.2.2. :rewind: Pushed changes that were not supposed to be committed
+
+!!! danger "Removing unwanted pushed changes"
+    1. Move back `n` commits:
+       ```
+       git reset HEAD~n
+       ```
+    2. Example: Move back two commits:
+       ```
+       git reset HEAD~2
+       ```
+    3. Delete all changes:
+       ```
+       git reset HEAD --hard
+       ```
+    4. :warning: **WARNING**: Force push changes (rewriting history)
+        ```
+        git push --force
+        ```
+
+### 1.2.3. :cherries: Cherry Picking
+
+!!! info "Moving specific commits between branches"
+    1. Checkout the target branch (e.g., master)
+    2. Cherry-pick the desired commit:
+       ```
+       git cherry-pick <commit-hash>
+       ```
+    3. To merge the rest of the source branch:
+       ```
+       git rebase <source-branch>
+       ```
+
+### 1.2.4. :snail: :arrow_right: :rabbit2: Optimizing slow local Git
+
+!!! tip "Speed up Git with garbage collection"
+    Run `git gc` to perform housekeeping tasks:
     
-    You can try deleting files with a new commit, but it doesn't fully delete those files from repository
+    - Compress file revisions
+    - Remove unreachable objects
+    - Pack refs
+    - Prune reflog
+    - Clean rerere metadata
 
-In order to remove this change
+### 1.2.5. :sparkles: Creating and Pushing new branch
 
-1. `git reset HEAD~n` this command lets you move back to your previous `n` commits
-2. `git reset HEAD~2` will take you back two commits and will show you the changes of the last two commits.
-3. `git reset HEAD --hard` will delete all those changes.
-   Next you will need to force push those changes **WARNING: THINK BEFORE YOU PUSH**
-   This way you are completely rewriting history so all those files will be deleted
-
-### 1.2.3. Cherry Picking
-
-!!! note ""
-    Say you want to only move particular commit(s) form one branch to another
-
-Allows you to pick specific commits from one branch and merge it into another branch
-
-Example:
-Say develop branch is 3 commits ahead of master, out of those 3, just 2nd commit need to be merged on master.
-
-1. Checkout the master branch
-2. `git cherry-pick <commit-hash>` to merge the specific commit to the master branch
-
-if you want to merge the rest of develop branch with master, simply run `git rebase develop`
-
-### 1.2.4. Git seems to be running quite slow locally
-
-!!! note ""
-    Your git is somewhat slow
-    
-
-To optimise git run `git gc` which stands for garbage collection
-It does a couple of housekeeping tasks:
-
-- compressing file revisions (reduce space and improve performance)
-- removing no longer reachable objects
-- packing refs
-- pruning reflog
-- rerere metadata
-- Other
-
-### 1.2.5. Creating and Pushing new branch
-
-!!! note ""
-    When you have created a new branch and want to push it off to a remote
-
-From Git version 2.37.0, to check your version run `git --version`
-
-```bash
-git config --global --add --bool push.autoSetupRemote true
-```
-
-Now `git push` will automatically set up the remote branch
-
-### 1.2.6. Squashing commits that contain a merge
-
-!!! note ""
-    Need to create a **temporary** branch from the **master** to squash a **feature** branch there and then repoint the **feature** to the **temporary** branch now with squashed commits
-
-- `git checkout -b temp master`
-- `git merge --squash feature`
-- `git commit` commit all changes under one commit
-- `git checkout feature`
-- `git reset --hard temp` point feature branch to temp branch
-- `git branch -d temp`
-
-### 1.2.7. Revert part of the commit
-
-!!! note ""
-    A commit has been pushed to master that contains only parts of the changes you want to keep.
-
-- `git checkout -b revertBranch`
-- `git revert <commit hash you want to modify>`
-- `git reset HEAD~1` pops the last commit into staging, where parts you want to keep can be removed from this revert
-
-### 1.2.8. Gitignore file without deleting it, and not tracking changes
-!!! note ""
-    Say you have a config file that you want to be present in the repo, but you don't want people to keep overriding it with their changes
-
-    Ignoring file with `.gitignore` is not enough, but git allows you to manually "ignore" changes to a file / directory:
-
-```bash
-git update-index --assume-unchanged <file or directory>
-```
-
-You can also start tracking it again
-
-```bash
-git update-index --no-assume-unchanged <file>
-```
-
-To view files with disabled tracking
-
-```bash
-git ls-files -v | grep ^[h]
-```
-
-### 1.2.9. Git seems to not notice folder and file capitalisation change
-
-!!! note ""
-
-    Say you have created files and committed the following files
-
+!!! info "Automatically set up remote branch"
+    For Git version 2.37.0 and later:
+    ```bash
+    git config --global --add --bool push.autoSetupRemote true
     ```
-    /Bar/text.txt
-    /foo/Text.txt
-    ```
-    
-    Then you have noticed the inconsistency and decided to change those to be more consistent
-    ```
-    /bar/text.txt
-    /foo/text.txt
-    ```
-    But git doesn't notice the change or doesn't recognise it fully. In this scenario you can have changed formatting on your local machine, but remote will have the old formatting
-    
-An easy fix for it is to make git notice case, changes it just in the folder run.
+    Now `git push` will automatically set up the remote branch
 
-```
-git config core.ignorecase false
-```
+### 1.2.6. :compression: Squashing commits that contain a merge
 
-To change it globally:
-```
-git config --global core.ignorecase true
-```
+!!! tip "Squash feature branch commits"
+    1. Create a temporary branch from master:
+       ```
+       git checkout -b temp master
+       ```
+    2. Squash-merge the feature branch:
+       ```
+       git merge --squash feature
+       ```
+    3. Commit changes:
+       ```
+       git commit -m "feature"
+       ```
+    4. Point feature branch to temp branch:
+       ```
+       git checkout feature
+       git reset --hard temp
+       ```
+    5. Delete temporary branch:
+       ```
+       git branch -d temp
+       ```
+    6. Force push changes
+        ```
+        git push --force
+        ```
 
-### 1.2.10. Rebasing feature branch with develop when the branched is based on another feature branch
+### 1.2.7. :part_alternation_mark: Revert part of the commit
 
-!!! note ""
+!!! tip "Partially revert a commit"
+    1. Create a new branch:
+       ```
+       git checkout -b revertBranch
+       ```
+    2. Revert the commit:
+       ```
+       git revert <commit-hash>
+       ```
+    3. Reset the last commit to staging:
+       ```
+       git reset HEAD~1
+       ```
+    4. Remove parts you want to keep from staging
 
-    Scenario: feature-1 was developed, when development for the branch finished it wasn't merge into master. feature-2 branch was based on feature-1. feature-1 was merge into master with squash. Now master needs to be rebased into feature-2 update it.
+### 1.2.8. :see_no_evil: Gitignore file without deleting it, and not tracking changes
 
-1. `git rebase -i master` while in the target branch to do interactive rebase
-2. Next commits will pop up, enter `d` to those commits you want to exclude and `p` for those you want to include (feature-2 commits)
-3. `git push --force` to update origin
+!!! info "Ignore changes to tracked files"
+    - Disable tracking:
+      ```
+      git update-index --assume-unchanged <file-or-directory>
+      ```
+    - Re-enable tracking:
+      ```
+      git update-index --no-assume-unchanged <file>
+      ```
+    - View files with disabled tracking:
+      ```
+      git ls-files -v | grep ^[h]
+      ```
 
-> There are different options that can be entered above
-> Commands:
->
-> - p, pick <commit> = use commit
-> - r, reword <commit> = use commit, but edit the commit message
-> - e, edit <commit> = use commit, but stop for amending
-> - s, squash <commit> = use commit, but meld into previous commit
-> - f, fixup <commit> = like "squash", but discard this commit's log message
-> - x, exec <command> = run command (the rest of the line) using shell
-> - b, break = stop here (continue rebase later with 'git rebase --continue')
-> - d, drop <commit> = remove commit
-> - l, label <label> = label current HEAD with a name
-> - t, reset <label> = reset HEAD to a label
-> - m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]. create a merge commit using the original merge commit's message (or the oneline, if no original merge commit was specified). Use -c <commit> to reword the commit message.
+### 1.2.9. :capital_abcd: Git not noticing folder and file capitalization changes
 
+!!! tip "Make Git case-sensitive"
+    - For a single folder:
+      ```
+      git config core.ignorecase false
+      ```
+    - Globally:
+      ```
+      git config --global core.ignorecase true
+      ```
 
-## 1.3. Tags
+### 1.2.10. :twisted_rightwards_arrows: Rebasing feature branch with develop when based on another feature branch
 
-`git tag` to view tags in local repository
-`git tag -a -m "includes feature 1" v0.1` -m to specify message, -a creates annotated tag
+!!! tip "Interactive rebase to update feature branch"
+    1. Start interactive rebase:
+       ```
+       git rebase -i master
+       ```
+    2. Mark commits to keep (`p`) or drop (`d`)
+    3. Force push changes:
+       ```
+       git push --force
+       ```
 
-## 1.4. Merge
+!!! info "Rebase command options"
+    - `p`, `pick`: use commit
+    - `r`, `reword`: use commit, edit message
+    - `e`, `edit`: use commit, stop for amending
+    - `s`, `squash`: meld into previous commit
+    - `f`, `fixup`: like squash, discard message
+    - `x`, `exec`: run command using shell
+    - `b`, `break`: stop here
+    - `d`, `drop`: remove commit
+    - `l`, `label`: label current HEAD
+    - `t`, `reset`: reset HEAD to a label
+    - `m`, `merge`: create a merge commit
 
-![git merge digram](img/merge.png)
+## 1.3. :label: Tags
 
-## 1.5. Rebase
+- View tags: `git tag`
+- Create annotated tag: `git tag -a -m "includes feature 1" v0.1`
 
-- Rebasing is the process of moving or combining a sequence of commit to a new base commit
-- Rebasing allows developers to maintain a linear project history
-    ![rebase diagram](img/rebase.png)
+## 1.4. :twisted_rightwards_arrows: Merge
 
-> Reasons to rebase is to maintain a clean commit history (just if you were working off an up to date master)
+![git merge diagram](img/merge.png)
 
-## 1.6. Rebase vs Merge
+## 1.5. :recycle: Rebase
+
+!!! info "Rebasing"
+    - Moves or combines a sequence of commits to a new base commit
+    - Maintains a linear project history
+
+![rebase diagram](img/rebase.png)
+
+## 1.6. :scales: Rebase vs Merge
 
 ![rebase and merge diagram](img/rebasevsmerge.png)
 
-## 1.7. Resetting local branch to origin
+## 1.7. :arrows_counterclockwise: Resetting local branch to origin
 
-When changes were made to local branch which are no longer desired, as long as the branch wasn't pushed, it can be reset to origin remote branch
+!!! tip "Reset local branch to match remote"
+    1. Fetch all changes:
+       ```
+       git fetch --all
+       ```
+    2. Reset to origin:
+       ```
+       git reset --hard origin/<branch>
+       ```
 
-1. On the branch to be reset `git fetch --all`
-2. `git reset --hard origin/<branch>`
 
-<https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>
+# 2. :books: Reference
 
-# 2. Reference
+- For more information on rewriting history, visit: [Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
