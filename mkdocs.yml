@@ -164,6 +164,7 @@ nav:
   - Security: 
     - security/index.md
     - Authentication: security/authentication/authentication.md
+    - Threat Modelling: security/threat-modelling/threat-modelling.md
   - Software Engineering: 
     - architecture/index.md
     - Version Control System (VCS): 
