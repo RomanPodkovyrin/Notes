@@ -612,26 +612,66 @@ To ensure redesigns or changes don't break existing functionality, implement ver
     
     - `Cache-Control` header defines cache duration
 
-Use CDN when:
-- Delivering static assets like images, css fiels, javascript fiels and video content
-- you need to ensure high availability and performance for users across different geographical locations
-- reducing the load on the origin server is a priority
+### 🌐 When to Use Each Solution
 
-Use origin Server when:
-- serving dynamic content that changes frequently or is personalised for individual users
-- Handling tasks that require era-time processing or access to up-to-date data
-- The applicaiton requiers comples server-side logic that cannot be replicated or cached by a cdn
+!!! tip "Use CDN When :rocket:"
+    **1. Content Type:**
+    
+    - Static assets delivery
+        - Images
+        - CSS files
+        - JavaScript files
+        - Video content
+    
+    **2. Requirements:**
+    
+    - :globe_with_meridians: Global user base
+    - :zap: High availability needs
+    - Origin server load reduction
 
-CDN Benefits
-- REduced latency - serving from location closer to the user
-- High Availability - can handle high load
-- Imporved Security - CDNs ususlaly over DDOS protection
+!!! warning "Use Origin Server When :gear:"
+    **1. Dynamic Content:**
+    
+    - :arrows_counterclockwise: Frequently changing data
+    - :bust_in_silhouette: Personalized user content
+    
+    **2. Real-time Processing:**
+    
+    - :hourglass_flowing_sand: Time-critical operations
+    - Up-to-date data access
+    
+    **3. Complex Operations:**
+    
+    - :brain: Advanced server-side logic
+    - :no_entry_sign: Non-cacheable processes
 
-Caching Benefits
-- Reduced Latency
-- Lowered Server Load
-- Improved UX experience 
+### Benefits Breakdown
 
+!!! success "CDN Advantages :star:"
+    1. **Reduced Latency** :zap:
+        - *Geographically closer servers*
+        - *Faster content delivery*
+    
+    2. **High Availability** :shield:
+        - *Better load handling*
+        - *Distributed traffic*
+    
+    3. **Enhanced Security** :lock:
+        - *DDOS protection*
+        - *Security features included*
+
+!!! success "Caching Advantages :sparkles:"
+    1. **Reduced Latency** :fast_forward:
+        - *Quick data access*
+        - *Faster response times*
+    
+    2. **Server Optimization** 
+        - *Lower resource usage*
+        - *Reduced database load*
+    
+    3. **Better UX** :star2:
+        - *Faster page loads*
+        - *Smoother interactions*
 
 # 2. Resources
 
