@@ -516,54 +516,102 @@ To ensure redesigns or changes don't break existing functionality, implement ver
         - Set appropriate headers
         - Prevents unauthorized cross-site interactions
 
-Would you like me to add more details about implementation strategies for any of these security measures?
+## 💾 Caching and CDN
 
-## Caching and CDN
+!!! info "Caching Overview :gear:"
+    **Purpose:** Improves system performance and efficiency
+    *Involves storing temporary data copies in cache*
 
-Caching
-made to improve performance and efficency of the system
-invoves storing a temporary copy of data in cache
+### 🔄 Common Caching Locations
 
-`CDN` - Content Delivery Networks
+!!! tip "1. Browser Caching :globe_with_meridians:"
+    - **Local Storage:**
+        - Stores data locally instead of server requests
+        - :wrench: Configurable via browser developer tools
+    
+    **Header Controls:**
+    - `max-age`
+    - `stale-if-error`
+    - `stale-while-revalidate`
 
-4 common places to store cache:
-- Browser Caching
-    - Stores in local cache rather than getting from server
-    - Can be disabled in developer tools in browser
-    - Hash has max-age, stale-if-error, stale-while-revalidate
-    - Cache hit
-    - Cache Miss
-    - Cache Ratio = cache hits/ (CAche hits + cache misses)
-    - 
-- Server Caching
-    - Stores frequently accessed data on the server side, reducing the need to perform expensive operations, like database queries
-    - Stored on the server or on separate cache server, either on disk, or in memory like redis
-    - Write-around cache: where data is written directly to permament storage bypassing the cache. Used when write performance is less critical 
-    - Write-through Cache: Where data is siminteniusly written to cache and permanent storage. Ensures data consistency, but can be slower than Write-around cache
-    - Write-back cache: where data is first written to the cache and then to permanent storage at a later time. Improves write performance, but risk of lossing data in case of server crash
-    - Eviction Policies: Cleans up cache if full
-        - Lest Recently Used (LRU)
-        - First In First Out (FIFO)
-        - Least Frequently Used (LFU)
-- Database Caching
-    - Either done within database system itself or via external caching layer (like redis or memcache)
-    - When query is made, check the cache first, if present return the data and avoid running a query on the database
-    - If not present, execute query and store result in the cache
-    - Beneficial to read heavy applications 
-        - Uses the same eviction policy as above
-- CDNs - network of servers, distributed geographically, generally used to sever static content, such as java script, html, css, or image and video files
-    - They cache the content from the origin server and deliver it to users
-    - When a user requests a resource, the request is redirected to the nearest CDN server, if the CND server has the cached content it delivers it, if not it fetches and caches it from the origin server and delivers to the user
-    - Pull-based: CDN automaticlly pulls content from the origin server when it's frist reqeusted , ideal for websites with alot of static content that is updated requlary, requires less active management, because CDN automatically keeps the content upto date
-    - Push-based: Uploading Content to Origin server automatically uploads it to CDN servers, useful for large files that are infreqeuntly updated, but need to be quuirly distributed. Requires more active managemet on what content is stored on CDN's 
-    - Cache-contorl header tells how long it needs to be cached 
+    **Metrics:**
+    $Cache Ratio = Cache Hits \div (Cache Hits + Cache Misses)$
 
-CDN
 
+!!! tip "2. Server Caching"
+    - **Storage Options:**
+        - Server-side storage
+        - Separate cache servers
+        - In-memory (Redis) or disk storage
+
+    **Caching Strategies:**
+    
+    1. **Write-around:**
+        - :fast_forward: Direct storage writing
+        - *Best for cases where data freshness is very important*
+    
+    2. **Write-through:**
+        - :arrows_counterclockwise: Simultaneous cache/storage updates
+        - *Ensures data consistency*
+        - *Can be slower that write-around*
+    
+    3. **Write-back:**
+        - :rocket: Cache-first approach, then to permanent storage
+        - :warning: Risk of data loss during crashes
+
+    **Eviction Policies:**
+    
+    - `LRU` (Least Recently Used)
+    - `FIFO` (First In First Out)
+    - `LFU` (Least Frequently Used)
+
+!!! tip "3. Database Caching"
+    - **Implementation:**
+        - Internal database system
+        - External cache layer (Redis/Memcache)
+    
+    **Process Flow:**
+    
+    1. Check cache first
+    2. Return cached data if present
+    3. Execute query if cache miss
+    4. Store new results in cache
+
+    :bulb: *Optimal for read-heavy applications*
+    
+    Same eviction policies as above
+
+!!! tip "4. CDN (Content Delivery Networks) :earth_americas:"
+    **Purpose:** Distributed server network for static content delivery
+    
+    When a user requests a resource, the request is redirected to the nearest CDN server, if the CND server has the cached content it delivers it, if not it fetches and caches it from the origin server and delivers to the user
+    
+    **Content Types:**
+    
+    - JavaScript
+    - HTML/CSS
+    - Images/Videos
+
+    **Distribution Strategies:**
+    
+    1. **Pull-based:**
+        - :arrow_down: Automatic content pulling
+        - *Ideal for frequently updated static content*
+        - Self-managing updates
+    
+    2. **Push-based:**
+        - :arrow_up: Manual content distribution
+        - *Best for large, infrequently updated files*
+        - Requires active management
+    
+    **Control:**
+    
+    - `Cache-Control` header defines cache duration
+    
 
 # 2. Resources
 
 
--   [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 27:23
+-   [System Design Concepts Course and Interview Prep | freeCodeCamp.org](https://www.youtube.com/watch?v=F2FmTdLtb_4) 35:13
 -   [CAP Theorem](https://tsaiprabhanj.medium.com/cap-therom-a515a6c4c81e)
 -   [TCP vs UDP: What’s the Difference and Which Protocol Is Better?](https://www.avast.com/c-tcp-vs-udp-difference#:~:text=The%20main%20difference%20between%20TCP,reliable%20but%20works%20more%20quickly.)
