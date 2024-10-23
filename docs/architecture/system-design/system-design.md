@@ -612,6 +612,27 @@ To ensure redesigns or changes don't break existing functionality, implement ver
     
     - `Cache-Control` header defines cache duration
 
+Use CDN when:
+- Delivering static assets like images, css fiels, javascript fiels and video content
+- you need to ensure high availability and performance for users across different geographical locations
+- reducing the load on the origin server is a priority
+
+Use origin Server when:
+- serving dynamic content that changes frequently or is personalised for individual users
+- Handling tasks that require era-time processing or access to up-to-date data
+- The applicaiton requiers comples server-side logic that cannot be replicated or cached by a cdn
+
+CDN Benefits
+- REduced latency - serving from location closer to the user
+- High Availability - can handle high load
+- Imporved Security - CDNs ususlaly over DDOS protection
+
+Caching Benefits
+- Reduced Latency
+- Lowered Server Load
+- Improved UX experience 
+
+
 # 2. Resources
 
 
