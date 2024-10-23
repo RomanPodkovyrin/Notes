@@ -479,6 +479,88 @@ HTTP Example
 - `GraphQL`: Ideal for complex data requirements and multiple client types
 - `gRPC`: Excellent for microservices and high-performance inter-service communication
 
+### Backward Compatibility and Versioning
+
+To ensure redesigns or changes don't break existing functionality, implement versioned URLs for different API versions.
+
+!!! note "REST API Versioning"
+    - **Current Version:** `/api/v2/products`
+        - *Serves current clients*
+        - :white_check_mark: Latest features and improvements
+    - **Legacy Version:** `/api/v1/products`
+        - *Serves older clients*
+        - :warning: May be deprecated in future
+
+!!! note "GraphQL Versioning"
+    - **Current Version:** `products_v2`
+        - *Serves current clients*
+        - :white_check_mark: Latest schema and resolvers
+    - **Legacy Version:** `products`
+        - *Serves older clients*
+        - :warning: Consider migration timeline
+
+### API Best Practices
+
+!!! tip "Security Measures"
+    # 1. Rate Limiter :shield:
+    - **Purpose:** Prevents DDOS attacks and excessive API usage
+    - **Implementation:**
+        - Set request limits per user/IP
+        - `429 Too Many Requests` response when exceeded
+        - Helps maintain API stability
+
+    # 2. CORS (Cross-Origin Resource Sharing) :globe_with_meridians:
+    - **Purpose:** Controls domain access to API
+    - **Implementation:**
+        - Define allowed origins
+        - Set appropriate headers
+        - Prevents unauthorized cross-site interactions
+
+Would you like me to add more details about implementation strategies for any of these security measures?
+
+## Caching and CDN
+
+Caching
+made to improve performance and efficency of the system
+invoves storing a temporary copy of data in cache
+
+`CDN` - Content Delivery Networks
+
+4 common places to store cache:
+- Browser Caching
+    - Stores in local cache rather than getting from server
+    - Can be disabled in developer tools in browser
+    - Hash has max-age, stale-if-error, stale-while-revalidate
+    - Cache hit
+    - Cache Miss
+    - Cache Ratio = cache hits/ (CAche hits + cache misses)
+    - 
+- Server Caching
+    - Stores frequently accessed data on the server side, reducing the need to perform expensive operations, like database queries
+    - Stored on the server or on separate cache server, either on disk, or in memory like redis
+    - Write-around cache: where data is written directly to permament storage bypassing the cache. Used when write performance is less critical 
+    - Write-through Cache: Where data is siminteniusly written to cache and permanent storage. Ensures data consistency, but can be slower than Write-around cache
+    - Write-back cache: where data is first written to the cache and then to permanent storage at a later time. Improves write performance, but risk of lossing data in case of server crash
+    - Eviction Policies: Cleans up cache if full
+        - Lest Recently Used (LRU)
+        - First In First Out (FIFO)
+        - Least Frequently Used (LFU)
+- Database Caching
+    - Either done within database system itself or via external caching layer (like redis or memcache)
+    - When query is made, check the cache first, if present return the data and avoid running a query on the database
+    - If not present, execute query and store result in the cache
+    - Beneficial to read heavy applications 
+        - Uses the same eviction policy as above
+- CDNs - network of servers, distributed geographically, generally used to sever static content, such as java script, html, css, or image and video files
+    - They cache the content from the origin server and deliver it to users
+    - When a user requests a resource, the request is redirected to the nearest CDN server, if the CND server has the cached content it delivers it, if not it fetches and caches it from the origin server and delivers to the user
+    - Pull-based: CDN automaticlly pulls content from the origin server when it's frist reqeusted , ideal for websites with alot of static content that is updated requlary, requires less active management, because CDN automatically keeps the content upto date
+    - Push-based: Uploading Content to Origin server automatically uploads it to CDN servers, useful for large files that are infreqeuntly updated, but need to be quuirly distributed. Requires more active managemet on what content is stored on CDN's 
+    - Cache-contorl header tells how long it needs to be cached 
+
+CDN
+
+
 # 2. Resources
 
 
