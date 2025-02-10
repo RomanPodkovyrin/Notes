@@ -239,27 +239,170 @@ Two types of Arrays:
 
 > Because python is using a heterogeneous structure, it uses pointers to refer to different type elements
 
+```mermaid
+graph LR
+    A["Head"] --> B["Node 1: 10"]
+    B --> C["Node 2: 20"]
+    C --> D["Node 3: 30"]
+    D --> E["Node 4: 40"]
+    E --> F["Null (End of List)"]
+```
+
 ## 1.2. Linked Lists
+
+=== "Node Structure"
+    ```python
+    class Node:
+        data
+        next #(pointer to next node)
+        prev #(pointer to previous node, for doubly linked list)
+    ```
+=== "Insert at a head"
+    ```python
+    function insertAtBeginning(head, newData):
+        newNode = createNode(newData)
+        newNode.next = head
+        if head is not null:
+            head.prev = newNode  # For doubly linked list
+        head = newNode
+        return head
+    ```
+=== "Insert at the end"
+    ```python
+    function insertAtEnd(head, newData):
+        newNode = createNode(newData)
+        
+        if head is null:
+            return newNode
+        
+        current = head
+        while current.next is not null:
+            current = current.next
+        
+        current.next = newNode
+        newNode.prev = current  # For doubly linked list
+        
+        return head
+    ```
+=== "Delete First Node"
+    ```python
+    function deleteFirst(head):
+        if head is null:
+            return null
+        
+        newHead = head.next
+        if newHead is not null:
+            newHead.prev = null  # For doubly linked list
+        
+        return newHead
+    ```
+=== "Delete Last Node"
+    ```python
+    function deleteLast(head):
+        if head is null:
+            return null
+        
+        if head.next is null:
+            return null
+        
+        current = head
+        while current.next is not null:
+            current = current.next
+        
+        current.prev.next = null
+        return head
+    ```
+=== "Delete Node With Given Key"
+    ```python
+    function deleteNode(head, key):
+        if head is null:
+            return null
+        
+        # If head node itself holds the key
+        if head.data == key:
+            return deleteFirst(head)
+        
+        current = head
+        while current is not null:
+            if current.data == key:
+                # Update previous node's next pointer
+                if current.prev is not null:
+                    current.prev.next = current.next
+                
+                # Update next node's previous pointer
+                if current.next is not null:
+                    current.next.prev = current.prev
+                
+                return head
+            current = current.next
+        
+        return head  # Key not found
+    ```
+=== "Search Key"
+    ```python
+    function search(head, key):
+        current = head
+        while current is not null:
+            if current.data == key:
+                return current
+            current = current.next
+        
+        return null  // Key not found
+    ```
+=== "Get Length"
+    ```python
+    function getLength(head):
+        count = 0
+        current = head
+        while current is not null:
+            count = count + 1
+            current = current.next
+        
+        return count
+    ```
+
 
 Self Referential Objects
 
 -   Singly linked list
 
 ```mermaid
-    flowchart LR;
-            A(Head)--->|Reference to next node|B;
-            B-->D(Tail);
+    graph LR
+        A["Head"] --> B["Node 1: 10"]
+        B --> C["Node 2: 20"]
+        C --> D["Node 3: 30"]
+        D --> E["Null (End)"]
 ```
 
 -   Doubly linked list
 
 ```mermaid
-    flowchart LR;
-            A(Head)--->|Reference to next node|B;
-            B-->D(Tail);
-            D-->B;
-            B-->A;
+    graph LR
+        A["Null"] --> B["Node 1: 10"]
+        B --> |Previous| A
+        B --> |Next| C["Node 2: 20"]
+        C --> |Previous| B
+        C --> |Next| D["Node 3: 30"]
+        D --> |Previous| C
+        D --> |Next| E["Null"]
 ```
+- Circular Linked List
+```mermaid
+    graph LR
+        A["Head/Node 1: 10"] --> B["Node 2: 20"]
+        B --> C["Node 3: 30"]
+        C --> D["Node 4: 40"]
+        D --> A
+```
+- Circular doubly linked list
+```mermaid
+graph LR
+    A["Node 1: 10"] <--> B["Node 2: 20"]
+    B <--> C["Node 3: 30"]
+    C <--> D["Node 4: 40"]
+    D <--> A
+```
+
 
 ## 1.3. Stack
 
@@ -319,4 +462,80 @@ Insertion and removal of elements can either be performed from the front or the 
      A[Insertion & Removal]<-->B(Element 2);
      B<-->C(Element 1);
      C<-->D[Removal & Insertion]
+```
+
+## Hash Tables
+
+```mermaid
+graph TD
+    A["Hash Table Example"] --> B["Key: 'name'"]
+    A --> C["Key: 'age'"]
+    A --> D["Key: 'city'"]
+    
+    B --> E["Value: 'John Doe'"]
+    C --> F["Value: 30"]
+    D --> G["Value: 'New York'"]
+    
+    subgraph Hash Function
+        H["hash('name') % table_size = 2"]
+        I["hash('age') % table_size = 1"]
+        J["hash('city') % table_size = 3"]
+    end
+```
+
+## Trees
+
+<!-- ```mermaid -->
+
+<!-- ``` -->
+
+## Binary Trees
+
+```mermaid
+graph TD
+    A["10 (Root)"] --> B["5 (Left Child)"]
+    A --> C["15 (Right Child)"]
+    
+    B --> D["3 (Left Grandchild)"]
+    B --> E["7 (Right Grandchild)"]
+    
+    C --> F["12 (Left Grandchild)"]
+    C --> G["20 (Right Grandchild)"]
+
+```
+
+## Binary Search Trees (BST)
+
+```mermaid
+graph TD
+    A["10 (Root)"] --> B["5 (Left: < 10)"]
+    A --> C["15 (Right: > 10)"]
+    
+    B --> D["3 (Left: < 5)"]
+    B --> E["7 (Right: > 5)"]
+    
+    C --> F["12 (Left: < 15)"]
+    C --> G["20 (Right: > 15)"]
+```
+
+## Advanced Tree Structurs
+
+<!-- ```mermaid
+
+``` -->
+
+## Graphs
+
+```mermaid
+graph TD
+    A["Node A"] --> |5| B["Node B"]
+    A --> |3| C["Node C"]
+    B --> |2| D["Node D"]
+    C --> |4| D
+    D --> |1| E["Node E"]
+    
+    subgraph Legend
+        F["Nodes"]
+        G["Weighted Edges"]
+    end
 ```

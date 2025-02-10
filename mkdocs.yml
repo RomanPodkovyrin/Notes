@@ -169,7 +169,8 @@ nav:
     - architecture/index.md
     - Version Control System (VCS): 
       - GIT: architecture/vcs/git/git.md
-    - Data Structures & Algorithms: 
+    - Data Structures & Algorithms:
+      - architecture/data-structures-and-algorithms/index.md
       - Complexity: architecture/data-structures-and-algorithms/complexity/complexity.md
       - Algorithms: architecture/data-structures-and-algorithms/algorithms/algorithms.md
       - Structures: architecture/data-structures-and-algorithms/structures/structures.md

@@ -38,3 +38,8 @@ The size of the data structure doesn't matter in space complexity calculation. W
 
 -   Recursive approach doesn't modify underlying data
 -   In recursive approach additional storage is used for arguments and function calls to be stored on the stack (Hence the stack overflow error)
+
+
+# Resources
+
+- [Big O Cheat Sheet](https://www.bigocheatsheet.com/)
