@@ -155,7 +155,7 @@ We use the following criteria to assess system resilience:
 !!! danger "Speed Optimization Trade-off"
     When it comes to optimising speed, it often affects other metrics. For example, increasing throughput by batching jobs will decrease latency.
 
-## 1.4. :globe_with_meridians: 1.4. Networking Basics
+## 1.4. :globe_with_meridians: Networking Basics
 
 !!! info "IP Addresses"
     - `IP Address` - unique identifier
@@ -665,7 +665,7 @@ To ensure redesigns or changes don't break existing functionality, implement ver
         - *Quick data access*
         - *Faster response times*
     
-    2. **Server Optimization** 
+    2. **Server Optimisation** 
         - *Lower resource usage*
         - *Reduced database load*
     
@@ -673,7 +673,50 @@ To ensure redesigns or changes don't break existing functionality, implement ver
         - *Faster page loads*
         - *Smoother interactions*
 
-## 1.7. Proxy Servers
+
+# 📡 Proxy Servers
+
+![](img/proxy-light.excalidraw.svg#only-light){width=500}
+![](img/proxy-dark.excalidraw.svg#only-dark){width=500}
+
+🔄 Works as an intermediary between Client requesting resource and server providing this resource. It can:
+
+- 🧠 **Caching**: Stores frequently accessed resources to improve speed
+- 🕵️ **Privacy**: Masks client identity and location
+- ⚖️ **Load Balancing**: Distributes traffic across multiple servers
+- 🛡️ **Security**: Filters malicious traffic and blocks unwanted content
+
+## 🔹 Proxy Types
+
+!!! tip "🔄 Forward Proxy"
+    Acts on behalf of clients, forwarding their requests to target servers
+    - ✅ Controls internet access in corporate networks
+    - ✅ Provides content filtering and access control
+    - ✅ Bypasses geo-restrictions
+
+!!! tip "🔄 Reverse Proxy"
+    Protects and optimizes server resources by intercepting incoming requests
+    - ✅ Distributes load across multiple backend servers
+    - ✅ Provides SSL termination and content compression
+    - ✅ Shields backend services from direct exposure
+
+!!! warning "🌐 Open Proxy"
+    Publicly accessible proxy that accepts connections from any user
+    - ⚠️ Often used for anonymity but poses security risks
+    - ⚠️ May be compromised or monitored
+
+!!! note "Common Specialized Proxies"
+    **👁️ Transparent**: Client knows they're using a proxy; server sees client IP  
+    **🕵️ Anonymous**: Server knows a proxy is used but can't identify the client  
+    **🎭 Distorting**: Sends false client information to the destination  
+    **🛡️ High Anonymity**: Completely conceals the use of a proxy and client identity
+
+## 💡 Implementation Examples
+- **NGINX** and **HAProxy**: Popular reverse proxy solutions
+- **Squid**: Common forward proxy implementation
+- **Cloudflare**: Global CDN providing reverse proxy capabilities
+    
+### 📌 Most commonly used are Forward and Reverse proxy
 
 ## 1.8. Load Balancers
 
