@@ -679,7 +679,7 @@ To ensure redesigns or changes don't break existing functionality, implement ver
 ![](img/proxy-light.excalidraw.svg#only-light){width=500}
 ![](img/proxy-dark.excalidraw.svg#only-dark){width=500}
 
-🔄 Works as an intermediary between Client requesting resource and server providing this resource. It can:
+An intermediary server that sits between clients and servers, facilitating communication while providing additional benefits:
 
 - 🧠 **Caching**: Stores frequently accessed resources to improve speed
 - 🕵️ **Privacy**: Masks client identity and location
@@ -689,34 +689,107 @@ To ensure redesigns or changes don't break existing functionality, implement ver
 ## 🔹 Proxy Types
 
 !!! tip "🔄 Forward Proxy"
-    Acts on behalf of clients, forwarding their requests to target servers
+    Acts on behalf of clients, forwarding their requests to target servers:
+    
     - ✅ Controls internet access in corporate networks
     - ✅ Provides content filtering and access control
     - ✅ Bypasses geo-restrictions
 
 !!! tip "🔄 Reverse Proxy"
-    Protects and optimizes server resources by intercepting incoming requests
+    Protects and optimizes server resources by intercepting incoming requests:
+    
     - ✅ Distributes load across multiple backend servers
     - ✅ Provides SSL termination and content compression
     - ✅ Shields backend services from direct exposure
 
 !!! warning "🌐 Open Proxy"
-    Publicly accessible proxy that accepts connections from any user
+    Publicly accessible proxy that accepts connections from any user:
+    
     - ⚠️ Often used for anonymity but poses security risks
     - ⚠️ May be compromised or monitored
 
 !!! note "Common Specialized Proxies"
+
     **👁️ Transparent**: Client knows they're using a proxy; server sees client IP  
     **🕵️ Anonymous**: Server knows a proxy is used but can't identify the client  
     **🎭 Distorting**: Sends false client information to the destination  
     **🛡️ High Anonymity**: Completely conceals the use of a proxy and client identity
 
 ## 💡 Implementation Examples
+
 - **NGINX** and **HAProxy**: Popular reverse proxy solutions
 - **Squid**: Common forward proxy implementation
 - **Cloudflare**: Global CDN providing reverse proxy capabilities
-    
-### 📌 Most commonly used are Forward and Reverse proxy
+
+## 🔄 Forward Proxy
+
+A forward proxy sits between client devices and the internet, forwarding client requests to web servers.
+
+### How Forward Proxies Work
+
+1. Client sends request to the proxy server
+2. Proxy evaluates the request against access control rules
+3. If approved, proxy forwards request to the destination server
+4. Proxy receives response and returns it to the client
+
+### Key Characteristics
+- **Client-facing**: Serves client devices within a network
+- **Outbound traffic**: Handles requests going from internal network to the internet
+- **Client configured**: Clients must be configured to use the proxy
+- **Client protection**: Hides client identities from destination servers
+
+### Common Uses 🎯
+- **Access control**: Filter requests based on content/URL policies
+- **Logging & monitoring**: Track user activity
+- **Bandwidth savings**: Cache frequently accessed content
+- **Anonymity**: Hide internal client IP addresses
+- **Geolocation bypassing**: Access geo-restricted content
+- **Security**: Scans for malware or harmful content
+
+### Examples of Forward Proxy Software 🖥️
+- Squid
+- Apache HTTP Server (with mod_proxy)
+- Nginx (configured as forward proxy)
+- HAProxy
+- Tinyproxy
+
+
+## 🔄 Reverse Proxy
+
+### What is a Reverse Proxy?
+
+A reverse proxy sits between client devices and backend servers, directing client requests to appropriate backend services.
+
+### How Reverse Proxies Work
+
+- Client sends request to what appears to be the destination server
+- Reverse proxy intercepts the request
+- Proxy determines which backend server should receive the request
+- Proxy forwards request to the selected backend server
+- Backend server processes the request and returns response to proxy
+- Proxy returns response to client
+
+### Key Characteristics 📋
+- **Server-facing**: Protects and manages traffic to backend servers
+- **Inbound traffic**: Handles requests coming from internet to internal services
+- **Transparent to client**: Clients don't need any special configuration
+- **Server protection**: Hides backend server details from clients
+
+### Common Uses 🎯
+- **Load balancing**: Distribute client requests across multiple servers
+- **SSL termination**: Handle HTTPS encryption/decryption to reduce backend load
+- **Caching**: Store common responses to reduce backend workload
+- **Compression**: Compress server responses before sending to clients
+- **Security**: Hide backend infrastructure, provide WAF capabilities
+- **Microservices gateway**: Route requests to appropriate microservices
+
+### Examples of Reverse Proxy Software 🖥️
+- Nginx
+- Apache HTTP Server (with mod_proxy)
+- HAProxy
+- Traefik
+- Envoy
+- Caddy
 
 ## 1.8. Load Balancers
 
