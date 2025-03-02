@@ -178,7 +178,16 @@ nav:
       - 12 Factor Apps: architecture/patterns/12-factor-app/12-factor-app.md
       - Test Driven Development: architecture/patterns/tdd/tdd.md
     - Testing: architecture/testing/testing.md
-    - System Design: architecture/system-design/system-design.md
+    - System Design:
+      - architecture/system-design/index.md
+      - Computer Architecture: architecture/system-design/computer-architecture.md
+      - High-level Architecture: architecture/system-design/architecture.md
+      - Design: architecture/system-design/design.md
+      - Networking: architecture/system-design/networking.md
+      - API: architecture/system-design/api.md
+      - Caching and CDN: architecture/system-design/caching-cdn.md
+      - Proxy: architecture/system-design/proxy.md
+      - Databases:  architecture/system-design/databases.md
   - Web Development and Backend:
     - web-dev-and-backend/index.md
     - API Architecture: 
