@@ -434,6 +434,7 @@ NotificationService smsNotificationService = new NotificationService(smsSender);
 
 !!! info inline end "Application Order"
     When designing a system, consider implementing SOLID principles in this order:
+    
     1. SRP - Structure classes by responsibility
     2. OCP - Design for extension
     3. LSP - Verify substitutability
