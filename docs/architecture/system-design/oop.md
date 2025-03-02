@@ -14,6 +14,20 @@
 !!! info "Definition"
      A class should have one and only one reason to change, meaning that a class should have only one job.
 
+!!! success "Pros"
+    - **Easier maintenance**: When a class has only one responsibility, changes to that responsibility won't affect other parts of the code
+    - **Reduced complexity**: Classes become smaller, simpler, and more focused
+    - **Better testability**: Smaller classes with single responsibilities are easier to test
+    - **Improved reusability**: Focused components can be reused in different contexts
+
+!!! warning "Cons"
+    - **Increased number of classes**: Can lead to "class explosion" if taken too far
+    - **Overhead for small applications**: May add unnecessary complexity in smaller applications
+    - **Determining "single responsibility"**: Sometimes difficult to define what constitutes a single responsibility
+
+!!! example "Real-world Analogy"
+    A knife that also works as a screwdriver and a bottle opener might seem convenient but performs each function poorly. Similarly, a multi-responsibility class often performs each responsibility less effectively.
+
 ```java
 // Bad example: violates SRP
 public class Employee {
@@ -69,8 +83,20 @@ public class TaxCalculator {
 !!! info "Definition"
      Objects or entities should be open for extension but closed for modification.
 
-!!! tip "Benefit"
-    Prevents breaking code when adding new features
+!!! success "Pros"
+    - **Reduced risk**: No need to modify existing, tested code when adding new features
+    - **Backwards compatibility**: Old clients of the code continue to work
+    - **Scalability**: System can grow organically through extensions
+    - **Separation of concerns**: Core behaviors remain stable while variations are implemented separately
+
+!!! warning "Cons"
+    - **Requires foresight**: Difficult to design for extension without knowing future requirements
+    - **Initial complexity**: May require more complex initial design with abstractions
+    - **Performance overhead**: Abstraction layers can introduce slight performance penalties
+    - **Learning curve**: Higher barrier to entry for new developers on the project
+
+!!! example "Real-world Analogy"
+    Think of a smartphone with pluggable modules. You can add new functionality (camera upgrades, extra battery) without modifying the core phone. The phone is closed for modification but open for extension through its interfaces.
 
 ```java
 // Bad example: violates OCP
@@ -140,10 +166,24 @@ public class Triangle implements Shape {
 ### 🔄 Liskov Substitution Principle
 
 !!! info "Definition"
-    > Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T
-
-!!! warning "Key Point" 
+    Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T
+    
     Superclass objects should be replaceable with subclass objects without breaking program correctness. Subclasses shouldn't alter expected behavior.
+
+!!! success "Pros"
+    - **Behavioral consistency**: Ensures predictable behavior when using polymorphism
+    - **Design correctness**: Forces proper inheritance hierarchies that reflect true "is-a" relationships
+    - **Code reusability**: Enables safe use of base class references with derived implementations
+    - **Facilitates testing**: Makes it easier to test code using mock objects
+
+!!! warning "Cons"
+    - **Design constraints**: May limit design options when strict substitutability is required
+    - **Increased complexity**: May require careful interface design and precondition/postcondition analysis
+    - **Difficult to verify**: Can be hard to prove that a subclass fully satisfies the principle
+    - **May require refactoring**: Often reveals existing design flaws that require significant changes
+
+!!! example "Real-world Analogy"
+    If you ask for a vehicle but receive a boat, and you're driving on a road, there's a problem. A boat is a vehicle, but can't fulfill all expected behaviors of the vehicle category in all contexts.
 
 ```java
 // Bad example: violates LSP
@@ -226,6 +266,21 @@ public class Square implements Shape {
 !!! info "Definition"
      A client should never be forced to implement an interface that it doesn't use, or clients shouldn't be forced to depend on methods they do not use.
 
+!!! success "Pros"
+    - **Focused interfaces**: Results in smaller, purpose-specific interfaces
+    - **Reduced coupling**: Clients only depend on methods they actually use
+    - **Better adaptability**: Easier to adapt to changing requirements
+    - **Improved maintainability**: Changes to one interface affect fewer clients
+
+!!! warning "Cons"
+    - **Interface proliferation**: Can lead to many small interfaces to manage
+    - **Navigation complexity**: More interfaces can make the codebase harder to navigate
+    - **Higher initial design effort**: Requires more thought to properly segregate interfaces
+    - **Potential duplication**: May result in duplicate method signatures across interfaces
+
+!!! example "Real-world Analogy"
+    A universal remote control with 50 buttons when your TV only needs 5 buttons creates unnecessary complexity. Better to have specialized remotes for each device with just the buttons needed.
+
 ```java
 // Bad example: violates ISP
 public interface Worker {
@@ -297,6 +352,24 @@ public class Robot implements Workable {
 !!! info "Definition"
      Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
 
+!!! success "Pros"
+    - **Decoupling**: Reduces direct dependencies between components
+    - **Testability**: Makes unit testing easier through the use of mock objects
+    - **Flexibility**: Enables swapping implementations without changing client code
+    - **Parallel development**: Teams can work on different implementations simultaneously
+
+!!! warning "Cons"
+    - **Abstraction overhead**: Introduces additional interfaces/abstract classes
+    - **Indirection complexity**: Can make code harder to follow due to multiple layers
+    - **Setup complexity**: Requires dependency injection mechanisms
+    - **Learning curve**: Harder for new developers to understand the system architecture
+
+!!! example "Real-world Analogy"
+    Electric sockets provide a standard interface (abstraction) that any appliance (high-level module) can use without knowing how electricity (low-level module) is generated or distributed. The socket is the abstraction both depend on.
+
+!!! tip "DIP vs Dependency Injection" 
+    DIP is a principle about depending on abstractions, while Dependency Injection is a pattern to implement DIP by providing dependencies from outside a class rather than creating them internally.
+
 ```java
 // Bad example: violates DIP
 public class NotificationService {
@@ -356,6 +429,28 @@ NotificationService emailNotificationService = new NotificationService(emailSend
 MessageSender smsSender = new SMSSender();
 NotificationService smsNotificationService = new NotificationService(smsSender);
 ```
+
+## 📊 SOLID Principles in Practice
+
+!!! info inline end "Application Order"
+    When designing a system, consider implementing SOLID principles in this order:
+    1. SRP - Structure classes by responsibility
+    2. OCP - Design for extension
+    3. LSP - Verify substitutability
+    4. ISP - Refine interfaces
+    5. DIP - Establish dependencies
+
+!!! warning "Common Pitfalls"
+    - **Over-engineering**: Applying principles where they're not needed
+    - **Premature abstraction**: Creating interfaces before understanding variations
+    - **Misinterpreting responsibility**: Creating too many or too few classes
+    - **Ignoring trade-offs**: Every principle involves trade-offs; balance is key
+
+!!! success "When to Apply SOLID"
+    - **Large, long-lived applications**: Greatest benefit in systems that evolve over time
+    - **Team environments**: Makes code more understandable across team members
+    - **Frequently changing requirements**: Helps manage change with minimal impact
+    - **Reusable components**: Essential for libraries and frameworks
 
 ## 📚 Resources
 
