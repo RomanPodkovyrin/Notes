@@ -188,6 +188,7 @@ nav:
       - Caching and CDN: architecture/system-design/caching-cdn.md
       - Proxy: architecture/system-design/proxy.md
       - Databases:  architecture/system-design/databases.md
+      - OOP: architecture/system-design/oop.md
   - Web Development and Backend:
     - web-dev-and-backend/index.md
     - API Architecture: 
