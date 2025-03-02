@@ -1,19 +1,18 @@
-# Object Oriented Programming
+# 🧩 Object Oriented Programming
 
-## S.O.L.I.D Principles
+## 🔤 S.O.L.I.D Principles
 
-- `S` - Single-responsibility Principle
-- `O` - Open-closed Principle
-- `L` - Liskov Substitution Principle
-- `I` - Interface Segregation Principle
-- `D` - Dependency Inversion Principle
+!!! abstract "Core Principles"
+    - `S` - Single-responsibility Principle
+    - `O` - Open-closed Principle
+    - `L` - Liskov Substitution Principle
+    - `I` - Interface Segregation Principle
+    - `D` - Dependency Inversion Principle
 
+### 🎯 Single-Responsibility Principle
 
-
-
-### Single - Responsibility Principle
-
-> A class should have one and only one reason to change, meaning that a class should have only one job.
+!!! info "Definition"
+     A class should have one and only one reason to change, meaning that a class should have only one job.
 
 ```java
 // Bad example: violates SRP
@@ -65,11 +64,13 @@ public class TaxCalculator {
 }
 ```
 
-### Open-closed Principle
+### 🚪 Open-closed Principle
 
-> Objects or entities should be open for extension but closed for modification.
+!!! info "Definition"
+     Objects or entities should be open for extension but closed for modification.
 
-Prevents breaking code, when adding new features
+!!! tip "Benefit"
+    Prevents breaking code when adding new features
 
 ```java
 // Bad example: violates OCP
@@ -136,11 +137,13 @@ public class Triangle implements Shape {
 }
 ```
 
-### Liskov Substitution Principle
+### 🔄 Liskov Substitution Principle
 
-> Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T
+!!! info "Definition"
+    > Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T
 
-Objects of the superclass should be replacable with objects of a subclass without altering the correctness of the program. As in, subclass shouldn't break the program if it does stuff differently
+!!! warning "Key Point" 
+    Superclass objects should be replaceable with subclass objects without breaking program correctness. Subclasses shouldn't alter expected behavior.
 
 ```java
 // Bad example: violates LSP
@@ -218,9 +221,10 @@ public class Square implements Shape {
 }
 ```
 
-### Interface Segregation Principle
+### 🧩 Interface Segregation Principle
 
-> A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
+!!! info "Definition"
+     A client should never be forced to implement an interface that it doesn't use, or clients shouldn't be forced to depend on methods they do not use.
 
 ```java
 // Bad example: violates ISP
@@ -288,9 +292,10 @@ public class Robot implements Workable {
 }
 ```
 
-### Dependency Inversion Principle
+### 🔌 Dependency Inversion Principle
 
-> Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
+!!! info "Definition"
+     Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
 
 ```java
 // Bad example: violates DIP
@@ -352,9 +357,7 @@ MessageSender smsSender = new SMSSender();
 NotificationService smsNotificationService = new NotificationService(smsSender);
 ```
 
+## 📚 Resources
 
-# Resources
-
-[SOLID: The First 5 Principles of Object Oriented Design \| DigitalOcean](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
-
-[ SOLID Principles Explained](https://www.youtube.com/watch?v=V3TUEeB0kW0)
+  - [SOLID: The First 5 Principles of Object Oriented Design | DigitalOcean](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
+  - [SOLID Principles Explained](https://www.youtube.com/watch?v=V3TUEeB0kW0)
