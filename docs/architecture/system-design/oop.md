@@ -1,6 +1,6 @@
-# 🧩 Object Oriented Programming
+# 1. 🧩 Object Oriented Programming
 
-## 🔤 S.O.L.I.D Principles
+## 1.1. 🔤 S.O.L.I.D Principles
 
 !!! abstract "Core Principles"
     - `S` - Single-responsibility Principle
@@ -9,7 +9,7 @@
     - `I` - Interface Segregation Principle
     - `D` - Dependency Inversion Principle
 
-### 🎯 Single-Responsibility Principle
+### 1.1.1. 🎯 Single-Responsibility Principle
 
 !!! info "Definition"
      A class should have one and only one reason to change, meaning that a class should have only one job.
@@ -78,7 +78,7 @@ public class TaxCalculator {
 }
 ```
 
-### 🚪 Open-closed Principle
+### 1.1.2. 🚪 Open-closed Principle
 
 !!! info "Definition"
      Objects or entities should be open for extension but closed for modification.
@@ -163,7 +163,7 @@ public class Triangle implements Shape {
 }
 ```
 
-### 🔄 Liskov Substitution Principle
+### 1.1.3. 🔄 Liskov Substitution Principle
 
 !!! info "Definition"
     Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T
@@ -261,7 +261,7 @@ public class Square implements Shape {
 }
 ```
 
-### 🧩 Interface Segregation Principle
+### 1.1.4. 🧩 Interface Segregation Principle
 
 !!! info "Definition"
      A client should never be forced to implement an interface that it doesn't use, or clients shouldn't be forced to depend on methods they do not use.
@@ -347,7 +347,7 @@ public class Robot implements Workable {
 }
 ```
 
-### 🔌 Dependency Inversion Principle
+### 1.1.5. 🔌 Dependency Inversion Principle
 
 !!! info "Definition"
      Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
@@ -430,7 +430,7 @@ MessageSender smsSender = new SMSSender();
 NotificationService smsNotificationService = new NotificationService(smsSender);
 ```
 
-## 📊 SOLID Principles in Practice
+## 1.2. 📊 SOLID Principles in Practice
 
 !!! info inline end "Application Order"
     When designing a system, consider implementing SOLID principles in this order:
@@ -453,7 +453,7 @@ NotificationService smsNotificationService = new NotificationService(smsSender);
     - **Frequently changing requirements**: Helps manage change with minimal impact
     - **Reusable components**: Essential for libraries and frameworks
 
-## 📚 Resources
+## 1.3. 📚 Resources
 
   - [SOLID: The First 5 Principles of Object Oriented Design | DigitalOcean](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
   - [SOLID Principles Explained](https://www.youtube.com/watch?v=V3TUEeB0kW0)
