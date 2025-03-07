@@ -319,9 +319,9 @@ func main() {
 }
 ```
 
-### 🔄 Recursion
+### 1.11.4. 🔄 Recursion
 
-## ⚠️ Error Handling
+## 1.12. ⚠️ Error Handling
 
 !!! warning "No Try/Catch"
     Unlike other languages, Go doesn't use `try/catch`. Instead, Go communicates errors via explicit separate return values handled with:
@@ -362,9 +362,9 @@ func intDivision(numerator int, denominator int) (int, int, error) {
 // https://www.programiz.com/golang/errors
 // https://go.dev/blog/error-handling-and-go
 
-## 🔀 Control Flow
+## 1.13. 🔀 Control Flow
 
-### 🔍 If/Else
+### 1.13.1. 🔍 If/Else
 
 ```go
 num := 42
@@ -393,7 +393,7 @@ if num := 9000; num < 0 {
 !!! bug "Missing Feature"
     There is no `ternary if` in Go 😭
 
-### 🔄 Switch
+### 1.13.2. 🔄 Switch
 
 ```go
 i := 2
@@ -442,9 +442,9 @@ whatAmI(1)     // I'm an int
 whatAmI("hey") // Don't know type string
 ```
 
-## 📚 Data Structures
+## 1.14. 📚 Data Structures
 
-### 📊 Arrays
+### 1.14.1. 📊 Arrays
 
 !!! abstract "Array Characteristics"
     - Fixed length
@@ -491,7 +491,7 @@ fmt.Println(&intArr[2])    // 0x1400012200c
     fmt.Println(twoD) // [[0 1 2] [1 2 3]]
     ```
 
-### 🔪 1.14.2. Slices
+### 1.14.2. 🔪  Slices
 
 !!! info "Slices in Go"
     Slices wrap arrays to give a more general, powerful, and convenient interface to sequences of data.
@@ -557,7 +557,7 @@ fmt.Println(&intArr[2])    // 0x1400012200c
 
 More about slices implementation in Go: <https://go.dev/blog/slices-intro>
 
-### 🗺️ 1.14.3. Maps `map[string]int32`
+### 1.14.3. 🗺️  Maps `map[string]int32`
 
 !!! example "Map Usage"
     ```go
@@ -585,7 +585,7 @@ More about slices implementation in Go: <https://go.dev/blog/slices-intro>
 !!! tip
     Look at `maps` package for more useful utility functions
 
-## 🔄 1.15. Iteration
+## 1.15. 🔄 Iteration
 
 ### 1.15.1. `range`
 
@@ -621,7 +621,7 @@ More about slices implementation in Go: <https://go.dev/blog/slices-intro>
     - First value is the starting byte index of the rune
     - Second is the rune itself
 
-### 🔁 1.15.2. While Loop
+### 1.15.2. 🔁 While Loop
 
 !!! example
     ```go
@@ -640,7 +640,7 @@ More about slices implementation in Go: <https://go.dev/blog/slices-intro>
     }
     ```
 
-### 🔄 1.15.3. For Loop
+### 1.15.3. 🔄  For Loop
 
 !!! example
     ```go
@@ -662,7 +662,7 @@ More about slices implementation in Go: <https://go.dev/blog/slices-intro>
 | i*=10 | Multiply by 10 |
 | i/=10 | Divide by 10 |
 
-## 📚 1.16. Sources
+## 1.16. 📚 Sources
 
 - [Go By Example](https://gobyexample.com/)
 - [Programiz](https://www.programiz.com/golang)
