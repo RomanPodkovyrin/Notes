@@ -148,7 +148,21 @@ nav:
     - Go: languages/go/go.md
     - Java: 
       - Java: languages/java/java.md
-      - Java 8: languages/java/java8.md
+      - Java 8 (LTS): languages/java/java8.md
+      - Java 9: languages/java/java9.md
+      - Java 10: languages/java/java10.md
+      - Java 11 (LTS): languages/java/java11.md
+      - Java 12: languages/java/java12.md
+      - Java 13: languages/java/java13.md
+      - Java 14: languages/java/java14.md
+      - Java 15: languages/java/java15.md
+      - Java 16: languages/java/java16.md
+      - Java 17 (LTS): languages/java/java17.md
+      - Java 18: languages/java/java18.md
+      - Java 19: languages/java/java19.md
+      - Java 20: languages/java/java20.md
+      - Java 21 (LTS): languages/java/java21.md
+      
     - Javascript: 
       - Vanila JS: languages/js/js.md
       - TypeScript: languages/typescript/typescript.md
