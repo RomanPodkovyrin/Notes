@@ -154,6 +154,95 @@ nav:
       - TypeScript: languages/typescript/typescript.md
     - Kotlin: languages/kotlin/kotlin.md
     - Python: languages/python/python.md
+    - Leetcode:
+      - Blind 75:
+          - Array:
+              - Two Sum: languages/leetcode/blind75/array/two-sum.md
+              - Best Time to Buy and Sell Stock: languages/leetcode/blind75/array/best-time-buy-sell-stock.md
+              - Contains Duplicate: languages/leetcode/blind75/array/contains-duplicate.md
+              - Product of Array Except Self: languages/leetcode/blind75/array/product-array-except-self.md
+              - Maximum Subarray: languages/leetcode/blind75/array/maximum-subarray.md
+              - Maximum Product Subarray: languages/leetcode/blind75/array/maximum-product-subarray.md
+              - Find Minimum in Rotated Sorted Array: languages/leetcode/blind75/array/find-min-rotated-sorted-array.md
+              - Search in Rotated Sorted Array: languages/leetcode/blind75/array/search-rotated-sorted-/languages/leetcode/blind75/array.md
+              - 3 Sum: array/3-sum.md
+              - Container With Most Water: languages/leetcode/blind75/array/container-most-water.md
+          - Binary:
+              - Sum of Two Integers: languages/leetcode/blind75/binary/sum-two-integers.md
+              - Number of 1 Bits: languages/leetcode/blind75/binary/number-1-bits.md
+              - Counting Bits: languages/leetcode/blind75/binary/counting-bits.md
+              - Missing Number: languages/leetcode/blind75/binary/missing-number.md
+              - Reverse Bits: languages/leetcode/blind75/binary/reverse-bits.md
+          - Dynamic Programming:
+              - Climbing Stairs: languages/leetcode/blind75/dp/climbing-stairs.md
+              - Coin Change: languages/leetcode/blind75/dp/coin-change.md
+              - Longest Increasing Subsequence: languages/leetcode/blind75/dp/longest-increasing-subsequence.md
+              - Longest Common Subsequence: languages/leetcode/blind75/dp/longest-common-subsequence.md
+              - Word Break Problem: languages/leetcode/blind75/dp/word-break-problem.md
+              - Combination Sum: languages/leetcode/blind75/dp/combination-sum.md
+              - House Robber: languages/leetcode/blind75/dp/house-robber.md
+              - House Robber II: languages/leetcode/blind75/dp/house-robber-ii.md
+              - Decode Ways: languages/leetcode/blind75/dp/decode-ways.md
+              - Unique Paths: languages/leetcode/blind75/dp/unique-paths.md
+              - Jump Game: languages/leetcode/blind75/dp/jump-game.md
+          - Graph:
+              - Clone Graph: languages/leetcode/blind75/graph/clone-graph.md
+              - Course Schedule: languages/leetcode/blind75/graph/course-schedule.md
+              - Pacific Atlantic Water Flow: languages/leetcode/blind75/graph/pacific-atlantic-water-flow.md
+              - Number of Islands: languages/leetcode/blind75/graph/number-of-islands.md
+              - Longest Consecutive Sequence: languages/leetcode/blind75/graph/longest-consecutive-sequence.md
+              - Alien Dictionary: languages/leetcode/blind75/graph/alien-dictionary.md
+              - Graph Valid Tree: languages/leetcode/blind75/graph/graph-valid-tree.md
+              - Number of Connected Components in an Undirected Graph: languages/leetcode/blind75/graph/number-connected-components.md
+          - Interval:
+              - Insert Interval: languages/leetcode/blind75/interval/insert-interval.md
+              - Merge Intervals: languages/leetcode/blind75/interval/merge-intervals.md
+              - Non-overlapping Intervals: languages/leetcode/blind75/interval/non-overlapping-intervals.md
+              - Meeting Rooms: languages/leetcode/blind75/interval/meeting-rooms.md
+              - Meeting Rooms II: languages/leetcode/blind75/interval/meeting-rooms-ii.md
+          - Linked List:
+              - Reverse a Linked List: languages/leetcode/blind75/linked-list/reverse-linked-list.md
+              - Detect Cycle in a Linked List: languages/leetcode/blind75/linked-list/detect-cycle.md
+              - Merge Two Sorted Lists: languages/leetcode/blind75/linked-list/merge-two-sorted-lists.md
+              - Merge K Sorted Lists: languages/leetcode/blind75/linked-list/merge-k-sorted-lists.md
+              - Remove Nth Node From End Of List: languages/leetcode/blind75/linked-list/remove-nth-node.md
+              - Reorder List: languages/leetcode/blind75/linked-list/reorder-list.md
+          - Matrix:
+              - Set Matrix Zeroes: languages/leetcode/blind75/matrix/set-matrix-zeroes.md
+              - Spiral Matrix: languages/leetcode/blind75/matrix/spiral-matrix.md
+              - Rotate Image: languages/leetcode/blind75/matrix/rotate-image.md
+              - Word Search: languages/leetcode/blind75/matrix/word-search.md
+          - String:
+              - Longest Substring Without Repeating Characters: languages/leetcode/blind75/string/longest-substring.md
+              - Longest Repeating Character Replacement: languages/leetcode/blind75/string/longest-repeating-character-replacement.md
+              - Minimum Window Substring: languages/leetcode/blind75/string/minimum-window-substring.md
+              - Valid Anagram: languages/leetcode/blind75/string/valid-anagram.md
+              - Group Anagrams: languages/leetcode/blind75/string/group-anagrams.md
+              - Valid Parentheses: languages/leetcode/blind75/string/valid-parentheses.md
+              - Valid Palindrome: languages/leetcode/blind75/string/valid-palindrome.md
+              - Longest Palindromic Substring: languages/leetcode/blind75/string/longest-palindromic-substring.md
+              - Palindromic Substrings: languages/leetcode/blind75/string/palindromic-substrings.md
+              - Encode and Decode Strings: languages/leetcode/blind75/string/encode-decode-strings.md
+          - Tree:
+              - Maximum Depth of Binary Tree: languages/leetcode/blind75/tree/maximum-depth.md
+              - Same Tree: languages/leetcode/blind75/tree/same-tree.md
+              - Invert/Flip Binary Tree: languages/leetcode/blind75/tree/invert-binary-tree.md
+              - Binary Tree Maximum Path Sum: languages/leetcode/blind75/tree/binary-tree-maximum-path-sum.md
+              - Binary Tree Level Order Traversal: languages/leetcode/blind75/tree/binary-tree-level-order-traversal.md
+              - Serialize and Deserialize Binary Tree: languages/leetcode/blind75/tree/serialize-deserialize-binary-tree.md
+              - Subtree of Another Tree: languages/leetcode/blind75/tree/subtree-another-tree.md
+              - Construct Binary Tree from Preorder and Inorder Traversal: languages/leetcode/blind75/tree/construct-binary-preorder-inorder.md
+              - Validate Binary Search Tree: languages/leetcode/blind75/tree/validate-bst.md
+              - Kth Smallest Element in a BST: languages/leetcode/blind75/tree/kth-smallest-bst.md
+              - Lowest Common Ancestor of BST: languages/leetcode/blind75/tree/lowest-common-ancestor-bst.md
+              - Implement Trie (Prefix Tree): languages/leetcode/blind75/tree/implement-trie.md
+              - Add and Search Word: languages/leetcode/blind75/tree/add-search-word.md
+              - Word Search II: languages/leetcode/blind75/tree/word-search-ii.md
+          - Heap:
+              - Merge K Sorted Lists: languages/leetcode/blind75/heap/merge-k-sorted-lists.md
+              - Top K Frequent Elements: languages/leetcode/blind75/heap/top-k-frequent-elements.md
+              - Find Median from Data Stream: languages/leetcode/blind75/heap/find-median-data-stream.md
+        
   - DevOps: 
     - devops/index.md
     - Cloud: 
