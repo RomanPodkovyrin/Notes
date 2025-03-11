@@ -570,12 +570,68 @@ IntStream.range(10, 20)
 `Stream.of(1, 2, 3)` is not the same as `IntStream.of(1, 2, 3)`, one is `Stream<Integer>` another is `IntStream`
 same with `map()` and `mapToInt()`
 
+## Method References
+
+Method reference is used to refer method of functional interface using an easy form of lambda expression. There are 3 method references
+
+### Static Method
+
+Refer to static method defined in a class
+
+```java
+interface Sayable{
+    void say();
+}
+
+public class MethodReference {
+    public static void saySomething(){
+        System.out.println("Hello, this is static method.");
+    }
+    
+    public static void main(String[] args) {
+        // Referring static method
+        Sayable sayable = MethodReference::saySomething;
+        // Calling interface method
+        sayable.say();
+        // Will print "Hello, this is static method."
+    }
+}
+```
+
+[//]: # (TODO: to be continue)
+
+
+### Instance Method
+
+### Constructor
 
 TODO:
 
 - **Default methods**: You can provide default implementations for interface methods, which can be overridden by implementing classes if needed. Default methods enable backward compatibility and multiple inheritances of behaviour in interfaces. For example, `interface A { default void foo() { System.out.println("A"); } }` is an interface with a default method foo().
+        
+   ```java
+   interface Vehicle {
+       default void print() {
+           System.out.println("I am a vehicle!");
+       }
+   }
+   ```
 - **Method references**: You can refer to existing methods by name instead of writing lambda expressions. Method references are useful when you want to pass a method as an argument to another method or use it as a constructor reference. For example, `System.out::println` is a method reference that refers to the println method of the System.out class.
 - **Optional**: A new class that represents a value that may or may not be present. Optional helps you avoid null pointer exceptions and write more robust code by forcing you to explicitly handle the absence of a value. For example, `Optional<String> name = Optional.ofNullable(getName()); name.ifPresent(System.out::println);` is an example of using Optional to get a name from a method that may return null and print it if it is present.
+     To handle null values and reduce NullPointerExceptions.
+
+   ```java
+   Optional<String> optional = Optional.of("hello");
+   String result = optional.orElse("default");
+   ```
+-  New Date and Time API:
+   Improved date and time handling with java.time package.
+
+   ```java
+   LocalDate date = LocalDate.now();
+   LocalTime time = LocalTime.now();
+   LocalDateTime dateTime = LocalDateTime.now();
+   ```
 
 ## 1.3. Source
 
@@ -584,3 +640,4 @@ TODO:
 - [stackify.com: A Guide to Java Streams in Java 8: In-Depth Tutorial With Examples](https://stackify.com/streams-guide-java-8/)
 - [Youtube: Java 8 STREAMS Tutorial](https://www.youtube.com/watch?v=t1-YZ6bF-g0)
 - [Java 8 – How to sort list with stream.sorted()](https://mkyong.com/java8/java-8-how-to-sort-list-with-stream-sorted/)
+- [Java 8 Method Reference](https://www.javatpoint.com/java-8-method-reference)
