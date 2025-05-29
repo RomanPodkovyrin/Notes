@@ -46,8 +46,6 @@ Translates domain names into IP addresses
 
 ### 1.2. Application Protocol
 
-Here's the formatted version of your Markdown using the specified guidelines:
-
 #### 1.2.1. :globe_with_meridians: HTTP
 
 - HyperText Transfer Protocol
